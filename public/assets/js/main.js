@@ -30,8 +30,7 @@
 # Show Hide Password
 ============================================*/
 
-export const initializeScript = () =>{
-  console.log("HELOS");
+export const initializeScript = () => {
   /*
 ===============================================================
 => Reusable Functions Start
@@ -39,10 +38,8 @@ export const initializeScript = () =>{
   */
   // modal toggle function
   function modalToggle(modalName, modalBox) {
-    console.log("servicesModalOpenButton clieck");
 
     modalName.addEventListener("click", () => {
-      console.log("CLICKED");
       if (modalBox.classList.contains("modalOpen")) {
         modalBox.classList.remove("modalOpen");
         modalBox.classList.add("modalClose");
@@ -665,4 +662,4 @@ export const initializeScript = () =>{
     togglePassoword(newPassword, toggleNewPasswordButton);
   toggleConfirmNewPasswordButton &&
     togglePassoword(confirmNewPassword, toggleConfirmNewPasswordButton);
-}
+};
