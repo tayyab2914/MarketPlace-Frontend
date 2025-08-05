@@ -7,11 +7,13 @@ import Button from "@/components/ui/Button/Button";
 import Image from "next/image";
 import { IMAGES } from "@/components/ui/Image/ImageData";
 import CustomInputField from "@/components/ui/CustomInputField/CustomInputField";
+import { API_FORGOT_PASSWORD } from "@/apis/AccountApis";
 
-const ForgotPasswordForm = ({ onSubmit }) => {
+const ForgotPasswordForm = () => {
   const [form] = Form.useForm();
 
-  const onFinish = (values) => {
+  const onFinish = async (values) => {
+    const res = await API_FORGOT_PASSWORD(values?.email);
     onSubmit(values.email);
   };
 
@@ -35,7 +37,7 @@ const ForgotPasswordForm = ({ onSubmit }) => {
           className="accounts-f-input"
           addonBefore={<Mail strokeWidth={1} />}
         />
-        <Button variant="filled-animated" htmlType="submit">
+        <Button variant="filled-animated" type="submit">
           <span>Send Email</span>
         </Button>
       </Form>

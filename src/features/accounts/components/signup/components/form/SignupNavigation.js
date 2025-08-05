@@ -11,6 +11,7 @@ const SignupNavigation = ({
   onNext,
   onPrev,
   isFinalStep,
+  form
 }) => {
   const router = useRouter()
   return (
@@ -31,9 +32,10 @@ const SignupNavigation = ({
       {isFinalStep && (
         <>
           <a className="signup-f-forgot-password-link" onClick={()=>router.push(ROUTES.forgotPassword)}>Forgot Password?</a>
-          <Button variant="filled-animated" htmlType="submit">
-            <span>Continue</span>
-          </Button>
+          <Button variant="filled-animated" type="submit">
+  <span>Continue</span>
+</Button>
+
         </>
       )}
     </div>

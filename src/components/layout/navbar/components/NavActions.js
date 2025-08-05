@@ -1,25 +1,45 @@
+import { useLogoutUser } from "@/hooks/useLogoutUser";
+import { ROUTES } from "@/utils/Constants";
+import { useRouter } from "next/navigation";
 import React from "react";
+import { useSelector } from "react-redux";
 
 const NavActions = () => {
+  const router = useRouter();
+  const { is_user_logged_in } = useSelector((state) => state.auth);
+  const { logoutUser } = useLogoutUser();
   return (
     <div className="flex items-center justify-between gap-6">
       <ul className="flex items-center justify-start gap-2 font-medium max-sm:hidden xxl:gap-6">
-        <li className="">
-          <a
-            href="./sign-up-step-1.html"
-            className="rounded-lg px-2 py-3 duration-700"
-          >
-            Sign up
-          </a>
-        </li>
-        <li className="">
-          <a
-            href="./sign-in.html"
-            className="rounded-lg px-2 py-3 duration-700"
-          >
-            Sign in
-          </a>
-        </li>
+        {!is_user_logged_in ? (
+          <>
+            <li>
+              <a
+                onClick={() => router.push(ROUTES.signup)}
+                className="rounded-lg px-2 py-3 duration-700"
+              >
+                Sign up
+              </a>
+            </li>
+            <li>
+              <a
+                onClick={() => router.push(ROUTES.signin)}
+                className="rounded-lg px-2 py-3 duration-700"
+              >
+                Sign in
+              </a>
+            </li>
+          </>
+        ) : (
+          <li className="">
+            <a
+              onClick={()=>logoutUser()}
+              className="rounded-lg px-2 py-3 duration-700"
+            >
+              Logout
+            </a>
+          </li>
+        )}
       </ul>
       <div className="flex items-center justify-between gap-3 font-semibold">
         <a

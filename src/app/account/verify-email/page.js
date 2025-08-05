@@ -1,11 +1,10 @@
 "use client";
 import AppContainer from "@/components/layout/container/AppContainer";
-import ForgotPasswordPage from "@/features/accounts/components/forgot-password/ForgotPasswordPage";
+import VerifyEmailPage from "@/features/accounts/components/verify-email/VerifyEmailPage";
 import { ROUTES } from "@/utils/Constants";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-
 const page = () => {
   const router = useRouter();
   const { is_user_logged_in } = useSelector((state) => state.auth);
@@ -16,12 +15,10 @@ const page = () => {
     }
   }, []);
   return (
-    <>
-      {!is_user_logged_in && (
-        <AppContainer>
-          <ForgotPasswordPage />
-        </AppContainer>
-      )}
+    <>      {!is_user_logged_in && (
+      <AppContainer>
+        <VerifyEmailPage />
+      </AppContainer> )}
     </>
   );
 };

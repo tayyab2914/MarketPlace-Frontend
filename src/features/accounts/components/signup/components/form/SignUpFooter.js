@@ -5,8 +5,8 @@ const SignInFooter = () => {
   const router = useRouter();
   return (
     <div>
-      <div class="accounts-f-footer-text">
-        <p>Already have an account?</p>
+      <div className="accounts-f-footer-text">
+        <span>Already have an account?</span>
         <a
           className="accounts-f-toggle-btn"
           onClick={() => router.push(ROUTES.signin)}

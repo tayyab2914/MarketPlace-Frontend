@@ -6,12 +6,28 @@ import Image from "next/image";
 import { IMAGES } from "@/components/ui/Image/ImageData";
 import SignInFooter from "./SignInFooter";
 import SignInFormFields from "./SignInFormFields";
+import { API_SIGNIN } from "@/apis/AccountApis";
+import { useDispatch } from "react-redux";
+import {
+  setIsUserLoggedIn,
+  setUserAuthToken,
+} from "@/redux/actions/authActions";
+import { useRouter } from "next/navigation";
+import { ROUTES } from "@/utils/Constants";
 
 const SignInForm = () => {
   const [form] = Form.useForm();
+  const dispatch = useDispatch();
+  const router = useRouter()
 
-  const onFinish = (values) => {
-    console.log(values);
+  const onFinish = async (values) => {
+    const res = await API_SIGNIN(values);
+    console.log(res)
+    if (res) {
+      dispatch(setUserAuthToken(res?.data?.token));
+      dispatch(setIsUserLoggedIn(true));
+      router.push(ROUTES.home)
+    }
   };
 
   return (

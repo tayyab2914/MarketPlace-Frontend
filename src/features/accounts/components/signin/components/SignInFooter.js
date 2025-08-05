@@ -7,16 +7,16 @@ const SignInFooter = () => {
   return (
     <div>
       <div
-        class="signin-f-forgot-password"
+        className="signin-f-forgot-password"
         onClick={() => router.push(ROUTES.forgotPassword)}
       >
         Forgot Password?
       </div>
-      <Button variant="filled-animated" htmlType="submit">
+      <Button variant="filled-animated" type="submit">
         <span>Sign In</span>
       </Button>
-      <div class="accounts-f-footer-text">
-        <p>Don’t have an account?</p>
+      <div className="accounts-f-footer-text">
+        <span>Don’t have an account?</span>
         <a
           className="accounts-f-toggle-btn"
           onClick={() => router.push(ROUTES.signup)}

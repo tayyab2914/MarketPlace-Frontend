@@ -45,7 +45,7 @@ export const getSignupSteps = ({ fileList, setFileList }) => [
           name="description"
           placeholder="Write a short bio..."
           inputType="textarea"
-          rules={[{ required: true, message: "Description is required" }]}
+          // rules={[{ required: true, message: "Description is required" }]}
           className="accounts-f-input"
         />
         <CustomInputField
@@ -57,22 +57,21 @@ export const getSignupSteps = ({ fileList, setFileList }) => [
           beforeUpload={() => false}
           showUploadList={true}
           buttonText="Upload Logo"
-          rules={[{ required: true, message: "Logo is required" }]}
         />
         <CustomInputField
           name="website"
           placeholder="Enter your website"
         //   type="url"
-          rules={[
-            {
-              required: true,
-              message: "Website is required",
-            },
-            {
-              pattern: /^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w-]*)*$/,
-              message: "Please enter a valid URL",
-            },
-          ]}
+          // rules={[
+          //   {
+          //     required: true,
+          //     message: "Website is required",
+          //   },
+          //   {
+          //     pattern: /^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w-]*)*$/,
+          //     message: "Please enter a valid URL",
+          //   },
+          // ]}
           className="accounts-f-input"
           addonBefore={<Link2 strokeWidth={1} />}
         />

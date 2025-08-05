@@ -11,6 +11,7 @@ const Button = ({
   m = "10px 0px 0px 0px",
   style,
   className,
+  type="button"
 }) => {
   return (
     <>
@@ -19,6 +20,7 @@ const Button = ({
           className={`btn-filled-animated ${className}`}
           style={{ height: h, width: w, fontSize: fs, margin: m, ...style }}
           onClick={onClick}
+          type={type}
         >
           <span>{children}</span>
         </button>

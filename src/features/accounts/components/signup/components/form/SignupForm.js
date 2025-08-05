@@ -8,11 +8,16 @@ import { getSignupSteps } from "./SignupSteps";
 import SignupFooter from "./SignUpFooter";
 import SignupNavigation from "./SignupNavigation";
 import { CONVERT_SIGNUP_FORM_VALUES_TO_FORM_DATA } from "../../utils/utils";
+import { API_SIGNUP } from "@/apis/AccountApis";
+import { useRouter } from "next/navigation";
+import { ROUTES } from "@/utils/Constants";
+import { message } from "@/components/ui/CustomMessageProvider.js/CustomMessageProvider";
 
 const SignupForm = () => {
   const [form] = Form.useForm();
   const [currentStep, setCurrentStep] = useState(0);
   const [fileList, setFileList] = useState([]);
+  const router = useRouter();
 
   const steps = getSignupSteps({ fileList, setFileList });
 
@@ -27,16 +32,14 @@ const SignupForm = () => {
         console.log("Validation error:", err);
       });
   };
-
   const prev = () => {
     setCurrentStep((prev) => prev - 1);
   };
-
-  const onFinish = (values) => {
-    console.log(values);
+  const onFinish = async (values) => {
     const formData = CONVERT_SIGNUP_FORM_VALUES_TO_FORM_DATA(values);
-    for (let pair of formData.entries()) {
-      console.log(pair[0], pair[1]);
+    const res = await API_SIGNUP(formData);
+    if (res) {
+      router.push(ROUTES.home);
     }
   };
 
@@ -73,6 +76,7 @@ const SignupForm = () => {
           onNext={next}
           onPrev={prev}
           isFinalStep={currentStep === steps.length - 1}
+          form={form}
         />
       </Form>
 

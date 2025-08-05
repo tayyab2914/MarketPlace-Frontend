@@ -1,3 +1,4 @@
+import { ROUTES } from "@/utils/Constants";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
@@ -42,8 +43,8 @@ const mobileMenuData = [
       { label: "Privacy Policy", route: "/privacy-policy.html" },
       { label: "Terms & Conditions", route: "/terms-conditions.html" },
       { label: "Not Found", route: "/not-found.html" },
-      { label: "Sign Up", route: "/sign-up-step-1.html" },
-      { label: "Sign In", route: "/sign-in.html" },
+      { label: "Sign Up", route: ROUTES.signup },
+      { label: "Sign In", route: ROUTES.signin },
     ],
   },
 ];
