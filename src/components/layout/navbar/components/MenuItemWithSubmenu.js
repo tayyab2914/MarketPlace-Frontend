@@ -1,6 +1,8 @@
+import { useRouter } from 'next/navigation';
 import React from 'react';
 
 const MenuItemWithSubmenu = ({ title, links }) => {
+  const router =useRouter()
   return (
     <li className="group relative cursor-pointer">
       <div className="subMenuTitle flex items-center gap-1 px-2 py-3 hover:text-b500">
@@ -11,7 +13,7 @@ const MenuItemWithSubmenu = ({ title, links }) => {
         {links.map((link) => (
           <li key={link.label}>
             <a
-              href={link.href}
+              onClick={()=>router.push(link.route)}
               className="subMenuItem px-6 duration-500 hover:ml-2 hover:text-y200"
             >
               {link.label}

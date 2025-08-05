@@ -1,48 +1,45 @@
 import React from 'react';
 import MenuItemWithSubmenu from './MenuItemWithSubmenu';
+import { ROUTES } from '@/utils/Constants';
 
 const DesktopMenu = () => {
   const menuData = [
     // {
     //   title: 'Home',
     //   links: [
-    //     { label: 'Home One', href: '#' },
-    //     { label: 'Home Two', href: './index2.html' },
-    //     { label: 'Home Three', href: './index3.html' },
-    //     { label: 'Home Four', href: './index4.html' },
+    //     { label: 'Home One', route: '#' },
+    //     { label: 'Home Two', route: './index2.html' },
+    //     { label: 'Home Three', route: './index3.html' },
+    //     { label: 'Home Four', route: './index4.html' },
     //   ],
     // },
     {
       title: 'Services',
       links: [
-        { label: 'All Services', href: './services.html' },
-        { label: 'Service Details', href: './service-details.html' },
-        { label: 'Browse Tasks', href: './browse-tasks.html' },
+        { label: 'All Services', route: './services.html' },
+        { label: 'Service Details', route: './service-details.html' },
+        { label: 'Browse Tasks', route: './browse-tasks.html' },
       ],
     },
     {
       title: 'Worker',
       links: [
-        { label: 'Find Workers', href: './find-workers.html' },
-        { label: 'Worker Profile', href: './worker-profile.html' },
-        { label: 'Worker Portfolio', href: './worker-portfolio.html' },
-        { label: 'Portfolio Details', href: './worker-portfolio-details.html' },
-        { label: 'Hire Worker', href: './hire-me.html' },
-        { label: 'Worker Dashboard', href: './dashboard/index.html' },
+        { label: 'Find Workers', route: './find-workers.html' },
+        { label: 'Worker Profile', route: './worker-profile.html' },
+        { label: 'Worker Portfolio', route: './worker-portfolio.html' },
+        { label: 'Portfolio Details', route: './worker-portfolio-details.html' },
+        { label: 'Hire Worker', route: './hire-me.html' },
+        { label: 'Worker Dashboard', route: './dashboard/index.html' },
       ],
     },
     {
       title: 'Pages',
       links: [
-        { label: 'About Us', href: './about-us.html' },
-        { label: 'Blog', href: './blog.html' },
-        { label: 'Blog Details', href: './blog-details.html' },
-        { label: 'Chat', href: './chat.html' },
-        { label: 'FAQ', href: './faq.html' },
-        { label: 'Contact', href: './contact.html' },
-        { label: 'Not Found', href: './not-found.html' },
-        { label: 'Privacy Policy', href: './privacy-policy.html' },
-        { label: 'Terms & Conditions', href: './terms-conditions.html' },
+        { label: 'About Us', route: ROUTES.aboutUsPage },
+        { label: 'FAQ', route: ROUTES.faqPage },
+        { label: 'Contact', route: ROUTES.contactPage },
+        { label: 'Terms and Conditions', route: ROUTES.termsAndConditionsPage },
+        { label: 'Privacy Policy', route: ROUTES.privacyPolicyPage },
       ],
     },
   ];
