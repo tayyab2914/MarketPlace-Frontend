@@ -1,0 +1,30 @@
+import React from "react";
+import "./styles/icon.css";
+import { ICONS } from "./IconData";
+
+const MyIcon = ({ type, size = "sm", onClick, className, style }) => {
+  const SelectedIcon = ICONS[type];
+
+  const sizeClasses = {
+    xs: "icon-xs",
+    sm: "icon-sm",
+    md: "icon-md",
+    lg: "icon-lg",
+    xl: "icon-xl",
+    xxl: "icon-xxl",
+  };
+
+  const sizeClass = sizeClasses[size] || sizeClasses.md;
+
+  return SelectedIcon ? (
+    <img
+      src={SelectedIcon}
+      alt={`${type} icon`}
+      className={`${sizeClass} ${className} icon-class`}
+      onClick={onClick}
+      style={style}
+    />
+  ) : null;
+};
+
+export default MyIcon;

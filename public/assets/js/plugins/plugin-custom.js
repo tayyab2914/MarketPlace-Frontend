@@ -1,5 +1,12 @@
 "use strict";
-document.addEventListener("DOMContentLoaded", function () {
+import Swiper from 'swiper'; // core swiper
+import 'swiper/css';          // core styles
+
+import AOS from 'aos';        // If you use AOS
+import 'aos/dist/aos.css'; 
+export const initializePluginCustomScript = () => {
+
+ 
 
  
 
@@ -263,4 +270,4 @@ document.addEventListener("DOMContentLoaded", function () {
            //initialize aos
 AOS.init()
 
-});
+        }

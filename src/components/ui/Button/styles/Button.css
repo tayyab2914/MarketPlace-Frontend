@@ -1,0 +1,103 @@
+.btn-filled-animated {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  overflow: hidden;
+  border-radius: 0.75rem; /* rounded-xl */
+  background-color: rgb(0, 85, 255); /* bg-b300 */
+  padding-left: 1rem; /* px-4 */
+  padding-right: 1rem;
+  padding-top: 0.75rem; /* py-3 */
+  padding-bottom: 0.75rem;
+  font-weight: 600; /* font-semibold */
+  color: white;
+  transition: color 0.7s;
+  font-size: 16px;
+}
+.btn-filled-animated::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  left: 0;
+  width: 0;
+  border-radius: 0.75rem;
+  background-color: rgb(255, 208, 0); /* after:bg-yellow-400 */
+  transition: width 0.7s;
+  z-index: 0;
+  color: white;
+
+}
+.btn-filled-animated::hover {
+  border-radius: 0.75rem; /* rounded-xl */
+  background-color: rgb(0, 85, 255);  /* after:bg-yellow-400 */
+
+
+}
+.btn-filled-animated span {
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.btn-filled-animated:hover::after {
+  width: calc(100% + 2px);
+}
+@media (min-width: 640px) {
+  .btn-filled-animated {
+    padding-left: 2rem; /* sm:px-8 */
+    padding-right: 2rem;
+  }
+}
+/* .btn-outlined-filled {
+  background-color: var(--color-light-accent);
+  border: 1px solid var(--color-accent);
+  border-radius: 10px;
+  color: var(--color-accent);
+  padding: 5px 15px;
+  text-align: center;
+  font-weight: 500;
+}
+.btn-outlined-dark {
+  background-color: transparent;
+  border: 1px solid var(--color-accent);
+  border-radius: 10px;
+  color: var(--color-accent);
+  padding: 5px 15px;
+  text-align: center;
+  font-weight: 500;
+}
+.btn-outlined {
+  background-color: transparent;
+  border: 1px solid var(--color-accent);
+  border-radius: 10px;
+  color: white;
+  padding: 5px 15px;
+  text-align: center;
+} */
+
+.btn-filled-animated:hover {
+  background-color: rgb(39, 39, 39) !important;
+  cursor: pointer;
+}
+/* .btn-outlined-filled:hover {
+  cursor: pointer;
+  background-color: var(--color-white);
+}
+.btn-outlined:hover {
+  background-color: var(--color-accent-hover);
+  border: none;
+  cursor: pointer;
+  transition: all;
+  transition-duration: 300;
+}
+.btn-outlined-dark:hover{
+    background-color: var(--color-light-accent);
+    cursor: pointer;
+} */
+@media screen and (max-width: 768px) {
+}

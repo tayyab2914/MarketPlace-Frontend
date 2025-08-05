@@ -5,58 +5,7 @@ const HeroSection = () => {
     <div><section className="pt-[100px]">
     <div className="bg relative z-10 h-[650px] sm:h-[600px] md:h-[700px] lg:h-[800px]">
       <div className="absolute inset-0 z-20 bg-n900/80"></div>
-      {/* <div className="swiper home-four-slider-carousel smooth absolute inset-0">
-    <div className="swiper-wrapper">
-      <div className="swiper-slide">
-        <img src="/assets/images/home_four_hero1.png" alt="" />
-      </div>
-      <div className="swiper-slide">
-        <img src="/assets/images/home_four_hero2.png" alt="" />
-      </div>
-      <div className="swiper-slide">
-        <img src="/assets/images/home_four_hero3.png" alt="" />
-      </div>
-      <div className="swiper-slide">
-        <img src="/assets/images/home_four_hero4.png" alt="" />
-      </div>
-      <div className="swiper-slide">
-        <img src="/assets/images/home_four_hero1.png" alt="" />
-      </div>
-      <div className="swiper-slide">
-        <img src="/assets/images/home_four_hero2.png" alt="" />
-      </div>
-      <div className="swiper-slide">
-        <img src="/assets/images/home_four_hero3.png" alt="" />
-      </div>
-      <div className="swiper-slide">
-        <img src="/assets/images/home_four_hero4.png" alt="" />
-      </div>
-      <div className="swiper-slide">
-        <img src="/assets/images/home_four_hero1.png" alt="" />
-      </div>
-      <div className="swiper-slide">
-        <img src="/assets/images/home_four_hero2.png" alt="" />
-      </div>
-      <div className="swiper-slide">
-        <img src="/assets/images/home_four_hero3.png" alt="" />
-      </div>
-      <div className="swiper-slide">
-        <img src="/assets/images/home_four_hero4.png" alt="" />
-      </div>
-      <div className="swiper-slide">
-        <img src="/assets/images/home_four_hero1.png" alt="" />
-      </div>
-      <div className="swiper-slide">
-        <img src="/assets/images/home_four_hero2.png" alt="" />
-      </div>
-      <div className="swiper-slide">
-        <img src="/assets/images/home_four_hero3.png" alt="" />
-      </div>
-      <div className="swiper-slide">
-        <img src="/assets/images/home_four_hero4.png" alt="" />
-      </div>
-    </div>
-  </div> */}
+    
 
       <div className="relative z-30 mx-auto flex h-full max-w-[950px] flex-col items-center justify-center text-center text-white max-xxl:overflow-hidden">
         <h5

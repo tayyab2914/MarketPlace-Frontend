@@ -7,6 +7,7 @@ import { initializeScript } from "../../public/assets/js/main";
 import HomePage from "@/features/home/Home";
 export default function Home() {
   useEffect(() => {
+    console.log("RENDERED")
     const handleDomReady = () => {
       initializeScript();
     };
@@ -17,7 +18,7 @@ export default function Home() {
         document.removeEventListener("DOMContentLoaded", handleDomReady);
       };
     } else {
-      handleDomReady(); // DOM is already ready
+      handleDomReady(); 
     }
   }, []);
   return (

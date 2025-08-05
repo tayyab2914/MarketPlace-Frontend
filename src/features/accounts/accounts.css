@@ -1,0 +1,97 @@
+.accounts-pg-decoration-col {
+    display: block;
+    width: 100%;
+  }
+  .accounts-f-logo {
+    height: 60px;
+  }
+  .accounts-pg-container {
+    height: 100vh;
+    overflow-y: auto;
+    scrollbar-width: none;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  .accounts-pg-container .ant-input-group-addon {
+    border: none !important;
+    background-color: transparent !important;
+  }
+  .accounts-pg-container .ant-input {
+    border: none !important;
+    background-color: transparent !important;
+  }
+  .accounts-pg-container .ant-form-item textarea {
+    border: 1px solid rgba(236, 236, 239) !important;
+  }
+  .accounts-f-input {
+    border: 1px solid rgba(236, 236, 239);
+    border-radius: 16px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-right: 8px;
+  }
+  .accounts-f-form-steps{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .accounts-f-input .ant-row {
+    height: 50px !important;
+  }
+  .accounts-pg-form-col {
+    padding: 0px 10px 0px 50px;
+    width: 100%;
+  }
+  .accounts-f-welcome {
+    font-weight: 700;
+    font-size: 20px;
+    margin-top: 32px;
+  }
+  .accounts-f-form {
+    padding-top: 24px;
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+  }
+  
+.accounts-f-footer-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem; /* gap-2 */
+  padding-top: 0.75rem; /* py-3 */
+  padding-bottom: 0.75rem;
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 500; /* font-medium */
+}
+
+.accounts-f-footer-text p {
+  color: var(--text-n300);
+}
+
+.accounts-f-footer-text a {
+  color: var(--bg-b300); /* text-b300 */
+  text-decoration: underline;
+}
+.accounts-f-toggle-btn {
+  color: rgb(0, 85, 255);
+}
+
+.animated-test-column-2 {
+  display: block;
+}
+@media screen and (max-width: 1280px) {
+  .animated-test-column-2 {
+    display: none;
+  }
+}
+@media screen and (max-width: 992px) {
+  .accounts-pg-decoration-col {
+    display: none;
+  }
+  .accounts-pg-form-col {
+    padding: 0px;
+  }
+}

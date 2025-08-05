@@ -1,19 +1,19 @@
 "use client";
 
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import "./odometer.css";
-import "./swiper.min.css";
-import "./animate.min.css";
+import { Montserrat, Geist_Mono } from "next/font/google"; // Montserrat instead of Geist
+import "./(styles)/globals.css";
+import "./(styles)/odometer.css";
+import "./(styles)/swiper.css";
+import "./(styles)/animate.min.css";
 import "aos/dist/aos.css";
 import Script from "next/script";
 import { useEffect } from "react";
 import AOS from "aos";
 
 // Fonts
-const geistSans = Geist({
+const montserrat = Montserrat({
   subsets: ["latin"],
-  variable: "--font-geist-sans",
+  variable: "--font-montserrat",
 });
 
 const geistMono = Geist_Mono({
@@ -27,13 +27,13 @@ export default function RootLayout({ children }) {
   }, []);
 
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body className="antialiased">
-        {children}
-
-        {/* JavaScript assets from public/ folder */}
-        {/* <Script src="/index.js" strategy="afterInteractive" /> */}
+    <html lang="en" className={`${montserrat.variable}`}>
+      <body className="antialiased">{children}
         <Script src="/assets/js/main.js" strategy="afterInteractive" />
+        <Script src="/assets/js/plugins/apex-custom.js" strategy="afterInteractive" />
+        <Script src="/assets/js/plugins/apexcharts.min.js" strategy="afterInteractive" />
+        <Script src="/assets/js/plugins/emailjs-custom.js" strategy="afterInteractive" />
+        <Script src="/assets/js/wow.min.js" strategy="afterInteractive" />
         <Script src="/assets/js/plugins/plugins.js" strategy="afterInteractive" />
         <Script src="/assets/js/plugins/plugin-custom.js" strategy="afterInteractive" />
         <Script src="/assets/js/plugins/matter.min.js" strategy="afterInteractive" />

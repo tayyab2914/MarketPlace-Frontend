@@ -1,0 +1,38 @@
+.app-container-wrapper{
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.app-container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px 25px;
+    max-width: var(--container-sm);
+  }
+
+  @media (min-width: 576px) {
+    .app-container {
+      max-width: var(--container-sm);
+    }
+  }
+  @media (min-width: 768px) {
+    .app-container {
+      max-width: var(--container-md);
+    }
+  }
+  @media (min-width: 992px) {
+    .app-container {
+      max-width: var(--container-lg);
+    }
+  }
+  @media (min-width: 1200px) {
+    .app-container {
+      max-width: var(--container-xl);
+    }
+  }
+  @media (min-width: 1400px) {
+    .app-container {
+      max-width: var(--container-xxl);
+    }
+  }
