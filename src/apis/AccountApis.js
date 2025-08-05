@@ -49,3 +49,11 @@ export const API_RESET_PASSWORD = async (data) => {
     successMessage: "Password reset successfully.",
   });
 };
+
+export const API_GET_COMPANY_PROFILE = async (token) => {
+  return await MAKE_API_REQUEST({
+    method: "get",
+    url: `${BACKEND_DOMAIN}/account/companyprofile/`,
+    token: token,
+  });
+};

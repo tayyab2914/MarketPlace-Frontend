@@ -17,3 +17,20 @@ export const CONVERT_SIGNUP_FORM_VALUES_TO_FORM_DATA = (values)=>{
     }
   return formData
 }
+
+export const STRUCTURE_SIGNUP_REQUEST = (values)=>{
+  const payload = {
+    email: values.email,
+    password: values.password,
+    name: values.name,
+    company: {
+      name: values.name, 
+      about: values.about,
+      phone_no: values.phone_no,
+      industry: values.industry,
+      location: values.location,
+    },
+  };
+  return payload
+
+}

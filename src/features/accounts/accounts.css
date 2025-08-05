@@ -23,6 +23,7 @@
   }
   .accounts-pg-container .ant-form-item textarea {
     border: 1px solid rgba(236, 236, 239) !important;
+    background-color: white !important;
   }
   .accounts-f-input {
     border: 1px solid rgba(236, 236, 239);
@@ -31,6 +32,7 @@
     display: flex;
     align-items: center;
     padding-right: 8px;
+    background-color: white;
   }
   .accounts-f-form-steps{
     display: flex;

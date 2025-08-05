@@ -7,12 +7,10 @@ import { IMAGES } from "@/components/ui/Image/ImageData";
 import { getSignupSteps } from "./SignupSteps";
 import SignupFooter from "./SignUpFooter";
 import SignupNavigation from "./SignupNavigation";
-import { CONVERT_SIGNUP_FORM_VALUES_TO_FORM_DATA } from "../../utils/utils";
+import { STRUCTURE_SIGNUP_REQUEST } from "../../utils/utils";
 import { API_SIGNUP } from "@/apis/AccountApis";
 import { useRouter } from "next/navigation";
 import { ROUTES } from "@/utils/Constants";
-import { message } from "@/components/ui/CustomMessageProvider.js/CustomMessageProvider";
-
 const SignupForm = () => {
   const [form] = Form.useForm();
   const [currentStep, setCurrentStep] = useState(0);
@@ -36,8 +34,9 @@ const SignupForm = () => {
     setCurrentStep((prev) => prev - 1);
   };
   const onFinish = async (values) => {
-    const formData = CONVERT_SIGNUP_FORM_VALUES_TO_FORM_DATA(values);
-    const res = await API_SIGNUP(formData);
+    const payload = STRUCTURE_SIGNUP_REQUEST(values);
+
+    const res = await API_SIGNUP(payload);
     if (res) {
       router.push(ROUTES.home);
     }
