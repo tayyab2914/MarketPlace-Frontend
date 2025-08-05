@@ -3,7 +3,7 @@ import "../../accounts.css";
 import "./styles/forgot-password.css";
 import { Col } from "antd";
 import AnimatedTestimonials from "../AnimatedTestimonials";
-import ForgotPasswordContainer from "./components/ForgotPasswordCOntainer";
+import ForgotPasswordContainer from "./components/ForgotPasswordContainer";
 
 const ForgotPasswordPage = () => {
   return (

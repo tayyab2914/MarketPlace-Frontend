@@ -7,7 +7,7 @@
   }
   .accounts-pg-container {
     height: 100vh;
-    overflow-y: auto;
+    overflow-y: hidden;
     scrollbar-width: none;
     display: flex;
     align-items: center;
