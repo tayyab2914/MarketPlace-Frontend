@@ -17,13 +17,13 @@ const SearchForm = ({ setFilters, Services }) => {
 
   // Extract unique categories
   const categories = useMemo(() => {
-    const all = Services.map((s) => s.category);
+    const all = Services?.map((s) => s.category);
     return [...new Set(all)];
   }, [Services]);
 
   // Extract unique locations (assuming `company_location` exists)
   const locations = useMemo(() => {
-    const all = Services.map((s) => s.company_location || "Unknown");
+    const all = Services?.map((s) => s.company_location || "Unknown");
     return [...new Set(all)];
   }, [Services]);
 

@@ -46,7 +46,7 @@ const ServiceContent = ({Services}) => {
           <ServiceSearchComponent setFilters={setFilters} />
           <div className="col-span-12 rounded-xl border border-n30 p-4 sm:p-8 lg:col-span-8">
             <div className="flex flex-col gap-4">
-              {paginatedData.length ? (
+              {paginatedData?.length ? (
                 paginatedData.map((service) => (
                   <ServiceCard
                   service={service}
@@ -59,7 +59,7 @@ const ServiceContent = ({Services}) => {
             </div>
             <Pagination
               currentPage={currentPage}
-              totalPages={Math.ceil(filteredData.length / itemsPerPage)}
+              totalPages={Math.ceil(filteredData?.length / itemsPerPage)}
               setCurrentPage={setCurrentPage}
             />
           </div>

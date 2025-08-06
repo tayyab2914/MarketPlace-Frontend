@@ -18,8 +18,7 @@ const ViewServicePage = ({ service_id }) => {
   const getServiceById = async (id) => {
     const res = await API_SERVICE_GET(token, service_id);
 
-    setServiceDetails(res?.data);
-    console.log(res);
+    setServiceDetails(res);
   };
   useEffect(() => {
     getServiceById();

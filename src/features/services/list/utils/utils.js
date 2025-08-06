@@ -7,7 +7,7 @@
  * @returns filtered array
  */
 export const filterServices = (services, filters) => {
-  return services.filter((service) => {
+  return services?.filter((service) => {
     const matchesKeyword =
       !filters.keyword ||
       service.title.toLowerCase().includes(filters.keyword.toLowerCase());
@@ -40,7 +40,7 @@ export const paginateServices = (
   itemsPerPage
 ) => {
   const startIndex = (currentPage - 1) * itemsPerPage;
-  return filteredServices.slice(startIndex, startIndex + itemsPerPage);
+  return filteredServices?.slice(startIndex, startIndex + itemsPerPage);
 };
 
 export const dummyServices = [

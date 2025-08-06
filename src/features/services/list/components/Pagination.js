@@ -1,12 +1,13 @@
 import React from "react";
 export const Pagination = ({ currentPage, totalPages, setCurrentPage }) => {
+  if (!totalPages || totalPages < 1) return null; 
   const goToPage = (page) => {
     if (page >= 1 && page <= totalPages) {
       setCurrentPage(page);
     }
   };
 
-  const pageNumbers = [...Array(totalPages).keys()].map((n) => n + 1);
+  const pageNumbers = [...Array(totalPages)?.keys()]?.map((n) => n + 1);
 
   return (
     <div className="container pt-8">
@@ -18,7 +19,7 @@ export const Pagination = ({ currentPage, totalPages, setCurrentPage }) => {
           <i className="ph ph-caret-left"></i>
         </li>
 
-        {pageNumbers.map((page) => (
+        {pageNumbers?.map((page) => (
           <li
             key={page}
             onClick={() => goToPage(page)}

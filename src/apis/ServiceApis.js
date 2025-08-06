@@ -5,7 +5,7 @@ import { BACKEND_DOMAIN } from "@/utils/Constants";
 export const API_SERVICE_CREATE= async (token, data) => {
   return await MAKE_API_REQUEST({
     method: "post",
-    url: `${BACKEND_DOMAIN}/service/create/`,
+    url: `${BACKEND_DOMAIN}/service/profile/`,
     data: data,
     token: token,
     errorMessage: "Failed to create service.",
@@ -15,14 +15,14 @@ export const API_SERVICE_CREATE= async (token, data) => {
 export const API_SERVICE_LIST= async (token) => {
   return await MAKE_API_REQUEST({
     method: "get",
-    url: `${BACKEND_DOMAIN}/service/list/`,
+    url: `${BACKEND_DOMAIN}/service/public/`,
     token: token,
   });
 };
 export const API_SERVICE_GET= async (token,service_id) => {
   return await MAKE_API_REQUEST({
     method: "get",
-    url: `${BACKEND_DOMAIN}/service/get/${service_id}/`,
+    url: `${BACKEND_DOMAIN}/service/public/service/${service_id}/`,
     token: token,
   });
 };
