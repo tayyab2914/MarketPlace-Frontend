@@ -28,20 +28,6 @@ const DesktopMenu = () => {
       ],
     },
     {
-      title: "Worker",
-      links: [
-        { label: "Find Workers", route: "./find-workers.html" },
-        { label: "Worker Profile", route: "./worker-profile.html" },
-        { label: "Worker Portfolio", route: "./worker-portfolio.html" },
-        {
-          label: "Portfolio Details",
-          route: "./worker-portfolio-details.html",
-        },
-        { label: "Hire Worker", route: "./hire-me.html" },
-        { label: "Worker Dashboard", route: "./dashboard/index.html" },
-      ],
-    },
-    {
       title: "Pages",
       links: [
         { label: "About Us", route: ROUTES.aboutUsPage },

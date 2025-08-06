@@ -15,6 +15,7 @@ import { persistor, store } from "@/redux/store";
 import { PersistGate } from "redux-persist/integration/react";
 import { App, ConfigProvider } from "antd";
 import { CustomMessageProvider } from "@/components/ui/CustomMessageProvider.js/CustomMessageProvider";
+import { initializeScript } from "../../public/assets/js/main";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -30,6 +31,20 @@ export default function RootLayout({ children }) {
   useEffect(() => {
     AOS.init();
   }, []);
+  useEffect(() => {
+    const handleDomReady = () => {
+      initializeScript();
+    };
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", handleDomReady);
+      return () => {
+        document.removeEventListener("DOMContentLoaded", handleDomReady);
+      };
+    } else {
+      handleDomReady();
+    }
+  }, []);
 
   return (
     <html lang="en" className={`${montserrat.variable}`}>
@@ -41,22 +56,53 @@ export default function RootLayout({ children }) {
         >
           <App>
             <CustomMessageProvider>
-            <Provider store={store}>
-              <PersistGate loading={null} persistor={persistor}>
-                {children}
-                {/* Your scripts here */}
-                <Script src="/assets/js/main.js" strategy="afterInteractive" />
-                <Script src="/assets/js/plugins/apex-custom.js" strategy="afterInteractive" />
-                <Script src="/assets/js/plugins/apexcharts.min.js" strategy="afterInteractive" />
-                <Script src="/assets/js/plugins/emailjs-custom.js" strategy="afterInteractive" />
-                <Script src="/assets/js/wow.min.js" strategy="afterInteractive" />
-                <Script src="/assets/js/plugins/plugins.js" strategy="afterInteractive" />
-                <Script src="/assets/js/plugins/plugin-custom.js" strategy="afterInteractive" />
-                <Script src="/assets/js/plugins/matter.min.js" strategy="afterInteractive" />
-                <Script src="/assets/js/plugins/matterjs-custom.js" strategy="afterInteractive" />
-                <Script src="https://unpkg.com/@phosphor-icons/web" strategy="afterInteractive" />
-              </PersistGate>
-            </Provider></CustomMessageProvider>
+              <Provider store={store}>
+                <PersistGate loading={null} persistor={persistor}>
+                  {children}
+                  {/* Your scripts here */}
+                  <Script
+                    src="/assets/js/main.js"
+                    strategy="afterInteractive"
+                  />
+                  <Script
+                    src="/assets/js/plugins/apex-custom.js"
+                    strategy="afterInteractive"
+                  />
+                  <Script
+                    src="/assets/js/plugins/apexcharts.min.js"
+                    strategy="afterInteractive"
+                  />
+                  <Script
+                    src="/assets/js/plugins/emailjs-custom.js"
+                    strategy="afterInteractive"
+                  />
+                  <Script
+                    src="/assets/js/wow.min.js"
+                    strategy="afterInteractive"
+                  />
+                  <Script
+                    src="/assets/js/plugins/plugins.js"
+                    strategy="afterInteractive"
+                  />
+                  <Script
+                    src="/assets/js/plugins/plugin-custom.js"
+                    strategy="afterInteractive"
+                  />
+                  <Script
+                    src="/assets/js/plugins/matter.min.js"
+                    strategy="afterInteractive"
+                  />
+                  <Script
+                    src="/assets/js/plugins/matterjs-custom.js"
+                    strategy="afterInteractive"
+                  />
+                  <Script
+                    src="https://unpkg.com/@phosphor-icons/web"
+                    strategy="afterInteractive"
+                  />
+                </PersistGate>
+              </Provider>
+            </CustomMessageProvider>
           </App>
         </ConfigProvider>
       </body>

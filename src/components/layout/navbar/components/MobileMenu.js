@@ -12,26 +12,30 @@ const mobileMenuData = [
   //       { label: 'Home Four', route: './index4.html' },
   //     ],
   //   },
-  {
-    title: "Services",
-    links: [
-      { label: "All Services", route: "/services.html" },
-      { label: "Service Details", route: "/service-details.html" },
-      { label: "Browse Tasks", route: "/browse-tasks.html" },
-    ],
-  },
-  {
-    title: "Pages",
-    links: [
-      { label: 'About Us', route: ROUTES.aboutUsPage },
-      { label: 'FAQ', route: ROUTES.faqPage },
-      { label: 'Contact', route: ROUTES.contactPage },
-      { label: 'Terms and Conditions', route: ROUTES.termsAndConditionsPage },
-      { label: 'Privacy Policy', route: ROUTES.privacyPolicyPage },
-      { label: "Sign Up", route: ROUTES.signup },
-      { label: "Sign In", route: ROUTES.signin },
-    ],
-  },
+    {
+      title: "Services",
+      links: [
+        { label: "All Services", route: ROUTES.listServices },
+        { label: "Add Service", route: ROUTES.createService },
+      ],
+    },
+    {
+      title: "Listings",
+      links: [
+        { label: "All Listings", route: ROUTES.listListings },
+        { label: "Add Listing", route: ROUTES.createListing },
+      ],
+    },
+    {
+      title: "Pages",
+      links: [
+        { label: "About Us", route: ROUTES.aboutUsPage },
+        { label: "FAQ", route: ROUTES.faqPage },
+        { label: "Contact", route: ROUTES.contactPage },
+        { label: "Terms and Conditions", route: ROUTES.termsAndConditionsPage },
+        { label: "Privacy Policy", route: ROUTES.privacyPolicyPage },
+      ],
+    },
 ];
 
 const MobileMenuSection = ({ section }) => {

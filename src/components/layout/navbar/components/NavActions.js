@@ -3,11 +3,13 @@ import { ROUTES } from "@/utils/Constants";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { useSelector } from "react-redux";
+import { Popconfirm } from "antd";
 
 const NavActions = () => {
   const router = useRouter();
   const { is_user_logged_in } = useSelector((state) => state.auth);
   const { logoutUser } = useLogoutUser();
+
   return (
     <div className="flex items-center justify-between gap-6">
       <ul className="flex items-center justify-start gap-2 font-medium max-sm:hidden xxl:gap-6">
@@ -31,16 +33,21 @@ const NavActions = () => {
             </li>
           </>
         ) : (
-          <li className="">
-            <a
-              onClick={() => logoutUser()}
-              className="rounded-lg px-2 py-3 duration-700"
+          <li>
+            <Popconfirm
+              title="Are you sure you want to logout?"
+              onConfirm={logoutUser}
+              okText="Yes"
+              cancelText="No"
             >
-              Logout
-            </a>
+              <a className="rounded-lg px-2 py-3 duration-700 cursor-pointer">
+                Logout
+              </a>
+            </Popconfirm>
           </li>
         )}
       </ul>
+
       <div className="flex items-center justify-between gap-3 font-semibold">
         <a
           onClick={() => router.push(ROUTES.createListing)}
