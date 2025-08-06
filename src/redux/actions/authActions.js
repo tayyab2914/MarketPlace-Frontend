@@ -5,7 +5,11 @@ export const setIsUserLoggedIn = (payload) => ({
   payload: payload,
 });
 
-export const setUserAuthToken = (payload) => ({
+export const setUserAuthToken = (payload) => {
+  console.log("PAYLOAD",payload)
+  
+  return({
   type: SET_USER_AUTH_TOKEN,
   payload: payload,
 });
+}

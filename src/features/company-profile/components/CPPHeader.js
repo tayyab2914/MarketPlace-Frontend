@@ -1,7 +1,18 @@
 import React from "react";
 import CPPMobileMenu from "./CPPMobileMenu";
+import { useRouter } from "next/navigation";
 
-const CPPHeader = () => {
+const CPPHeader = ({CompanyData}) => {
+  const router = useRouter()
+  const {
+    name = "",
+    company_description = "",
+    phone_no = "",
+    industry = "",
+    location = "",
+    profile_image = null
+  } = CompanyData || {};
+  
   return (
     <header className="header headerAbsolute left-0 right-0 top-0 z-50">
       <div className="max-xxl:container xxl:px-25">
@@ -11,15 +22,14 @@ const CPPHeader = () => {
               <i className="ph ph-list"></i>
             </button>
             <a href="#">
-              <h2 className="heading-2">Albert Flores</h2>
+              <h2 className="heading-2">{name}</h2>
             </a>
           </div>
 
           <div className="flex items-center justify-between gap-6">
             <ul className="flex items-center justify-start gap-2 font-medium max-md:hidden xxl:gap-6">
               <li><a href="#services" className="rounded-lg px-2 py-3 duration-700">SERVICES</a></li>
-              <li><a href="#about" className="rounded-lg px-2 py-3 duration-700">ABOUT</a></li>
-              <li><a href="./faq.html" className="rounded-lg px-2 py-3 duration-700">FAQ</a></li>
+              <li><a className="rounded-lg px-2 py-3 duration-700">FAQ</a></li>
             </ul>
 
             <div className="flex items-center justify-between gap-3 font-medium">

@@ -1,6 +1,6 @@
-import React from 'react';
-import MenuItemWithSubmenu from './MenuItemWithSubmenu';
-import { ROUTES } from '@/utils/Constants';
+import React from "react";
+import MenuItemWithSubmenu from "./MenuItemWithSubmenu";
+import { ROUTES } from "@/utils/Constants";
 
 const DesktopMenu = () => {
   const menuData = [
@@ -14,32 +14,35 @@ const DesktopMenu = () => {
     //   ],
     // },
     {
-      title: 'Services',
+      title: "Services",
       links: [
-        { label: 'All Services', route: './services.html' },
-        { label: 'Service Details', route: './service-details.html' },
-        { label: 'Browse Tasks', route: './browse-tasks.html' },
+        { label: "All Services", route: ROUTES.listServices },
+        { label: "Add Service", route: ROUTES.createService },
+        { label: "Service Details", route: "./service-details.html" },
       ],
     },
     {
-      title: 'Worker',
+      title: "Worker",
       links: [
-        { label: 'Find Workers', route: './find-workers.html' },
-        { label: 'Worker Profile', route: './worker-profile.html' },
-        { label: 'Worker Portfolio', route: './worker-portfolio.html' },
-        { label: 'Portfolio Details', route: './worker-portfolio-details.html' },
-        { label: 'Hire Worker', route: './hire-me.html' },
-        { label: 'Worker Dashboard', route: './dashboard/index.html' },
+        { label: "Find Workers", route: "./find-workers.html" },
+        { label: "Worker Profile", route: "./worker-profile.html" },
+        { label: "Worker Portfolio", route: "./worker-portfolio.html" },
+        {
+          label: "Portfolio Details",
+          route: "./worker-portfolio-details.html",
+        },
+        { label: "Hire Worker", route: "./hire-me.html" },
+        { label: "Worker Dashboard", route: "./dashboard/index.html" },
       ],
     },
     {
-      title: 'Pages',
+      title: "Pages",
       links: [
-        { label: 'About Us', route: ROUTES.aboutUsPage },
-        { label: 'FAQ', route: ROUTES.faqPage },
-        { label: 'Contact', route: ROUTES.contactPage },
-        { label: 'Terms and Conditions', route: ROUTES.termsAndConditionsPage },
-        { label: 'Privacy Policy', route: ROUTES.privacyPolicyPage },
+        { label: "About Us", route: ROUTES.aboutUsPage },
+        { label: "FAQ", route: ROUTES.faqPage },
+        { label: "Contact", route: ROUTES.contactPage },
+        { label: "Terms and Conditions", route: ROUTES.termsAndConditionsPage },
+        { label: "Privacy Policy", route: ROUTES.privacyPolicyPage },
       ],
     },
   ];
@@ -47,7 +50,11 @@ const DesktopMenu = () => {
   return (
     <ul className="flex items-center gap-2 font-medium xxl:gap-6">
       {menuData.map((item) => (
-        <MenuItemWithSubmenu key={item.title} title={item.title} links={item.links} />
+        <MenuItemWithSubmenu
+          key={item.title}
+          title={item.title}
+          links={item.links}
+        />
       ))}
     </ul>
   );

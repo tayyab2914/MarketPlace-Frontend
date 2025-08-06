@@ -11,7 +11,7 @@ const Button = ({
   m = "10px 0px 0px 0px",
   style,
   className,
-  type="button"
+  type = "button",
 }) => {
   return (
     <>
@@ -25,7 +25,7 @@ const Button = ({
           <span>{children}</span>
         </button>
       )}
-      {/* {variant == "outlined" && (
+      {variant == "outlined" && (
         <button
           className={`btn-outlined ${className}`}
           style={{ height: h, width: w, fontSize: fs, margin: m, ...style }}
@@ -34,6 +34,7 @@ const Button = ({
           {children}
         </button>
       )}
+      {/* 
 
       {variant == "outlined-dark" && (
         <button

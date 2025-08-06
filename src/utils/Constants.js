@@ -9,7 +9,10 @@ export const ROUTES = {
   faqPage:"/faq",
   aboutUsPage:"/about-us",
   termsAndConditionsPage:'/terms-and-conditions',
-  privacyPolicyPage:'/privacy-policy'
+  privacyPolicyPage:'/privacy-policy',
+  listServices:'/services',
+  createService:'/services/create',
+  viewService:'/services/view/',
 };
 
 export const BACKEND_DOMAIN = process.env.NEXT_PUBLIC_BACKEND_DOMAIN

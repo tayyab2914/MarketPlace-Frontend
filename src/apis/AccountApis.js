@@ -30,7 +30,7 @@ export const API_VERIFY_EMAIL = async (data) => {
     url: `${BACKEND_DOMAIN}/account/signup/verify_email/`,
     data: data,
     errorMessage: "Failed to verify email.",
-    successMessage: "Email Verified SUccessfully.",
+    successMessage: "Email Verified Successfully.",
   });
 };
 export const API_FORGOT_PASSWORD = async (email) => {

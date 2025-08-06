@@ -1,6 +1,6 @@
 import React from "react";
 
-const CPPCallToAction = () => (
+const CPPCallToAction = ({CompanyData}) => (
   <section className="stp-15 sbp-15 container flex flex-col items-center justify-center gap-8 border-y-2 border-n900">
     <h2 className="heading-2">Work with me</h2>
     <div className="max-w-[300px]">

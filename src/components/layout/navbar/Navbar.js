@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import DesktopMenu from "./components/DesktopMenu";
 import MobileMenu from "./components/MobileMenu";

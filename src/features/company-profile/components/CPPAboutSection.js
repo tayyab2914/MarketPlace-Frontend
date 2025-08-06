@@ -1,62 +1,146 @@
-import { IMAGES } from "@/components/ui/Image/ImageData";
-import Image from "next/image";
 import React from "react";
+import Image from "next/image";
+import { IMAGES } from "@/components/ui/Image/ImageData";
+const HexagonImage = ({ src, size = 320, borderWidth = 10 }) => {
+  const hexWidth = size;
+  const hexHeight = (size * Math.sqrt(3)) / 2;  // ≈ 0.866 * size
 
-const CPPAboutSection = () => {
+  const outerBorder = borderWidth;
+  const middleBorder = borderWidth;
+  const innerBorder = borderWidth;
+
+  // Adjust sizes proportionally for height and width at each layer:
+  const middleWidth = hexWidth - 2 * outerBorder;
+  const middleHeight = hexHeight - 2 * outerBorder;
+
+  const innerWidth = middleWidth - 2 * middleBorder;
+  const innerHeight = middleHeight - 2 * middleBorder;
+
+  const imageWidth = innerWidth - 2 * innerBorder;
+  const imageHeight = innerHeight - 2 * innerBorder;
+
+  const hexClipPath =
+    "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)";
+
   return (
-    <section class="stp-30 sbp-30 mt-[100px] bg-bg2">
-      <div class="container flex items-center justify-start gap-6 max-md:flex-col md:gap-10 lg:gap-20">
-        <div class="max-md:overflow-hidden">
-          <div class="hexagon-styles my-[calc(300px*0.5/2)] h-[calc(300px*0.57736720554273)] w-[300px] rounded-[calc(300px/36.75)] bg-b50 before:rounded-[calc(300px/18.75)] after:rounded-[calc(300px/18.75)]">
-            <div class="absolute -top-[60px] left-4">
-              <div class="hexagon-styles z-10 my-[calc(270px*0.5/2)] h-[calc(270px*0.57736720554273)] w-[270px] rounded-[calc(270px/50)] bg-b300 before:rounded-[calc(270px/50)] after:rounded-[calc(270px/50)]">
-                <div class="absolute -top-[55px] left-2.5 z-20">
-                  <div class="hexagon-styles z-10 my-[calc(250px*0.5/2)] h-[calc(250px*0.57736720554273)] w-[250px] rounded-[calc(250px/50)] bg-b50 before:rounded-[calc(250px/50)] after:rounded-[calc(250px/50)]">
-                    <div class="r-hex3 absolute -left-1.5 -top-[56px] z-30 inline-block w-[260px] overflow-hidden">
-                      <div class="r-hex-inner3">
-                        <div class="expertImgBig r-hex-inner-3 before:h-[260px] before:bg-cover"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div
+      style={{
+        width: hexWidth,
+        height: hexHeight,
+        backgroundColor: "white",
+        padding: outerBorder,
+        clipPath: hexClipPath,
+        WebkitClipPath: hexClipPath,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <div
+        style={{
+          width: middleWidth,
+          height: middleHeight,
+          backgroundColor: "#3B82F6",
+          padding: middleBorder,
+          clipPath: hexClipPath,
+          WebkitClipPath: hexClipPath,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <div
+          style={{
+            width: innerWidth,
+            height: innerHeight,
+            backgroundColor: "white",
+            padding: innerBorder,
+            clipPath: hexClipPath,
+            WebkitClipPath: hexClipPath,
+            overflow: "hidden",
+          }}
+        >
+          <img
+            src={src}
+            alt="Profile"
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              display: "block",
+              clipPath: hexClipPath,
+              WebkitClipPath: hexClipPath,
+            }}
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+
+
+const CPPAboutSection = ({ CompanyData }) => {
+  const {
+    name = "",
+    company_description = "",
+    phone_no = "",
+    industry = "",
+    location = "",
+    profile_image = null,
+  } = CompanyData || {};
+
+  // Build the profile image URL, fallback to a placeholder if null
+  console.log(profile_image)
+  const profileImageUrl = profile_image
+    ? `${process.env.NEXT_PUBLIC_BACKEND_URL || "http://127.0.0.1:8000"}${profile_image}`
+    : "/default-profile.jpg"; // Replace with your default placeholder
+
+  return (
+    <section className="stp-30 sbp-30 mt-[100px] bg-bg2">
+      <div className="container flex max-md:flex-col items-center justify-start gap-6 md:gap-10 lg:gap-20">
+        {/* Hexagon Image Container */}
+        <div className="max-md:overflow-hidden relative">
+          {/* Outer Hexagon */}
+    
+                    <HexagonImage src="http://127.0.0.1:8000/media/profile_image/OIP_1_S4KhbjO.jpg" />
+
+             
         </div>
 
-        <div class="max-xl:overflow-hidden" id="about">
+        {/* Company Info */}
+        <div className="max-xl:overflow-hidden" id="about">
           <p
-            class="heading-6"
+            className="heading-6"
             data-aos="fade-up"
             data-aos-duration="1000"
             data-aos-delay="0"
           >
-            Spotless Solutions
+            * A 3-4 word tagline *
           </p>
+
           <div
-            class=""
             data-aos="fade-left"
             data-aos-duration="1000"
             data-aos-delay="0"
           >
-            <h2 class="heading-2 pt-5">
-              Albert Flores is a<span class="underline">Cleaning services</span>
+            <h2 className="heading-2 pt-5">
+              Here brief description of 1-2 lines will be used currently this is dummy line
             </h2>
-            <div class="flex items-center justify-start gap-4 pt-2">
-              <Image src={IMAGES.big_arrow_2} alt="" />
-              <h2 class="heading-2">based in Taiwan</h2>
+
+            <div className="flex items-center justify-start gap-4 pt-2">
+              <Image src={IMAGES.big_arrow_2} alt="Arrow" />
+              <h2 className="heading-2">based in {location}</h2>
             </div>
           </div>
+
           <p
-            class="pt-6 text-base font-medium text-n300 lg:text-xl"
+            className="pt-6 text-base font-medium text-n300 lg:text-xl"
             data-aos="fade-down"
             data-aos-duration="1000"
             data-aos-delay="0"
           >
-            we are committed to providing top-quality cleaning services tailored
-            to meet your specific needs. With years of experience in the
-            industry, our team of professional cleaners is dedicated to
-            delivering exceptional results,
+            {company_description}
           </p>
         </div>
       </div>

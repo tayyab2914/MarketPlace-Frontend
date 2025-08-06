@@ -24,6 +24,7 @@ const SignInForm = () => {
     const res = await API_SIGNIN(values);
     console.log(res)
     if (res) {
+      console.log("going to set", res?.data?.token)
       dispatch(setUserAuthToken(res?.data?.token));
       dispatch(setIsUserLoggedIn(true));
       router.push(ROUTES.home)

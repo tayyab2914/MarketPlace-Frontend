@@ -60,10 +60,10 @@ export const getSignupSteps = () => [
           addonBefore={<Building2 strokeWidth={1} />}
         />
         <CustomInputField
-          name="about"
+          name="company_description"
           placeholder="Tell us about your company"
           inputType="textarea"
-          rules={[{ required: true, message: "About is required" }]}
+          rules={[{ required: true, message: "Description is required" }]}
           className="accounts-f-input"
           addonBefore={<Info strokeWidth={1} />}
         />

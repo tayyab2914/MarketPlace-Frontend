@@ -1,19 +1,39 @@
-
-.custom-input-field-container{
-    margin-bottom: 10px;
+.custom-input-field-container {
+  margin-bottom: 10px;
 }
-.custom-input-field-label{
-    font-weight: 600;
-    margin-bottom: 5px;
+.custom-input-field-label {
+  font-weight: 600;
+  margin-bottom: 5px;
 }
-.custom-input-field-item .ant-form-item{
-    margin-bottom: 0px !important;
-    /* height: 40px !important; */
+.custom-input-field-item .ant-form-item {
+  margin-bottom: 0px !important;
+  /* height: 40px !important; */
 }
 .custom-input-field-item input {
-    margin-bottom: 0px !important;
-    /* height: 40px !important; */
+  margin-bottom: 0px !important;
+  /* height: 40px !important; */
 }
-.custom-input-field-item{
-    margin-bottom: 0px !important;
+.custom-input-field-item {
+  margin-bottom: 0px !important;
+}
+
+.custom-input-field-item .ant-input-group-addon {
+  border: none !important;
+  background-color: transparent !important;
+}
+.custom-input-field-item .ant-input-number-group-addon {
+  border: none !important;
+  background-color: transparent !important;
+}
+.custom-input-field-item .ant-input-number {
+  border: none !important;
+  background-color: transparent !important;
+}
+.custom-input-field-item .ant-input {
+  border: none !important;
+  background-color: transparent !important;
+}
+.custom-input-field-item.ant-form-item textarea {
+  border: 1px solid rgba(236, 236, 239) !important;
+  background-color: white !important;
 }
