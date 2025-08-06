@@ -8,9 +8,11 @@ import {
   Button,
   Switch,
   Checkbox,
+  DatePicker
 } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import "./CustomInputField.css";
+import dayjs from "dayjs";
 
 const CustomInputField = ({
   name,
@@ -86,7 +88,6 @@ const CustomInputField = ({
           placeholder={placeholder}
           options={options}
           disabled={disabled}
-        
           style={{ width: "100%", height: "40px" }}
           {...rest}
         />
@@ -120,6 +121,28 @@ const CustomInputField = ({
           {placeholder}
         </Checkbox>
       )}
+      {inputType === "tags" && (
+        <Select
+          mode="tags"
+          style={{ width: "100%" }}
+          placeholder={placeholder}
+          tokenSeparators={[","]}
+          {...rest}
+        />
+      )}
+
+{inputType === "date" && (
+  <DatePicker
+    style={{ width: "100%" }}
+    placeholder={placeholder || "Select a date"}
+    disabled={disabled}
+    allowClear
+    {...rest}
+    defaultValue={initialValue ? dayjs(initialValue, "YYYY-MM-DD") : undefined}
+  />
+)}
+
+
     </Form.Item>
   </div>
 );

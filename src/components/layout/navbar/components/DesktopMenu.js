@@ -18,7 +18,13 @@ const DesktopMenu = () => {
       links: [
         { label: "All Services", route: ROUTES.listServices },
         { label: "Add Service", route: ROUTES.createService },
-        { label: "Service Details", route: "./service-details.html" },
+      ],
+    },
+    {
+      title: "Listings",
+      links: [
+        { label: "All Listings", route: ROUTES.listListings },
+        { label: "Add Listing", route: ROUTES.createListing },
       ],
     },
     {

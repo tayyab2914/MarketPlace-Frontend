@@ -1,8 +1,12 @@
-import AuthRedirect from "@/utils/AuthRedirect";
+"use client";
+import ListingsPage from "@/features/listings/list/ListingsPage";
 import React from "react";
-
 const page = () => {
-  return <AuthRedirect>page</AuthRedirect>;
+  return (
+    <div>
+      <ListingsPage />
+    </div>
+  );
 };
 
 export default page;
