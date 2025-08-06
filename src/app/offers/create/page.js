@@ -1,7 +1,8 @@
-'use client'
+"use client";
 import CreateOfferPage from "@/features/offers/CreateOfferPage";
 import React, { useEffect } from "react";
 import { initializeScript } from "../../../../public/assets/js/main";
+import BackgroundBubbles from "@/components/ui/BackgroundBubbles/BackgroundBubbles";
 
 const Page = () => {
   useEffect(() => {
@@ -21,7 +22,9 @@ const Page = () => {
 
   return (
     <div>
-      <CreateOfferPage />
+      <BackgroundBubbles>
+        <CreateOfferPage />
+      </BackgroundBubbles>
     </div>
   );
 };

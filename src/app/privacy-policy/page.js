@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { useEffect } from "react";
 import { initializeScript } from "../../../public/assets/js/main";
 import PrivacyPolicyPage from "@/features/privacy-policy/PrivacyPolicyPage";

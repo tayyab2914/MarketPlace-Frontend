@@ -1,8 +1,7 @@
 "use client";
-import CreateListingPage from "@/features/listings/create/CreateListingPage";
 import React, { useEffect } from "react";
-import { initializeScript } from "../../../../public/assets/js/main";
-import BackgroundBubbles from "@/components/ui/BackgroundBubbles/BackgroundBubbles";
+import { initializeScript } from "../../../public/assets/js/main";
+import PortfoliosPage from "@/features/portfolios/PortfoliosPage";
 
 const page = () => {
   useEffect(() => {
@@ -19,11 +18,10 @@ const page = () => {
       handleDomReady();
     }
   }, []);
-
   return (
-    <BackgroundBubbles>
-      <CreateListingPage />
-    </BackgroundBubbles>
+    <div>
+      <PortfoliosPage />
+    </div>
   );
 };
 

@@ -24,6 +24,9 @@ export const ROUTES = {
   listOffers: "/offers",
   createOffer: "/offers/create",
   viewOffer: "/offers/view/",
+
+  portfolios:'/portfolios',
+  viewPortfolio:'/portfolios/view/'
 };
 
 export const BACKEND_DOMAIN = process.env.NEXT_PUBLIC_BACKEND_DOMAIN;

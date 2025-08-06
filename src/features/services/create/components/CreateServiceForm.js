@@ -26,7 +26,7 @@ const CreateServiceForm = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 bg-white">
+    <div className="min-h-screen flex items-center justify-center px-4 ">
       <div className="w-full max-w-2xl rounded-3xl border border-gray-300 p-6 sm:p-8 shadow-sm bg-white">
         <h4 className="crt-srv-title">Service Information</h4>
 

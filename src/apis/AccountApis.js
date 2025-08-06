@@ -57,3 +57,17 @@ export const API_GET_COMPANY_PROFILE = async (token) => {
     token: token,
   });
 };
+export const API_LIST_ALL_COMPANIES = async (token) => {
+  return await MAKE_API_REQUEST({
+    method: "get",
+    url: `${BACKEND_DOMAIN}/account/companies/public/`,
+    token: token,
+  });
+};
+export const API_GET_COMPANY_BY_ID= async (token,company_id) => {
+  return await MAKE_API_REQUEST({
+    method: "get",
+    url: `${BACKEND_DOMAIN}/account/companies/public/${company_id}/`,
+    token: token,
+  });
+};

@@ -41,7 +41,7 @@ const CreateOfferPage = () => {
     <>
       <Navbar />
       <div
-        className="min-h-screen flex items-center justify-center px-4 bg-white"
+        className="min-h-screen flex items-center justify-center px-4 "
         style={{ paddingTop: "90px" }} // adjust based on your navbar height
       >
         <div className="w-full max-w-2xl rounded-3xl border border-gray-300 p-6 sm:p-8 shadow-sm bg-white">
