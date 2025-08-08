@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { Row, Col } from "antd";
 import SearchForm from "./SearchForm";
 import ServiceCard from "./ServiceCard";
-import ServiceSearchComponent from "./ServiceSearchComponent";
-
-import {
-  filterServices,
-  paginateServices,
-} from "../utils/utils"; 
+import { filterServices, paginateServices } from "../utils/utils";
 import { Pagination } from "./Pagination";
 
-const ServiceContent = ({Services}) => {
+const ServiceContent = ({ Services }) => {
   const [filters, setFilters] = useState({
     keyword: "",
     location: "",
@@ -20,7 +16,6 @@ const ServiceContent = ({Services}) => {
   const itemsPerPage = 2;
 
   const filteredData = filterServices(Services, filters);
-
   const paginatedData = paginateServices(
     filteredData,
     currentPage,
@@ -32,38 +27,30 @@ const ServiceContent = ({Services}) => {
   }, [filters]);
 
   return (
-    <div>
-      <section className="srv-p-section">
-        <div className="srv-p-container-search">
-          <div className="srv-p-box">
-            <SearchForm setFilters={setFilters} Services={Services}/>
-          </div>
+    <div className="container -mt-40 rounded-xl bg-white p-2 sm:p-2 md:rounded-3xl xl:rounded-[60px] xl:p-10">
+      <section className="service-search-section">
+        <div className="search-box">
+          <SearchForm setFilters={setFilters} Services={Services} />
         </div>
       </section>
 
-      <section className="sbp-30">
-        <div className="container grid grid-cols-12 gap-6">
-          <ServiceSearchComponent setFilters={setFilters} />
-          <div className="col-span-12 rounded-xl border border-n30 p-4 sm:p-8 lg:col-span-8">
-            <div className="flex flex-col gap-4">
-              {paginatedData?.length ? (
-                paginatedData.map((service) => (
-                  <ServiceCard
-                  service={service}
-                    key={service.id}
-                  />
-                ))
-              ) : (
-                <p>No services found.</p>
-              )}
-            </div>
-            <Pagination
-              currentPage={currentPage}
-              totalPages={Math.ceil(filteredData?.length / itemsPerPage)}
-              setCurrentPage={setCurrentPage}
-            />
-          </div>
-        </div>
+      <section className="service-list-section">
+          <Row gutter={[24, 24]}>
+            {paginatedData?.length ? (
+              paginatedData.map((service) => (
+                <Col xs={24} lg={12}>
+                  <ServiceCard service={service} key={service?.id} />
+                </Col>
+              ))
+            ) : (
+              <p>No services found.</p>
+            )}
+          </Row>
+        <Pagination
+          currentPage={currentPage}
+          totalPages={Math.ceil(filteredData?.length / itemsPerPage)}
+          setCurrentPage={setCurrentPage}
+        />
       </section>
     </div>
   );

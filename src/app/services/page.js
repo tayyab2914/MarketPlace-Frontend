@@ -21,7 +21,7 @@ const page = () => {
   return (
     <div>
       <AuthRedirect allowLoggedIn>
-      <ServicesPage />
+        <ServicesPage />
       </AuthRedirect>
     </div>
   );

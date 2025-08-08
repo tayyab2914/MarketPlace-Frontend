@@ -22,4 +22,22 @@ export const BREADCRUMBS = {
     { url: ROUTES.home, name: "Home" },
     { url: ROUTES.privacyPolicyPage, name: "Privacy Policy" },
   ],
+  servicesList: [
+    { url: ROUTES.home, name: "Home" },
+    { url: ROUTES.listServices, name: "Services" },
+  ],
+  servicesCreate: [
+    { url: ROUTES.home, name: "Home" },
+    { url: ROUTES.listServices, name: "Services" },
+    { url: ROUTES.servicesCreate, name: "Create Service" },
+  ],
+  listingsList: [
+    { url: ROUTES.home, name: "Home" },
+    { url: ROUTES.listListings, name: "Listings" },
+  ],
+  listingsCreate: [
+    { url: ROUTES.home, name: "Home" },
+    { url: ROUTES.listListings, name: "Listings" },
+    { url: ROUTES.listingsCreate, name: "Create Listing" },
+  ],
 };

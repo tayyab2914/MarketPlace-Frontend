@@ -24,6 +24,16 @@
 .srv-p-breadcrumb-text {
   color: #999; /* assuming text-r300 */
 }
+.srv-p-button-group{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.srv-p-keyword-input{
+  border: 1px solid #e5e5e5;
+  padding: 5px;
+  border-radius:12px;
+}
 
 .srv-p-section-content {
   display: flex;
@@ -179,23 +189,57 @@
     width: 100%;
   }
 }
+.service-content-wrapper {
+  margin-top: -40px;
+  background: #fff;
+  padding: 8px;
+  border-radius: 20px;
+}
+
+@media (min-width: 768px) {
+  .service-content-wrapper {
+    padding: 16px;
+    border-radius: 30px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .service-content-wrapper {
+    padding: 60px;
+    border-radius: 60px;
+  }
+}
+
+.service-search-section {
+  margin-bottom: 30px;
+}
+
+.search-box {
+  width: 100%;
+  background: #fff;
+  padding: 16px;
+  border-radius: 24px;
+  border: 1px solid #e6e6e6;
+}
+
+.service-list-section {
+  padding-bottom: 30px;
+}
+
+.service-list-container {
+  border: 1px solid #e6e6e6;
+  padding: 16px;
+  border-radius: 10px;
+}
 
 
 .srv-p-section {
     padding-bottom: 1rem;
-    margin-top: 50px;
   }
   
   .srv-p-container-search {
-    width: 90%;
-    margin: 0 auto;
-    margin-top: -4rem;
-  }
-  
-  @media (min-width: 768px) {
-    .srv-p-container-search {
-      margin-top: -4rem;
-    }
+    width: 100%;
+    margin: 0 ;
   }
   
   .srv-p-box {
@@ -308,7 +352,7 @@
   }
   
   .srv-p-location-item,
-  .srv-p-service-item {
+  .srv-p-category-item {
     padding: 0.5rem 1.5rem;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -316,12 +360,12 @@
   }
   
   .srv-p-location-item:hover,
-  .srv-p-service-item:hover {
+  .srv-p-category-item:hover {
     background-color: #0052cc;
     color: white;
   }
   
-  .srv-p-services {
+  .srv-p-categorys {
     position: relative;
     display: flex;
     align-items: center;
@@ -329,7 +373,7 @@
     cursor: pointer;
   }
   
-  .srv-p-service-text {
+  .srv-p-category-text {
     display: flex;
     align-items: center;
   }
@@ -373,6 +417,8 @@
   .srv-p-btn-label {
     position: relative;
     z-index: 10;
+    display: flex;
+    align-items: center;
   }
   
   .srv-p-icon-only {

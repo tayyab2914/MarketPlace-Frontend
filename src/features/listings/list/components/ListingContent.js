@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import ListingSearchForm from "./ListingSearchForm";
-import { filterServices, paginateServices } from "../utils/utils";
+import { filterListing, paginateListing } from "../utils/utils";
 import { Pagination } from "./Pagination";
 import ListingCard from "./ListingCard";
+import { Col, Row } from "antd";
 
 const ListingContent = ({ Listings }) => {
   const [filters, setFilters] = useState({
@@ -12,10 +13,10 @@ const ListingContent = ({ Listings }) => {
   });
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 6;
+  const itemsPerPage = 2;
 
-  const filteredData = filterServices(Listings, filters);
-  const paginatedData = paginateServices(
+  const filteredData = filterListing(Listings, filters);
+  const paginatedData = paginateListing(
     filteredData,
     currentPage,
     itemsPerPage
@@ -26,39 +27,32 @@ const ListingContent = ({ Listings }) => {
   }, [filters]);
 
   return (
-    <div>
-      {/* Search Form */}
-      <section className="lis-p-section">
-        <div className="lis-p-container-search">
-          <div className="lis-p-box">
-            <ListingSearchForm setFilters={setFilters} Listings={Listings} />
-          </div>
+    <div className="container -mt-40 rounded-xl bg-white p-2 sm:p-2 md:rounded-3xl xl:rounded-[60px] xl:p-10">
+      <section className="listing-search-section">
+        <div className="search-box">
+          <ListingSearchForm setFilters={setFilters} Listings={Listings} />
         </div>
       </section>
 
       {/* Listings Grid */}
-      <section className="sbp-30 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 py-8">
-          {paginatedData.length ? (
-            <>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {paginatedData.map((listing, index) => (
-                  <ListingCard listing={listing} key={index} />
-                ))}
-              </div>
-
-              <div className="mt-8">
-                <Pagination
-                  currentPage={currentPage}
-                  totalPages={Math.ceil(filteredData.length / itemsPerPage)}
-                  setCurrentPage={setCurrentPage}
-                />
-              </div>
-            </>
+      <section className="listing-list-section">
+        <Row gutter={[24, 24]}>
+          {paginatedData?.length ? (
+            paginatedData.map((listing, index) => (
+              <Col xs={24} lg={12}>
+                <ListingCard listing={listing} key={index} />
+              </Col>
+            ))
           ) : (
-            <p className="text-center text-gray-500">No listings found.</p>
+            <p>No listings found.</p>
           )}
-        </div>
+        </Row>
+
+        <Pagination
+          currentPage={currentPage}
+          totalPages={Math.ceil(filteredData.length / itemsPerPage)}
+          setCurrentPage={setCurrentPage}
+        />
       </section>
     </div>
   );

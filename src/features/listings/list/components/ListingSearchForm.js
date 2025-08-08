@@ -1,50 +1,85 @@
-import React, { useMemo, useState } from "react";
-import ServiceDropdown from "./ServiceDropdown";
+import React, { useState, useMemo } from "react";
 import LocationDropdown from "./LocationDropdown";
+import CategoryDropdown from "./CategoryDropdown";
+import { Search, X } from "lucide-react";
+import Button from "@/components/ui/Button/Button";
 
 const ListingSearchForm = ({ setFilters, Listings }) => {
+  const [keyword, setKeyword] = useState("");
   const [location, setLocation] = useState("");
-  const [service, setService] = useState("");
+  const [category, setCategory] = useState("");
 
   const handleSearch = (e) => {
     e.preventDefault();
     setFilters({
-      keyword: service,
-      location: location,
-      category: "", // optional
+      keyword,
+      location,
+      category,
     });
   };
 
-  // Extract unique categories
+  const handleClear = () => {
+    setKeyword("");
+    setLocation("");
+    setCategory("");
+    setFilters({
+      keyword: "",
+      location: "",
+      category: "",
+    });
+  };
+
   const categories = useMemo(() => {
-    const all = Listings.map((s) => s.category);
+    const all = Listings?.map((s) => s.category);
     return [...new Set(all)];
   }, [Listings]);
 
-  // Extract unique locations
   const locations = useMemo(() => {
-    const all = Listings.map((s) => s.company_location || "Unknown");
+    const all = Listings?.map((s) => s.company_location || null);
     return [...new Set(all)];
   }, [Listings]);
 
+  const filtersApplied = location || category || keyword;
   return (
-    <form className="lis-p-form" onSubmit={handleSearch}>
-      <div className="lis-p-input-group">
-        <LocationDropdown
-          selected={location}
-          setSelected={setLocation}
-          locations={locations}
+    <form className="srv-p-form" onSubmit={handleSearch}>
+      <div className="srv-p-input-group">
+        <input
+          type="text"
+          className="srv-p-keyword-input"
+          placeholder="Search keyword"
+          value={keyword}
+          onChange={(e) => setKeyword(e.target.value)}
         />
-        <ServiceDropdown
-          selected={service}
-          setSelected={setService}
-          services={categories}
+
+        {locations && (
+          <LocationDropdown
+            selected={location}
+            setSelected={setLocation}
+            locations={locations}
+          />
+        )}
+
+        <CategoryDropdown
+          selected={category}
+          setSelected={setCategory}
+          categories={categories}
         />
       </div>
-      <button type="submit" className="lis-p-search-btn">
-        <i className="ph ph-magnifying-glass srv-p-icon-only"></i>
-        <span className="lis-p-btn-label">Search</span>
-      </button>
+
+      <div className="srv-p-button-group">
+        {filtersApplied && (
+          <button
+            type="button"
+            className="srv-p-clear-btn"
+            onClick={handleClear}
+          >
+            <X />
+          </button>
+        )}
+        <Button type="submit" variant="filled-animated" m="0">
+          <Search strokeWidth={2} /> Search
+        </Button>
+      </div>
     </form>
   );
 };

@@ -21,9 +21,7 @@ const page = () => {
   }, []);
 
   return (
-    <BackgroundBubbles>
-      <CreateListingPage />
-    </BackgroundBubbles>
+    <CreateListingPage />
   );
 };
 
