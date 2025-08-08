@@ -11,7 +11,7 @@ const SignInFormFields = () => {
         placeholder="Enter your email"
         inputType="input"
         rules={emailRules}
-        className="accounts-f-input"
+        className="acc-pg-input"
         addonBefore={<Mail strokeWidth={1} />}
       />
       <CustomInputField
@@ -20,7 +20,7 @@ const SignInFormFields = () => {
         inputType="input"
         type="password"
         rules={passwordRules}
-        className="accounts-f-input"
+        className="acc-pg-input"
         addonBefore={<LockKeyhole strokeWidth={1} />}
       />
     </div>

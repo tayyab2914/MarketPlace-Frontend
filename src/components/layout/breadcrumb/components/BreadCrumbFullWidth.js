@@ -1,13 +1,13 @@
 import React from "react";
 const BreadCrumbsFullWidth = ({ items }) => {
   return (
-    <section className="breadcrumbs-section">
-      <div className="breadcrumbs-container">
-        <h2 className="breadcrumbs-heading">
+    <section className="brdcrm-section">
+      <div className="brdcrm-container">
+        <h2 className="brdcrm-heading">
           {items.length ? items[items.length - 1].name : ""}
         </h2>
 
-        <ul className="breadcrumbs-list">
+        <ul className="brdcrm-list">
           {items.map((item, index) => {
             const isLast = index === items.length - 1;
 
@@ -15,14 +15,14 @@ const BreadCrumbsFullWidth = ({ items }) => {
               <React.Fragment key={index}>
                 <li>
                   {isLast ? (
-                    <span className="breadcrumbs-last">{item.name}</span>
+                    <span className="brdcrm-last">{item.name}</span>
                   ) : (
                     <a href={item.url}>{item.name}</a>
                   )}
                 </li>
 
                 {!isLast && (
-                  <li className="breadcrumbs-separator">
+                  <li className="brdcrm-separator">
                     <i className="ph ph-caret-double-right"></i>
                   </li>
                 )}

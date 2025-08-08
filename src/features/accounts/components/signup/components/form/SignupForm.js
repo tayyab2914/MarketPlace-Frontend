@@ -43,9 +43,9 @@ const SignupForm = () => {
   };
 
   return (
-    <div className="accounts-f-container">
-      <Image src={IMAGES?.logo} alt="Logo" className="accounts-f-logo" />
-      <p className="accounts-f-welcome">Welcome to Servibe</p>
+    <div className="acc-pg-f-container">
+      <img src={IMAGES?.logo} alt="Logo" className="acc-pg-logo" />
+      <p className="acc-pg-welcome">Welcome to Servibe</p>
 
       <Steps
         current={currentStep}
@@ -58,7 +58,7 @@ const SignupForm = () => {
         layout="vertical"
         onFinish={onFinish}
         autoComplete="off"
-        className="accounts-f-form"
+        className="acc-pg-form"
       >
         {steps.map((step, index) => (
           <div

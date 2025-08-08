@@ -7,11 +7,11 @@ import ResetPasswordForm from "./components/ResetPasswordForm";
 
 const ResetPasswordPage = () => {
   return (
-    <div className="accounts-pg-container">
-      <Col xs={24} lg={8} xl={13} className="accounts-pg-decoration-col">
+    <div className="acc-pg-container">
+      <Col xs={24} lg={8} xl={13} className="acc-pg-decoration-col">
         <AnimatedTestimonials />
       </Col>
-      <Col xs={24} lg={16} xl={11} className="accounts-pg-form-col">
+      <Col xs={24} lg={16} xl={11} className="acc-pg-form-col">
         <ResetPasswordForm/>
       </Col>
     </div>

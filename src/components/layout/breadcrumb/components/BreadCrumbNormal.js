@@ -12,14 +12,14 @@ const BreadCrumbNormal = ({ items }) => {
               <React.Fragment key={index}>
                 <li>
                   {isLast ? (
-                    <span className="breadcrumbs-last">{item.name}</span>
+                    <span className="brdcrm-last">{item.name}</span>
                   ) : (
                     <a href={item.url}>{item.name}</a>
                   )}
                 </li>
 
                 {!isLast && (
-                  <li className="breadcrumbs-separator">
+                  <li className="brdcrm-separator">
                     <i className="ph ph-caret-double-right"></i>
                   </li>
                 )}

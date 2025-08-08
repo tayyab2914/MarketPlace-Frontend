@@ -1,17 +1,17 @@
-.signup-f-nav-btn {
+.acc-su-pg-nav-btn {
   display: flex;
   align-items: center;
   gap: 5px;
   cursor: pointer;
   font-weight: 600;
 }
-.signup-f-nav-btn.prev {
+.acc-su-pg-nav-btn.prev {
   justify-content: start;
 }
-.signup-f-nav-btn.next {
+.acc-su-pg-nav-btn.next {
   justify-content: end;
 }
-.signup-f-forgot-password-link {
+.acc-su-pg-forgot-password-link {
   display: block;
   padding-top: 0.75rem; /* py-3 */
   padding-bottom: 0.75rem;
@@ -21,7 +21,7 @@
   color: #605f7c; /* assuming text-n300 is a CSS variable */
 }
 
-.signup-f-continue-link {
+.acc-su-pg-continue-link {
   position: relative;
   display: flex;
   width: 100%;
@@ -40,7 +40,7 @@
   font-size: 16px;
 }
 
-.signup-f-continue-link::after {
+.acc-su-pg-continue-link::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -51,18 +51,18 @@
   transition: width 0.7s;
   z-index: 0;
 }
-.signup-f-continue-link span {
+.acc-su-pg-continue-link span {
   z-index: 100;
 }
 
-.signup-f-continue-link:hover::after {
+.acc-su-pg-continue-link:hover::after {
   width: calc(100% + 2px);
 }
 
 
 
 @media (min-width: 640px) {
-  .signup-f-continue-link {
+  .acc-su-pg-continue-link {
     padding-left: 2rem;
     padding-right: 2rem;
   }

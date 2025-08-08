@@ -1,0 +1,10 @@
+nav- = navbar-
+nav-d- = navbar-desktop-
+nav-a- = navbar-action-
+nav-m- = navbar-mobile-
+
+brdcrm- = breadcrumbs-
+
+acc-pg- = accounts-page-
+acc-si-pg- = accounts-sigin-page-
+acc-su-pg- = accounts-signup-page-

@@ -11,9 +11,9 @@ const CPPPPortfolioSection = ({ CompanyData }) => {
   };
 
   return (
-    <section className="stp-30 sbp-30" id="services">
-      <div className="container grid grid-cols-12 gap-6">
-        <h2 className="heading-2 sbp-15 col-span-12">More Services</h2>
+    <section className="portfolio-section" id="services">
+      <div className="portfolio-container">
+        <h2 className="portfolio-heading">More Services</h2>
 
         {services?.slice(0, visibleCount).map((service, index) => (
           <CPPServicesCard
@@ -25,11 +25,8 @@ const CPPPPortfolioSection = ({ CompanyData }) => {
 
         {/* Show More button */}
         {visibleCount < services.length && (
-          <div className="col-span-12 flex justify-center mt-6">
-            <button
-              className="btn btn-primary px-6 py-2 rounded-full"
-              onClick={handleShowMore}
-            >
+          <div className="portfolio-showmore-container">
+            <button className="portfolio-showmore-btn" onClick={handleShowMore}>
               Show More
             </button>
           </div>

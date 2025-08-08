@@ -17,14 +17,14 @@ const SignupNavigation = ({
   return (
     <div style={{ marginTop: 16 }}>
       {currentStep > 0 && (
-        <div className="signup-f-nav-btn prev" onClick={onPrev}>
+        <div className="acc-su-pg-nav-btn prev" onClick={onPrev}>
           <MoveLeft strokeWidth={1} />
           Previous
         </div>
       )}
 
       {currentStep < totalSteps - 1 && (
-        <div className="signup-f-nav-btn next" onClick={onNext}>
+        <div className="acc-su-pg-nav-btn next" onClick={onNext}>
           Next <MoveRight strokeWidth={1} />
         </div>
       )}
@@ -32,7 +32,7 @@ const SignupNavigation = ({
       {isFinalStep && (
         <>
           <a
-            className="signup-f-forgot-password-link"
+            className="acc-su-pg-forgot-password-link"
             onClick={() => router.push(ROUTES.forgotPassword)}
           >
             Forgot Password?

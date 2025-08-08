@@ -1,0 +1,153 @@
+.por-l-section {
+    margin-top: 20px;
+  }
+  
+  .por-l-container {
+    max-width: 1280px; /* similar to container */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: white;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  
+  .por-l-row {
+    /* Optional: any specific row styles */
+  }
+  
+  .por-l-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .por-l-card {
+    border: 1px solid var(--border-color, #d1d5db); /* border-n30 equivalent */
+    border-radius: 16px;
+    padding: 16px;
+    display: block;
+    background: #fff;
+    width: 100%;
+  }
+  
+  .por-l-left-inner {
+    gap: 12px;
+  }
+  
+  .por-l-image-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .por-l-image {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    border-radius: 16px;
+  }
+  
+  .por-l-info-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .por-l-name {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  
+  .por-l-description {
+    margin-top: 8px;
+    color: var(--text-secondary, #6b7280); /* text-n400 */
+  }
+  
+  .por-l-categories {
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  
+  .por-l-category-badge {
+    background-color: var(--bg-primary-light, #eff6ff); /* bg-b50 */
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: var(--text-primary, #2563eb);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .por-l-category-more {
+    background-color: var(--bg-secondary-light, #fef3c7); /* bg-b100 */
+    color: var(--text-secondary-dark, #c2410c); /* text-b400 */
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+  
+  .por-l-pricing-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .por-l-pricing-box {
+    border: 1px solid var(--border-color, #d1d5db);
+    border-radius: 16px;
+    padding: 32px 24px;
+    text-align: center;
+    color: var(--text-secondary, #6b7280);
+    width: 100%;
+    max-width: 176px;
+  }
+  
+  .por-l-pricing-label {
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-bottom: 8px;
+  }
+  
+  .por-l-price {
+    color: var(--color-primary, #dc2626); /* text-r300 */
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+  
+  .por-l-fixed-price-label {
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-bottom: 24px;
+  }
+  
+  .por-l-view-details-btn {
+    width: 100%;
+    background-color: var(--color-primary, #2563eb);
+    border: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+  
+  .por-l-view-details-btn:hover,
+  .por-l-view-details-btn:focus {
+    background-color: var(--color-primary-hover, #1d4ed8);
+  }
+  .por-l-industry-location {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: var(--text-secondary, #6b7280); /* similar to description text */
+  }
+  
+  .por-l-industry,
+  .por-l-location {
+    font-weight: 500;
+  }
+  

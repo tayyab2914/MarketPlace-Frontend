@@ -15,10 +15,10 @@ const SignInFooter = () => {
       <Button variant="filled-animated" type="submit">
         <span>Sign In</span>
       </Button>
-      <div className="accounts-f-footer-text">
+      <div className="acc-pg-footer-text">
         <span>Don’t have an account?</span>
         <a
-          className="accounts-f-toggle-btn"
+          className="acc-pg-toggle-btn"
           onClick={() => router.push(ROUTES.signup)}
         >
           Sign Up with Email

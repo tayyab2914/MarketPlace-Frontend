@@ -1,4 +1,4 @@
-.breadcrumbs-section {
+.brdcrm-section {
     margin: 0 1rem;
     margin-top: 100px;
     border-radius: 1.5rem;
@@ -8,19 +8,19 @@
   }
   
   @media (min-width: 768px) {
-    .breadcrumbs-section {
+    .brdcrm-section {
       padding-bottom: 10rem; /* md:pb-40 */
     }
   }
   
   @media (min-width: 1024px) {
-    .breadcrumbs-section {
+    .brdcrm-section {
       border-radius: 60px;
       padding-bottom: 10.5rem; /* lg:pb-42 */
     }
   }
   
-  .breadcrumbs-container {
+  .brdcrm-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,13 +29,13 @@
     color: white;
   }
   
-  .breadcrumbs-heading {
+  .brdcrm-heading {
     margin: 0;
     font-size: 2rem;
     font-weight: bold;
   }
   
-  .breadcrumbs-list {
+  .brdcrm-list {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -45,11 +45,11 @@
     list-style: none;
   }
   
-  .breadcrumbs-last {
+  .brdcrm-last {
     color: #f87171; /* text-r300 */
   }
   
-  .breadcrumbs-separator {
+  .brdcrm-separator {
     color: #f87171; /* text-r300 */
   }
   

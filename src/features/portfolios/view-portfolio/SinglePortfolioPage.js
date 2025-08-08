@@ -4,10 +4,10 @@ import CPPAboutSection from "./components/CPPAboutSection";
 import CPPPPortfolioSection from "./components/CPPPortfolioSection";
 import CPPCallToAction from "./components/CPPCallToAction";
 import CPPFooter from "./components/CPPFooter";
-import {
-  API_GET_COMPANY_BY_ID,
-} from "@/apis/AccountApis";
+import { API_GET_COMPANY_BY_ID } from "@/apis/AccountApis";
 import { useSelector } from "react-redux";
+import "./styles/view-portfolio.css";
+import Footer from "@/components/layout/footer/Footer";
 
 const SinglePortfolioPage = ({ company_id }) => {
   const { token } = useSelector((state) => state.auth);
@@ -25,11 +25,11 @@ const SinglePortfolioPage = ({ company_id }) => {
   return (
     <div>
       <div>
-        <CPPHeader CompanyData={CompanyData} />
         <CPPAboutSection CompanyData={CompanyData} />
         <CPPPPortfolioSection CompanyData={CompanyData} />
         <CPPCallToAction CompanyData={CompanyData} />
-        <CPPFooter />
+        {/* <CPPFooter /> */}
+        <Footer />
       </div>
     </div>
   );

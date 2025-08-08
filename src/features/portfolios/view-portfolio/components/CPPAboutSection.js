@@ -5,42 +5,43 @@ import { HexagonImage } from "@/components/decor/hexagon-image/HexagonImage";
 
 const CPPAboutSection = ({ CompanyData }) => {
   const {
+    name = "",
     company_description = "",
     location = "",
     profile_image = null,
   } = CompanyData || {};
 
   return (
-    <section className="stp-30 sbp-30 mt-[100px] bg-bg2">
-      <div className="container flex max-md:flex-col items-center justify-start gap-6 md:gap-10 lg:gap-20">
-        <div className="max-md:overflow-hidden relative">
-          <HexagonImage src={profile_image} size={320}/>
+    <section className="cpp-section">
+      <div className="cpp-container">
+        <div className="cpp-image-wrapper">
+          <HexagonImage src={profile_image} size={320} />
         </div>
 
-        <div className="max-xl:overflow-hidden" id="about">
+        <div className="cpp-about-text" id="about">
           <p
-            className="heading-6"
+            className="cpp-heading-3"
             data-aos="fade-up"
             data-aos-duration="1000"
             data-aos-delay="0"
           >
-            * A 3-4 word tagline *
+            {name}
           </p>
 
           <div data-aos="fade-left" data-aos-duration="1000" data-aos-delay="0">
-            <h2 className="heading-2 pt-5">
+            <h2 className="cpp-heading-5 cpp-pt-5">
               Here brief description of 1-2 lines will be used currently this is
               dummy line
             </h2>
 
-            <div className="flex items-center justify-start gap-4 pt-2">
+            <div className="cpp-location-wrapper">
               <Image src={IMAGES.big_arrow_2} alt="Arrow" />
-              <h2 className="heading-2">based in {location}</h2>
+              <p className="cpp-heading-5">based in {location}</p>
             </div>
           </div>
 
           <p
-            className="pt-6 text-base font-medium text-n300 lg:text-xl"
+            className="cpp-description"
             data-aos="fade-down"
             data-aos-duration="1000"
             data-aos-delay="0"

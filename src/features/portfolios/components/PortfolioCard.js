@@ -1,6 +1,7 @@
 import { ROUTES } from "@/utils/Constants";
 import { useRouter } from "next/navigation";
 import React from "react";
+import { Row, Col, Button } from "antd";
 
 const PortfolioCard = ({ portfolio }) => {
   const services = portfolio?.services || [];
@@ -20,62 +21,76 @@ const PortfolioCard = ({ portfolio }) => {
   const remainingCount = uniqueCategories.length - categoriesToShow.length;
 
   return (
-    <div className="flex items-center justify-between gap-3 rounded-2xl border border-n30 p-3 max-md:flex-col">
-      {/* Left Side */}
-      <div className="flex items-center justify-start gap-6 max-xxl:gap-2 max-sm:flex-col">
-        {/* Profile Image */}
-        <div className="flex items-center justify-center self-stretch w-[150px] h-[150px]">
-          <img
-            src={
-              portfolio?.profile_image ||
-              "/assets/images/workers_profile_service_img-2.png"
-            }
-            className="min-w-[150px] h-auto object-contain rounded-2xl w-full pe-2"
-            alt={portfolio?.name || "Service Provider"}
-          />
-        </div>
+    <div className="por-l-card">
+      <Row
+        gutter={[24, 24]}
+        align="middle"
+        justify="space-between"
+        className="por-l-row"
+      >
+        {/* Left Side */}
+        <Col xs={24} md={16} className="por-l-left">
+          <Row
+            gutter={[16, 16]}
+            align="middle"
+            className="por-l-left-inner"
+            wrap
+          >
+            <Col flex="150px" className="por-l-image-col">
+              <img
+                src={
+                  portfolio?.profile_image ||
+                  "/assets/images/workers_profile_service_img-2.png"
+                }
+                alt={portfolio?.name || "Service Provider"}
+                className="por-l-image"
+              />
+            </Col>
+            <Col flex="auto" className="por-l-info-col">
+              <h3 className="por-l-name">{portfolio?.name || "No Name Provided"}</h3>
 
-        {/* Info */}
-        <div>
-          <h3 className="heading-3">{portfolio?.name || "No Name Provided"}</h3>
-          <p>{portfolio?.company_description}</p>
+              {/* Added Industry and Location here */}
+              <p className="por-l-industry-location">
+                <span className="por-l-industry">{portfolio?.industry || "Industry N/A"}</span>
+                {" • "}
+                <span className="por-l-location">{portfolio?.location || "Location N/A"}</span>
+              </p>
+              <p className="por-l-description">{portfolio?.company_description}</p>
 
-          {/* Categories */}
-          <div className="flex flex-wrap gap-1 pt-3 text-sm text-n400 xxl:pt-6">
-            {categoriesToShow.map((category, idx) => (
-              <p
-                key={idx}
-                className="flex items-center justify-center gap-2 rounded-xl bg-b50 px-3 py-2 font-medium"
-              >
-                <span>{category}</span>
-              </p>
-            ))}
-            {remainingCount > 0 && (
-              <p className="flex items-center justify-center gap-2 rounded-xl bg-b100 px-3 py-2 font-medium text-b400">
-                +{remainingCount} more
-              </p>
-            )}
+              <div className="por-l-categories">
+                {categoriesToShow.map((category, idx) => (
+                  <span key={idx} className="por-l-category-badge">
+                    {category}
+                  </span>
+                ))}
+                {remainingCount > 0 && (
+                  <span className="por-l-category-more">+{remainingCount} more</span>
+                )}
+              </div>
+            </Col>
+          </Row>
+        </Col>
+
+        {/* Right Side: Pricing */}
+        <Col xs={24} md={7} className="por-l-pricing-col">
+          <div className="por-l-pricing-box">
+            <div className="por-l-pricing-label">STARTING AT</div>
+            <div className="por-l-price">
+              {minPrice ? `Rs ${minPrice}` : "Not Set"}
+            </div>
+            <div className="por-l-fixed-price-label">Fixed Price</div>
+            <Button
+              type="primary"
+              className="por-l-view-details-btn"
+              onClick={() => router.push(`${ROUTES.viewPortfolio}${portfolio.id}`)}
+            >
+              View Details
+            </Button>
           </div>
-        </div>
-      </div>
-
-      {/* Right Side: Pricing */}
-      <div className="flex h-full w-full flex-col items-center justify-center rounded-2xl border border-n30 px-6 py-8 text-center text-n300 md:max-w-[176px]">
-        <div className="text-sm font-semibold">STARTING AT</div>
-        <div className="py-1 font-semibold text-r300">
-          {minPrice ? `Rs ${minPrice}` : "Not Set"}
-        </div>
-        <div className="pb-5 text-sm font-semibold">Fixed Price</div>
-        <a
-          onClick={() => router.push(`${ROUTES.viewPortfolio}${portfolio.id}`)}
-          className="relative flex items-center justify-center overflow-hidden rounded-full bg-b300 px-3 py-2 text-sm font-medium text-white duration-700 after:absolute after:inset-0 after:left-0 after:w-0 after:rounded-full after:bg-yellow-400 after:duration-700 hover:text-n900 hover:after:w-[calc(100%+2px)] lg:px-4 lg:py-3"
-        >
-          <span className="relative z-10">View Details</span>
-        </a>
-      </div>
+        </Col>
+      </Row>
     </div>
   );
 };
 
 export default PortfolioCard;
-

@@ -26,7 +26,7 @@ const Navbar = () => {
             </a>
           </div>
 
-          <nav className="nav-desktop-menu">
+          <nav className="nav-d-menu">
             <DesktopMenu />
           </nav>
 

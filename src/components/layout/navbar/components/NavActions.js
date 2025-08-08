@@ -26,7 +26,7 @@ const NavActions = () => {
       label: (
         <a
           onClick={() => router.push(ROUTES.createListing)}
-          className="nav-dropdown-item"
+          className="nav-a-item"
         >
           <ClipboardPlus size={16} style={{ marginRight: 8 }} />
           Post a Task
@@ -38,7 +38,7 @@ const NavActions = () => {
       label: (
         <a
           onClick={() => router.push(ROUTES.listOffers)}
-          className="nav-dropdown-item"
+          className="nav-a-item"
         >
           <Briefcase size={16} style={{ marginRight: 8 }} />
           Become a Tasker
@@ -51,7 +51,7 @@ const NavActions = () => {
           label: (
             <a
               onClick={() => router.push(ROUTES.signup)}
-              className="nav-dropdown-item"
+              className="nav-a-item"
             >
               <UserPlus size={16} style={{ marginRight: 8 }} />
               Sign up
@@ -74,7 +74,7 @@ const NavActions = () => {
                 },
               }}
             >
-              <span className="nav-dropdown-item">
+              <span className="nav-a-item">
                 <LogOut size={16} style={{ marginRight: 8 }} />
                 Logout
               </span>
@@ -84,10 +84,7 @@ const NavActions = () => {
     !is_user_logged_in && {
       key: "signin",
       label: (
-        <a
-          onClick={() => router.push(ROUTES.signin)}
-          className="nav-dropdown-item"
-        >
+        <a onClick={() => router.push(ROUTES.signin)} className="nav-a-item">
           <LogIn size={16} style={{ marginRight: 8 }} />
           Sign in
         </a>
@@ -96,28 +93,24 @@ const NavActions = () => {
   ].filter(Boolean);
 
   return (
-    <div className="nav-actions-container">
+    <div className="nav-a-container">
       {windowWidth < 992 ? (
         <Dropdown
           menu={{ items: menuItems }}
           trigger={["click"]}
-          className="nav-actions-dropdown"
+          className="nav-a-dropdown"
         >
-          <User2
-            className="nav-actions-dropdown-icon"
-            size={26}
-            strokeWidth={2}
-          />
+          <User2 className="nav-a-dropdown-icon" size={26} strokeWidth={2} />
         </Dropdown>
       ) : (
         <>
-          <ul className="nav-actions-list">
+          <ul className="nav-a-list">
             {!is_user_logged_in && (
               <>
                 <li>
                   <a
                     onClick={() => router.push(ROUTES.signup)}
-                    className="nav-link"
+                    className="nav-a-link"
                   >
                     Sign up
                   </a>
@@ -125,7 +118,7 @@ const NavActions = () => {
                 <li>
                   <a
                     onClick={() => router.push(ROUTES.signin)}
-                    className="nav-link"
+                    className="nav-a-link"
                   >
                     Sign in
                   </a>
@@ -134,19 +127,19 @@ const NavActions = () => {
             )}
           </ul>
 
-          <div className="nav-actions-buttons">
+          <div className="nav-a-buttons">
             <a
               onClick={() => router.push(ROUTES.createListing)}
-              className="nav-post-task-btn"
+              className="nav-a-post-task-btn"
             >
-              <span className="nav-post-task-text">Post a Task</span>
-              <i className="ph-bold ph-plus nav-post-task-icon"></i>
+              <span className="nav-a-post-task-text">Post a Task</span>
+              <i className="ph-bold ph-plus nav-a-post-task-icon"></i>
             </a>
             <a
               onClick={() => router.push(ROUTES.listOffers)}
-              className="nav-tasker-btn"
+              className="nav-a-tasker-btn"
             >
-              <span className="nav-tasker-text">Become a Tasker</span>
+              <span className="nav-a-tasker-text">Become a Tasker</span>
             </a>
           </div>
           {is_user_logged_in && (
@@ -163,7 +156,7 @@ const NavActions = () => {
                 },
               }}
             >
-              <span className="nav-dropdown-item nav-logout-icon">
+              <span className="nav-a-item nav-logout-icon">
                 <LogOut size={24} style={{ marginRight: 8 }} />
               </span>
             </Popconfirm>

@@ -4,18 +4,18 @@ import React from 'react';
 const MenuItemWithSubmenu = ({ title, links }) => {
   const router = useRouter();
   return (
-    <li className="nav-menu-item">
-      <div className="nav-submenu-title">
+    <li className="nav-d-menu-item">
+      <div className="nav-d-submenu-title">
         {title}
-        <i className="ph ph-caret-down nav-submenu-icon"></i>
+        <i className="ph ph-caret-down nav-d-submenu-icon"></i>
       </div>
 
-      <ul className="nav-submenu">
+      <ul className="nav-d-submenu">
         {links.map((link) => (
           <li key={link.label}>
             <a
               onClick={() => router.push(link.route)}
-              className="nav-submenu-item"
+              className="nav-d-submenu-item"
             >
               {link.label}
             </a>

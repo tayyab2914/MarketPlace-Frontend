@@ -7,7 +7,7 @@ const DesktopMenu = () => {
   const router = useRouter()
 
   return (
-    <ul className="nav-desktop-menu-inner">
+    <ul className="nav-d-menu-inner">
       {NAVBAR_MENU?.map((item) =>
         item?.type === "submenu" ? (
           <MenuItemWithSubmenu

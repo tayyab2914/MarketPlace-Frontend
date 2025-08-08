@@ -1,11 +1,17 @@
-.accounts-pg-decoration-col {
+.acc-pg-decoration-col {
     display: block;
     width: 100%;
   }
-  .accounts-f-logo {
-    height: 60px;
+  .acc-pg-logo {
+    height: 70px;
+    object-fit: contain;
   }
-  .accounts-pg-container {
+  .acc-pg-f-container{
+    display: flex;
+    flex-direction: column;
+
+  }
+  .acc-pg-container {
     height: 100vh;
     overflow-y: hidden;
     scrollbar-width: none;
@@ -13,19 +19,19 @@
     align-items: center;
     width: 100%;
   }
-  .accounts-pg-container .ant-input-group-addon {
+  .acc-pg-container .ant-input-group-addon {
     border: none !important;
     background-color: transparent !important;
   }
-  .accounts-pg-container .ant-input {
+  .acc-pg-container .ant-input {
     border: none !important;
     background-color: transparent !important;
   }
-  .accounts-pg-container .ant-form-item textarea {
+  .acc-pg-container .ant-form-item textarea {
     border: 1px solid rgba(236, 236, 239) !important;
     background-color: white !important;
   }
-  .accounts-f-input {
+  .acc-pg-input {
     border: 1px solid rgba(236, 236, 239);
     border-radius: 16px;
     height: 50px;
@@ -34,31 +40,32 @@
     padding-right: 8px;
     background-color: white;
   }
-  .accounts-f-form-steps{
+  .acc-pg-form-steps{
     display: flex;
     flex-direction: column;
     gap: 5px;
   }
-  .accounts-f-input .ant-row {
+  .acc-pg-input .ant-row {
     height: 50px !important;
   }
-  .accounts-pg-form-col {
-    padding: 0px 10px 0px 50px;
+  .acc-pg-form-col {
+    padding: 0px 0px 0px 50px;
     width: 100%;
   }
-  .accounts-f-welcome {
+  .acc-pg-welcome {
     font-weight: 700;
     font-size: 20px;
     margin-top: 32px;
+    margin-bottom: 0px;
   }
-  .accounts-f-form {
-    padding-top: 24px;
+  .acc-pg-form {
+    padding-top: 12px;
     display: flex;
     gap: 15px;
     flex-direction: column;
   }
   
-.accounts-f-footer-text {
+.acc-pg-footer-text {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -69,15 +76,15 @@
   font-weight: 500; /* font-medium */
 }
 
-.accounts-f-footer-text p {
+.acc-pg-footer-text p {
   color: var(--text-n300);
 }
 
-.accounts-f-footer-text a {
+.acc-pg-footer-text a {
   color: var(--bg-b300); /* text-b300 */
   text-decoration: underline;
 }
-.accounts-f-toggle-btn {
+.acc-pg-toggle-btn {
   color: rgb(0, 85, 255);
 }
 
@@ -90,10 +97,10 @@
   }
 }
 @media screen and (max-width: 992px) {
-  .accounts-pg-decoration-col {
+  .acc-pg-decoration-col {
     display: none;
   }
-  .accounts-pg-form-col {
+  .acc-pg-form-col {
     padding: 0px;
   }
 }

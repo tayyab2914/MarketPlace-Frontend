@@ -18,23 +18,23 @@ const ForgotPasswordForm = () => {
   };
 
   return (
-    <div className="accounts-f-container">
-      <Image src={IMAGES?.logo} alt="Logo" className="accounts-f-logo" />
-      <p className="accounts-f-welcome">Welcome to Servibe</p>
+    <div className="acc-pg-f-container">
+      <img src={IMAGES?.logo} alt="Logo" className="acc-pg-logo" />
+      <p className="acc-pg-welcome">Welcome to Servibe</p>
 
       <Form
         form={form}
         layout="vertical"
         onFinish={onFinish}
         autoComplete="off"
-        className="accounts-f-form"
+        className="acc-pg-form"
       >
         <CustomInputField
           name="email"
           placeholder="Enter your email"
           inputType="input"
           rules={emailRules}
-          className="accounts-f-input"
+          className="acc-pg-input"
           addonBefore={<Mail strokeWidth={1} />}
         />
         <Button variant="filled-animated" type="submit">
