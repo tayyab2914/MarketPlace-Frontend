@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import AboutUsPage from "@/features/about-us/AboutUsPage";
 import React, { useEffect } from "react";
 import { initializeScript } from "../../../public/assets/js/main";

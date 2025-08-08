@@ -1,15 +1,16 @@
 import Navbar from "@/components/layout/navbar/Navbar";
 import React from "react";
-import PrivacyBreadCrumbs from "./components/PrivacyBreadCrumbs";
-import PrivacyFaq from "./components/PrivacyFaq";
+import PrivacyInfo from "./components/PrivacyInfo";
 import Footer from "@/components/layout/footer/Footer";
+import BreadCrumbs from "@/components/layout/breadcrumb/BreadCrumbs";
+import { BREADCRUMBS } from "@/utils/BreadCrumbs";
 
 const PrivacyPolicyPage = () => {
   return (
     <div>
       <Navbar />
-      <PrivacyBreadCrumbs />
-      <PrivacyFaq />
+      <BreadCrumbs items={BREADCRUMBS?.privacyPolicy}/>
+      <PrivacyInfo />
       <Footer />
     </div>
   );

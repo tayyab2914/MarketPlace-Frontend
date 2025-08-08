@@ -1,28 +1,27 @@
 "use client";
 import Navbar from "@/components/layout/navbar/Navbar";
 import React from "react";
-import AboutBreadCrumbs from "./components/AboutBreadCrumbs";
 import AboutInfo from "./components/AboutInfo";
 import AboutHowServiceWork from "./components/AboutHowServiceWork";
-import AboutTopExpert from "./components/AboutTopExpert";
 import "./styles/about-us.css";
-import AboutTestimonials from "./components/AboutTestimonials";
-import AboutFAQ from "./components/AboutFAQ";
 import Footer from "@/components/layout/footer/Footer";
+import { BREADCRUMBS } from "@/utils/BreadCrumbs";
+import BreadCrumbs from "@/components/layout/breadcrumb/BreadCrumbs";
+import FaqComponent from "@/components/layout/faq/FaqComponent";
+import { ABOUT_US_CONTENT } from "@/constants/static-pages/about-us";
+import TopExpertsComponent from "@/components/decor/top-experts/TopExpertsComponent";
+import TestimonialsComponent from "@/components/decor/testimonials/TestimonialsComponent";
 
 const AboutUsPage = () => {
   return (
     <div>
       <Navbar />
-
-      <AboutBreadCrumbs />
-
+      <BreadCrumbs items={BREADCRUMBS.aboutUs} />
       <AboutInfo />
       <AboutHowServiceWork />
-      <AboutTopExpert />
-
-      <AboutFAQ />
-      <AboutTestimonials />
+      <TopExpertsComponent />
+      <FaqComponent questionnaire={ABOUT_US_CONTENT} />
+      <TestimonialsComponent />
       <Footer />
     </div>
   );

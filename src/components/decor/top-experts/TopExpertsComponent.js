@@ -1,0 +1,135 @@
+import { TOP_EXPERTS_CONTENT } from "@/constants/static-pages/top-experts";
+import { ROUTES } from "@/utils/Constants";
+import { useRouter } from "next/navigation";
+import React from "react";
+
+const TopExpertsComponent = () => {
+  const { header, experts } = TOP_EXPERTS_CONTENT;
+  const router = useRouter()
+
+  return (
+    <section className="stp-30 sbp-30">
+      <div className="container">
+        {/* Header */}
+        <div className="flex items-center justify-between gap-2">
+          <div className="flex max-w-[300px] flex-col">
+            <h2 className="heading-2 font-bold text-n900">
+              Top{" "}
+              <span className="text-b300 underline">{header?.highlightWord}</span>
+            </h2>
+            <p className="pt-4 font-medium text-n500">{header?.description}</p>
+          </div>
+          <div>
+            <a
+              onClick={()=>router.push(ROUTES.portfolios)}
+              className="flex items-center justify-start gap-3 font-bold duration-300 hover:text-b300"
+            >
+              {header?.allExpertsLink?.text}
+              <i className={header?.allExpertsLink?.iconClass}></i>
+            </a>
+          </div>
+        </div>
+
+        {/* Experts List */}
+        <div className="stp-15 grid grid-cols-12 gap-6">
+          {experts?.map((expert) => (
+            <div
+              key={expert?.id}
+              className="col-span-12 flex flex-col gap-6 rounded-3xl border border-n40 bg-n10 py-6 md:col-span-6 xl:col-span-4"
+              data-aos="fade-up"
+              data-aos-delay="0"
+              data-aos-duration="1000"
+            >
+              {/* Expert info */}
+              <div className="flex items-center justify-start gap-3 px-6">
+                <div className="relative max-md:overflow-hidden">
+                  <img
+                    src={expert?.verifiedBadgeImage}
+                    alt="Verified badge"
+                    className="absolute bottom-3 right-1 z-30"
+                  />
+                </div>
+
+                <div className="max-[350px]:max-w-20">
+                  <div className="flex items-center justify-start gap-3">
+                    <h5 className="heading-5">{expert?.name}</h5>
+                    {expert?.badges.map((badge, i) => (
+                      <p
+                        key={i}
+                        className="rounded-full bg-y300 px-2 py-1 text-xs font-medium"
+                      >
+                        {badge}
+                      </p>
+                    ))}
+                  </div>
+                  <p className="pt-2 text-n500">{expert?.location}</p>
+                </div>
+              </div>
+
+              {/* Pricing & tags */}
+              <div className="flex flex-wrap gap-2 px-6 text-[13px]">
+                <p className="rounded-full bg-r50 px-2 py-1 font-medium text-r300">
+                  {expert?.priceRange}
+                </p>
+                {expert?.tags.map((tag, i) => (
+                  <p
+                    key={i}
+                    className="rounded-full bg-g50 px-2 py-1 font-medium text-g400"
+                  >
+                    {tag}
+                  </p>
+                ))}
+              </div>
+
+              {/* Skills */}
+              <div className="flex flex-wrap gap-2 px-6 text-n400">
+                {expert?.skills.map((skill, i) => (
+                  <p
+                    key={i}
+                    className="rounded-xl bg-b50 px-3 py-2 font-medium flex items-center gap-2"
+                  >
+                    {/* For simplicity, no icons here; client can add icons if needed */}
+                    {skill}
+                  </p>
+                ))}
+              </div>
+
+              {/* Slider Images */}
+              <div className="relative">
+                <div className="swiper expert-slider-carousel group">
+                  <div className="swiper-wrapper">
+                    {expert?.sliderImages.map((imgSrc, i) => (
+                      <div key={i} className="swiper-slide">
+                        <img src={imgSrc} alt="" className="w-full" />
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* You can add your swiper prev/next buttons here */}
+                </div>
+              </div>
+
+              {/* Actions */}
+              {/* <div className="flex items-center justify-start gap-2 px-6">
+                <a
+                  href={expert?.profileLink}
+                  className="relative w-full overflow-hidden rounded-full bg-n700 px-6 py-3 text-sm font-semibold text-white duration-700 hover:text-n900 hover:after:w-[calc(100%+2px)]"
+                >
+                  <div className="relative z-20 flex items-center justify-center gap-3">
+                    <i className="ph ph-paper-plane-tilt text-xl !leading-none"></i>
+                    <span>Get in touch</span>
+                  </div>
+                </a>
+                <button className="relative flex items-center justify-center rounded-full border p-3 text-xl !leading-none duration-500 hover:bg-y300">
+                  <i className="ph ph-heart"></i>
+                </button>
+              </div> */}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default TopExpertsComponent;

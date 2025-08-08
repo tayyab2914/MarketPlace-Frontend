@@ -1,15 +1,16 @@
 import Navbar from "@/components/layout/navbar/Navbar";
 import React from "react";
-import TACPBreadcrumbs from "./components/TACPBreadcrumbs";
-import TACPFaqSection from "./components/TACPFaqSection";
+import TACPInfoSection from "./components/TACPInfoSection";
 import Footer from "@/components/layout/footer/Footer";
+import BreadCrumbs from "@/components/layout/breadcrumb/BreadCrumbs";
+import { BREADCRUMBS } from "@/utils/BreadCrumbs";
 
 const TermsAndConditionsPage = () => {
   return (
     <div>
       <Navbar />
-      <TACPBreadcrumbs />
-      <TACPFaqSection />
+      <BreadCrumbs items={BREADCRUMBS?.termsAndConditions}/>
+      <TACPInfoSection />
       <Footer />
     </div>
   );

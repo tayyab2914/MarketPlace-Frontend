@@ -1,10 +1,17 @@
+import { CONTACT_US_CONTENT } from "@/constants/static-pages/contact-us";
 import React from "react";
 
 const ContactSection = () => {
+  const {
+    email = "",
+    visitUs = {},
+    timing = "",
+    phone_num = "",
+  } = CONTACT_US_CONTENT || {};
   return (
     <div>
       {/* <!-- Contact Section Start --> */}
-      <section className="sbp-15">
+      <section className="">
         <div className="container -mt-40 rounded-xl bg-white p-2 sm:p-4 md:rounded-3xl xl:rounded-[60px] xl:p-15">
           <div className="grid grid-cols-12 gap-6">
             <div className="col-span-12 flex flex-col items-center justify-center rounded-3xl border border-n30 p-6 md:col-span-4 lg:p-10">
@@ -15,8 +22,8 @@ const ContactSection = () => {
               <p className="pb-6 text-sm font-medium text-n300">
                 Speak to our friendly team.
               </p>
-              <a href="mailto:support@servibe.com" className="font-medium">
-                support@servibe.com
+              <a href={`mailto:${email}`} className="font-medium">
+                {email}
               </a>
             </div>
             <div className="col-span-12 flex flex-col items-center justify-center rounded-3xl border border-n30 p-6 md:col-span-4 lg:p-10">
@@ -25,9 +32,14 @@ const ContactSection = () => {
               </div>
               <h4 className="heading-4 pt-6">Visit us</h4>
               <p className="pb-6 text-sm font-medium text-n300">
-                Visit our office HQ.
+                {visitUs?.text}
               </p>
-              <a href="mailto:support@servibe.com" className="font-medium">
+              <a
+                href={visitUs?.mapLocation}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium"
+              >
                 View on Google Maps
               </a>
             </div>
@@ -36,16 +48,14 @@ const ContactSection = () => {
                 <i className="ph-fill ph-phone-call"></i>
               </div>
               <h4 className="heading-4 pt-6">Contact Us</h4>
-              <p className="pb-6 text-sm font-medium text-n300">
-                Mon-Fri from 8am to 5pm.
-              </p>
+              <p className="pb-6 text-sm font-medium text-n300">{timing}</p>
               <a href="mailto:support@servibe.com" className="font-medium">
-                (239) 555-0108
+                {phone_num}
               </a>
             </div>
           </div>
 
-          <div className="stp-15 grid grid-cols-12 gap-6">
+          {/* <div className="stp-15 grid grid-cols-12 gap-6">
             <div className="col-span-12 flex items-center justify-center self-stretch overflow-hidden rounded-3xl md:col-span-4">
               <img
                 src="./assets/images/contact_img.png"
@@ -96,7 +106,7 @@ const ContactSection = () => {
                 </div>
               </form>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
 
