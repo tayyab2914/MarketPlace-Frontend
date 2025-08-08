@@ -6,7 +6,7 @@ import AuthRedirect from "@/utils/AuthRedirect";
 const page = () => {
   return (
     <>
-      <AuthRedirect>
+      <AuthRedirect allowLoggedIn={false}>
         <AppContainer>
           <ForgotPasswordPage />
         </AppContainer>

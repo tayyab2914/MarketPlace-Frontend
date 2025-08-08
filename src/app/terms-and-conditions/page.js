@@ -1,25 +1,16 @@
-'use client'
-import React, { useEffect } from "react";
-import { initializeScript } from "../../../public/assets/js/main";
+"use client";
+import React from "react";
 import TermsAndConditionsPage from "@/features/terms-and-conditions/TermsAndConditionsPage";
 
-const page = () => {
-  useEffect(() => {
-    const handleDomReady = () => {
-      initializeScript();
-    };
+import Navbar from "@/components/layout/navbar/Navbar";
+import BreadCrumbs from "@/components/layout/breadcrumb/BreadCrumbs";
+import { BREADCRUMBS } from "@/utils/BreadCrumbs";
 
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", handleDomReady);
-      return () => {
-        document.removeEventListener("DOMContentLoaded", handleDomReady);
-      };
-    } else {
-      handleDomReady();
-    }
-  }, []);
+const page = () => {
   return (
     <div>
+      <Navbar />
+      <BreadCrumbs items={BREADCRUMBS?.termsAndConditions} />
       <TermsAndConditionsPage />
     </div>
   );

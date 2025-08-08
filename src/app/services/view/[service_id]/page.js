@@ -1,30 +1,17 @@
-
-'use client'
+"use client";
+import React from "react";
 import ViewServicePage from "@/features/services/view/ViewServicePage";
-import React, { useEffect } from "react";
-import { initializeScript } from "../../../../../public/assets/js/main";
-
-// Example function to fetch service by ID (replace with your actual API call)
+import Navbar from "@/components/layout/navbar/Navbar";
+import BreadCrumbs from "@/components/layout/breadcrumb/BreadCrumbs";
+import { BREADCRUMBS } from "@/utils/BreadCrumbs";
 
 const Page = async ({ params }) => {
-  useEffect(() => {
-    const handleDomReady = () => {
-      initializeScript();
-    };
-
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", handleDomReady);
-      return () => {
-        document.removeEventListener("DOMContentLoaded", handleDomReady);
-      };
-    } else {
-      handleDomReady();
-    }
-  }, []);
   const { service_id } = params;
 
   return (
     <div>
+      <Navbar />
+      <BreadCrumbs type="normal" items={BREADCRUMBS?.serviceView} />
       <ViewServicePage service_id={service_id} />
     </div>
   );

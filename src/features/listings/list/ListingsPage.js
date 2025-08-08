@@ -1,11 +1,8 @@
-import Navbar from "@/components/layout/navbar/Navbar";
 import React, { useEffect, useState } from "react";
 import "./styles/listing-page.css";
 import { useSelector } from "react-redux";
 import { API_LISTING_LIST } from "@/apis/ListingApis";
 import ListingContent from "./components/ListingContent";
-import { BREADCRUMBS } from "@/utils/BreadCrumbs";
-import BreadCrumbs from "@/components/layout/breadcrumb/BreadCrumbs";
 
 const ListingsPage = () => {
   const { token } = useSelector((state) => state.auth);
@@ -13,7 +10,7 @@ const ListingsPage = () => {
 
   const getListings = async () => {
     const res = await API_LISTING_LIST(token);
-    console.log(res)
+    console.log(res);
     setListings(res?.data);
   };
 
@@ -23,8 +20,6 @@ const ListingsPage = () => {
 
   return (
     <div>
-      <Navbar />
-      <BreadCrumbs items={BREADCRUMBS.listingsList} />
       <ListingContent Listings={Listings} />
     </div>
   );

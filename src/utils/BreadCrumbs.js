@@ -40,4 +40,18 @@ export const BREADCRUMBS = {
     { url: ROUTES.listListings, name: "Listings" },
     { url: ROUTES.listingsCreate, name: "Create Listing" },
   ],
+  portfolio: [
+    { url: ROUTES.home, name: "Home" },
+    { url: ROUTES.portfolios, name: "Portfolios" },
+  ],
+  serviceView: [
+    { url: ROUTES.home, name: "Home" },
+    { url: ROUTES.listServices, name: "Services" },
+    { url: ROUTES.servicesCreate, name: "View Service" },
+  ],
+  offerPage: [
+    { url: ROUTES.home, name: "Home" },
+    { url: ROUTES.listListings, name: "Listings" },
+    { url: ROUTES.createOffer, name: "Send Offer" },
+  ],
 };

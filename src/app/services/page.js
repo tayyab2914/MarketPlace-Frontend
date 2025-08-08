@@ -1,29 +1,17 @@
 "use client";
 import ServicesPage from "@/features/services/list/ServicesPage";
-import React, { useEffect } from "react";
-import { initializeScript } from "../../../public/assets/js/main";
+import React from "react";
 import AuthRedirect from "@/utils/AuthRedirect";
+import Navbar from "@/components/layout/navbar/Navbar";
+import BreadCrumbs from "@/components/layout/breadcrumb/BreadCrumbs";
+import { BREADCRUMBS } from "@/utils/BreadCrumbs";
 const page = () => {
-  useEffect(() => {
-    const handleDomReady = () => {
-      initializeScript();
-    };
-
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", handleDomReady);
-      return () => {
-        document.removeEventListener("DOMContentLoaded", handleDomReady);
-      };
-    } else {
-      handleDomReady();
-    }
-  }, []);
   return (
-    <div>
-      <AuthRedirect allowLoggedIn>
-        <ServicesPage />
-      </AuthRedirect>
-    </div>
+    <AuthRedirect allowLoggedIn>
+      <Navbar />
+      <BreadCrumbs items={BREADCRUMBS?.servicesList} />
+      <ServicesPage />
+    </AuthRedirect>
   );
 };
 

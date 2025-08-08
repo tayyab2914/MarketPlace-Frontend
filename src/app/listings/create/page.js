@@ -1,27 +1,19 @@
 "use client";
 import CreateListingPage from "@/features/listings/create/CreateListingPage";
-import React, { useEffect } from "react";
-import { initializeScript } from "../../../../public/assets/js/main";
-import BackgroundBubbles from "@/components/ui/BackgroundBubbles/BackgroundBubbles";
+import React from "react";
+import Navbar from "@/components/layout/navbar/Navbar";
+import BreadCrumbs from "@/components/layout/breadcrumb/BreadCrumbs";
+import { BREADCRUMBS } from "@/utils/BreadCrumbs";
+import AuthRedirect from "@/utils/AuthRedirect";
 
 const page = () => {
-  useEffect(() => {
-    const handleDomReady = () => {
-      initializeScript();
-    };
-
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", handleDomReady);
-      return () => {
-        document.removeEventListener("DOMContentLoaded", handleDomReady);
-      };
-    } else {
-      handleDomReady();
-    }
-  }, []);
 
   return (
-    <CreateListingPage />
+    <AuthRedirect allowLoggedIn>
+      <Navbar />
+      <BreadCrumbs items={BREADCRUMBS?.servicesCreate} />
+      <CreateListingPage />
+    </AuthRedirect>
   );
 };
 

@@ -7,11 +7,10 @@ import React from "react";
 const page = () => {
   return (
     <>
-      {" "}
-      <AuthRedirect>
+      <AuthRedirect allowLoggedIn={false}>
         <AppContainer>
           <SignUpPage />
-        </AppContainer>{" "}
+        </AppContainer>
       </AuthRedirect>
     </>
   );

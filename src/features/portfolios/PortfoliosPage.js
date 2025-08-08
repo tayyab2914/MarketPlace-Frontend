@@ -6,6 +6,7 @@ const PortfoliosPage = () => {
   return (
     <div>
       <Navbar />
+
       <PortfolioList />
     </div>
   );

@@ -1,31 +1,19 @@
 "use client";
 import CreateOfferPage from "@/features/offers/CreateOfferPage";
-import React, { useEffect } from "react";
-import { initializeScript } from "../../../../public/assets/js/main";
-import BackgroundBubbles from "@/components/ui/BackgroundBubbles/BackgroundBubbles";
+import React from "react";
+import BreadCrumbs from "@/components/layout/breadcrumb/BreadCrumbs";
+import { BREADCRUMBS } from "@/utils/BreadCrumbs";
+import Navbar from "@/components/layout/navbar/Navbar";
+import AuthRedirect from "@/utils/AuthRedirect";
 
 const Page = () => {
-  useEffect(() => {
-    const handleDomReady = () => {
-      initializeScript();
-    };
-
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", handleDomReady);
-      return () => {
-        document.removeEventListener("DOMContentLoaded", handleDomReady);
-      };
-    } else {
-      handleDomReady();
-    }
-  }, []);
 
   return (
-    <div>
-      <BackgroundBubbles>
-        <CreateOfferPage />
-      </BackgroundBubbles>
-    </div>
+    <AuthRedirect allowLoggedIn>
+      <Navbar />
+      <BreadCrumbs items={BREADCRUMBS?.offerPage} />
+      <CreateOfferPage />
+    </AuthRedirect>
   );
 };
 

@@ -1,27 +1,13 @@
 "use client";
-import React, { useEffect } from "react";
-import { initializeScript } from "../../../public/assets/js/main";
+import React from "react";
 import PortfoliosPage from "@/features/portfolios/PortfoliosPage";
+import AuthRedirect from "@/utils/AuthRedirect";
 
 const page = () => {
-  useEffect(() => {
-    const handleDomReady = () => {
-      initializeScript();
-    };
-
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", handleDomReady);
-      return () => {
-        document.removeEventListener("DOMContentLoaded", handleDomReady);
-      };
-    } else {
-      handleDomReady();
-    }
-  }, []);
   return (
-    <div>
+    <AuthRedirect allowLoggedIn>
       <PortfoliosPage />
-    </div>
+    </AuthRedirect>
   );
 };
 

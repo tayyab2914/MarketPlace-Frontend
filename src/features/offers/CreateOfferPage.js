@@ -8,7 +8,6 @@ import { Calendar, DollarSign } from "lucide-react";
 import { useSelector } from "react-redux";
 import "./styles/create-offer.css";
 import { API_OFFER_CREATE } from "@/apis/OfferApis";
-import Navbar from "@/components/layout/navbar/Navbar";
 import { ROUTES } from "@/utils/Constants";
 
 const initialFormValues = {
@@ -38,13 +37,10 @@ const CreateOfferPage = () => {
   };
 
   return (
-    <>
-      <Navbar />
-      <div
-        className="min-h-screen flex items-center justify-center px-4 "
-        style={{ paddingTop: "90px" }} // adjust based on your navbar height
-      >
-        <div className="w-full max-w-2xl rounded-3xl border border-gray-300 p-6 sm:p-8 shadow-sm bg-white">
+    <div>
+      <div className="max-w-4xl mx-auto -mt-40 rounded-xl bg-white p-2 sm:p-4 md:rounded-3xl xl:rounded-[60px] xl:p-15">
+        <div className="w-full rounded-3xl border border-gray-300 p-6 sm:p-8 shadow-sm bg-white">
+         
           <h4 className="crt-off-title">Send an Offer</h4>
 
           <Form
@@ -84,7 +80,7 @@ const CreateOfferPage = () => {
           </Form>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
