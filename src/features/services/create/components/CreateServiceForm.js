@@ -29,14 +29,14 @@ const CreateServiceForm = () => {
 <div className="max-w-4xl mx-auto -mt-40 rounded-xl bg-white p-2 sm:p-4 md:rounded-3xl xl:rounded-[60px] xl:p-15">
 
       <div className="w-full rounded-3xl border border-gray-300 p-6 sm:p-8 shadow-sm bg-white">
-        <h4 className="crt-srv-title">Service Information</h4>
+        <h4 className="srv-crt-title">Service Information</h4>
 
         <Form
           form={form}               
           layout="vertical"
           onFinish={onFinish}
           requiredMark={false}
-          className="crt-srv-form"
+          className="srv-crt-form"
         >
           <CustomInputField
             inputType="input"
@@ -44,7 +44,7 @@ const CreateServiceForm = () => {
             label="Title"
             placeholder="Enter service title"
             rules={titleRules}
-            className={"crt-srv-input-field"}
+            className={"srv-crt-input-field"}
             addonBefore={<Edit3 size={16} strokeWidth={1} />}
           />
 
@@ -54,7 +54,7 @@ const CreateServiceForm = () => {
             label="Description"
             placeholder="Enter service description"
             rules={descriptionRules}
-            className={"crt-srv-input-field"}
+            className={"srv-crt-input-field"}
           />
 
           <CustomInputField
@@ -63,7 +63,7 @@ const CreateServiceForm = () => {
             label="Category"
             placeholder="e.g. Design"
             rules={categoryRules}
-            className={"crt-srv-input-field"}
+            className={"srv-crt-input-field"}
             addonBefore={<Tag size={16} strokeWidth={1} />}
           />
 
@@ -73,7 +73,7 @@ const CreateServiceForm = () => {
             label="Price Starting From ($)"
             placeholder="e.g. 1200"
             rules={priceRules}
-            className={"crt-srv-input-field"}
+            className={"srv-crt-input-field"}
             addonBefore={<DollarSign size={16} strokeWidth={1} />}
           />
 

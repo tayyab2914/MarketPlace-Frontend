@@ -41,21 +41,21 @@ const CreateOfferPage = () => {
       <div className="max-w-4xl mx-auto -mt-40 rounded-xl bg-white p-2 sm:p-4 md:rounded-3xl xl:rounded-[60px] xl:p-15">
         <div className="w-full rounded-3xl border border-gray-300 p-6 sm:p-8 shadow-sm bg-white">
          
-          <h4 className="crt-off-title">Send an Offer</h4>
+          <h4 className="off-crt-title">Send an Offer</h4>
 
           <Form
             form={form}
             layout="vertical"
             onFinish={onFinish}
             requiredMark={false}
-            className="crt-off-form"
+            className="off-crt-form"
           >
             <CustomInputField
               inputType="textarea"
               name="message"
               label="Message"
               placeholder="Enter message"
-              className={"crt-off-input-field"}
+              className={"off-crt-input-field"}
             />
             <CustomInputField
               inputType="number"
@@ -63,7 +63,7 @@ const CreateOfferPage = () => {
               label="Proposed Price ($)"
               placeholder="e.g. 4000"
               addonBefore={<DollarSign size={16} strokeWidth={1} />}
-              className={"crt-off-input-field"}
+              className={"off-crt-input-field"}
             />
             <CustomInputField
               inputType="number"
@@ -71,7 +71,7 @@ const CreateOfferPage = () => {
               label="Estimated Delivery Days ($)"
               placeholder="e.g. 10"
               addonBefore={<Calendar size={16} strokeWidth={1} />}
-              className={"crt-off-input-field"}
+              className={"off-crt-input-field"}
             />
 
             <Button variant="filled-animated" type="submit" h="50px">

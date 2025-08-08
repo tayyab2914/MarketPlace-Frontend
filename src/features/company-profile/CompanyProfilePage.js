@@ -15,17 +15,6 @@ const CompanyProfilePage = ({ company_id }) => {
     const res = await API_GET_COMPANY_PROFILE(token);
     console.log(res);
     setCompanyData(res?.data)
-    //   {
-    //     "message": "Company profile retrieved successfully.",
-    //     "data": {
-    //         "name": "Muhaman Ijaz",
-    //         "company_description": null,
-    //         "phone_no": "03224922848",
-    //         "industry": "Rugs",
-    //         "location": "Naulakha Bazar Lahore",
-    //         "profile_image": null
-    //     }
-    // }
   };
   useEffect(() => {
     console.log(company_id);

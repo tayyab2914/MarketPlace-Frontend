@@ -7,7 +7,7 @@ const SignInFooter = () => {
   return (
     <div>
       <div
-        className="signin-f-forgot-password"
+        className="acc-si-pg-forgot-password"
         onClick={() => router.push(ROUTES.forgotPassword)}
       >
         Forgot Password?

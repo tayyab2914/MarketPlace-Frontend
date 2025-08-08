@@ -8,20 +8,20 @@ console.log(categories,selected)
 
   return (
     <div
-      className="srv-p-categorys"
+      className="lis-lis-categorys"
       onClick={() => setIsOpen((prev) => !prev)}
     >
-      <span className="srv-p-category-text">
-        {selected || <span><span className="srv-p-hide-400">Select your</span> category</span>}
+      <span className="lis-lis-category-text">
+        {selected || <span><span className="lis-lis-hide-400">Select your</span> category</span>}
       </span>
       <i className="ph ph-caret-down"></i>
 
       {isOpen && (
-        <div className="srv-p-dropdown">
+        <div className="lis-lis-dropdown">
           {categories?.map((category) => (
             <p
               key={category}
-              className="srv-p-category-item"
+              className="lis-lis-category-item"
               onClick={(e) => {
                 e.stopPropagation()
                 setSelected(category);

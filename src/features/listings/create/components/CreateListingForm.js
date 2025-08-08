@@ -51,14 +51,14 @@ const CreateListingForm = () => {
     <div className="max-w-4xl mx-auto -mt-40 rounded-xl bg-white p-2 sm:p-4 md:rounded-3xl xl:rounded-[60px] xl:p-15">
     
           <div className="w-full rounded-3xl border border-gray-300 p-6 sm:p-8 shadow-sm bg-white">
-        <h4 className="crt-lis-title">Listing Information</h4>
+        <h4 className="lis-crt-title">Listing Information</h4>
 
         <Form
           form={form}
           layout="vertical"
           onFinish={onFinish}
           requiredMark={false}
-          className="crt-lis-form"
+          className="lis-crt-form"
         >
           <CustomInputField
             inputType="input"
@@ -66,7 +66,7 @@ const CreateListingForm = () => {
             label="Title"
             placeholder="Enter service title"
             addonBefore={<Edit3 size={16} strokeWidth={1} />}
-            className={"crt-lis-input-field"}
+            className={"lis-crt-input-field"}
           />
 
           <CustomInputField
@@ -74,7 +74,7 @@ const CreateListingForm = () => {
             name="description"
             label="Description"
             placeholder="Enter service description"
-            className={"crt-lis-input-field"}
+            className={"lis-crt-input-field"}
           />
 
           <CustomInputField
@@ -83,7 +83,7 @@ const CreateListingForm = () => {
             label="Category"
             placeholder="e.g. Design"
             addonBefore={<Tag size={16} strokeWidth={1} />}
-            className={"crt-lis-input-field"}
+            className={"lis-crt-input-field"}
           />
 
           <CustomInputField
@@ -93,7 +93,7 @@ const CreateListingForm = () => {
             placeholder="Select tags"
             mode="tags"
             options={tagOptions}
-            className={"crt-lis-input-field"}
+            className={"lis-crt-input-field"}
           />
 
           <CustomInputField
@@ -102,7 +102,7 @@ const CreateListingForm = () => {
             label="Budget ($)"
             placeholder="e.g. 4000"
             addonBefore={<DollarSign size={16} strokeWidth={1} />}
-            className={"crt-lis-input-field"}
+            className={"lis-crt-input-field"}
           />
 
           <CustomInputField
@@ -110,7 +110,7 @@ const CreateListingForm = () => {
             name="deadline"
             label="Deadline"
             type="date"
-            className={"crt-lis-input-field"}
+            className={"lis-crt-input-field"}
           />
 
           <CustomInputField

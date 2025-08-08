@@ -28,13 +28,13 @@ const ServiceContent = ({ Services }) => {
 
   return (
     <div className="container -mt-40 rounded-xl bg-white p-2 sm:p-2 md:rounded-3xl xl:rounded-[60px] xl:p-10">
-      <section className="service-search-section">
-        <div className="search-box">
+      <section className="srv-lis-section">
+        <div className="srv-lis-search-box">
           <SearchForm setFilters={setFilters} Services={Services} />
         </div>
       </section>
 
-      <section className="service-list-section">
+      <section className="srv-lis-section">
           <Row gutter={[24, 24]}>
             {paginatedData?.length ? (
               paginatedData.map((service) => (

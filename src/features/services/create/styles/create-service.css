@@ -1,8 +1,8 @@
-.crt-srv-title {
+.srv-crt-title {
   font-weight: 700;
   font-size: 22px;
 }
-.crt-srv-input-field {
+.srv-crt-input-field {
   border: 1px solid rgba(236, 236, 239);
   border-radius: 16px;
   height: 50px;
@@ -11,7 +11,7 @@
   padding-right: 8px;
   background-color: white;
 }
-.crt-srv-form {
+.srv-crt-form {
   display: flex;
   flex-direction: column;
   gap: 5px;

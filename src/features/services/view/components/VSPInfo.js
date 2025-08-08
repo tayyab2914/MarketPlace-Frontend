@@ -5,37 +5,37 @@ const VSPInfo = ({ ServiceDetails }) => {
   console.log(ServiceDetails);
 
   return (
-    <div className="srv-v-wrapper">
-      <div className="srv-v-grid">
+    <div className="srv-viw-wrapper">
+      <div className="srv-viw-grid">
         {/* Left image */}
-        <div className="srv-v-image-wrapper">
+        <div className="srv-viw-image-wrapper">
           <img
             src="/assets/images/worker-details-img.png"
-            className="srv-v-main-image"
+            className="srv-viw-main-image"
             alt=""
           />
         </div>
 
         {/* Right info section */}
-        <div className="srv-v-info">
-          <div className="srv-v-info-header">
-            <h3 className="srv-v-title">{ServiceDetails?.title}</h3>
-            <p className="srv-v-description">{ServiceDetails?.description}</p>
+        <div className="srv-viw-info">
+          <div className="srv-viw-info-header">
+            <h3 className="srv-viw-title">{ServiceDetails?.title}</h3>
+            <p className="srv-viw-description">{ServiceDetails?.description}</p>
 
-            <div className="srv-v-company-info">
-              <div className="srv-v-hexagon-container">
+            <div className="srv-viw-company-info">
+              <div className="srv-viw-hexagon-container">
                 <HexagonImage src={''} size={140} />
-                <div className="srv-v-verify-badge">
+                <div className="srv-viw-verify-badge">
                   <img src="/assets/images/verify-badge.png" alt="" />
                 </div>
               </div>
 
-              <div className="srv-v-company-text">
-                <div className="srv-v-company-header">
-                  <h5 className="srv-v-company-name">{ServiceDetails?.company}</h5>
-                  <p className="srv-v-pro-badge">PRO</p>
+              <div className="srv-viw-company-text">
+                <div className="srv-viw-company-header">
+                  <h5 className="srv-viw-company-name">{ServiceDetails?.company}</h5>
+                  <p className="srv-viw-pro-badge">PRO</p>
                 </div>
-                <p className="srv-v-location">{ServiceDetails?.location}</p>
+                <p className="srv-viw-location">{ServiceDetails?.location}</p>
               </div>
             </div>
           </div>

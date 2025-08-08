@@ -8,3 +8,12 @@ brdcrm- = breadcrumbs-
 acc-pg- = accounts-page-
 acc-si-pg- = accounts-sigin-page-
 acc-su-pg- = accounts-signup-page-
+
+lis-lis- = listing-list-
+lis-crt- = listing-create-
+off-crt- = offer-create-
+
+srv-viw- = service-view-
+srv-viw-p- = service-view-pricing-
+srv-crt- = service-create-
+srv-lis- = service-list-

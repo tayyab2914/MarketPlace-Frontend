@@ -41,11 +41,11 @@ const ListingSearchForm = ({ setFilters, Listings }) => {
 
   const filtersApplied = location || category || keyword;
   return (
-    <form className="srv-p-form" onSubmit={handleSearch}>
-      <div className="srv-p-input-group">
+    <form className="lis-lis-form" onSubmit={handleSearch}>
+      <div className="lis-lis-input-group">
         <input
           type="text"
-          className="srv-p-keyword-input"
+          className="lis-lis-keyword-input"
           placeholder="Search keyword"
           value={keyword}
           onChange={(e) => setKeyword(e.target.value)}
@@ -66,11 +66,11 @@ const ListingSearchForm = ({ setFilters, Listings }) => {
         />
       </div>
 
-      <div className="srv-p-button-group">
+      <div className="lis-lis-button-group">
         {filtersApplied && (
           <button
             type="button"
-            className="srv-p-clear-btn"
+            className="lis-lis-clear-btn"
             onClick={handleClear}
           >
             <X />

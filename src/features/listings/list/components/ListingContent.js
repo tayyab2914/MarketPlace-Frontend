@@ -28,14 +28,14 @@ const ListingContent = ({ Listings }) => {
 
   return (
     <div className="container -mt-40 rounded-xl bg-white p-2 sm:p-2 md:rounded-3xl xl:rounded-[60px] xl:p-10">
-      <section className="listing-search-section">
-        <div className="search-box">
+      <section className="lis-lis-search-section">
+        <div className="lis-lis-search-box">
           <ListingSearchForm setFilters={setFilters} Listings={Listings} />
         </div>
       </section>
 
       {/* Listings Grid */}
-      <section className="listing-list-section">
+      <section className="lis-lis-section">
         <Row gutter={[24, 24]}>
           {paginatedData?.length ? (
             paginatedData.map((listing, index) => (

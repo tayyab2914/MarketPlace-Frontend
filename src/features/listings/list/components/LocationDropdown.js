@@ -9,17 +9,17 @@ const LocationDropdown = ({ selected, setSelected, locations = [] }) => {
   );
 
   return (
-    <div className="srv-p-location">
+    <div className="lis-lis-location">
       {/* Dropdown trigger */}
       <div
-        className="srv-p-clickable"
+        className="lis-lis-clickable"
         onClick={() => setIsOpen((prev) => !prev)}
       >
         <i className="ph ph-map-pin"></i>
-        <span className="srv-p-location-text">
+        <span className="lis-lis-location-text">
           {selected || (
             <span>
-              <span className="srv-p-hide-400">Select</span> Location
+              <span className="lis-lis-hide-400">Select</span> Location
             </span>
           )}
         </span>
@@ -28,12 +28,12 @@ const LocationDropdown = ({ selected, setSelected, locations = [] }) => {
       {/* Dropdown menu */}
       {isOpen && (
         <div
-          className="srv-p-dropdown"
+          className="lis-lis-dropdown"
           onClick={(e) => e.stopPropagation()} // prevent closing when typing
         >
           <input
             type="text"
-            className="srv-p-location-search"
+            className="lis-lis-location-search"
             placeholder="Search"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
@@ -42,7 +42,7 @@ const LocationDropdown = ({ selected, setSelected, locations = [] }) => {
           {filteredLocations.map((loc) => (
             <p
               key={loc}
-              className="srv-p-location-item"
+              className="lis-lis-location-item"
               onClick={() => {
                 setSelected(loc); // set selected value
                 setIsOpen(false); // close dropdown

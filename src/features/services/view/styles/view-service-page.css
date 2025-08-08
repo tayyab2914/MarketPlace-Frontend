@@ -1,31 +1,31 @@
-.srv-v-wrapper {
+.srv-viw-wrapper {
     width: 100%;
   }
   
-  .srv-v-grid {
+  .srv-viw-grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: 1.5rem; /* same as gap-6 */
   }
   
-  .srv-v-image-wrapper {
+  .srv-viw-image-wrapper {
     grid-column: span 12;
     overflow: hidden;
     border-radius: 12px;
   }
   
   @media (min-width: 768px) {
-    .srv-v-image-wrapper {
+    .srv-viw-image-wrapper {
       grid-column: span 6;
     }
   }
   
-  .srv-v-main-image {
+  .srv-viw-main-image {
     width: 100%;
     border-radius: 12px;
   }
   
-  .srv-v-info {
+  .srv-viw-info {
     grid-column: span 12;
     display: flex;
     flex-direction: column;
@@ -33,63 +33,63 @@
   }
   
   @media (min-width: 1024px) {
-    .srv-v-info {
+    .srv-viw-info {
       grid-column: span 6;
     }
   }
   
-  .srv-v-info-header {
+  .srv-viw-info-header {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
   }
   
-  .srv-v-title {
+  .srv-viw-title {
     font-size: 1.5rem;
     font-weight: bold;
     padding-bottom: 0.75rem;
   }
   
-  .srv-v-description {
+  .srv-viw-description {
     font-weight: 500;
     color: #999;
   }
   
-  .srv-v-company-info {
+  .srv-viw-company-info {
     display: flex;
     align-items: center;
     gap: 0.75rem;
     padding-top: 0.75rem;
   }
   
-  .srv-v-hexagon-container {
+  .srv-viw-hexagon-container {
     position: relative;
     overflow: hidden;
   }
   
-  .srv-v-verify-badge {
+  .srv-viw-verify-badge {
     position: absolute;
     bottom: 0.75rem;
     right: 0.25rem;
     z-index: 30;
   }
   
-  .srv-v-company-text {
+  .srv-viw-company-text {
     max-width: 250px;
   }
   
-  .srv-v-company-header {
+  .srv-viw-company-header {
     display: flex;
     align-items: center;
     gap: 0.75rem;
   }
   
-  .srv-v-company-name {
+  .srv-viw-company-name {
     font-size: 1.125rem;
     font-weight: bold;
   }
   
-  .srv-v-pro-badge {
+  .srv-viw-pro-badge {
     background-color: #FFD700;
     padding: 0.25rem 0.75rem;
     font-size: 0.875rem;
@@ -97,16 +97,16 @@
     border-radius: 999px;
   }
   
-  .srv-v-location {
+  .srv-viw-location {
     font-size: 0.875rem;
     color: #999;
   }
-  /* .srv-p-wrapper {
+  /* .srv-viw-p-wrapper {
     position: sticky;
     top: 2rem; 
   } */
   
-  .srv-p-container {
+  .srv-viw-p-container {
     border: 1px solid #e0e0e0; /* border-n30 */
     border-radius: 1rem; /* rounded-2xl */
     padding: 2rem 1.5rem; /* px-6 py-8 */
@@ -115,28 +115,28 @@
     background: #fff;
   }
   
-  .srv-p-header {
+  .srv-viw-p-header {
     border-bottom: 1px solid #e0e0e0;
     padding-bottom: 1.5rem; /* pb-6 */
   }
   
-  .srv-p-starting-text {
+  .srv-viw-p-starting-text {
     font-size: 0.875rem; /* text-sm */
     font-weight: 600;
   }
   
-  .srv-p-price {
+  .srv-viw-p-price {
     font-size: 1.25rem; /* heading-5 */
     font-weight: 600;
     padding: 0.25rem 0;
     color: #d32f2f; /* text-r300 */
   }
   
-  .srv-p-btn-wrapper {
+  .srv-viw-p-btn-wrapper {
     padding-top: 0.75rem; /* pt-3 */
   }
   
-  .srv-p-btn {
+  .srv-viw-p-btn {
     position: relative;
     display: block;
     width: 100%;
@@ -150,7 +150,7 @@
     transition: color 0.7s ease;
   }
   
-  .srv-p-btn::after {
+  .srv-viw-p-btn::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -162,15 +162,15 @@
     z-index: 1;
   }
   
-  .srv-p-btn:hover {
+  .srv-viw-p-btn:hover {
     color: #111; /* text-n900 */
   }
   
-  .srv-p-btn:hover::after {
+  .srv-viw-p-btn:hover::after {
     width: calc(100% + 2px);
   }
   
-  .srv-p-btn-inner {
+  .srv-viw-p-btn-inner {
     position: relative;
     z-index: 20;
     display: flex;
@@ -179,24 +179,24 @@
     gap: 0.75rem;
   }
   
-  .srv-p-btn-icon {
+  .srv-viw-p-btn-icon {
     font-size: 1.25rem;
     line-height: 1;
   }
   
-  .srv-p-details {
+  .srv-viw-p-details {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding-top: 1.5rem;
   }
   
-  .srv-p-subtitle {
+  .srv-viw-p-subtitle {
     font-size: 0.875rem;
     font-weight: 500;
   }
   
-  .srv-p-duration {
+  .srv-viw-p-duration {
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -204,12 +204,12 @@
     font-size: 0.875rem;
   }
   
-  .srv-p-calendar-icon {
+  .srv-viw-p-calendar-icon {
     font-size: 1.5rem;
     color: #007bff; /* b300 */
   }
   
-  .srv-p-skills {
+  .srv-viw-p-skills {
     display: flex;
     flex-wrap: wrap;
     gap: 0.25rem;
@@ -218,7 +218,7 @@
     color: #999; /* text-n400 */
   }
   
-  .srv-p-skill {
+  .srv-viw-p-skill {
     display: flex;
     align-items: center;
     justify-content: center;
