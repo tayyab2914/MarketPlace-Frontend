@@ -48,7 +48,6 @@ const reviews = [
     rating: 5,
   },
 ];
-console.log(reviews);
 
 function ReviewCard({ review }) {
   return (

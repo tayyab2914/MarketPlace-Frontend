@@ -1,28 +1,32 @@
-'use client'
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import DesktopMenu from "./components/DesktopMenu";
 import MobileMenu from "./components/MobileMenu";
 import NavActions from "./components/NavActions";
+import "./styles/navbar.css";
+import { useRouter } from "next/navigation";
+import { ROUTES } from "@/utils/Constants";
+import { IMAGES } from "@/components/ui/Image/ImageData";
+import { Menu } from "lucide-react";
 
 const Navbar = () => {
+  const router = useRouter();
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const showDrawer = () => setDrawerOpen(true);
+  const closeDrawer = () => setDrawerOpen(false);
   return (
-    <header className="header headerAbsolute left-0 right-0 top-0 z-50">
-      <div className="max-xxl:container xxl:px-25">
-        <div className="text-s1 flex items-center justify-between py-6">
-          <div className="flex items-center gap-3 pb-1">
-            <button className="mobileMenuOpenButton text-4xl !leading-none lg:hidden">
-              <i className="ph-bold ph-list pt-2 text-b500"></i>
-            </button>
-            <a href="#">
-              <img
-                src="/assets/images/logo.png"
-                alt="Servibe logo"
-                className="max-w-[170px] max-sm:max-w-[150px]"
-              />
+    <header className="nav-header nav-header-absolute">
+      <div className="nav-container">
+        <div className="nav-inner">
+          <div className="nav-logo-section">
+            <Menu onClick={showDrawer} strokeWidth={2} size={28} className="nav-m-menu-icon" />
+            <a onClick={() => router.push(ROUTES.home)}>
+              <img src={IMAGES.logo} className="nav-logo" />
             </a>
           </div>
 
-          <nav className="max-lg:hidden">
+          <nav className="nav-desktop-menu">
             <DesktopMenu />
           </nav>
 
@@ -30,7 +34,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      <MobileMenu />
+      <MobileMenu showDrawer={showDrawer} closeDrawer={closeDrawer} drawerOpen={drawerOpen}/>
     </header>
   );
 };

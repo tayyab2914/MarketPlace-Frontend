@@ -23,6 +23,10 @@ body {
   --container-lg: 9920px;
   --container-xl: 1200px;
   --container-xxl: 1300px;
+
+  --color-blue: #0065ff;
+  --color-blue-subtle: #e6f0ff;
+  --color-yellow: #f9c729;
 }
 /*!***********************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/style.css ***!
@@ -86,7 +90,6 @@ body {
 ::after {
   --tw-content: "";
 }
-
 
 /*
   1. Use a consistent sensible line-height in all browsers.

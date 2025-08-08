@@ -1,106 +1,31 @@
-import { ROUTES } from "@/utils/Constants";
-import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+"use client";
+import React from "react";
+import { Drawer } from "antd";
+import { IMAGES } from "@/components/ui/Image/ImageData";
+import { NAVBAR_MENU } from "@/constants/data/NavbarData";
+import { MobileMenuSection } from "./MobileMenuSection";
 
-const mobileMenuData = [
-  //   {
-  //     title: 'Home Pages',
-  //     links: [
-  //       { label: 'Home One', route: '#' },
-  //       { label: 'Home Two', route: './index2.html' },
-  //       { label: 'Home Three', route: './index3.html' },
-  //       { label: 'Home Four', route: './index4.html' },
-  //     ],
-  //   },
-    {
-      title: "Services",
-      links: [
-        { label: "All Services", route: ROUTES.listServices },
-        { label: "Add Service", route: ROUTES.createService },
-      ],
-    },
-    {
-      title: "Listings",
-      links: [
-        { label: "All Listings", route: ROUTES.listListings },
-        { label: "Add Listing", route: ROUTES.createListing },
-      ],
-    },
-    {
-      title: "Pages",
-      links: [
-        { label: "About Us", route: ROUTES.aboutUsPage },
-        { label: "FAQ", route: ROUTES.faqPage },
-        { label: "Contact", route: ROUTES.contactPage },
-        { label: "Terms and Conditions", route: ROUTES.termsAndConditionsPage },
-        { label: "Privacy Policy", route: ROUTES.privacyPolicyPage },
-      ],
-    },
-];
-
-const MobileMenuSection = ({ section }) => {
-  const router = useRouter();
-
+const MobileMenu = ({ closeDrawer, drawerOpen }) => {
   return (
-    <li>
-      <div className="subMenuToggle group flex flex-col items-start justify-start">
-        <div className="flex cursor-pointer items-center justify-start">
-          <span className="mobileSubMenuTitle">{section.title}</span>
-          <i className="pl-1 pt-1 !text-xl duration-500">
-            <i className="ph ph-caret-right"></i>
-          </i>
-        </div>
-        <ul className="subMenuClose subMenu flex flex-col items-start justify-start gap-2 overflow-hidden pl-4 duration-700">
-          {section?.links?.map((link, idx) => (
-            <li key={idx}>
-              <a
-                onClick={()=>router.push(link?.route)}
-                className="mobileSubMenuItem text-base"
-              >
-                <span>-</span> {link?.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </li>
-  );
-};
-
-const MobileMenu = () => {
-  return (
-    <nav>
-      <div className="mobileMenuBg mobileMenuBgClose fixed left-0 top-0 z-[998] h-full w-full bg-r50 duration-700 lg:hidden"></div>
-
-      <div className="mobileMenu mobileMenuClose fixed left-0 top-0 z-[999] flex h-full w-3/4 flex-col items-start justify-start gap-8 bg-r300 text-white/80 duration-700 min-[500px]:w-1/2 lg:hidden lg:gap-20">
-        <div className="fixed top-0 flex w-full items-center justify-between bg-r300 p-4 sm:p-8">
+    <>
+      <Drawer
+        title={
           <a>
-            <img
-              src="/assets/images/logo_white.png"
-              alt="logo"
-              className="w-[150px]"
-            />
+            <img src={IMAGES?.logo} alt="logo" style={{ width: 150 }} />
           </a>
-          <i className="ri-close-line mobileMenuCloseButton cursor-pointer !text-3xl">
-            <i className="ph ph-x"></i>
-          </i>
-        </div>
-
-        <ul className="flex w-full flex-col items-start gap-6 overflow-y-auto pb-10 pl-8 pt-24 text-lg sm:text-xl lg:gap-10">
-          {mobileMenuData.map((section, index) => (
+        }
+        placement="left"
+        closable={true}
+        onClose={closeDrawer}
+        open={drawerOpen}
+      >
+        <ul className="gap-6 overflow-y-auto text-lg sm:text-xl">
+          {NAVBAR_MENU?.map((section, index) => (
             <MobileMenuSection key={index} section={section} />
           ))}
         </ul>
-
-        <a
-        
-          href="./become-tasker.html"
-          className="ml-4 rounded-full bg-y300 px-4 py-2 text-base font-medium text-n900"
-        >
-          Become A Tasker
-        </a>
-      </div>
-    </nav>
+      </Drawer>
+    </>
   );
 };
 

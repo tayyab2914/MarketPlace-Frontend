@@ -3,8 +3,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { useEffect } from "react";
-import { initializeScript } from "../../public/assets/js/main";
 import HomePage from "@/features/home/Home";
+import { initializeScript } from "../../public/assets/js/main";
 export default function Home() {
   useEffect(() => {
     const handleDomReady = () => {
