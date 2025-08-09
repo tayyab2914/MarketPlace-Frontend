@@ -8,7 +8,7 @@ import {
   Button,
   Switch,
   Checkbox,
-  DatePicker
+  DatePicker,
 } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import "./CustomInputField.css";
@@ -131,18 +131,18 @@ const CustomInputField = ({
         />
       )}
 
-{inputType === "date" && (
-  <DatePicker
-    style={{ width: "100%" }}
-    placeholder={placeholder || "Select a date"}
-    disabled={disabled}
-    allowClear
-    {...rest}
-    defaultValue={initialValue ? dayjs(initialValue, "YYYY-MM-DD") : undefined}
-  />
-)}
-
-
+      {inputType === "date" && (
+        <DatePicker
+          style={{ width: "100%" }}
+          placeholder={placeholder || "Select a date"}
+          disabled={disabled}
+          allowClear
+          {...rest}
+          defaultValue={
+            initialValue ? dayjs(initialValue, "YYYY-MM-DD") : undefined
+          }
+        />
+      )}
     </Form.Item>
   </div>
 );

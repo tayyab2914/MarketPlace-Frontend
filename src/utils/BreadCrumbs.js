@@ -49,9 +49,17 @@ export const BREADCRUMBS = {
     { url: ROUTES.listServices, name: "Services" },
     { url: ROUTES.servicesCreate, name: "View Service" },
   ],
+  settings: [
+    { url: ROUTES.home, name: "Home" },
+    { url: ROUTES.settings, name: "Settings" },
+  ],
   offerPage: [
     { url: ROUTES.home, name: "Home" },
     { url: ROUTES.listListings, name: "Listings" },
     { url: ROUTES.createOffer, name: "Send Offer" },
+  ],
+  dashboardListing: [
+    { url: ROUTES.Dashboard, name: "Dashboard" },
+    { url: ROUTES.DashboardListings, name: "Listings" },
   ],
 };

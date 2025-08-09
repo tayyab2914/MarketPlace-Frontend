@@ -1,15 +1,23 @@
 "use client";
+import {
+  setIsUserLoggedIn,
+  setUserAuthToken,
+} from "@/redux/actions/authActions";
+import { setCompanyInfo } from "@/redux/actions/companyInfoActions";
 import { MAKE_API_REQUEST } from "@/utils/AxiosTemplate";
-import { BACKEND_DOMAIN } from "@/utils/Constants";
+import { BACKEND_DOMAIN, ROUTES } from "@/utils/Constants";
 
-export const API_SIGNIN = async (data) => {
+export const API_SIGNIN = async (data, dispatch, router) => {
   return await MAKE_API_REQUEST({
     method: "post",
     url: `${BACKEND_DOMAIN}/account/signin/`,
     data: data,
     errorMessage: "Failed to sign in.",
-    onSuccess: (res) => {
-      console.log("User data:", res);
+    onSuccess: async (res) => {
+      dispatch(setUserAuthToken(res?.data?.token));
+      dispatch(setIsUserLoggedIn(true));
+      await API_GET_USER_COMPANY(res?.data?.token, dispatch);
+      router.push(ROUTES.home);
     },
   });
 };
@@ -64,10 +72,28 @@ export const API_LIST_ALL_COMPANIES = async (token) => {
     token: token,
   });
 };
-export const API_GET_COMPANY_BY_ID= async (token,company_id) => {
+export const API_GET_COMPANY_BY_ID = async (token, company_id) => {
   return await MAKE_API_REQUEST({
     method: "get",
     url: `${BACKEND_DOMAIN}/account/companies/public/${company_id}/`,
+    token: token,
+  });
+};
+export const API_GET_USER_COMPANY = async (token, dispatch) => {
+  return await MAKE_API_REQUEST({
+    method: "get",
+    url: `${BACKEND_DOMAIN}/account/company/profile/`,
+    token: token,
+    onSuccess: (res) => {
+      dispatch(setCompanyInfo(res?.data));
+    },
+  });
+};
+export const API_SET_USER_COMPANY = async (token, data) => {
+  return await MAKE_API_REQUEST({
+    method: "post",
+    url: `${BACKEND_DOMAIN}/account/company/profile/`,
+    data: data,
     token: token,
   });
 };

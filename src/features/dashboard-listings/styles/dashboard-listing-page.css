@@ -1,0 +1,25 @@
+.lis-upd-title {
+    font-weight: 700;
+    font-size: 22px;
+  }
+  .lis-upd-input-field {
+    border: 1px solid rgba(236, 236, 239);
+    border-radius: 16px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-right: 8px;
+    background-color: white;
+  }
+  .lis-upd-form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  
+  .lis-upd-form-modal{
+    max-height: 500px;
+    overflow-y: auto;
+    scrollbar-width: none;
+  }

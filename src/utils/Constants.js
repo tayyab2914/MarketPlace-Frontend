@@ -1,5 +1,6 @@
 export const ROUTES = {
   home: "/",
+  settings: "/settings",
 
   contactPage: "/contact-us",
   faqPage: "/faq",
@@ -26,7 +27,17 @@ export const ROUTES = {
   viewOffer: "/offers/view/",
 
   portfolios:'/portfolios',
-  viewPortfolio:'/portfolios/view/'
+  viewPortfolio:'/portfolios/view/',
+
+  Dashboard: "/dashboard/",
+  DashboardOffers: "/dashboard/offers",
+  DashboardListings: "/dashboard/listings",
+  DashboardServices: "/dashboard/services",
+  DashboardNotifications: "/dashboard/notifications",
+  DashboardProfile: "/dashboard/profile",
+
+  DashboardListings: "/dashboard/listings/",
+  DashboardServices: "/dashboard/services/",
 };
 
 export const BACKEND_DOMAIN = process.env.NEXT_PUBLIC_BACKEND_DOMAIN;

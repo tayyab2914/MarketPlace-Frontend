@@ -34,14 +34,11 @@ const NavActions = () => {
       ),
     },
     {
-      key: "becomeTasker",
+      key: "dashboard",
       label: (
-        <a
-          onClick={() => router.push(ROUTES.listOffers)}
-          className="nav-a-item"
-        >
+        <a onClick={() => router.push(ROUTES.Dashboard)} className="nav-a-item">
           <Briefcase size={16} style={{ marginRight: 8 }} />
-          Become a Tasker
+          Dashboard
         </a>
       ),
     },
@@ -136,10 +133,10 @@ const NavActions = () => {
               <i className="ph-bold ph-plus nav-a-post-task-icon"></i>
             </a>
             <a
-              onClick={() => router.push(ROUTES.listOffers)}
+              onClick={() => router.push(ROUTES.Dashboard)}
               className="nav-a-tasker-btn"
             >
-              <span className="nav-a-tasker-text">Become a Tasker</span>
+              <span className="nav-a-tasker-text">Dashboard</span>
             </a>
           </div>
           {is_user_logged_in && (
