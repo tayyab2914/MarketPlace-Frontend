@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import ListingSearchForm from "./ListingSearchForm";
 import { filterListing, paginateListing } from "../utils/utils";
-import { Pagination } from "./Pagination";
 import ListingCard from "./ListingCard";
 import { Col, Row } from "antd";
+import { Pagination } from "@/components/ui/Pagination/Pagination";
+import LisSerSearchBar from "@/components/ui/LisSerSearchBar/LisSerSearchBar";
 
 const ListingContent = ({ Listings }) => {
   const [filters, setFilters] = useState({
     keyword: "",
-    location: "",
+    company_location: "",
     category: "",
   });
 
@@ -28,11 +28,7 @@ const ListingContent = ({ Listings }) => {
 
   return (
     <div className="container -mt-40 rounded-xl bg-white p-2 sm:p-2 md:rounded-3xl xl:rounded-[60px] xl:p-10">
-      <section className="lis-lis-search-section">
-        <div className="lis-lis-search-box">
-          <ListingSearchForm setFilters={setFilters} Listings={Listings} />
-        </div>
-      </section>
+      <LisSerSearchBar setFilters={setFilters} Data={Listings} />
 
       {/* Listings Grid */}
       <section className="lis-lis-section">

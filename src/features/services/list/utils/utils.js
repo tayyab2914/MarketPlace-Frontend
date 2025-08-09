@@ -15,8 +15,8 @@ export const filterServices = (services, filters) => {
       service?.title?.toLowerCase()?.includes(filters?.keyword?.toLowerCase());
 
     const matchesLocation =
-      !filters?.location ||
-      service?.location?.toLowerCase()?.includes(filters?.location?.toLowerCase());
+      !filters?.company_location ||
+      service?.company_location?.toLowerCase()?.includes(filters?.company_location?.toLowerCase());
 
     const matchesCategory =
       !filters?.category ||

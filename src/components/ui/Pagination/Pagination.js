@@ -18,7 +18,7 @@ export const Pagination = ({ currentPage, totalPages, setCurrentPage }) => {
           <i className="ph ph-caret-left"></i>
         </li>
 
-        {pageNumbers.map((page) => (
+        {pageNumbers?.map((page) => (
           <li
             key={page}
             onClick={() => goToPage(page)}

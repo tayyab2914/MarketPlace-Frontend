@@ -1,40 +1,3 @@
-.srv-lis-service-section {
-  margin-top: 100px;
-  background-color: #f5f5f5; /* assuming bg-n20 is light gray */
-  padding-top: 1.5rem;
-  padding-bottom: 2rem;
-}
-
-.srv-lis-container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.srv-lis-breadcrumb {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem;
-  padding-top: 0.75rem;
-  font-weight: 500;
-}
-
-.srv-lis-breadcrumb-icon,
-.srv-lis-breadcrumb-text {
-  color: #999; /* assuming text-r300 */
-}
-.srv-lis-button-group{
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.srv-lis-keyword-input{
-  border: 1px solid #e5e5e5;
-  padding: 5px;
-  border-radius:12px;
-}
-
 .srv-lis-section-content {
   display: flex;
   justify-content: space-between;
@@ -42,124 +5,6 @@
   padding-top: 2.5rem;
   gap: 1rem;
 }
-
-.srv-lis-content-text {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-}
-
-.srv-lis-heading {
-  font-size: 2rem;
-  font-weight: bold;
-  margin: 0;
-}
-
-.srv-lis-subheading {
-  max-width: 500px;
-  padding-top: 0.75rem;
-  font-size: 1.125rem;
-  font-weight: 500;
-  color: #666; /* assuming text-n300 */
-}
-
-.srv-lis-post-job-btn-wrapper {
-  padding-top: 2rem;
-}
-
-.srv-lis-post-job-btn {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #0052cc; /* assuming bg-b300 */
-  color: white;
-  padding: 0.5rem 1rem;
-  font-size: 1.125rem;
-  font-weight: 500;
-  border-radius: 999px;
-  overflow: hidden;
-  transition: color 0.3s ease;
-}
-
-.srv-lis-post-job-btn::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  width: 0;
-  background-color: #facc15; /* yellow-400 */
-  border-radius: 999px;
-  transition: width 0.7s ease;
-  z-index: 0;
-}
-
-.srv-lis-post-job-btn:hover::after {
-  width: calc(100% + 2px);
-}
-
-.srv-lis-btn-text {
-  position: relative;
-  z-index: 10;
-}
-
-.srv-lis-post-job-btn:hover {
-  color: #111827; /* assuming text-n900 */
-}
-
-.srv-lis-job-card {
-  border: 1px solid #e0e0e0; /* assuming border-b50 */
-  background-color: white;
-  padding: 1.5rem;
-  border-radius: 1rem;
-}
-
-.srv-lis-job-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 1.5rem;
-}
-
-.srv-lis-job-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-}
-
-.srv-lis-job-status {
-  background-color: #e0f0ff; /* bg-b50 assumed */
-  padding: 0.5rem 0.75rem;
-  border-radius: 0.5rem;
-  font-weight: 500;
-}
-
-.srv-lis-job-experts {
-  display: flex;
-  align-items: center;
-}
-
-.srv-lis-expert-img-wrapper {
-  background-color: white;
-  padding: 0.25rem;
-  border-radius: 999px;
-}
-
-.srv-lis-expert-img {
-  width: 48px;
-  height: 48px;
-  border-radius: 999px;
-}
-
-.srv-lis-overlap {
-  margin-left: -1rem;
-}
-
-.srv-lis-arrow-icon {
-  padding-left: 2rem;
-  font-size: 1.5rem;
-}
-
-/* Responsive Design */
 @media (max-width: 768px) {
   .srv-lis-section-content {
     flex-direction: column;
@@ -171,49 +16,9 @@
     padding-left: 1rem;
   }
 }
-
-@media (max-width: 576px) {
-  .srv-lis-post-job-btn {
-    padding: 0.5rem 1rem;
-  }
-
-  .srv-lis-heading {
-    font-size: 1.5rem;
-  }
-
-  .srv-lis-subheading {
-    font-size: 1rem;
-  }
-
-  .srv-lis-job-card {
-    width: 100%;
-  }
-}
-.service-content-wrapper {
-  margin-top: -40px;
-  background: #fff;
-  padding: 8px;
-  border-radius: 20px;
-}
-
-@media (min-width: 768px) {
-  .service-content-wrapper {
-    padding: 16px;
-    border-radius: 30px;
-  }
-}
-
-@media (min-width: 1400px) {
-  .service-content-wrapper {
-    padding: 60px;
-    border-radius: 60px;
-  }
-}
-
 .srv-lis-section {
   margin-bottom: 30px;
 }
-
 .srv-lis-search-box {
   width: 100%;
   background: #fff;
@@ -223,224 +28,177 @@
 }
 
 .srv-lis-section {
-  padding-bottom: 30px;
+  padding-bottom: 1rem;
 }
 
-.srv-lis-container {
-  border: 1px solid #e6e6e6;
-  padding: 16px;
-  border-radius: 10px;
+/* ============================================================ */
+
+.srv-lis-cd-serviceCard {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem; /* 3 */
+  border-radius: 1rem; /* 2xl */
+  border: 1px solid #d1d5db; /* gray-300 */
+  padding: 0.75rem; /* 3 */
+  flex-wrap: nowrap;
 }
 
+@media (max-width: 768px) {
+  /* max-md:flex-col */
+  .srv-lis-cd-serviceCard {
+    flex-direction: column;
+  }
+}
 
-.srv-lis-section {
-    padding-bottom: 1rem;
+.srv-lis-cd-leftSection {
+  display: flex;
+  justify-content: flex-start;
+  gap: 0.5rem; /* 2 */
+  flex-wrap: nowrap;
+  flex-direction: column;
+}
+
+@media (max-width: 640px) {
+  /* max-sm:flex-col */
+  .srv-lis-cd-leftSection {
+    flex-direction: column;
   }
-  
-  .srv-lis-container-search {
-    width: 100%;
-    margin: 0 ;
+}
+
+.srv-lis-cd-companyName {
+  /* Add styles if needed */
+  font-size: 14px;
+  font-weight: 500;
+  color: #999;
+  margin-bottom: 0px;
+}
+
+.srv-lis-cd-serviceInfo {
+  /* Add styles if needed */
+}
+
+.srv-lis-cd-heading5 {
+  font-size: 1.25rem; /* example for heading-5 */
+  font-weight: 600;
+  margin: 0;
+}
+
+.srv-lis-cd-description {
+  margin: 0.25rem 0 0 0;
+}
+
+.srv-lis-cd-tagsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem; /* 1 */
+  padding-top: 0.75rem; /* 3 */
+  font-size: 0.875rem; /* text-sm */
+  color: #9ca3af; /* gray-400 */
+}
+
+@media (min-width: 1600px) {
+  /* xxl:pt-6 */
+  .srv-lis-cd-tagsContainer {
+    padding-top: 1.5rem; /* 6 */
   }
-  
-  .srv-lis-box {
-    position: relative;
-    z-index: 20;
-    width: 100%;
-    background-color: white;
-    border: 1px solid #e5e5e5;
-    border-radius: 1.5rem;
-    padding: 1rem;
+}
+
+.srv-lis-cd-tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem; /* 2 */
+  border-radius: 1rem; /* rounded-xl */
+  background-color: #e0f2fe; /* blue-100 */
+  padding: 0.5rem 0.75rem; /* py-2 px-3 */
+  font-weight: 500;
+}
+
+.srv-lis-cd-tag img {
+  display: inline-block;
+}
+
+.srv-lis-cd-rightSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem; /* 2xl */
+  border: 1px solid #d1d5db; /* gray-300 */
+  padding: 2rem 1.5rem; /* py-8 px-6 */
+  text-align: center;
+  color: #4b5563; /* gray-600 */
+  max-width: 176px;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .srv-lis-cd-rightSection {
+    max-width: 100%;
   }
-  
-  @media (min-width: 640px) {
-    .srv-lis-box {
-      padding: 2rem;
-    }
-  }
-  
-  .srv-lis-form {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 1.125rem;
-    font-weight: 500;
-  }
-  
-  @media (max-width: 640px) {
-    .srv-lis-form {
-      font-size: 0.875rem;
-    }
-  }
-  
-  .srv-lis-input-group {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-  
-  @media (min-width: 640px) {
-    .srv-lis-input-group {
-      gap: 2.5rem;
-    }
-  }
-  
-  .srv-lis-location {
-    position: relative;
-    border-right: 1px solid #ccc;
-    padding-right: 1rem;
-  }
-  
-  @media (min-width: 640px) {
-    .srv-lis-location {
-      padding-right: 2.5rem;
-    }
-  }
-  
-  .srv-lis-clickable {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
-  }
-  
-  .srv-lis-location-text {
-    display: flex;
-    align-items: center;
-  }
-  
-  .srv-lis-hide-400 {
-    display: inline;
-  }
-  
-  @media (max-width: 450px) {
-    .srv-lis-hide-400 {
-      display: none;
-    }
-  }
-  
-  .srv-lis-dropdown {
-    position: absolute;
-    top: 2.5rem;
-    left: 0;
-    background: white;
-    width: 150px;
-    border: 1px solid #ccc;
-    border-radius: 1.5rem;
-    padding: 0.75rem 0;
-    transform-origin: top;
-    font-size: 1rem;
-    z-index: 30;
-  }
-  
-  @media (min-width: 640px) {
-    .srv-lis-dropdown {
-      left: -2rem;
-      width: 220px;
-      padding: 1.25rem 0;
-      font-size: 1.125rem;
-    }
-  }
-  
-  .srv-lis-location-search {
-    display: block;
-    margin: 0 auto 0.5rem auto;
-    width: 90%;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 0.75rem;
-    outline: none;
-  }
-  
-  .srv-lis-location-item,
-  .srv-lis-category-item {
-    padding: 0.5rem 1.5rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin: 0px;
-  }
-  
-  .srv-lis-location-item:hover,
-  .srv-lis-category-item:hover {
-    background-color: #0052cc;
-    color: white;
-  }
-  
-  .srv-lis-categorys {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
-  }
-  
-  .srv-lis-category-text {
-    display: flex;
-    align-items: center;
-  }
-  
-  .srv-lis-search-btn {
-    position: relative;
-    margin-left: 0.5rem;
-    overflow: hidden;
-    border-radius: 9999px;
-    background-color: #0052cc;
-    color: white;
-    padding: 0.75rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: color 0.3s ease;
-    font-weight: 500;
-    font-size: 1rem;
-    border: none;
-  }
-  
-  .srv-lis-search-btn::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    width: 0;
-    background-color: #facc15; /* yellow-400 */
-    border-radius: 9999px;
-    transition: width 0.7s ease;
-    z-index: 0;
-  }
-  
-  .srv-lis-search-btn:hover::after {
-    width: calc(100% + 2px);
-  }
-  
-  .srv-lis-search-btn:hover {
-    color: #111827;
-  }
-  
-  .srv-lis-btn-label {
-    position: relative;
-    z-index: 10;
-    display: flex;
-    align-items: center;
-  }
-  
-  .srv-lis-icon-only {
-    font-size: 1rem;
-    line-height: 1;
-  }
-  
-  @media (min-width: 640px) {
-    .srv-lis-icon-only {
-      font-size: 1.25rem;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .srv-lis-btn-label {
-      display: none;
-    }
-  
-    .srv-lis-search-btn {
-      width: 44px;
-      height: 44px;
-      padding: 0;
-    }
-  }
-  
+}
+
+.srv-lis-cd-startingAt {
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+}
+
+.srv-lis-cd-price {
+  padding: 0.25rem 0;
+  font-weight: 600;
+  color: #f87171; /* red-400 */
+  margin: 0;
+}
+
+.srv-lis-cd-fixedPrice {
+  padding-bottom: 1.25rem; /* pb-5 */
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.srv-lis-cd-viewDetailsBtn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 9999px; /* rounded-full */
+  background-color: #3b82f6; /* blue-500 */
+  padding: 0.5rem 0.75rem; /* py-2 px-3 */
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+  transition: color 0.7s ease;
+  text-decoration: none; /* for <a> */
+}
+
+.srv-lis-cd-viewDetailsBtn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  left: 0;
+  width: 0;
+  border-radius: 9999px;
+  background-color: #facc15; /* yellow-400 */
+  transition: width 0.7s ease;
+  z-index: 0;
+}
+
+.srv-lis-cd-viewDetailsBtn:hover {
+  color: #111827; /* gray-900 */
+}
+
+.srv-lis-cd-viewDetailsBtn:hover::after {
+  width: calc(100% + 2px);
+}
+
+.srv-lis-cd-viewDetailsBtn span {
+  position: relative;
+  z-index: 10;
+}
+
+/* =========================================================== */

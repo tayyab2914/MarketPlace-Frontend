@@ -17,3 +17,4 @@ srv-viw- = service-view-
 srv-viw-p- = service-view-pricing-
 srv-crt- = service-create-
 srv-lis- = service-list-
+srv-lis-cd = service-list-card-
