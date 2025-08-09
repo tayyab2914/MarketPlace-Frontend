@@ -21,3 +21,4 @@ srv-lis-cd = service-list-card-
 upd-comp-f- = update-company-form-
 
 cpp- = company-portfolio-page-
+dlov- = dashboard-listing-offers-view-

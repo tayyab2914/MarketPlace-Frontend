@@ -1,8 +1,8 @@
 import React from "react";
 import { Space, Popconfirm } from "antd";
-import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
+import {Eye ,Pencil, Trash } from "lucide-react";
 
-export const getListingColumns = ({ onEdit, onDelete }) => [
+export const getListingColumns = ({ onEdit, onDelete,onView }) => [
   {
     title: "Company",
     dataIndex: "company_name",
@@ -52,10 +52,17 @@ export const getListingColumns = ({ onEdit, onDelete }) => [
     responsive: ["xs", "sm", "md", "lg", "xl"],
     render: (_, record) => (
       <Space size="middle">
-        <EditOutlined
-          style={{ color: "#1890ff", cursor: "pointer" }}
+        <Pencil
+          style={{ color: "green", cursor: "pointer" }}
           onClick={() => onEdit(record)}
           title="Edit"
+            strokeWidth={2}
+        />
+        <Eye
+          style={{ color: "blue", cursor: "pointer" }}
+          onClick={() => onView(record.id)}
+          title="View Offers"
+            strokeWidth={2}
         />
         <Popconfirm
           title="Are you sure you want to delete this listing?"
@@ -63,9 +70,10 @@ export const getListingColumns = ({ onEdit, onDelete }) => [
           okText="Yes"
           cancelText="No"
         >
-          <DeleteOutlined
+          <Trash
             style={{ color: "red", cursor: "pointer" }}
             title="Delete"
+            strokeWidth={2}
           />
         </Popconfirm>
       </Space>
