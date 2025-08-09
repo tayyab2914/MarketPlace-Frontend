@@ -33,6 +33,14 @@ export const API_SERVICE_GET = async (token, service_id) => {
     token: token,
   });
 };
+
+export const API_GET_USER_SERVICE_BY_ID = async (token, service_id) => {
+  return await MAKE_API_REQUEST({
+    method: "get",
+    url: `${BACKEND_DOMAIN}/service/profile/${service_id}/`,
+    token: token,
+  });
+};
 export const API_UPDATE_USER_SERVICE = async (token, service_id, data) => {
   return await MAKE_API_REQUEST({
     method: "put",

@@ -8,7 +8,7 @@ export const ServiceColumns = ({ onEdit, onDelete, onView }) => [
     dataIndex: "title",
     key: "title",
     sorter: (a, b) => a.title.localeCompare(b.title),
-    responsive: ["sm", "md", "lg", "xl"],
+    // responsive: ["sm", "md", "lg", "xl"],
   },
   {
     title: "Description",
@@ -40,33 +40,43 @@ export const ServiceColumns = ({ onEdit, onDelete, onView }) => [
     responsive: ["xs", "sm", "md", "lg", "xl"],
     render: (_, record) => (
       <Space size="middle">
-        <Pencil
-          style={{ color: "green", cursor: "pointer" }}
-          onClick={() => onEdit(record)}
-          title="Edit"
-          strokeWidth={2}
-          size={18}
-        />
-        <Eye
-          style={{ color: "blue", cursor: "pointer" }}
-          onClick={() => onView(record.id)}
-          title="View"
-          strokeWidth={2}
-          size={18}
-        />
-        <Popconfirm
-          title="Are you sure you want to delete this listing?"
-          onConfirm={() => onDelete(record.id)}
-          okText="Yes"
-          cancelText="No"
-        >
-          <Trash
-            style={{ color: "red", cursor: "pointer" }}
-            title="Delete"
-            strokeWidth={2}
-            size={18}
-          />
-        </Popconfirm>
+        <div className="srv-upd-form-icons-wrapper">
+          <div className="srv-upd-form-icon-btn green">
+            <Pencil
+              style={{ color: "green" }}
+              onClick={() => onEdit(record)}
+              title="Edit"
+              strokeWidth={1.5}
+              size={16}
+            />
+          </div>
+
+          <div className="srv-upd-form-icon-btn blue">
+            <Eye
+              style={{ color: "blue" }}
+              onClick={() => onView(record.id)}
+              title="View Offers"
+              strokeWidth={1.5}
+              size={16}
+            />
+          </div>
+
+          <Popconfirm
+            title="Are you sure you want to delete this listing?"
+            onConfirm={() => onDelete(record.id)}
+            okText="Yes"
+            cancelText="No"
+          >
+            <div className="srv-upd-form-icon-btn red">
+              <Trash
+                style={{ color: "red" }}
+                title="Delete"
+              strokeWidth={1.5}
+              size={16}
+              />
+            </div>
+          </Popconfirm>
+        </div>
       </Space>
     ),
   },

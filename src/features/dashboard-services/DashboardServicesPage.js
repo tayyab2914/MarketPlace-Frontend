@@ -37,7 +37,7 @@ const DashboardServicesPage = () => {
   };
 
   const handleViewOffers = async (service_id) => {
-    router.push(`${ROUTES.DashboardServices}/${service_id}`);
+    router.push(`${ROUTES.viewService}/${service_id}`);
   };
   return (
     <div

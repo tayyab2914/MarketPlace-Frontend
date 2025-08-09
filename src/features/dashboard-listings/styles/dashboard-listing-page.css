@@ -17,9 +17,52 @@
     gap: 5px;
   }
   
-  
   .lis-upd-form-modal{
     max-height: 500px;
     overflow-y: auto;
     scrollbar-width: none;
   }
+
+  .lis-upd-form-icons-wrapper {
+    display: flex;
+    gap: 5px; /* space between icons */
+    align-items: center;
+  }
+  
+  .lis-upd-form-icon-btn {
+    border-radius: 50%; /* circle */
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  /* Background colors based on icon color */
+  
+  .lis-upd-form-icon-btn.green {
+    background-color: #d1fae5; /* light green (Tailwind green-100) */
+  }
+  
+  .lis-upd-form-icon-btn.green:hover {
+    background-color: #a7f3d0; /* slightly darker green (green-200) */
+  }
+  
+  .lis-upd-form-icon-btn.blue {
+    background-color: #dbeafe; /* light blue (blue-100) */
+  }
+  
+  .lis-upd-form-icon-btn.blue:hover {
+    background-color: #bfdbfe; /* blue-200 */
+  }
+  
+  .lis-upd-form-icon-btn.red {
+    background-color: #fee2e2; /* light red (red-100) */
+  }
+  
+  .lis-upd-form-icon-btn.red:hover {
+    background-color: #fecaca; /* red-200 */
+  }
+  
