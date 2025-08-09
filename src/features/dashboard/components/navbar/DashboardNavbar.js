@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import { ROUTES } from "@/utils/Constants";
 import { IMAGES } from "@/components/ui/Image/ImageData";
 import { Menu } from "lucide-react";
-import "./styles/navbar.css";
+import './styles/navbar.css'
 
 export const DashboardNavbar = () => {
   const router = useRouter();
@@ -20,17 +20,10 @@ export const DashboardNavbar = () => {
       <div className="dsh-nav-container">
         <div className="dsh-nav-inner">
           <div className="dsh-nav-logo-section">
-            <Menu
-              onClick={showDrawer}
-              strokeWidth={2}
-              size={28}
-              className="dsh-nav-m-menu-icon"
-            />
-
-            {/* <img src={IMAGES.logo} className="dsh-nav-logo" /> */}
-            <h2 onClick={() => router.push(ROUTES.home)}>
-              <b>Dashboard</b>
-            </h2>
+            <Menu onClick={showDrawer} strokeWidth={2} size={28} className="dsh-nav-m-menu-icon" />
+            <a onClick={() => router.push(ROUTES.home)}>
+              <img src={IMAGES.logo} className="dsh-nav-logo" />
+            </a>
           </div>
 
           <nav className="dsh-nav-d-menu">
@@ -41,11 +34,7 @@ export const DashboardNavbar = () => {
         </div>
       </div>
 
-      <MobileMenu
-        showDrawer={showDrawer}
-        closeDrawer={closeDrawer}
-        drawerOpen={drawerOpen}
-      />
+      <MobileMenu showDrawer={showDrawer} closeDrawer={closeDrawer} drawerOpen={drawerOpen}/>
     </header>
   );
 };
