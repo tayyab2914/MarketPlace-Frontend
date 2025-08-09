@@ -2,20 +2,7 @@ import React from "react";
 import { Space, Popconfirm } from "antd";
 import { Eye, Pencil, Trash } from "lucide-react";
 
-export const getListingColumns = ({ onEdit, onDelete, onView }) => [
-  // {
-  //   title: "Company",
-  //   dataIndex: "company_name",
-  //   key: "company_name",
-  //   sorter: (a, b) => a.company_name.localeCompare(b.company_name),
-  //   responsive: ["xs", "sm", "md", "lg", "xl"],
-  //   render: (text, record) => (
-  //     <>
-  //       {record.company_name} <br />
-  //       <small style={{ color: "#888" }}>{record.company_location}</small>
-  //     </>
-  //   ),
-  // },
+export const ServiceColumns = ({ onEdit, onDelete, onView }) => [
   {
     title: "Title",
     dataIndex: "title",
@@ -24,6 +11,14 @@ export const getListingColumns = ({ onEdit, onDelete, onView }) => [
     responsive: ["sm", "md", "lg", "xl"],
   },
   {
+    title: "Description",
+    dataIndex: "description",
+    key: "description",
+    sorter: (a, b) => a.description.localeCompare(b.description),
+    responsive: ["md", "lg", "xl"],
+  },
+
+  {
     title: "Category",
     dataIndex: "category",
     key: "category",
@@ -31,18 +26,11 @@ export const getListingColumns = ({ onEdit, onDelete, onView }) => [
     responsive: ["md", "lg", "xl"],
   },
   {
-    title: "Budget ($)",
-    dataIndex: "budget",
-    key: "budget",
-    sorter: (a, b) => a.budget - b.budget,
+    title: "Starting From",
+    dataIndex: "price_starting_from",
+    key: "price_starting_from",
+    sorter: (a, b) => a.price_starting_from - b.price_starting_from,
     responsive: ["md", "lg", "xl"],
-  },
-  {
-    title: "Deadline",
-    dataIndex: "deadline",
-    key: "deadline",
-    sorter: (a, b) => new Date(a.deadline) - new Date(b.deadline),
-    responsive: ["lg", "xl"],
   },
   {
     title: "Actions",
@@ -56,15 +44,15 @@ export const getListingColumns = ({ onEdit, onDelete, onView }) => [
           style={{ color: "green", cursor: "pointer" }}
           onClick={() => onEdit(record)}
           title="Edit"
-            strokeWidth={2}
-            size={18}
+          strokeWidth={2}
+          size={18}
         />
         <Eye
           style={{ color: "blue", cursor: "pointer" }}
           onClick={() => onView(record.id)}
-          title="View Offers"
-            strokeWidth={2}
-            size={18}
+          title="View"
+          strokeWidth={2}
+          size={18}
         />
         <Popconfirm
           title="Are you sure you want to delete this listing?"

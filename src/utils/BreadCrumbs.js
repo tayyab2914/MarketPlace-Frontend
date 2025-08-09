@@ -62,6 +62,10 @@ export const BREADCRUMBS = {
     { url: ROUTES.Dashboard, name: "Dashboard" },
     { url: ROUTES.DashboardListings, name: "Listings" },
   ],
+  dashboardServices: [
+    { url: ROUTES.Dashboard, name: "Dashboard" },
+    { url: ROUTES.DashboardServices, name: "Services" },
+  ],
   dashboardListingOffers: [
     { url: ROUTES.Dashboard, name: "Dashboard" },
     { url: ROUTES.DashboardListings, name: "Listings" },
