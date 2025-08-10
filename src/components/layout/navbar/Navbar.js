@@ -1,13 +1,13 @@
 "use client";
 import React, { useState } from "react";
-import DesktopMenu from "./components/DesktopMenu";
-import MobileMenu from "./components/MobileMenu";
-import NavActions from "./components/NavActions";
+import DesktopMenu from "./components/desktop/DesktopMenu";
+import MobileMenu from "./components/mobile/MobileMenu";
 import "./styles/navbar.css";
 import { useRouter } from "next/navigation";
 import { ROUTES } from "@/utils/Constants";
 import { IMAGES } from "@/components/ui/Image/ImageData";
 import { Menu } from "lucide-react";
+import NavActions from "./components/actions/NavActions";
 
 const Navbar = () => {
   const router = useRouter();
@@ -20,21 +20,28 @@ const Navbar = () => {
       <div className="nav-container">
         <div className="nav-inner">
           <div className="nav-logo-section">
-            <Menu onClick={showDrawer} strokeWidth={2} size={28} className="nav-m-menu-icon" />
+            <Menu
+              onClick={showDrawer}
+              strokeWidth={2}
+              size={28}
+              className="nav-m-menu-icon"
+            />
             <a onClick={() => router.push(ROUTES.home)}>
               <img src={IMAGES.logo} className="nav-logo" />
             </a>
           </div>
-
           <nav className="nav-d-menu">
             <DesktopMenu />
           </nav>
-
           <NavActions />
         </div>
       </div>
 
-      <MobileMenu showDrawer={showDrawer} closeDrawer={closeDrawer} drawerOpen={drawerOpen}/>
+      <MobileMenu
+        showDrawer={showDrawer}
+        closeDrawer={closeDrawer}
+        drawerOpen={drawerOpen}
+      />
     </header>
   );
 };

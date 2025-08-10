@@ -38,6 +38,15 @@
 }
 
 
+.nav-a-profile-avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
 @media (max-width: 1024px) {
   .nav-mobile-menu-button {
     display: block;
@@ -136,19 +145,17 @@
 }
 
 .nav-a-post-task-btn:hover {
-  color: var(--n900);
+  color: white;
 }
 
 .nav-a-post-task-btn:hover::after {
   width: calc(100% + 2px);
 }
-
-.nav-a-post-task-text {
+.nav-a-post-task-btn span {
   position: relative;
   z-index: 10;
 }
-
-.nav-a-post-task-icon {
+.nav-a-post-task-btn i {
   position: relative;
   z-index: 10;
   font-size: 1.25rem;

@@ -25,6 +25,16 @@ const Button = ({
           <span>{children}</span>
         </button>
       )}
+      {variant == "filled-animated-light" && (
+        <button
+          className={`btn-filled-animated-light ${className}`}
+          style={{ height: h, width: w, fontSize: fs, margin: m, ...style }}
+          onClick={onClick}
+          type={type}
+        >
+          <span>{children}</span>
+        </button>
+      )}
       {variant == "outlined" && (
         <button
           className={`btn-outlined ${className}`}

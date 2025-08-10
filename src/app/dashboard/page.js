@@ -6,8 +6,8 @@ import DashboardNavbar from "@/features/dashboard/components/navbar/DashboardNav
 const page = () => {
   return (
     <AuthRedirect allowLoggedIn>
-      <DashboardNavbar/>
-      <DashboardPage/>
+      <DashboardNavbar />
+      <DashboardPage />
     </AuthRedirect>
   );
 };

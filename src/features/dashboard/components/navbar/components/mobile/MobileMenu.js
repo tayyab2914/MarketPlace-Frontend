@@ -2,7 +2,7 @@
 import React from "react";
 import { Drawer } from "antd";
 import { IMAGES } from "@/components/ui/Image/ImageData";
-import { DASHBOARD_NAVBAR_MENU, NAVBAR_MENU } from "@/constants/data/NavbarData";
+import { DASHBOARD_NAVBAR_MENU } from "@/constants/data/NavbarData";
 import { MobileMenuSection } from "./MobileMenuSection";
 
 const MobileMenu = ({ closeDrawer, drawerOpen }) => {

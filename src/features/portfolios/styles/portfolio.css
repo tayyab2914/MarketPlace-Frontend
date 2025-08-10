@@ -41,12 +41,11 @@
     justify-content: center;
     align-items: center;
   }
-  
   .por-l-image {
-    width: 150px;
-    height: 150px;
-    object-fit: contain;
-    border-radius: 16px;
+    width: 150px;       
+    height: 150px;      
+    border-radius: 50%; 
+    object-fit: cover;  
   }
   
   .por-l-info-col {

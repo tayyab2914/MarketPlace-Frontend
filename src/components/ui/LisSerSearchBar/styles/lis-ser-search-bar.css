@@ -40,34 +40,14 @@
   .lis-ser-srch-keyword-input{
     border: 1px solid #e5e5e5;
     padding: 5px;
-    border-radius:12px;
+    border-radius:8px;
+    width: 100%;
+
+    height: 40px;
   }
   
     
-  .lis-ser-srch-form {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 1.125rem;
-    font-weight: 500;
-  }
   
-  @media (max-width: 640px) {
-    .lis-ser-srch-form {
-      font-size: 0.875rem;
-    }
-  }
-  .lis-ser-srch-input-group {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-  
-  @media (min-width: 640px) {
-    .lis-ser-srch-input-group {
-      gap: 2.5rem;
-    }
-  }
   
   .lis-ser-srch-hide-400 {
     display: inline;
@@ -166,3 +146,17 @@
     z-index: 0;
   }
   
+
+/* On small screens, make inputs full width */
+@media (max-width: 640px) {
+  .lis-ser-srch-button-group {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .lis-ser-srch-clear-btn,
+  .lis-ser-srch-search-btn,
+  .lis-ser-srch-button-group button {
+    flex: 1;
+  }
+}

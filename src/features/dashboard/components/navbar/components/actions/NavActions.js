@@ -5,6 +5,7 @@ import { Bell } from "lucide-react";
 import NavActionOptions from "./NavActionOptions";
 import { BACKEND_DOMAIN } from "@/utils/Constants";
 import { useLogoutUser } from "@/hooks/useLogoutUser";
+import { IMAGES } from "@/components/ui/Image/ImageData";
 
 const NavActions = () => {
   const { is_user_logged_in } = useSelector((state) => state.auth);
@@ -31,9 +32,18 @@ const NavActions = () => {
           >
             <div className={"dsh-nav-userAvatar"} style={{ cursor: "pointer" }}>
               <img
-                src={`${BACKEND_DOMAIN}${company_info?.profile_image}`}
-                alt="User Avatar"
-                className={"dsh-nav-avatarImage"}
+                src={
+                  company_info?.profile_image
+                    ? `${BACKEND_DOMAIN}${company_info.profile_image}`
+                    : IMAGES?.user
+                }
+                alt="Profile"
+                style={{
+                  width: 40,
+                  height: 40,
+                  borderRadius: "50%",
+                  objectFit: "cover",
+                }}
               />
             </div>
           </Dropdown>

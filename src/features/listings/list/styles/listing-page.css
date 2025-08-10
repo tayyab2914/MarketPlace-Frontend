@@ -2,4 +2,208 @@
 .lis-lis-section {
   padding-bottom: 1rem;
 }
-/* ========================================= */
+/* ========================================= */.srv-lis-section-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2.5rem;
+  gap: 1rem;
+}
+@media (max-width: 768px) {
+  .srv-lis-section-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .srv-lis-arrow-icon {
+    padding-left: 1rem;
+  }
+}
+.srv-lis-section {
+  margin-bottom: 30px;
+}
+.srv-lis-search-box {
+  width: 100%;
+  background: #fff;
+  padding: 16px;
+  border-radius: 24px;
+  border: 1px solid #e6e6e6;
+}
+
+.srv-lis-section {
+  padding-bottom: 1rem;
+}
+
+/* ============================================================ */
+
+.lis-lis-cd-serviceCard {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem; /* 3 */
+  border-radius: 1rem; /* 2xl */
+  border: 1px solid #d1d5db; /* gray-300 */
+  padding: 0.75rem; /* 3 */
+  flex-wrap: nowrap;
+}
+
+@media (max-width: 768px) {
+  /* max-md:flex-col */
+  .lis-lis-cd-serviceCard {
+    flex-direction: column;
+  }
+}
+
+.lis-lis-cd-leftSection {
+  display: flex;
+  justify-content: flex-start;
+  gap: 0.5rem; /* 2 */
+  flex-wrap: nowrap;
+  flex-direction: column;
+}
+
+@media (max-width: 640px) {
+  /* max-sm:flex-col */
+  .lis-lis-cd-leftSection {
+    flex-direction: column;
+  }
+}
+
+.lis-lis-cd-companyName {
+  /* Add styles if needed */
+  font-size: 14px;
+  font-weight: 500;
+  color: #999;
+  margin-bottom: 0px;
+}
+
+.lis-lis-cd-serviceInfo {
+  /* Add styles if needed */
+}
+
+.lis-lis-cd-heading5 {
+  font-size: 1.25rem; /* example for heading-5 */
+  font-weight: 600;
+  margin: 0;
+}
+
+.lis-lis-cd-description {
+  margin: 0.25rem 0 0 0;
+}
+
+.lis-lis-cd-tagsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem; /* 1 */
+  padding-top: 0.75rem; /* 3 */
+  font-size: 0.875rem; /* text-sm */
+  color: #9ca3af; /* gray-400 */
+}
+
+@media (min-width: 1600px) {
+  /* xxl:pt-6 */
+  .lis-lis-cd-tagsContainer {
+    padding-top: 1.5rem; /* 6 */
+  }
+}
+
+.lis-lis-cd-tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem; /* 2 */
+  border-radius: 1rem; /* rounded-xl */
+  background-color: #e0f2fe; /* blue-100 */
+  padding: 0.5rem 0.75rem; /* py-2 px-3 */
+  font-weight: 500;
+}
+
+.lis-lis-cd-tag img {
+  display: inline-block;
+}
+
+.lis-lis-cd-rightSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem; /* 2xl */
+  border: 1px solid #d1d5db; /* gray-300 */
+  padding: 1.5rem 1rem; /* py-8 px-6 */
+  text-align: center;
+  color: #4b5563; /* gray-600 */
+  max-width: 176px;
+  width: 100%;
+  height: 100%;
+  min-width: 150px;
+}
+
+@media (max-width: 768px) {
+  .lis-lis-cd-rightSection {
+    max-width: 100%;
+  }
+}
+
+.lis-lis-cd-startingAt {
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+}
+
+.lis-lis-cd-price {
+  padding: 0.25rem 0;
+  font-weight: 600;
+  color: #f87171; /* red-400 */
+  margin: 0;
+}
+
+.lis-lis-cd-fixedPrice {
+  padding-bottom: 1.25rem; /* pb-5 */
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.lis-lis-cd-viewDetailsBtn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 9999px; /* rounded-full */
+  background-color: #3b82f6; /* blue-500 */
+  padding: 0.5rem 0.75rem; /* py-2 px-3 */
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+  transition: color 0.7s ease;
+  text-decoration: none; /* for <a> */
+}
+
+.lis-lis-cd-viewDetailsBtn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  left: 0;
+  width: 0;
+  border-radius: 9999px;
+  background-color: #facc15; /* yellow-400 */
+  transition: width 0.7s ease;
+  z-index: 0;
+}
+
+.lis-lis-cd-viewDetailsBtn:hover {
+  color: #111827; /* gray-900 */
+}
+
+.lis-lis-cd-viewDetailsBtn:hover::after {
+  width: calc(100% + 2px);
+}
+
+.lis-lis-cd-viewDetailsBtn span {
+  position: relative;
+  z-index: 10;
+}
+
+/* =========================================================== */
