@@ -4,11 +4,9 @@ import React from "react";
 
 const page = () => {
   return (
-    
-      <AuthRedirect allowLoggedIn>
-        <AdminPage />
-      </AuthRedirect>
-    
+    <AuthRedirect allowLoggedIn>
+      <AdminPage />
+    </AuthRedirect>
   );
 };
 
