@@ -1,0 +1,188 @@
+.chat-s-sidebar {
+    border: 1px solid #e5e7eb; /* border-r */
+    background-color: white; /* bg-white */
+    padding-top: 2rem; /* py-8 top */
+    padding-bottom: 2rem; /* py-8 bottom */
+    transition-duration: 500ms; /* duration-500 */
+    height: calc(100vh - 280px);
+  }
+  
+
+/* =================================== HEADER ========================== */
+
+.chat-s-h-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 1.5rem; /* px-6 */
+    padding-right: 1.5rem;
+    padding-bottom: 1.25rem; /* pb-5 */
+  }
+  
+  .chat-s-h-left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.75rem; /* gap-3 */
+  }
+  
+  .chat-s-h-avatar {
+    height: 3rem; /* h-12 */
+    width: 3rem;  /* w-12 */
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: 0 4px 9px 0 rgba(100, 218, 255, 0.39);
+  }
+  
+  .chat-s-h-title {
+    /* assuming heading-5 is a preset style for font-size and weight */
+    font-size: 1.25rem; /* example for h5 */
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  .chat-s-h-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem; /* gap-2 */
+  }
+  
+  .chat-s-h-dots {
+    display: block;
+    cursor: pointer;
+    border-radius: 0.75rem; /* rounded-xl */
+    background-color: #f1f5f9; /* bg-slate-100 approx */
+    padding-left: 0.5rem; /* px-2 */
+    padding-right: 0.5rem;
+    font-size: 1.5rem; /* text-2xl */
+  }
+  
+  .chat-s-h-close {
+    display: block;
+    cursor: pointer;
+    font-size: 1.5rem; /* text-2xl */
+  }
+  
+  /* Hide chatSidebarClose on large screens */
+  @media (min-width: 1024px) {
+    .chat-s-h-close {
+      display: none;
+    }
+  }
+  
+
+  /* ========================= SEARCH BAR===================== */
+  .chat-s-s-container {
+    margin-left: 1.5rem; /* mx-6 => horizontal margin */
+    margin-right: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem; /* gap-2 */
+    border-radius: 0.75rem; /* rounded-xl */
+    background-color: #f1f5f9; /* bg-slate-100 */
+    padding-left: 1.25rem; /* px-5 */
+    padding-right: 1.25rem;
+    padding-top: 0.75rem; /* py-3 */
+    padding-bottom: 0.75rem;
+  }
+  
+  .chat-s-s-icon {
+    display: block;
+    font-size: 1.25rem; /* text-xl */
+    color: #94a3b8; /* text-slate-400 */
+  }
+  
+  .chat-s-s-input {
+    width: 100%; /* w-full */
+    background-color: transparent;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+  }
+  
+  /* ==================================== CHAT LIST =============== */
+  .chat-s-list {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    padding-top: 1.25rem; /* pt-5 = 1.25rem */
+    max-height: 100%;
+  }
+  
+
+  /* =================================== CHAT LIST ITEM +==================== */
+  .chat-s-item {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.75rem; /* gap-3 */
+    padding-left: 1.5rem; /* pl-6 */
+    padding-top: 1.25rem; /* py-5 vertical padding */
+    padding-bottom: 1.25rem;
+    padding-right: 0.5rem; /* px-2 horizontal padding (px-2 means left+right=0.5rem each?) Actually px-2 means 0.5rem total left+right so 0.25rem each, but here given px-2 means left+right 0.5rem each? Usually px-2 = 0.5rem padding left and right individually */
+    padding-left: 0.5rem;
+    transition: background-color 0.3s ease;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .chat-s-item-name{
+    margin: 0px;
+    font-weight: 600;
+  }
+  .chat-s-item:hover {
+    background-color: var(--n30); /* You need to define --n30 in your CSS or replace with actual color */
+  }
+  
+  .chat-s-item-avatar {
+    height: 3rem; /* h-12 */
+    width: 3rem; /* w-12 */
+    border-radius: 0.75rem; /* rounded-xl */
+  }
+  
+  .chat-s-item-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem; /* gap-2 */
+    padding-bottom: 0.25rem; /* pb-1 */
+  }
+  
+  .chat-s-item-unread {
+    border-radius: 9999px; /* rounded-full */
+    background-color: var(--r300); /* bg-r300, define in CSS or replace with actual */
+    padding: 0.25rem 0.375rem; /* px-1.5 py-1 */
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 500; /* font-medium */
+    line-height: 1; /* !leading-none */
+    color: white;
+  }
+  
+  .chat-s-item-message-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 0.875rem; /* text-sm */
+  }
+  
+  .chat-s-item-time-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 0.5rem; /* pl-2 */
+  }
+  
+  .chat-s-item-time-dot {
+    display: block;
+    height: 0.5rem; /* h-2 */
+    width: 0.5rem; /* w-2 */
+    border-radius: 9999px; /* rounded-full */
+    background-color: #94a3b8; /* bg-slate-300, replace if you want */
+  }
+  
+  .chat-s-item-time {
+    display: block;
+    padding-left: 0.25rem; /* pl-1 */
+    line-height: 1; /* !leading-none */
+  }
+  
