@@ -1,17 +1,33 @@
-import React from "react";
-import { Table } from "antd";
+import React, { useState, useMemo } from "react";
+import { Table, Input } from "antd";
 import useWindowWidth from "@/hooks/useWindowWidth";
 import { getUsersTableColumns } from "./UserTableColumns";
+import { FILTER_DATA_BY_SEARCH } from "../../utils/utils";
+
+const { Search } = Input;
 
 const UsersTable = ({ data, loading, onView, onEdit }) => {
   const width = useWindowWidth();
+  const [searchText, setSearchText] = useState("");
 
   const columns = getUsersTableColumns(width, onView, onEdit);
 
+  // Filter users based on search text (case-insensitive match on username or email)
+  const filteredData = useMemo(
+    () => FILTER_DATA_BY_SEARCH(searchText, data),
+    [data, searchText]
+  );
+
   return (
     <div style={{ width: "100%", overflowX: "auto" }}>
+      <Search
+        placeholder="Search by username or email"
+        allowClear
+        onChange={(e) => setSearchText(e.target.value)}
+        style={{ marginBottom: 16, maxWidth: 300 }}
+      />
       <Table
-        dataSource={data}
+        dataSource={filteredData}
         columns={columns}
         rowKey="id"
         loading={loading}

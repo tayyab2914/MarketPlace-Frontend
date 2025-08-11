@@ -30,3 +30,12 @@ export const RENDER_VERIFICATION_TAGS = (verified) => {
     </Tag>
   );
 };
+export const FILTER_DATA_BY_SEARCH = (searchText, data) => {
+  if (!searchText) return data;
+  const lowerSearch = searchText.toLowerCase();
+  return data.filter(
+    (user) =>
+      (user.username && user.username.toLowerCase().includes(lowerSearch)) ||
+      (user.email && user.email.toLowerCase().includes(lowerSearch))
+  );
+};
