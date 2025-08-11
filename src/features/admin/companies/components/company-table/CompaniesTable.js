@@ -30,7 +30,7 @@ const CompaniesTable = ({ data, loading, onView, onEdit }) => {
         columns={columns}
         rowKey="id"
         loading={loading}
-        pagination={{ pageSize: 10, showSizeChanger: true }}
+        pagination={{ pageSize: 10, showSizeChanger: true }} 
         bordered
         size="middle"
       />
