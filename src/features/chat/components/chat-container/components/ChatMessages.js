@@ -1,59 +1,69 @@
-// ChatMessages.jsx
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 import ChatMessage from "./ChatMessage";
+import { useSearchParams } from "next/navigation";
+import { API_GET_MESSAGES } from "@/apis/ChatApis";
+import { useSelector } from "react-redux";
+import ChatInputArea from "./ChatInputArea";
 
-const ChatMessages = () => {
+const ChatMessages = ({ socket }) => {
+  const { token } = useSelector((state) => state.auth);
+  const searchParams = useSearchParams();
+  const chat_id = searchParams.get("chat_id") || "";
+
+  const [messages, setMessages] = useState([]);
+
+  // Ref for messages container
+  const messagesEndRef = useRef(null);
+
+  const getPreviousConvo = async () => {
+    const res = await API_GET_MESSAGES(token, chat_id);
+    setMessages(res);
+    console.log(res)
+  };
+
+  useEffect(() => {
+    if (!chat_id || !token) return;
+
+    getPreviousConvo();
+  }, [chat_id, token]);
+
+  useEffect(() => {
+    if (!socket) return;
+
+    const handleMessage = (event) => {
+      const data = JSON.parse(event.data);
+      setMessages((prev) => [...prev, data]);
+    };
+
+    socket.addEventListener("message", handleMessage);
+
+    return () => {
+      socket.removeEventListener("message", handleMessage);
+    };
+  }, [socket]);
+
+  // Scroll to bottom whenever messages change
+  useEffect(() => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [messages]);
+
+  // Function to add new message instantly
+  const addMessage = (msg) => {
+    setMessages((prev) => [...prev, msg]);
+  };
+
   return (
-    <div className="chat-c-messages">
-      <ChatMessage
-        avatar="./assets/images/chat2.png"
-        message="Hello! Have you seen my backpack anywhere in office?"
-        time="15:42"
-      />
-      <ChatMessage
-        avatar="./assets/images/chat1.png"
-        message="Thank you for work, see you!"
-        time="15:42"
-        isOwn
-        checked
-      />
-      <ChatMessage
-        avatar="./assets/images/chat2.png"
-        message="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
-        time="15:42"
-      />
-      <ChatMessage
-        avatar="./assets/images/chat2.png"
-        message="A page when looking at its layout."
-        time="15:42"
-        isOwn
-        checked
-      />
-      <ChatMessage
-        avatar="./assets/images/chat2.png"
-        message="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
-        time="15:42"
-      />
-      <ChatMessage
-        avatar="./assets/images/chat2.png"
-        message="A page when looking at its layout."
-        time="15:42"
-        isOwn
-        checked
-      />
-      <ChatMessage
-        avatar="./assets/images/chat2.png"
-        message="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
-        time="15:42"
-      />
-      <ChatMessage
-        avatar="./assets/images/chat2.png"
-        message="A page when looking at its layout."
-        time="15:42"
-        isOwn
-        checked
-      />
-    </div>
+    <>
+      <div className="chat-c-messages">
+        {messages?.map((msg) => (
+          <ChatMessage key={msg?.id} msg={msg} />
+        ))}
+        <div ref={messagesEndRef} />
+      </div>
+      <ChatInputArea socket={socket} addMessage={addMessage} />
+    </>
   );
 };
 

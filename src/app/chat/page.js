@@ -1,8 +1,12 @@
+"use client";
+
 import Navbar from "@/components/layout/navbar/Navbar";
 import ChatPage from "@/features/chat/ChatPage";
 import React from "react";
+import { useSearchParams } from "next/navigation";
 
-const page = () => {
+const Page = () => {
+
   return (
     <div>
       <Navbar />
@@ -11,4 +15,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

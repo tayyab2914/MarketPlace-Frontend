@@ -5,12 +5,11 @@ import ChatMessages from "./components/ChatMessages";
 import ChatInputArea from "./components/ChatInputArea";
 import './styles/chat-container.css'
 
-const ChatContainer = () => {
+const ChatContainer = ({socket}) => {
   return (
     <div className="chat-c-container">
       <ChatHeader />
-      <ChatMessages />
-      <ChatInputArea />
+      <ChatMessages socket={socket}/>
     </div>
   );
 };

@@ -38,6 +38,8 @@ export const ROUTES = {
 
   DashboardListings: "/dashboard/listings/",
   DashboardServices: "/dashboard/services/",
+
+  Chat:"/chat/"
 };
 
 export const BACKEND_DOMAIN = process.env.NEXT_PUBLIC_BACKEND_DOMAIN;

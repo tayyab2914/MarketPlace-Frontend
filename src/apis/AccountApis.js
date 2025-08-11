@@ -85,6 +85,7 @@ export const API_GET_USER_COMPANY = async (token, dispatch) => {
     url: `${BACKEND_DOMAIN}/account/company/profile/`,
     token: token,
     onSuccess: (res) => {
+      console.log(res)
       dispatch(setCompanyInfo(res?.data));
     },
   });
