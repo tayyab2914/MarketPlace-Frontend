@@ -1,15 +1,19 @@
 "use client";
-import styles from "../styles/header.module.css";
+import styles from "../../styles/header.module.css";
 import React from "react";
 import { Dropdown } from "antd";
 import { Menu as MenuIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useLogoutUser } from "@/hooks/useLogoutUser";
-import { HeaderMenu } from "./components/HeaderMenu";
+import { getHeaderMenuItems } from "./components/HeaderMenu";
 
 export function Header({ onToggleSidebar }) {
   const router = useRouter();
-  const logoutUser = useLogoutUser();
+  const { logoutUser } = useLogoutUser();
+
+  const menuItems = getHeaderMenuItems(router, logoutUser, () => {
+    logoutUser();
+  });
   return (
     <header className={styles.header}>
       <div className={styles.headerLeft}>
@@ -25,7 +29,7 @@ export function Header({ onToggleSidebar }) {
 
       <div className={styles.headerRight}>
         <Dropdown
-          overlay={() => HeaderMenu(router, logoutUser)}
+          menu={{ items: menuItems }}
           trigger={["click"]}
           placement="bottomRight"
         >

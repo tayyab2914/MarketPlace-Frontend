@@ -11,6 +11,7 @@ export const useLogoutUser = () => {
   const router = useRouter();
 
   const logoutUser = () => {
+    console.log("LOGOUT")
     dispatch(setIsUserLoggedIn(false));
     dispatch(setUserAuthToken(null));
     router.push(ROUTES.home);
