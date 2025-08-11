@@ -1,10 +1,23 @@
 import React, { useEffect } from "react";
 import { Modal, Form } from "antd";
 import CustomInputField from "@/components/ui/CustomInputField/CustomInputField";
-import { API_ADMIN_UPDATE_LISTING } from "@/apis/AdminApis"; // Make sure this API exists
+import { API_ADMIN_UPDATE_LISTING } from "@/apis/AdminApis";
 import { useSelector } from "react-redux";
 import Button from "@/components/ui/Button/Button";
 import dayjs from "dayjs";
+import {
+  Hash,
+  Type,
+  FileText,
+  Layers,
+  Tags,
+  DollarSign,
+  Calendar,
+  Flag,
+  Eye,
+  ShieldCheck,
+  Building2
+} from "lucide-react";
 
 const EditListingModal = ({ visible, onClose, listing, fetchListings }) => {
   const [form] = Form.useForm();
@@ -41,9 +54,9 @@ const EditListingModal = ({ visible, onClose, listing, fetchListings }) => {
       status: values.status,
       is_public: values.is_public,
       verified_by_admin: values.verified_by_admin,
-      company: values.company,  // ensure this matches API expectation
+      company: values.company,
     };
-  
+
     try {
       const res = await API_ADMIN_UPDATE_LISTING(token, listing.id, updatedListing);
       if (res) {
@@ -52,10 +65,8 @@ const EditListingModal = ({ visible, onClose, listing, fetchListings }) => {
       }
     } catch (error) {
       console.error("Update failed:", error);
-      // Optionally show a notification to the user here
     }
   };
-  
 
   return (
     <Modal
@@ -73,6 +84,7 @@ const EditListingModal = ({ visible, onClose, listing, fetchListings }) => {
           inputType="input"
           disabled
           className="adm-lis-input-field"
+          addonBefore={<Hash size={16} />}
         />
 
         <CustomInputField
@@ -82,6 +94,7 @@ const EditListingModal = ({ visible, onClose, listing, fetchListings }) => {
           inputType="input"
           rules={[{ required: true, message: "Please enter title" }]}
           className="adm-lis-input-field"
+          addonBefore={<Type size={16} />}
         />
 
         <CustomInputField
@@ -91,6 +104,7 @@ const EditListingModal = ({ visible, onClose, listing, fetchListings }) => {
           inputType="textarea"
           rows={4}
           className="adm-lis-input-field"
+          addonBefore={<FileText size={16} />}
         />
 
         <CustomInputField
@@ -99,6 +113,7 @@ const EditListingModal = ({ visible, onClose, listing, fetchListings }) => {
           placeholder="Enter category"
           inputType="input"
           className="adm-lis-input-field"
+          addonBefore={<Layers size={16} />}
         />
 
         <CustomInputField
@@ -107,6 +122,7 @@ const EditListingModal = ({ visible, onClose, listing, fetchListings }) => {
           placeholder="e.g. mobile, flutter, react native"
           inputType="input"
           className="adm-lis-input-field"
+          addonBefore={<Tags size={16} />}
         />
 
         <CustomInputField
@@ -115,6 +131,7 @@ const EditListingModal = ({ visible, onClose, listing, fetchListings }) => {
           placeholder="Enter budget"
           inputType="number"
           className="adm-lis-input-field"
+          addonBefore={<DollarSign size={16} />}
         />
 
         <CustomInputField
@@ -123,6 +140,7 @@ const EditListingModal = ({ visible, onClose, listing, fetchListings }) => {
           placeholder="YYYY-MM-DD"
           inputType="date"
           className="adm-lis-input-field"
+          addonBefore={<Calendar size={16} />}
         />
 
         <CustomInputField
@@ -131,18 +149,21 @@ const EditListingModal = ({ visible, onClose, listing, fetchListings }) => {
           placeholder="open, closed, etc."
           inputType="input"
           className="adm-lis-input-field"
+          addonBefore={<Flag size={16} />}
         />
 
         <CustomInputField
           name="is_public"
           label="Is Public"
           inputType="switch"
+          addonBefore={<Eye size={16} />}
         />
 
         <CustomInputField
           name="verified_by_admin"
           label="Verified by Admin"
           inputType="switch"
+          addonBefore={<ShieldCheck size={16} />}
         />
 
         <CustomInputField
@@ -151,6 +172,7 @@ const EditListingModal = ({ visible, onClose, listing, fetchListings }) => {
           inputType="number"
           disabled
           className="adm-lis-input-field"
+          addonBefore={<Building2 size={16} />}
         />
 
         <Button variant="filled-animated" onClick={() => form.submit()}>

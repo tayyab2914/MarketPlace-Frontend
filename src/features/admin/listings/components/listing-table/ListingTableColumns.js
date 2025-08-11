@@ -15,7 +15,7 @@ export function getListingsTableColumns(width, onView, onEdit) {
       title: "ID",
       dataIndex: "id",
       key: "id",
-      responsive: ["md"],
+      responsive: ["lg"],
       sorter: (a, b) => a.id - b.id,
     },
     {
@@ -24,21 +24,20 @@ export function getListingsTableColumns(width, onView, onEdit) {
       key: "title",
       sorter: (a, b) => a.title.localeCompare(b.title),
       ellipsis: true,
-      responsive: ["lg"],
     },
     {
       title: "Category",
       dataIndex: "category",
       key: "category",
       ellipsis: true,
-      responsive: ["md"],
+      responsive: ["sm"],
     },
     {
       title: "Budget",
       dataIndex: "budget",
       key: "budget",
       sorter: (a, b) => a.budget - b.budget,
-      responsive: ["md"],
+      responsive: ["lg"],
       render: (budget) => `$${budget.toLocaleString()}`,
     },
     {
@@ -46,7 +45,7 @@ export function getListingsTableColumns(width, onView, onEdit) {
       dataIndex: "deadline",
       key: "deadline",
       sorter: (a, b) => new Date(a.deadline) - new Date(b.deadline),
-      responsive: ["md"],
+      responsive: ["lg"],
       render: (date) => new Date(date).toLocaleDateString(),
     },
     {
@@ -59,7 +58,7 @@ export function getListingsTableColumns(width, onView, onEdit) {
         { text: "In Progress", value: "in progress" },
       ],
       onFilter: (value, record) => record.status === value,
-      responsive: ["sm"],
+      responsive: ["xl"],
       render: (status) => (
         <Tag color={status === "open" ? "green" : status === "closed" ? "red" : "blue"}>
           {status.charAt(0).toUpperCase() + status.slice(1)}
@@ -70,7 +69,7 @@ export function getListingsTableColumns(width, onView, onEdit) {
       title: "Public",
       dataIndex: "is_public",
       key: "is_public",
-      responsive: ["sm"],
+      responsive: ["xl"],
       render: (isPublic) => (isPublic ? <Tag color="green">Yes</Tag> : <Tag>No</Tag>),
     },
     {

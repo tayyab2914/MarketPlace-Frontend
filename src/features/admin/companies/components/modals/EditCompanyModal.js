@@ -1,9 +1,17 @@
 import React, { useEffect } from "react";
 import { Modal, Form } from "antd";
 import CustomInputField from "@/components/ui/CustomInputField/CustomInputField";
-import { API_ADMIN_UPDATE_COMPANY } from "@/apis/AdminApis"; // Assuming you have this API method
+import { API_ADMIN_UPDATE_COMPANY } from "@/apis/AdminApis";
 import { useSelector } from "react-redux";
 import Button from "@/components/ui/Button/Button";
+import {
+  Hash,
+  Building2,
+  FileText,
+  Phone,
+  Briefcase,
+  MapPin
+} from "lucide-react";
 
 const EditCompanyModal = ({ visible, onClose, company, fetchCompanies }) => {
   const [form] = Form.useForm();
@@ -11,7 +19,6 @@ const EditCompanyModal = ({ visible, onClose, company, fetchCompanies }) => {
 
   useEffect(() => {
     if (company) {
-      // Set initial form values for the company
       form.setFieldsValue({
         id: company.id,
         name: company.name,
@@ -19,7 +26,6 @@ const EditCompanyModal = ({ visible, onClose, company, fetchCompanies }) => {
         phone_no: company.phone_no,
         industry: company.industry,
         location: company.location,
-        // profile_image could be handled separately if you have upload
       });
     } else {
       form.resetFields();
@@ -51,6 +57,7 @@ const EditCompanyModal = ({ visible, onClose, company, fetchCompanies }) => {
           inputType="input"
           disabled
           className="adm-company-input-field"
+          addonBefore={<Hash size={16} />}
         />
 
         <CustomInputField
@@ -60,6 +67,7 @@ const EditCompanyModal = ({ visible, onClose, company, fetchCompanies }) => {
           inputType="input"
           rules={[{ required: true, message: "Please enter company name" }]}
           className="adm-company-input-field"
+          addonBefore={<Building2 size={16} />}
         />
 
         <CustomInputField
@@ -69,6 +77,7 @@ const EditCompanyModal = ({ visible, onClose, company, fetchCompanies }) => {
           inputType="textarea"
           rows={4}
           className="adm-company-input-field"
+          addonBefore={<FileText size={16} />}
         />
 
         <CustomInputField
@@ -77,6 +86,7 @@ const EditCompanyModal = ({ visible, onClose, company, fetchCompanies }) => {
           placeholder="Enter phone number"
           inputType="input"
           className="adm-company-input-field"
+          addonBefore={<Phone size={16} />}
         />
 
         <CustomInputField
@@ -85,6 +95,7 @@ const EditCompanyModal = ({ visible, onClose, company, fetchCompanies }) => {
           placeholder="Enter industry"
           inputType="input"
           className="adm-company-input-field"
+          addonBefore={<Briefcase size={16} />}
         />
 
         <CustomInputField
@@ -93,9 +104,8 @@ const EditCompanyModal = ({ visible, onClose, company, fetchCompanies }) => {
           placeholder="Enter location"
           inputType="input"
           className="adm-company-input-field"
+          addonBefore={<MapPin size={16} />}
         />
-
-        {/* For profile_image you might want a custom upload field, not included here */}
 
         <Button variant="filled-animated" onClick={() => form.submit()}>
           Update Company

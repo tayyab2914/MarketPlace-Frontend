@@ -1,57 +1,193 @@
 // CompanyDetailsModal.jsx
 import React from "react";
-import { Modal, Descriptions, Tag } from "antd";
+import { Modal } from "antd";
+import {
+  HomeOutlined,
+  PhoneOutlined,
+  EnvironmentOutlined,
+  TagOutlined,
+  PictureOutlined,
+  CheckCircleOutlined,
+  CloseCircleOutlined,
+  IdcardOutlined,
+  CalendarOutlined,
+} from "@ant-design/icons";
+import { BACKEND_DOMAIN } from "@/utils/Constants";
 
-const CompanyDetailsModal = ({ visible, onClose, company, editable, onEditChange, onSave }) => {
+const CompanyDetailsModal = ({ visible, onClose, company, editable }) => {
   return (
     <Modal
-      title={editable ? "Edit Company" : "Company Details"}
+      title={
+        <div className="adm-info-v-modal-header">
+          <HomeOutlined className="adm-info-v-header-icon" />
+          <span>{editable ? "Edit Company" : "Company Details"}</span>
+        </div>
+      }
       open={visible}
       onCancel={onClose}
-      onOk={editable ? onSave : onClose}
-      okText={editable ? "Save" : "OK"}
-      cancelText={editable ? "Cancel" : null}
-      footer={
-        editable
-          ? undefined
-          : [
-              <button key="close" onClick={onClose} className="ant-btn ant-btn-primary">
-                OK
-              </button>,
-            ]
-      }
+      footer={false}
+      width={600}
+      className="adm-info-v-custom-modal"
     >
       {company ? (
-        <Descriptions column={1} bordered>
-          <Descriptions.Item label="ID">{company.id}</Descriptions.Item>
-          <Descriptions.Item label="User ID">{company.user}</Descriptions.Item>
-          <Descriptions.Item label="Company Name">{company.name}</Descriptions.Item>
-          <Descriptions.Item label="Description">
-            {company.company_description || <Tag color="default">No description</Tag>}
-          </Descriptions.Item>
-          <Descriptions.Item label="Phone Number">{company.phone_no || "-"}</Descriptions.Item>
-          <Descriptions.Item label="Industry">{company.industry || "-"}</Descriptions.Item>
-          <Descriptions.Item label="Location">{company.location || "-"}</Descriptions.Item>
-          <Descriptions.Item label="Profile Image">
-            {company.profile_image ? (
-              <img
-                src={company.profile_image}
-                alt="Profile"
-                style={{ width: 80, height: 80, objectFit: "cover", borderRadius: 8 }}
-              />
-            ) : (
-              <Tag color="default">No image</Tag>
-            )}
-          </Descriptions.Item>
-          <Descriptions.Item label="Created At">
-            {new Date(company.created_at).toLocaleString()}
-          </Descriptions.Item>
-          <Descriptions.Item label="Updated At">
-            {new Date(company.updated_at).toLocaleString()}
-          </Descriptions.Item>
-        </Descriptions>
+        <div className="adm-info-v-details-content">
+          {/* Basic Information */}
+          <div className="adm-info-v-info-section">
+            <div className="adm-info-v-section-header">
+              <h3>Basic Information</h3>
+            </div>
+            <div className="adm-info-v-details-grid">
+              <div className="adm-info-v-detail-card">
+                <div className="adm-info-v-detail-icon">
+                  <IdcardOutlined />
+                </div>
+                <div className="adm-info-v-detail-content">
+                  <div className="adm-info-v-detail-label">Company ID</div>
+                  <div className="adm-info-v-detail-value adm-info-v-badge">
+                    {company.id}
+                  </div>
+                </div>
+              </div>
+              <div className="adm-info-v-detail-card">
+                <div className="adm-info-v-detail-icon">
+                  <HomeOutlined />
+                </div>
+                <div className="adm-info-v-detail-content">
+                  <div className="adm-info-v-detail-label">Company Name</div>
+                  <div className="adm-info-v-detail-value">
+                    {company.name || "-"}
+                  </div>
+                </div>
+              </div>
+              <div className="adm-info-v-detail-card">
+                <div className="adm-info-v-detail-icon">
+                  <TagOutlined />
+                </div>
+                <div className="adm-info-v-detail-content">
+                  <div className="adm-info-v-detail-label">Industry</div>
+                  <div className="adm-info-v-detail-value">
+                    {company.industry || "-"}
+                  </div>
+                </div>
+              </div>
+              <div className="adm-info-v-detail-card">
+                <div className="adm-info-v-detail-icon">
+                  <EnvironmentOutlined />
+                </div>
+                <div className="adm-info-v-detail-content">
+                  <div className="adm-info-v-detail-label">Location</div>
+                  <div className="adm-info-v-detail-value">
+                    {company.location || "-"}
+                  </div>
+                </div>
+              </div>
+              <div className="adm-info-v-detail-card">
+                <div className="adm-info-v-detail-icon">
+                  <PhoneOutlined />
+                </div>
+                <div className="adm-info-v-detail-content">
+                  <div className="adm-info-v-detail-label">Phone Number</div>
+                  <div className="adm-info-v-detail-value">
+                    {company.phone_no || "-"}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Description */}
+          <div className="adm-info-v-info-section">
+            <div className="adm-info-v-section-header">
+              <h3>Description</h3>
+            </div>
+            <div className="adm-info-v-description-text">
+              {company.company_description || "No description available"}
+            </div>
+          </div>
+
+          {/* Profile Image */}
+          <div className="adm-info-v-info-section">
+            <div className="adm-info-v-section-header">
+              <h3>Profile Image</h3>
+            </div>
+            <div className="adm-info-v-image-container">
+              {company.profile_image ? (
+                <img
+                  src={`${BACKEND_DOMAIN}${company.profile_image}`}
+                  alt="Profile"
+                  className="adm-info-v-profile-image"
+                />
+              ) : (
+                <div className="adm-info-v-no-image">
+                  <PictureOutlined /> No image available
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Status */}
+          <div className="adm-info-v-info-section">
+            <div className="adm-info-v-section-header">
+              <h3>Status</h3>
+            </div>
+            <div className="adm-info-v-settings-grid">
+              <div className="adm-info-v-setting-item">
+                <span className="adm-info-v-setting-label">Admin Verified</span>
+                <div
+                  className={`adm-info-v-setting-status ${
+                    company.verified_by_admin ? "active" : "inactive"
+                  }`}
+                >
+                  {company.verified_by_admin ? (
+                    <>
+                      <CheckCircleOutlined /> Verified
+                    </>
+                  ) : (
+                    <>
+                      <CloseCircleOutlined /> Not Verified
+                    </>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Dates */}
+          <div className="adm-info-v-info-section">
+            <div className="adm-info-v-section-header">
+              <h3>Dates</h3>
+            </div>
+            <div className="adm-info-v-details-grid">
+              <div className="adm-info-v-detail-card">
+                <div className="adm-info-v-detail-icon">
+                  <CalendarOutlined />
+                </div>
+                <div className="adm-info-v-detail-content">
+                  <div className="adm-info-v-detail-label">Created At</div>
+                  <div className="adm-info-v-detail-value">
+                    {new Date(company.created_at).toLocaleString()}
+                  </div>
+                </div>
+              </div>
+              <div className="adm-info-v-detail-card">
+                <div className="adm-info-v-detail-icon">
+                  <CalendarOutlined />
+                </div>
+                <div className="adm-info-v-detail-content">
+                  <div className="adm-info-v-detail-label">Updated At</div>
+                  <div className="adm-info-v-detail-value">
+                    {new Date(company.updated_at).toLocaleString()}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       ) : (
-        "No company data"
+        <div className="adm-info-v-no-data">
+          <HomeOutlined className="adm-info-v-no-data-icon" />
+          <p>No company data available</p>
+        </div>
       )}
     </Modal>
   );

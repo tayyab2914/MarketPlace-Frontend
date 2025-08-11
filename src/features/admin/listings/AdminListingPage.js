@@ -4,6 +4,7 @@ import { API_ADMIN_GET_LISTINGS } from "@/apis/AdminApis";
 import ListingDetailsModal from "./components/modals/ListingDetailsModal";
 import EditListingModal from "./components/modals/EditListingModal";
 import "./styles/admin-listing.css";
+import '../styles/admin.css'
 import ListingTable from "./components/listing-table/ListingTable";
 
 const AdminListingPage = () => {

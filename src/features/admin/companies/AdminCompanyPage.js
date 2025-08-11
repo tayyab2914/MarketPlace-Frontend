@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { API_ADMIN_GET_COMPANIES } from "@/apis/AdminApis";
-import CompaniesTable from "./components/company-table/CompaniesTable"; // Assuming you have this
-// import CompanyDetailsModal from "./components/modals/CompanyDetailsModal";
-// import EditCompanyModal from "./components/modals/EditCompanyModal";
+import CompaniesTable from "./components/company-table/CompaniesTable"; 
+import '../styles/admin.css'
 import "./styles/admin-company.css";
 import CompanyDetailsModal from "./components/modals/CompanyDetailsModal";
 import EditCompanyModal from "./components/modals/EditCompanyModal";

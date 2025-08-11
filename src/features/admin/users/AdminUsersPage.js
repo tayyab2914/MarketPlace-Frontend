@@ -5,6 +5,7 @@ import UsersTable from "./components/user-table/UsersTable";
 import UserDetailsModal from "./components/modals/UserDetailsModal";
 import EditUserModal from "./components/modals/EditUserModal";
 import "./styles/admin-user.css";
+import '../styles/admin.css'
 const AdminUsersPage = () => {
   const { token } = useSelector((state) => state.auth);
   const [users, setUsers] = useState([]);

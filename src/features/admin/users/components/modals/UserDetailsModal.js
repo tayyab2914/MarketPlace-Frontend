@@ -1,45 +1,112 @@
-// UserDetailsModal.jsx
 import React from "react";
-import { Modal, Descriptions } from "antd";
+import { Modal } from "antd";
+import { 
+  UserOutlined, 
+  MailOutlined, 
+  CheckCircleOutlined, 
+  CloseCircleOutlined 
+} from "@ant-design/icons";
 
-const UserDetailsModal = ({ visible, onClose, user, editable, onEditChange, onSave }) => {
-  // editable: boolean to toggle view or edit mode
-  // onEditChange: handler for form changes if editing
-  // onSave: handler to save edited data
-
+const UserDetailsModal = ({ visible, onClose, user, editable }) => {
   return (
     <Modal
-      title={editable ? "Edit User" : "User Details"}
+      title={
+        <div className="adm-info-v-modal-header">
+          <UserOutlined className="adm-info-v-header-icon" />
+          <span>{editable ? "Edit User" : "User Details"}</span>
+        </div>
+      }
       open={visible}
       onCancel={onClose}
-      onOk={onSave}
-      okText={editable ? "Save" : "OK"}
-      cancelText="Cancel"
-      footer={
-        editable
-          ? undefined
-          : [
-              <button key="close" onClick={onClose} className="ant-btn ant-btn-primary">
-                OK
-              </button>,
-            ]
-      }
-      destroyOnHidden
+      footer={false}
+      width={600}
+      className="adm-info-v-custom-modal"
     >
       {user ? (
-        <Descriptions column={1} bordered>
-          <Descriptions.Item label="ID">{user.id}</Descriptions.Item>
-          <Descriptions.Item label="Username">{user.username}</Descriptions.Item>
-          <Descriptions.Item label="Email">{user.email}</Descriptions.Item>
-          <Descriptions.Item label="Email Verified">
-            {user.email_verified ? "Yes" : "No"}
-          </Descriptions.Item>
-          <Descriptions.Item label="Verified by Admin">
-            {user.verified_by_admin ? "Yes" : "No"}
-          </Descriptions.Item>
-        </Descriptions>
+        <div className="adm-info-v-details-content">
+          <div className="adm-info-v-info-section">
+            <div className="adm-info-v-section-header">
+              <h3>Basic Information</h3>
+            </div>
+            <div className="adm-info-v-details-grid">
+              <div className="adm-info-v-detail-card">
+                <div className="adm-info-v-detail-content">
+                  <div className="adm-info-v-detail-label">User ID</div>
+                  <div className="adm-info-v-detail-value adm-info-v-badge">
+                    {user.id}
+                  </div>
+                </div>
+              </div>
+              <div className="adm-info-v-detail-card">
+                <div className="adm-info-v-detail-icon">
+                  <UserOutlined />
+                </div>
+                <div className="adm-info-v-detail-content">
+                  <div className="adm-info-v-detail-label">Username</div>
+                  <div className="adm-info-v-detail-value">{user.username}</div>
+                </div>
+              </div>
+              <div className="adm-info-v-detail-card">
+                <div className="adm-info-v-detail-icon">
+                  <MailOutlined />
+                </div>
+                <div className="adm-info-v-detail-content">
+                  <div className="adm-info-v-detail-label">Email</div>
+                  <div className="adm-info-v-detail-value">{user.email}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="adm-info-v-info-section">
+            <div className="adm-info-v-section-header">
+              <h3>Verification Status</h3>
+            </div>
+            <div className="adm-info-v-settings-grid">
+              <div className="adm-info-v-setting-item">
+                <span className="adm-info-v-setting-label">Email Verified</span>
+                <div
+                  className={`adm-info-v-setting-status ${
+                    user.email_verified ? "active" : "inactive"
+                  }`}
+                >
+                  {user.email_verified ? (
+                    <>
+                      <CheckCircleOutlined /> Verified
+                    </>
+                  ) : (
+                    <>
+                      <CloseCircleOutlined /> Not Verified
+                    </>
+                  )}
+                </div>
+              </div>
+              <div className="adm-info-v-setting-item">
+                <span className="adm-info-v-setting-label">Admin Verified</span>
+                <div
+                  className={`adm-info-v-setting-status ${
+                    user.verified_by_admin ? "active" : "inactive"
+                  }`}
+                >
+                  {user.verified_by_admin ? (
+                    <>
+                      <CheckCircleOutlined /> Verified
+                    </>
+                  ) : (
+                    <>
+                      <CloseCircleOutlined /> Not Verified
+                    </>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       ) : (
-        "No user data"
+        <div className="adm-info-v-no-data">
+          <UserOutlined className="adm-info-v-no-data-icon" />
+          <p>No user data available</p>
+        </div>
       )}
     </Modal>
   );
