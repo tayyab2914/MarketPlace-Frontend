@@ -21,28 +21,21 @@ export const API_ADMIN_UPDATE_USER = async (token, user_id, data) => {
     successMessage: "User updated successfully",
   });
 };
-// export const API_LISTING_CREATE = async (token, data) => {
-//   return await MAKE_API_REQUEST({
-//     method: "post",
-//     url: `${BACKEND_DOMAIN}/listing/create/`,
-//     data: data,
-//     token: token,
-//     errorMessage: "Failed to create listing.",
-//     successMessage: "Listing Created Successfully",
-//   });
-// };
-// export const API_GET_LISTING_PUBLIC_LIST = async (token) => {
-//   return await MAKE_API_REQUEST({
-//     method: "get",
-//     url: `${BACKEND_DOMAIN}/listing/public/list/`,
-//     token: token,
-//   });
-// };
-// export const API_DELETE_LISTING_BY_ID = async (token, listing_id) => {
-//   return await MAKE_API_REQUEST({
-//     method: "delete",
-//     url: `${BACKEND_DOMAIN}/listing/${listing_id}/`,
-//     token: token,
-//     successMessage: "Listing deleted successfully",
-//   });
-// };
+export const API_ADMIN_GET_COMPANIES = async (token) => {
+  return await MAKE_API_REQUEST({
+    method: "get",
+    url: `${BACKEND_DOMAIN}/adminpanel/companies/`,
+    token: token,
+  });
+};
+
+export const API_ADMIN_UPDATE_COMPANY = async (token, company_id, data) => {
+  return await MAKE_API_REQUEST({
+    method: "put",
+    url: `${BACKEND_DOMAIN}/adminpanel/company/${company_id}/update/`,
+    data: data,
+    token: token,
+    errorMessage: "Failed to update company.",
+    successMessage: "Company updated successfully",
+  });
+};

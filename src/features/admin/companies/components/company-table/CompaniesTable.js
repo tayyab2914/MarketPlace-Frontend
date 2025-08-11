@@ -1,16 +1,16 @@
 import React, { useState, useMemo } from "react";
 import { Table, Input } from "antd";
 import useWindowWidth from "@/hooks/useWindowWidth";
-import { getUsersTableColumns } from "./UserTableColumns";
+import { getCompaniesTableColumns } from "./UserTableColumns";
 import { FILTER_DATA_BY_SEARCH } from "../../utils/utils";
 
 const { Search } = Input;
 
-const UsersTable = ({ data, loading, onView, onEdit }) => {
+const CompaniesTable = ({ data, loading, onView, onEdit }) => {
   const width = useWindowWidth();
   const [searchText, setSearchText] = useState("");
 
-  const columns = getUsersTableColumns(width, onView, onEdit);
+  const columns = getCompaniesTableColumns(width, onView, onEdit);
 
   const filteredData = useMemo(
     () => FILTER_DATA_BY_SEARCH(searchText, data),
@@ -20,7 +20,7 @@ const UsersTable = ({ data, loading, onView, onEdit }) => {
   return (
     <div style={{ width: "100%", overflowX: "auto" }}>
       <Search
-        placeholder="Search by username or email"
+        placeholder="Search.."
         allowClear
         onChange={(e) => setSearchText(e.target.value)}
         style={{ marginBottom: 16, maxWidth: 300 }}
@@ -38,4 +38,4 @@ const UsersTable = ({ data, loading, onView, onEdit }) => {
   );
 };
 
-export default UsersTable;
+export default CompaniesTable;

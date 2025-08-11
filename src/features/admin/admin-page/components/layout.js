@@ -4,6 +4,7 @@ import { Header } from "./header";
 import { Sidebar } from "./sidebar";
 import { MainContent } from "./main-content";
 import AdminUsersPage from "../../users/AdminUsersPage";
+import AdminCompanyPage from "../../companies/AdminCompanyPage";
 
 export function Layout({}) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -20,7 +21,7 @@ export function Layout({}) {
   // Map keys to components
   const componentsMap = {
     users: <AdminUsersPage />,
-    analytics: <>analytics</>,
+    companies: <AdminCompanyPage/>,
     documents: <>documents</>,
     messages: <>messages</>,
     settings: <>settings</>,

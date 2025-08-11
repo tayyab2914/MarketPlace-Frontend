@@ -1,11 +1,17 @@
 "use client";
 
-import { Home, Users, Settings, BarChart3, FileText, Mail } from "lucide-react";
+import {
+  Users,
+  Settings,
+  FileText,
+  Mail,
+  Building2,
+} from "lucide-react";
 import styles from "../styles/sidebar.module.css";
 
 const navigationItems = [
   { icon: Users, label: "Users", key: "users" },
-  { icon: BarChart3, label: "Analytics", key: "analytics" },
+  { icon: Building2, label: "Companies", key: "companies" },
   { icon: FileText, label: "Documents", key: "documents" },
   { icon: Mail, label: "Messages", key: "messages" },
   { icon: Settings, label: "Settings", key: "settings" },
