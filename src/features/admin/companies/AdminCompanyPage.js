@@ -5,7 +5,7 @@ import CompaniesTable from "./components/company-table/CompaniesTable"; // Assum
 // import CompanyDetailsModal from "./components/modals/CompanyDetailsModal";
 // import EditCompanyModal from "./components/modals/EditCompanyModal";
 import "./styles/admin-company.css";
-import CompanyDetailsModal from "./components/modals/UserDetailsModal";
+import CompanyDetailsModal from "./components/modals/CompanyDetailsModal";
 import EditCompanyModal from "./components/modals/EditCompanyModal";
 
 const AdminCompanyPage = () => {

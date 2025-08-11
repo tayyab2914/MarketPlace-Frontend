@@ -6,15 +6,14 @@ import {
   FileText,
   Mail,
   Building2,
+  BookCheck,
 } from "lucide-react";
 import styles from "../styles/sidebar.module.css";
 
 const navigationItems = [
   { icon: Users, label: "Users", key: "users" },
   { icon: Building2, label: "Companies", key: "companies" },
-  { icon: FileText, label: "Documents", key: "documents" },
-  { icon: Mail, label: "Messages", key: "messages" },
-  { icon: Settings, label: "Settings", key: "settings" },
+  { icon: BookCheck, label: "Listings", key: "listings" },
 ];
 
 export function Sidebar({ isOpen, onClose, selectedKey, onSelect }) {

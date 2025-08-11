@@ -5,10 +5,11 @@ import { Sidebar } from "./sidebar";
 import { MainContent } from "./main-content";
 import AdminUsersPage from "../../users/AdminUsersPage";
 import AdminCompanyPage from "../../companies/AdminCompanyPage";
+import AdminListingPage from "../../listings/AdminListingPage";
 
 export function Layout({}) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [selectedKey, setSelectedKey] = useState("users"); 
+  const [selectedKey, setSelectedKey] = useState("users");
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -21,10 +22,8 @@ export function Layout({}) {
   // Map keys to components
   const componentsMap = {
     users: <AdminUsersPage />,
-    companies: <AdminCompanyPage/>,
-    documents: <>documents</>,
-    messages: <>messages</>,
-    settings: <>settings</>,
+    companies: <AdminCompanyPage />,
+    listings: <AdminListingPage />,
   };
 
   // Get the component for the selected sidebar option

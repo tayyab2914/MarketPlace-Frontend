@@ -131,18 +131,18 @@ const CustomInputField = ({
         />
       )}
 
-      {inputType === "date" && (
-        <DatePicker
-          style={{ width: "100%" }}
-          placeholder={placeholder || "Select a date"}
-          disabled={disabled}
-          allowClear
-          {...rest}
-          defaultValue={
-            initialValue ? dayjs(initialValue, "YYYY-MM-DD") : undefined
-          }
-        />
-      )}
+{inputType === "date" && (
+  <DatePicker
+    style={{ width: "100%" }}
+    placeholder={placeholder || "Select a date"}
+    disabled={disabled}
+    allowClear
+    {...rest}
+    value={value ? dayjs(value) : null}   // Convert value to dayjs if present
+    onChange={onChange}                   // Make sure onChange is passed down correctly
+  />
+)}
+
     </Form.Item>
   </div>
 );

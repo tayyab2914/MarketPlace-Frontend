@@ -20,7 +20,6 @@ const CompanyDetailsModal = ({ visible, onClose, company, editable, onEditChange
               </button>,
             ]
       }
-      destroyOnClose
     >
       {company ? (
         <Descriptions column={1} bordered>
