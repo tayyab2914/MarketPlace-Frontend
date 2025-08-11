@@ -29,3 +29,17 @@ export function FORMAT_WITH_COMMAS(number) {
   }
   return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+
+
+
+export const VALIDATE_IMAGE_BEFORE_UPLOAD = (file) => {
+  const isImage = file?.type.startsWith("image/");
+  if (!isImage) {
+    message.error("You can only upload image files!");
+  }
+  const isLt2M = file?.size / 1024 / 1024 < 2;
+  if (!isLt2M) {
+    message.error("Image must be smaller than 2MB!");
+  }
+  return isImage && isLt2M;
+};

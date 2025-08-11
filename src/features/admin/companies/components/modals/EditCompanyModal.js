@@ -1,44 +1,56 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Modal, Form } from "antd";
-import CustomInputField from "@/components/ui/CustomInputField/CustomInputField";
 import { API_ADMIN_UPDATE_COMPANY } from "@/apis/AdminApis";
 import { useSelector } from "react-redux";
 import Button from "@/components/ui/Button/Button";
+import { BACKEND_DOMAIN } from "@/utils/Constants";
 import {
-  Hash,
-  Building2,
-  FileText,
-  Phone,
-  Briefcase,
-  MapPin
-} from "lucide-react";
+  CONVERT_FORM_VALUES_TO_FORM_DATA,
+  MAP_INITIAL_VALUES,
+} from "../../utils/utils";
+import EditForm from "./components/EditForm";
 
 const EditCompanyModal = ({ visible, onClose, company, fetchCompanies }) => {
   const [form] = Form.useForm();
   const { token } = useSelector((state) => state.auth);
+  const [fileList, setFileList] = useState([]);
 
   useEffect(() => {
     if (company) {
-      form.setFieldsValue({
-        id: company.id,
-        name: company.name,
-        company_description: company.company_description,
-        phone_no: company.phone_no,
-        industry: company.industry,
-        location: company.location,
-      });
+      const initialValues = MAP_INITIAL_VALUES(company);
+      form.setFieldsValue(initialValues);
+
+      if (company?.profile_image) {
+        setFileList([
+          {
+            uid: "-1",
+            name: "profile_image.jpg",
+            status: "done",
+            url: company?.profile_image.startsWith("http")
+              ? company?.profile_image
+              : `${BACKEND_DOMAIN}${company?.profile_image}`,
+          },
+        ]);
+      } else {
+        setFileList([]);
+      }
     } else {
       form.resetFields();
+      setFileList([]);
     }
   }, [company, form]);
 
   const handleFinish = async (values) => {
-    const updatedCompany = { ...company, ...values };
-    const res = await API_ADMIN_UPDATE_COMPANY(token, updatedCompany?.id, updatedCompany);
+    const formData = CONVERT_FORM_VALUES_TO_FORM_DATA(values, fileList);
+    const res = await API_ADMIN_UPDATE_COMPANY(token, company?.id, formData);
     if (res) {
       fetchCompanies();
       onClose();
     }
+  };
+
+  const handleFileChange = ({ fileList: newFileList }) => {
+    setFileList(newFileList);
   };
 
   return (
@@ -48,63 +60,13 @@ const EditCompanyModal = ({ visible, onClose, company, fetchCompanies }) => {
       onCancel={onClose}
       footer={false}
       className="adm-company-form"
-      destroyOnClose
+      width={600}
     >
       <Form form={form} layout="vertical" onFinish={handleFinish}>
-        <CustomInputField
-          name="id"
-          label="Company ID"
-          inputType="input"
-          disabled
-          className="adm-company-input-field"
-          addonBefore={<Hash size={16} />}
-        />
-
-        <CustomInputField
-          name="name"
-          label="Company Name"
-          placeholder="Enter company name"
-          inputType="input"
-          rules={[{ required: true, message: "Please enter company name" }]}
-          className="adm-company-input-field"
-          addonBefore={<Building2 size={16} />}
-        />
-
-        <CustomInputField
-          name="company_description"
-          label="Description"
-          placeholder="Enter company description"
-          inputType="textarea"
-          rows={4}
-          className="adm-company-input-field"
-          addonBefore={<FileText size={16} />}
-        />
-
-        <CustomInputField
-          name="phone_no"
-          label="Phone Number"
-          placeholder="Enter phone number"
-          inputType="input"
-          className="adm-company-input-field"
-          addonBefore={<Phone size={16} />}
-        />
-
-        <CustomInputField
-          name="industry"
-          label="Industry"
-          placeholder="Enter industry"
-          inputType="input"
-          className="adm-company-input-field"
-          addonBefore={<Briefcase size={16} />}
-        />
-
-        <CustomInputField
-          name="location"
-          label="Location"
-          placeholder="Enter location"
-          inputType="input"
-          className="adm-company-input-field"
-          addonBefore={<MapPin size={16} />}
+        <EditForm
+          company={company}
+          fileList={fileList}
+          onFileChange={handleFileChange}
         />
 
         <Button variant="filled-animated" onClick={() => form.submit()}>

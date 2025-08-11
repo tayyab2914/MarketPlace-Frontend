@@ -1,9 +1,15 @@
 "use client";
-
-import { Menu } from "lucide-react";
 import styles from "../styles/header.module.css";
+import React from "react";
+import { Dropdown } from "antd";
+import { Menu as MenuIcon } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useLogoutUser } from "@/hooks/useLogoutUser";
+import { HeaderMenu } from "./components/HeaderMenu";
 
 export function Header({ onToggleSidebar }) {
+  const router = useRouter();
+  const logoutUser = useLogoutUser();
   return (
     <header className={styles.header}>
       <div className={styles.headerLeft}>
@@ -12,20 +18,25 @@ export function Header({ onToggleSidebar }) {
           onClick={onToggleSidebar}
           aria-label="Toggle sidebar"
         >
-          <Menu />
+          <MenuIcon />
         </button>
         <h1 className={styles.pageTitle}>Dashboard</h1>
       </div>
 
       <div className={styles.headerRight}>
-        <div className={styles.profileButton}>
-          <div className={styles.profileAvatar}>JD</div>
-        </div>
+        <Dropdown
+          overlay={() => HeaderMenu(router, logoutUser)}
+          trigger={["click"]}
+          placement="bottomRight"
+        >
+          <div className={styles.profileButton} style={{ cursor: "pointer" }}>
+            <div className={styles.profileAvatar}>JD</div>
+          </div>
+        </Dropdown>
       </div>
     </header>
   );
 }
-
 
 // "use client";
 

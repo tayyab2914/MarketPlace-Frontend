@@ -2,28 +2,20 @@ import { BACKEND_DOMAIN } from "@/utils/Constants";
 import { Space, Tooltip, Tag } from "antd";
 import { Eye, Edit } from "lucide-react";
 
-const breakpoints = {
-  sm: 576,
-  md: 768,
-  lg: 992,
-  xl: 1200,
-  xxl: 1600,
-};
-
-export function getCompaniesTableColumns(width, onView, onEdit) {
+export function getCompaniesTableColumns(onView, onEdit) {
   return [
     {
       title: "ID",
       dataIndex: "id",
       key: "id",
       responsive: ["lg"],
-      sorter: (a, b) => a.id - b.id,
+      sorter: (a, b) => a?.id - b?.id,
     },
     {
       title: "Company Name",
       dataIndex: "name",
       key: "name",
-      sorter: (a, b) => a.name.localeCompare(b.name),
+      sorter: (a, b) => a?.name.localeCompare(b?.name),
       ellipsis: true,
     },
     {
@@ -54,13 +46,12 @@ export function getCompaniesTableColumns(width, onView, onEdit) {
         url ? (
           <img
             src={`${BACKEND_DOMAIN}${url}`}
-            alt="Profile"
             style={{ width: 40, height: 40, borderRadius: "50%" }}
           />
         ) : (
           <Tag color="default">No Image</Tag>
         ),
-        responsive: ["xl"],
+      responsive: ["xl"],
     },
     {
       title: "Actions",

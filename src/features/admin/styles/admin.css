@@ -14,8 +14,12 @@
   
   /* Modal Body */
   .adm-info-v-details-content {
-    padding: 8px 0;
+    padding: 8px 0px;
     font-family: Arial, sans-serif;
+    max-height: 450px;
+    overflow-y: auto;
+    scrollbar-width: 2px;
+    padding-right: 15px;
   }
   
   /* Listing Header */

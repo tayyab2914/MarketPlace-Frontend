@@ -6,7 +6,7 @@ import { FILTER_DATA_BY_SEARCH } from "../../utils/utils";
 
 const { Search } = Input;
 
-const UsersTable = ({ data, loading, onView, onEdit }) => {
+const UsersTable = ({ data, onView, onEdit }) => {
   const width = useWindowWidth();
   const [searchText, setSearchText] = useState("");
 
@@ -29,7 +29,6 @@ const UsersTable = ({ data, loading, onView, onEdit }) => {
         dataSource={filteredData}
         columns={columns}
         rowKey="id"
-        loading={loading}
         pagination={{ pageSize: 10, showSizeChanger: true }}
         bordered
         size="middle"

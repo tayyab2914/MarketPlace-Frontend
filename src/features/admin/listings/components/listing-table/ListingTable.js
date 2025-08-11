@@ -1,17 +1,15 @@
 // CompaniesTable.jsx
 import React, { useState, useMemo } from "react";
 import { Table, Input } from "antd";
-import useWindowWidth from "@/hooks/useWindowWidth";
 import { FILTER_LISTINGS_BY_SEARCH } from "../../utils/utils";
 import { getListingsTableColumns } from "./ListingTableColumns";
 
 const { Search } = Input;
 
-const ListingTable = ({ data, loading, onView, onEdit }) => {
-  const width = useWindowWidth();
+const ListingTable = ({ data, onView, onEdit }) => {
   const [searchText, setSearchText] = useState("");
 
-  const columns = getListingsTableColumns(width, onView, onEdit);
+  const columns = getListingsTableColumns(onView, onEdit);
 
   const filteredData = useMemo(
     () => FILTER_LISTINGS_BY_SEARCH(searchText, data),
@@ -30,7 +28,6 @@ const ListingTable = ({ data, loading, onView, onEdit }) => {
         dataSource={filteredData}
         columns={columns}
         rowKey="id"
-        loading={loading}
         pagination={{ pageSize: 10, showSizeChanger: true }}
         bordered
         size="middle"

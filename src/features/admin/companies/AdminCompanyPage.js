@@ -1,32 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { API_ADMIN_GET_COMPANIES } from "@/apis/AdminApis";
-import CompaniesTable from "./components/company-table/CompaniesTable"; 
-import '../styles/admin.css'
-import "./styles/admin-company.css";
+import CompaniesTable from "./components/company-table/CompaniesTable";
 import CompanyDetailsModal from "./components/modals/CompanyDetailsModal";
 import EditCompanyModal from "./components/modals/EditCompanyModal";
+import "../styles/admin.css";
+import "./styles/admin-company.css";
 
 const AdminCompanyPage = () => {
   const { token } = useSelector((state) => state.auth);
   const [companies, setCompanies] = useState([]);
-  const [loading, setLoading] = useState(false);
 
-  // Separate modal states
   const [viewModalVisible, setViewModalVisible] = useState(false);
   const [editModalVisible, setEditModalVisible] = useState(false);
   const [modalCompany, setModalCompany] = useState(null);
 
   const fetchCompanies = async () => {
-    setLoading(true);
-    try {
-      const res = await API_ADMIN_GET_COMPANIES(token);
-      console.log(res);
-      setCompanies(res);
-    } catch (error) {
-      console.error("Failed to fetch companies", error);
-    }
-    setLoading(false);
+    const res = await API_ADMIN_GET_COMPANIES(token);
+    setCompanies(res);
   };
 
   useEffect(() => {
@@ -59,7 +50,6 @@ const AdminCompanyPage = () => {
     <div>
       <CompaniesTable
         data={companies}
-        loading={loading}
         onView={handleView}
         onEdit={handleEdit}
       />
@@ -68,7 +58,6 @@ const AdminCompanyPage = () => {
         onClose={closeViewModal}
         company={modalCompany}
       />
-
 
       <EditCompanyModal
         visible={editModalVisible}

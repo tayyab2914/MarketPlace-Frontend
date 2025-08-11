@@ -1,16 +1,14 @@
 import React, { useState, useMemo } from "react";
 import { Table, Input } from "antd";
-import useWindowWidth from "@/hooks/useWindowWidth";
 import { getCompaniesTableColumns } from "./CompanyTableColumns";
 import { FILTER_DATA_BY_SEARCH } from "../../utils/utils";
 
 const { Search } = Input;
 
-const CompaniesTable = ({ data, loading, onView, onEdit }) => {
-  const width = useWindowWidth();
+const CompaniesTable = ({ data, onView, onEdit }) => {
   const [searchText, setSearchText] = useState("");
 
-  const columns = getCompaniesTableColumns(width, onView, onEdit);
+  const columns = getCompaniesTableColumns(onView, onEdit);
 
   const filteredData = useMemo(
     () => FILTER_DATA_BY_SEARCH(searchText, data),
@@ -18,7 +16,7 @@ const CompaniesTable = ({ data, loading, onView, onEdit }) => {
   );
 
   return (
-    <div style={{ width: "100%", overflowX: "auto" }}>
+    <div>
       <Search
         placeholder="Search.."
         allowClear
@@ -29,8 +27,7 @@ const CompaniesTable = ({ data, loading, onView, onEdit }) => {
         dataSource={filteredData}
         columns={columns}
         rowKey="id"
-        loading={loading}
-        pagination={{ pageSize: 10, showSizeChanger: true }} 
+        pagination={{ pageSize: 10, showSizeChanger: true }}
         bordered
         size="middle"
       />

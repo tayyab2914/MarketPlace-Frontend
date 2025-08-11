@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Form,
   Input,
@@ -33,6 +33,7 @@ const CustomInputField = ({
   fileList, // for upload
   onFileChange, // for upload
   beforeUpload, // for upload
+  initialFileList = [],
   showUploadList = false, // for upload
   accept, // for upload
   buttonText = "Upload", // for upload
@@ -41,110 +42,125 @@ const CustomInputField = ({
   addonAfter,
   inputStyle,
   ...rest
-}) => (
-  <div style={styles} className="custom-input-field-container">
-    <p className="custom-input-field-label">{label}</p>
-    <Form.Item
-      name={name}
-      rules={rules}
-      valuePropName={
-        inputType === "switch" || inputType === "checkbox" ? "checked" : "value"
-      }
-      className="custom-input-field-item"
-    >
-      {inputType === "input" && (
-        <Input
-          placeholder={placeholder}
-          prefix={prefix}
-          type={type}
-          disabled={disabled}
-          addonBefore={addonBefore}
-          style={inputStyle}
-          {...rest}
-        />
-      )}
-      {inputType === "textarea" && (
-        <Input.TextArea
-          placeholder={placeholder}
-          rows={rows}
-          disabled={disabled}
-          {...rest}
-        />
-      )}
-      {inputType === "number" && (
-        <InputNumber
-          placeholder={placeholder}
-          min={min}
-          max={max}
-          addonBefore={addonBefore}
-          addonAfter={addonAfter}
-          disabled={disabled}
-          style={{ width: "100%", height: "40px" }}
-          {...rest}
-        />
-      )}
-      {inputType === "select" && (
-        <Select
-          placeholder={placeholder}
-          options={options}
-          disabled={disabled}
-          style={{ width: "100%", height: "40px" }}
-          {...rest}
-        />
-      )}
-      {inputType === "upload" && (
-        <Upload
-          fileList={fileList}
-          onChange={onFileChange}
-          beforeUpload={beforeUpload}
-          showUploadList={showUploadList}
-          accept={accept}
-          disabled={disabled}
-          maxCount={1}
-          {...rest}
-        >
-          <Button icon={<UploadOutlined />} disabled={disabled}>
-            {buttonText}
-          </Button>
-        </Upload>
-      )}
-      {inputType === "switch" && (
-        <Switch
-          checked={value}
-          onChange={onChange}
-          disabled={disabled}
-          {...rest}
-        />
-      )}
-      {inputType === "checkbox" && (
-        <Checkbox disabled={disabled} {...rest}>
-          {placeholder}
-        </Checkbox>
-      )}
-      {inputType === "tags" && (
-        <Select
-          mode="tags"
-          style={{ width: "100%" }}
-          placeholder={placeholder}
-          tokenSeparators={[","]}
-          {...rest}
-        />
-      )}
+}) => {
+  const [internalFileList, setInternalFileList] = useState(initialFileList);
 
-{inputType === "date" && (
-  <DatePicker
-    style={{ width: "100%" }}
-    placeholder={placeholder || "Select a date"}
-    disabled={disabled}
-    allowClear
-    {...rest}
-    value={value ? dayjs(value) : null}   // Convert value to dayjs if present
-    onChange={onChange}                   // Make sure onChange is passed down correctly
-  />
-)}
+  useEffect(() => {
+    if (inputType === "upload") {
+      setInternalFileList(initialFileList);
+    }
+  }, [initialFileList, inputType]);
 
-    </Form.Item>
-  </div>
-);
+  const handleChange = ({ fileList }) => {
+    setInternalFileList(fileList);
+    if (onFileChange) onFileChange({ fileList });
+  };
+  return (
+    <div style={styles} className="custom-input-field-container">
+      <p className="custom-input-field-label">{label}</p>
+      <Form.Item
+        name={name}
+        rules={rules}
+        valuePropName={
+          inputType === "switch" || inputType === "checkbox"
+            ? "checked"
+            : "value"
+        }
+        className="custom-input-field-item"
+      >
+        {inputType === "input" && (
+          <Input
+            placeholder={placeholder}
+            prefix={prefix}
+            type={type}
+            disabled={disabled}
+            addonBefore={addonBefore}
+            style={inputStyle}
+            {...rest}
+          />
+        )}
+        {inputType === "textarea" && (
+          <Input.TextArea
+            placeholder={placeholder}
+            rows={rows}
+            disabled={disabled}
+            {...rest}
+          />
+        )}
+        {inputType === "number" && (
+          <InputNumber
+            placeholder={placeholder}
+            min={min}
+            max={max}
+            addonBefore={addonBefore}
+            addonAfter={addonAfter}
+            disabled={disabled}
+            style={{ width: "100%", height: "40px" }}
+            {...rest}
+          />
+        )}
+        {inputType === "select" && (
+          <Select
+            placeholder={placeholder}
+            options={options}
+            disabled={disabled}
+            style={{ width: "100%", height: "40px" }}
+            {...rest}
+          />
+        )}
+        {inputType === "upload" && (
+          <Upload
+            fileList={internalFileList}
+            onChange={handleChange}
+            beforeUpload={beforeUpload}
+            showUploadList={showUploadList}
+            accept={accept}
+            disabled={disabled}
+            maxCount={1}
+            {...rest}
+          >
+            <Button icon={<UploadOutlined />} disabled={disabled}>
+              {buttonText}
+            </Button>
+          </Upload>
+        )}
+        {inputType === "switch" && (
+          <Switch
+            checked={value}
+            onChange={onChange}
+            disabled={disabled}
+            {...rest}
+          />
+        )}
+        {inputType === "checkbox" && (
+          <Checkbox disabled={disabled} {...rest}>
+            {placeholder}
+          </Checkbox>
+        )}
+        {inputType === "tags" && (
+          <Select
+            mode="tags"
+            style={{ width: "100%" }}
+            placeholder={placeholder}
+            tokenSeparators={[","]}
+            {...rest}
+          />
+        )}
+
+        {inputType === "date" && (
+          <DatePicker
+            style={{ width: "100%" }}
+            placeholder={placeholder || "Select a date"}
+            disabled={disabled}
+            allowClear
+            {...rest}
+            value={value ? dayjs(value) : null} // Convert value to dayjs if present
+            onChange={onChange} // Make sure onChange is passed down correctly
+          />
+        )}
+      </Form.Item>
+    </div>
+  );
+};
 
 export default CustomInputField;

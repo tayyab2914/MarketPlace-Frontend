@@ -1,28 +1,20 @@
 import { Space, Tooltip, Tag } from "antd";
 import { Eye, Edit } from "lucide-react";
 
-const breakpoints = {
-  sm: 576,
-  md: 768,
-  lg: 992,
-  xl: 1200,
-  xxl: 1600,
-};
-
-export function getListingsTableColumns(width, onView, onEdit) {
+export function getListingsTableColumns( onView, onEdit) {
   return [
     {
       title: "ID",
       dataIndex: "id",
       key: "id",
       responsive: ["lg"],
-      sorter: (a, b) => a.id - b.id,
+      sorter: (a, b) => a?.id - b?.id,
     },
     {
       title: "Title",
       dataIndex: "title",
       key: "title",
-      sorter: (a, b) => a.title.localeCompare(b.title),
+      sorter: (a, b) => a?.title.localeCompare(b?.title),
       ellipsis: true,
     },
     {
@@ -36,7 +28,7 @@ export function getListingsTableColumns(width, onView, onEdit) {
       title: "Budget",
       dataIndex: "budget",
       key: "budget",
-      sorter: (a, b) => a.budget - b.budget,
+      sorter: (a, b) => a?.budget - b?.budget,
       responsive: ["lg"],
       render: (budget) => `$${budget.toLocaleString()}`,
     },
@@ -44,7 +36,7 @@ export function getListingsTableColumns(width, onView, onEdit) {
       title: "Deadline",
       dataIndex: "deadline",
       key: "deadline",
-      sorter: (a, b) => new Date(a.deadline) - new Date(b.deadline),
+      sorter: (a, b) => new Date(a?.deadline) - new Date(b?.deadline),
       responsive: ["lg"],
       render: (date) => new Date(date).toLocaleDateString(),
     },

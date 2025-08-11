@@ -12,7 +12,8 @@ const breakpoints = {
 
 export function getUsersTableColumns(width, onView, onEdit) {
   const showVerifiedColumns =
-    width >= breakpoints.sm && (width < breakpoints.md || width >= breakpoints.lg);
+    width >= breakpoints.sm &&
+    (width < breakpoints.md || width >= breakpoints.lg);
 
   return [
     {
@@ -20,13 +21,13 @@ export function getUsersTableColumns(width, onView, onEdit) {
       dataIndex: "id",
       key: "id",
       responsive: ["md"],
-      sorter: (a, b) => a.id - b.id,
+      sorter: (a, b) => a?.id - b?.id,
     },
     {
       title: "Username",
       dataIndex: "username",
       key: "username",
-      sorter: (a, b) => a.username.localeCompare(b.username),
+      sorter: (a, b) => a?.username?.localeCompare(b?.username),
       ellipsis: true,
       responsive: ["xl"],
     },

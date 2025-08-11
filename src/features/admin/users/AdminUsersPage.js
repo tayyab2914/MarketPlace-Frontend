@@ -6,21 +6,18 @@ import UserDetailsModal from "./components/modals/UserDetailsModal";
 import EditUserModal from "./components/modals/EditUserModal";
 import "./styles/admin-user.css";
 import '../styles/admin.css'
+
 const AdminUsersPage = () => {
   const { token } = useSelector((state) => state.auth);
   const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(false);
 
-  // Separate modal states
   const [viewModalVisible, setViewModalVisible] = useState(false);
   const [editModalVisible, setEditModalVisible] = useState(false);
   const [modalUser, setModalUser] = useState(null);
 
   const fetchUsers = async () => {
-    setLoading(true);
     const res = await API_ADMIN_GET_USERS(token);
     setUsers(res);
-    setLoading(false);
   };
 
   useEffect(() => {
@@ -53,7 +50,6 @@ const AdminUsersPage = () => {
     <div>
       <UsersTable
         data={users}
-        loading={loading}
         onView={handleView}
         onEdit={handleEdit}
       />

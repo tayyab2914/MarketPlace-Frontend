@@ -1,25 +1,46 @@
-// CompanyDetailsModal.jsx
 import React from "react";
 import { Modal } from "antd";
 import {
-  HomeOutlined,
-  PhoneOutlined,
-  EnvironmentOutlined,
-  TagOutlined,
-  PictureOutlined,
-  CheckCircleOutlined,
-  CloseCircleOutlined,
-  IdcardOutlined,
-  CalendarOutlined,
-} from "@ant-design/icons";
+  Home,
+  Phone,
+  MapPin,
+  Tag,
+  Image as ImageIcon,
+  IdCard,
+  CalendarDays,
+} from "lucide-react";
 import { BACKEND_DOMAIN } from "@/utils/Constants";
+import { InfoCard } from "./components/InfoCard";
 
 const CompanyDetailsModal = ({ visible, onClose, company, editable }) => {
+  if (!company) return;
+
+  const basicInfo = [
+    { Icon: IdCard, label: "Company ID", value: company?.id, isBadge: true },
+    { Icon: Home, label: "Company Name", value: company?.name },
+    { Icon: Tag, label: "Industry", value: company?.industry },
+    { Icon: MapPin, label: "Location", value: company?.location },
+    { Icon: Phone, label: "Phone Number", value: company?.phone_no },
+  ];
+
+  const dates = [
+    {
+      Icon: CalendarDays,
+      label: "Created At",
+      value: new Date(company?.created_at).toLocaleString(),
+    },
+    {
+      Icon: CalendarDays,
+      label: "Updated At",
+      value: new Date(company?.updated_at).toLocaleString(),
+    },
+  ];
+
   return (
     <Modal
       title={
         <div className="adm-info-v-modal-header">
-          <HomeOutlined className="adm-info-v-header-icon" />
+          <Home className="adm-info-v-header-icon" size={18} />
           <span>{editable ? "Edit Company" : "Company Details"}</span>
         </div>
       }
@@ -29,166 +50,64 @@ const CompanyDetailsModal = ({ visible, onClose, company, editable }) => {
       width={600}
       className="adm-info-v-custom-modal"
     >
-      {company ? (
-        <div className="adm-info-v-details-content">
-          {/* Basic Information */}
-          <div className="adm-info-v-info-section">
-            <div className="adm-info-v-section-header">
-              <h3>Basic Information</h3>
-            </div>
-            <div className="adm-info-v-details-grid">
-              <div className="adm-info-v-detail-card">
-                <div className="adm-info-v-detail-icon">
-                  <IdcardOutlined />
-                </div>
-                <div className="adm-info-v-detail-content">
-                  <div className="adm-info-v-detail-label">Company ID</div>
-                  <div className="adm-info-v-detail-value adm-info-v-badge">
-                    {company.id}
-                  </div>
-                </div>
-              </div>
-              <div className="adm-info-v-detail-card">
-                <div className="adm-info-v-detail-icon">
-                  <HomeOutlined />
-                </div>
-                <div className="adm-info-v-detail-content">
-                  <div className="adm-info-v-detail-label">Company Name</div>
-                  <div className="adm-info-v-detail-value">
-                    {company.name || "-"}
-                  </div>
-                </div>
-              </div>
-              <div className="adm-info-v-detail-card">
-                <div className="adm-info-v-detail-icon">
-                  <TagOutlined />
-                </div>
-                <div className="adm-info-v-detail-content">
-                  <div className="adm-info-v-detail-label">Industry</div>
-                  <div className="adm-info-v-detail-value">
-                    {company.industry || "-"}
-                  </div>
-                </div>
-              </div>
-              <div className="adm-info-v-detail-card">
-                <div className="adm-info-v-detail-icon">
-                  <EnvironmentOutlined />
-                </div>
-                <div className="adm-info-v-detail-content">
-                  <div className="adm-info-v-detail-label">Location</div>
-                  <div className="adm-info-v-detail-value">
-                    {company.location || "-"}
-                  </div>
-                </div>
-              </div>
-              <div className="adm-info-v-detail-card">
-                <div className="adm-info-v-detail-icon">
-                  <PhoneOutlined />
-                </div>
-                <div className="adm-info-v-detail-content">
-                  <div className="adm-info-v-detail-label">Phone Number</div>
-                  <div className="adm-info-v-detail-value">
-                    {company.phone_no || "-"}
-                  </div>
-                </div>
-              </div>
-            </div>
+      <div className="adm-info-v-details-content">
+        <div className="adm-info-v-info-section">
+          <div className="adm-info-v-section-header">
+            <h3>Basic Information</h3>
           </div>
-
-          {/* Description */}
-          <div className="adm-info-v-info-section">
-            <div className="adm-info-v-section-header">
-              <h3>Description</h3>
-            </div>
-            <div className="adm-info-v-description-text">
-              {company.company_description || "No description available"}
-            </div>
-          </div>
-
-          {/* Profile Image */}
-          <div className="adm-info-v-info-section">
-            <div className="adm-info-v-section-header">
-              <h3>Profile Image</h3>
-            </div>
-            <div className="adm-info-v-image-container">
-              {company.profile_image ? (
-                <img
-                  src={`${BACKEND_DOMAIN}${company.profile_image}`}
-                  alt="Profile"
-                  className="adm-info-v-profile-image"
-                />
-              ) : (
-                <div className="adm-info-v-no-image">
-                  <PictureOutlined /> No image available
-                </div>
-              )}
-            </div>
-          </div>
-
-          {/* Status */}
-          <div className="adm-info-v-info-section">
-            <div className="adm-info-v-section-header">
-              <h3>Status</h3>
-            </div>
-            <div className="adm-info-v-settings-grid">
-              <div className="adm-info-v-setting-item">
-                <span className="adm-info-v-setting-label">Admin Verified</span>
-                <div
-                  className={`adm-info-v-setting-status ${
-                    company.verified_by_admin ? "active" : "inactive"
-                  }`}
-                >
-                  {company.verified_by_admin ? (
-                    <>
-                      <CheckCircleOutlined /> Verified
-                    </>
-                  ) : (
-                    <>
-                      <CloseCircleOutlined /> Not Verified
-                    </>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Dates */}
-          <div className="adm-info-v-info-section">
-            <div className="adm-info-v-section-header">
-              <h3>Dates</h3>
-            </div>
-            <div className="adm-info-v-details-grid">
-              <div className="adm-info-v-detail-card">
-                <div className="adm-info-v-detail-icon">
-                  <CalendarOutlined />
-                </div>
-                <div className="adm-info-v-detail-content">
-                  <div className="adm-info-v-detail-label">Created At</div>
-                  <div className="adm-info-v-detail-value">
-                    {new Date(company.created_at).toLocaleString()}
-                  </div>
-                </div>
-              </div>
-              <div className="adm-info-v-detail-card">
-                <div className="adm-info-v-detail-icon">
-                  <CalendarOutlined />
-                </div>
-                <div className="adm-info-v-detail-content">
-                  <div className="adm-info-v-detail-label">Updated At</div>
-                  <div className="adm-info-v-detail-value">
-                    {new Date(company.updated_at).toLocaleString()}
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="adm-info-v-details-grid">
+            {basicInfo.map(({ Icon, label, value, isBadge }) => (
+              <InfoCard
+                key={label}
+                Icon={Icon}
+                label={label}
+                value={value}
+                isBadge={isBadge}
+              />
+            ))}
           </div>
         </div>
-      ) : (
-        <div className="adm-info-v-no-data">
-          <HomeOutlined className="adm-info-v-no-data-icon" />
-          <p>No company data available</p>
+
+        {/* Description */}
+        <div className="adm-info-v-info-section">
+          <div className="adm-info-v-section-header">
+            <h3>Description</h3>
+          </div>
+          <div className="adm-info-v-description-text">
+            {company?.company_description || "No description available"}
+          </div>
         </div>
-      )}
+
+        {/* Profile Image */}
+        <div className="adm-info-v-info-section">
+          <div className="adm-info-v-section-header">
+            <h3>Profile Image</h3>
+          </div>
+          <div className="adm-info-v-image-container">
+            <InfoCard
+              Icon={ImageIcon}
+              label="Profile Image"
+              value={
+                company?.profile_image
+                  ? `${BACKEND_DOMAIN}${company?.profile_image}`
+                  : null
+              }
+              isImage
+            />
+          </div>
+        </div>
+
+        <div className="adm-info-v-info-section">
+          <div className="adm-info-v-section-header">
+            <h3>Dates</h3>
+          </div>
+          <div className="adm-info-v-details-grid">
+            {dates?.map(({ Icon, label, value }) => (
+              <InfoCard key={label} Icon={Icon} label={label} value={value} />
+            ))}
+          </div>
+        </div>
+      </div>
     </Modal>
   );
 };

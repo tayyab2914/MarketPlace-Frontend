@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "../styles/layout.module.css";
-import { Header } from "./header";
+import { Header } from "./header/header";
 import { Sidebar } from "./sidebar";
 import { MainContent } from "./main-content";
 import AdminUsersPage from "../../users/AdminUsersPage";

@@ -46,7 +46,7 @@ export function Sidebar({ isOpen, onClose, selectedKey, onSelect }) {
         </ul>
       </nav>
 
-      <div className={styles.sidebarFooter}>
+      {/* <div className={styles.sidebarFooter}>
         <div className={styles.userProfile}>
           <div className={styles.avatar}>JD</div>
           <div className={styles.userInfo}>
@@ -54,7 +54,7 @@ export function Sidebar({ isOpen, onClose, selectedKey, onSelect }) {
             <span className={styles.userEmail}>john@example.com</span>
           </div>
         </div>
-      </div>
+      </div> */}
     </aside>
   );
 }

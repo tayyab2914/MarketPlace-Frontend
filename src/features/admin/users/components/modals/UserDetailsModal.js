@@ -1,10 +1,10 @@
 import React from "react";
 import { Modal } from "antd";
-import { 
-  UserOutlined, 
-  MailOutlined, 
-  CheckCircleOutlined, 
-  CloseCircleOutlined 
+import {
+  UserOutlined,
+  MailOutlined,
+  CheckCircleOutlined,
+  CloseCircleOutlined,
 } from "@ant-design/icons";
 
 const UserDetailsModal = ({ visible, onClose, user, editable }) => {
@@ -33,7 +33,7 @@ const UserDetailsModal = ({ visible, onClose, user, editable }) => {
                 <div className="adm-info-v-detail-content">
                   <div className="adm-info-v-detail-label">User ID</div>
                   <div className="adm-info-v-detail-value adm-info-v-badge">
-                    {user.id}
+                    {user?.id}
                   </div>
                 </div>
               </div>
@@ -43,7 +43,7 @@ const UserDetailsModal = ({ visible, onClose, user, editable }) => {
                 </div>
                 <div className="adm-info-v-detail-content">
                   <div className="adm-info-v-detail-label">Username</div>
-                  <div className="adm-info-v-detail-value">{user.username}</div>
+                  <div className="adm-info-v-detail-value">{user?.username}</div>
                 </div>
               </div>
               <div className="adm-info-v-detail-card">
@@ -52,7 +52,7 @@ const UserDetailsModal = ({ visible, onClose, user, editable }) => {
                 </div>
                 <div className="adm-info-v-detail-content">
                   <div className="adm-info-v-detail-label">Email</div>
-                  <div className="adm-info-v-detail-value">{user.email}</div>
+                  <div className="adm-info-v-detail-value">{user?.email}</div>
                 </div>
               </div>
             </div>
@@ -67,10 +67,10 @@ const UserDetailsModal = ({ visible, onClose, user, editable }) => {
                 <span className="adm-info-v-setting-label">Email Verified</span>
                 <div
                   className={`adm-info-v-setting-status ${
-                    user.email_verified ? "active" : "inactive"
+                    user?.email_verified ? "active" : "inactive"
                   }`}
                 >
-                  {user.email_verified ? (
+                  {user?.email_verified ? (
                     <>
                       <CheckCircleOutlined /> Verified
                     </>
@@ -85,10 +85,10 @@ const UserDetailsModal = ({ visible, onClose, user, editable }) => {
                 <span className="adm-info-v-setting-label">Admin Verified</span>
                 <div
                   className={`adm-info-v-setting-status ${
-                    user.verified_by_admin ? "active" : "inactive"
+                    user?.verified_by_admin ? "active" : "inactive"
                   }`}
                 >
-                  {user.verified_by_admin ? (
+                  {user?.verified_by_admin ? (
                     <>
                       <CheckCircleOutlined /> Verified
                     </>

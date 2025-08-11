@@ -2,31 +2,22 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { API_ADMIN_GET_LISTINGS } from "@/apis/AdminApis";
 import ListingDetailsModal from "./components/modals/ListingDetailsModal";
+import ListingTable from "./components/listing-table/ListingTable";
 import EditListingModal from "./components/modals/EditListingModal";
 import "./styles/admin-listing.css";
-import '../styles/admin.css'
-import ListingTable from "./components/listing-table/ListingTable";
+import "../styles/admin.css";
 
 const AdminListingPage = () => {
   const { token } = useSelector((state) => state.auth);
   const [listings, setListings] = useState([]);
-  const [loading, setLoading] = useState(false);
 
-  // Modal states
   const [viewModalVisible, setViewModalVisible] = useState(false);
   const [editModalVisible, setEditModalVisible] = useState(false);
   const [modalListing, setModalListing] = useState(null);
 
   const fetchListings = async () => {
-    setLoading(true);
-    try {
-      const res = await API_ADMIN_GET_LISTINGS(token);
-      console.log(res)
-      setListings(res);
-    } catch (error) {
-      console.error("Failed to fetch listings", error);
-    }
-    setLoading(false);
+    const res = await API_ADMIN_GET_LISTINGS(token);
+    setListings(res);
   };
 
   useEffect(() => {
@@ -59,7 +50,6 @@ const AdminListingPage = () => {
     <div>
       <ListingTable
         data={listings}
-        loading={loading}
         onView={handleView}
         onEdit={handleEdit}
       />

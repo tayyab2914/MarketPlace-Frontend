@@ -35,7 +35,21 @@ export const FILTER_DATA_BY_SEARCH = (searchText, data) => {
   const lowerSearch = searchText.toLowerCase();
   return data.filter(
     (user) =>
-      (user.username && user.username.toLowerCase().includes(lowerSearch)) ||
-      (user.email && user.email.toLowerCase().includes(lowerSearch))
+      (user?.username && user?.username.toLowerCase().includes(lowerSearch)) ||
+      (user?.email && user?.email.toLowerCase().includes(lowerSearch))
   );
+};
+
+
+
+
+export const MAP_INITIAL_VALUES = (user) => {
+  const initialValues = {
+    id: user?.id,
+    username: user?.username,
+    email: user?.email,
+    email_verified: user?.email_verified,
+    verified_by_admin: user?.verified_by_admin,
+  };
+  return initialValues;
 };
