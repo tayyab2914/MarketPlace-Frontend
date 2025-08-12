@@ -1,2 +1,3 @@
 export const SET_USER_AUTH_TOKEN = "SET_USER_AUTH_TOKEN";
 export const SET_IS_USER_LOGGED_IN = "SET_IS_USER_LOGGED_IN";
+export const SET_IS_ADMIN = "SET_IS_ADMIN";

@@ -6,13 +6,15 @@ import { useSelector } from "react-redux";
 
 const VSPPricing = ({ ServiceDetails }) => {
   const { token } = useSelector((state) => state.auth);
+  const router = useRouter();
 
   const handleHireMe = async () => {
     const res = await API_GET_CONVERSATION_ID(token, ServiceDetails?.company);
-    router.push(`${ROUTES?.Chat}?chat_id=${res?.id}`);
+    if (res?.id) {
+      router.push(`${ROUTES?.Chat}?chat_id=${res?.id}`);
+    }
   };
 
-  const router = useRouter();
   return (
     <div className="srv-viw-p-wrapper">
       <div className="srv-viw-p-container">

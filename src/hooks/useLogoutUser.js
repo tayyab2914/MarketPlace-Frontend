@@ -1,4 +1,5 @@
 import {
+  setIsAdmin,
   setIsUserLoggedIn,
   setUserAuthToken,
 } from "@/redux/actions/authActions";
@@ -11,9 +12,9 @@ export const useLogoutUser = () => {
   const router = useRouter();
 
   const logoutUser = () => {
-    console.log("LOGOUT")
     dispatch(setIsUserLoggedIn(false));
     dispatch(setUserAuthToken(null));
+    dispatch(setIsAdmin(false))
     router.push(ROUTES.home);
   };
 

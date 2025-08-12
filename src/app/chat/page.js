@@ -3,15 +3,15 @@
 import Navbar from "@/components/layout/navbar/Navbar";
 import ChatPage from "@/features/chat/ChatPage";
 import React from "react";
-import { useSearchParams } from "next/navigation";
+import AuthRedirect from "@/utils/AuthRedirect";
 
 const Page = () => {
 
   return (
-    <div>
+    <AuthRedirect allowLoggedIn >
       <Navbar />
       <ChatPage />
-    </div>
+    </AuthRedirect>
   );
 };
 

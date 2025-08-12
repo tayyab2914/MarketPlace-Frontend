@@ -16,3 +16,10 @@ export const API_GET_MESSAGES = async (token, chat_id) => {
     token: token,
   });
 };
+export const API_GET_CHAT_CONVERSATIONS = async (token) => {
+  return await MAKE_API_REQUEST({
+    method: "get",
+    url: `${BACKEND_DOMAIN}/chat/conversations/`,
+    token: token,
+  });
+};

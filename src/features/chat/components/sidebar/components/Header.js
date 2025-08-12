@@ -4,11 +4,6 @@ const Header = () => {
   return (
     <div className="chat-s-h-header">
       <div className="chat-s-h-left">
-        <img
-          src="./assets/images/chat1.png"
-          alt=" user avatar"
-          className="chat-s-h-avatar"
-        />
         <h5 className="chat-s-h-title">Chat</h5>
       </div>
       <div className="chat-s-h-right">

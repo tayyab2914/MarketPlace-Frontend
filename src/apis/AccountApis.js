@@ -1,5 +1,6 @@
 "use client";
 import {
+  setIsAdmin,
   setIsUserLoggedIn,
   setUserAuthToken,
 } from "@/redux/actions/authActions";
@@ -16,6 +17,7 @@ export const API_SIGNIN = async (data, dispatch, router) => {
     onSuccess: async (res) => {
       dispatch(setUserAuthToken(res?.data?.token));
       dispatch(setIsUserLoggedIn(true));
+      dispatch(setIsAdmin(res?.data?.is_admin))
       await API_GET_USER_COMPANY(res?.data?.token, dispatch);
       router.push(ROUTES.home);
     },
@@ -76,6 +78,20 @@ export const API_GET_COMPANY_BY_ID = async (token, company_id) => {
   return await MAKE_API_REQUEST({
     method: "get",
     url: `${BACKEND_DOMAIN}/account/companies/public/${company_id}/`,
+    token: token,
+  });
+};
+export const API_TEST_USER_TOKEN = async (token) => {
+  return await MAKE_API_REQUEST({
+    method: "get",
+    url: `${BACKEND_DOMAIN}/account/user/test_token/`,
+    token: token,
+  });
+};
+export const API_TEST_ADMIN_TOKEN = async (token) => {
+  return await MAKE_API_REQUEST({
+    method: "get",
+    url: `${BACKEND_DOMAIN}/account/admin/test_token/`,
     token: token,
   });
 };
