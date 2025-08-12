@@ -1,4 +1,5 @@
 import { HexagonImage } from '@/components/decor/hexagon-image/HexagonImage';
+import { BACKEND_DOMAIN } from '@/utils/Constants';
 import React from 'react';
 
 const VSPInfo = ({ ServiceDetails }) => {
@@ -24,7 +25,7 @@ const VSPInfo = ({ ServiceDetails }) => {
 
             <div className="srv-viw-company-info">
               <div className="srv-viw-hexagon-container">
-                <HexagonImage src={''} size={140} />
+                <HexagonImage src={`${BACKEND_DOMAIN}/media/${ServiceDetails?.company_profile_image}`} size={140} />
                 <div className="srv-viw-verify-badge">
                   <img src="/assets/images/verify-badge.png" alt="" />
                 </div>

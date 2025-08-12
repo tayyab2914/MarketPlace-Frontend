@@ -2,12 +2,8 @@
 
 import { Montserrat, Geist_Mono } from "next/font/google";
 import "./(styles)/globals.css";
-import "./(styles)/odometer.css";
-import "./(styles)/swiper.css";
 import "./(styles)/animate.min.css";
 import "aos/dist/aos.css";
-import "antd/dist/reset.css";
-import Script from "next/script";
 import { useEffect } from "react";
 import AOS from "aos";
 import { Provider } from "react-redux";
@@ -15,7 +11,6 @@ import { persistor, store } from "@/redux/store";
 import { PersistGate } from "redux-persist/integration/react";
 import { App, ConfigProvider } from "antd";
 import { CustomMessageProvider } from "@/components/ui/CustomMessageProvider.js/CustomMessageProvider";
-import { initializeScript } from "../../public/assets/js/main";
 import {
   BUTTON_COLORS,
   CAROUSEL_COLORS,
@@ -41,28 +36,9 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
 });
 
-const geistMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-geist-mono",
-});
-
 export default function RootLayout({ children }) {
   useEffect(() => {
     AOS.init();
-  }, []);
-  useEffect(() => {
-    const handleDomReady = () => {
-      initializeScript();
-    };
-
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", handleDomReady);
-      return () => {
-        document.removeEventListener("DOMContentLoaded", handleDomReady);
-      };
-    } else {
-      handleDomReady();
-    }
   }, []);
 
   return (
@@ -97,47 +73,6 @@ export default function RootLayout({ children }) {
               <Provider store={store}>
                 <PersistGate loading={null} persistor={persistor}>
                   {children}
-                  {/* Your scripts here */}
-                  <Script
-                    src="/assets/js/main.js"
-                    strategy="afterInteractive"
-                  />
-                  <Script
-                    src="/assets/js/plugins/apex-custom.js"
-                    strategy="afterInteractive"
-                  />
-                  <Script
-                    src="/assets/js/plugins/apexcharts.min.js"
-                    strategy="afterInteractive"
-                  />
-                  <Script
-                    src="/assets/js/plugins/emailjs-custom.js"
-                    strategy="afterInteractive"
-                  />
-                  <Script
-                    src="/assets/js/wow.min.js"
-                    strategy="afterInteractive"
-                  />
-                  <Script
-                    src="/assets/js/plugins/plugins.js"
-                    strategy="afterInteractive"
-                  />
-                  <Script
-                    src="/assets/js/plugins/plugin-custom.js"
-                    strategy="afterInteractive"
-                  />
-                  <Script
-                    src="/assets/js/plugins/matter.min.js"
-                    strategy="afterInteractive"
-                  />
-                  <Script
-                    src="/assets/js/plugins/matterjs-custom.js"
-                    strategy="afterInteractive"
-                  />
-                  <Script
-                    src="https://unpkg.com/@phosphor-icons/web"
-                    strategy="afterInteractive"
-                  />
                 </PersistGate>
               </Provider>
             </CustomMessageProvider>

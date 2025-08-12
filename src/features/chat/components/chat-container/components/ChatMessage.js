@@ -16,7 +16,13 @@ const ChatMessage = ({ msg }) => {
   const isOwn = msg?.sender === company_info?.id;
   const checked = msg?.is_read;
 
-  console.log(msg?.sender, company_info?.id, isOwn);
+  console.log(
+    "msg?.sender",
+    msg?.sender,
+    "company_info?.id",
+    company_info?.id,
+    isOwn
+  );
   return (
     <div
       className={`chat-c-message-row ${isOwn ? "chat-c-message-row-own" : ""}`}
