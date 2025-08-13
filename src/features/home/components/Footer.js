@@ -1,6 +1,7 @@
 import { useRouter } from "next/navigation";
 import React from "react";
 import { HOME_CONTENT } from "@/constants/static-pages/home";
+import { ArrowUp } from "lucide-react";
 
 const Footer = () => {
   const router = useRouter();
@@ -60,10 +61,12 @@ const Footer = () => {
                       >
                         {ctaText}
                       </span>
-                      <i
-                        className={`ph-bold ph-arrow-up-right absolute right-0 top-0 translate-x-0 rounded-full ${iconBgClass} p-[14px] text-xl !leading-none duration-500`}
+                      <span
+                        className={`absolute right-0 top-0 translate-x-0 rounded-full ${iconBgClass} p-[14px] text-xl !leading-none duration-500`}
                         style={{ right: iconRightOffset }}
-                      />
+                      >
+                        <ArrowUp />
+                      </span>
                     </a>
                   </div>
                 </div>

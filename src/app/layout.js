@@ -13,6 +13,7 @@ import { App, ConfigProvider } from "antd";
 import { CustomMessageProvider } from "@/components/ui/CustomMessageProvider.js/CustomMessageProvider";
 import { ANTD_COMPONENTS } from "./(utils)/utils";
 import VerifyToken from "./(utils)/VerifyToken";
+import Script from "next/script";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -34,6 +35,14 @@ export default function RootLayout({ children }) {
                 <PersistGate loading={null} persistor={persistor}>
                   {children}
                   <VerifyToken />
+                  <Script
+                    src="/assets/js/plugins/matter.min.js"
+                    strategy="afterInteractive"
+                  />
+                  <Script
+                    src="/assets/js/plugins/matterjs-custom.js"
+                    strategy="afterInteractive"
+                  />
                 </PersistGate>
               </Provider>
             </CustomMessageProvider>

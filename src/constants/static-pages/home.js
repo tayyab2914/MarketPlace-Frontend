@@ -1,3 +1,4 @@
+import { ArrowDownAZ, BookOpen, CalendarPlus } from "lucide-react";
 const HERO_CONTENT = {
   subtitle: "Your Solution Hub",
   title: (
@@ -20,34 +21,34 @@ const HOW_IT_WORKS_CONTENT = {
   steps: [
     {
       id: "step1",
-      iconClass: "ph ph-sort-descending",
-      title: "Step_01",
+      Icon: ArrowDownAZ, // Lucide icon component
+      title: "Step 1",
       contentTitle: "Tasker Evaluation",
       contentDescription:
         "Select a Tasker based on affordability, expertise, and customer feedback, ensuring you find the perfect fit for your needs.",
-      imageSrc: "./assets/images/step_one_illus.png",
+      imageSrc: "/assets/images/step_one_illus.png",
       ctaLink: "./sign-up-step-1.html",
       ctaText: "Sign up now",
     },
     {
       id: "step2",
-      iconClass: "ph ph-calendar-plus",
-      title: "Step_02",
+      Icon: CalendarPlus,
+      title: "Step 2",
       contentTitle: "Book Now",
       contentDescription:
         "Secure your spot at the event of your choice by booking your tickets now through our convenient online booking platform.",
-      imageSrc: "./assets/images/step_two_illus.png",
+      imageSrc: "/assets/images/step_two_illus.png",
       ctaLink: "./sign-up-step-1.html",
       ctaText: "Sign up now",
     },
     {
       id: "step3",
-      iconClass: "ph ph-book-open-text",
-      title: "Step_03",
+      Icon: BookOpen,
+      title: "Step 3",
       contentTitle: "ChatTip Hub",
       contentDescription:
         "Your Ultimate Destination for Chat-based Tips, Advice, and Insights on a Variety of Topics and Interests.",
-      imageSrc: "./assets/images/step_three_illus.png",
+      imageSrc: "/assets/images/step_three_illus.png",
       ctaLink: "./sign-up-step-1.html",
       ctaText: "Sign up now",
     },
@@ -72,85 +73,118 @@ const BOOKING_CONTENT = {
 };
 
 export const FIND_WORK_AND_HIRING_CONTENT = {
-    leftBgClass: "bg-g300",
-    rightBgClass: "bg-r300",
-    profiles: [
-      {
-        badgeText: "PRO",
-        reviewImage: "/assets/images/review_img.png",
-        rating: "4.7",
-        reviewCount: "81",
-        hexagonImgClass: "expertImg5",
-        verifyBadgeImg: "/assets/images/verify-badge2.png",
-        heading: "I am an Expert",
-        description: "I'm a Skilled Professional, Ready to Assist with Expertise and Dedication in Your Task.",
-        detail1: "Full-Time",
-        detail2: "10+ Years",
-        ctaHref: "./find-workers.html",
-        ctaText: "Explore Now",
-      },
-      {
-        badgeText: "PRO",
-        reviewImage: "/assets/images/review_img.png",
-        rating: "4.7",
-        reviewCount: "81",
-        hexagonImgClass: "expertImg2",
-        verifyBadgeImg: "/assets/images/verify-badge2.png",
-        heading: "I am an Expert",
-        description: "I'm a Skilled Professional, Ready to Assist with Expertise and Dedication in Your Task.",
-        detail1: "Full-Time",
-        detail2: "10+ Years",
-        ctaHref: "./find-workers.html",
-        ctaText: "Explore Now",
-      },
-    ],
-  };
-  export const FOOTER_CONTENT = {
-    mainTitle: "Let’s work together",
-    sections: [
-      {
-        title: "Looking to hire an Service?",
-        ctaText: "LET'S TALK",
-        ctaRoute: "/contact", // Use ROUTES.contactPage in your actual app
-        buttonBgClass: "bg-y300",
-        iconBgClass: "bg-y300",
-        iconRightOffset: "148px",
-      },
-      {
-        title: "Looking to hire an Service?",
-        ctaText: "JOIN US",
-        ctaRoute: "/list-services", // Use ROUTES.listServices in your actual app
-        buttonBgClass: "bg-y300",
-        iconBgClass: "bg-y300",
-        iconRightOffset: "115px",
-      },
-    ],
-    contactInfo: {
-      address: "Valentin, Street Road 27, New York. USA - 752252",
-      phone: "(629) 555-0129",
-      email: "example@mail.com",
+  leftBgClass: "bg-g300",
+  rightBgClass: "bg-r300",
+  profiles: [
+    {
+      badgeText: "PRO",
+      reviewImage: "/assets/images/review_img.png",
+      rating: "4.7",
+      reviewCount: "81",
+      hexagonImgClass: "expertImg5",
+      verifyBadgeImg: "/assets/images/verify-badge2.png",
+      heading: "I am an Expert",
+      description:
+        "I'm a Skilled Professional, Ready to Assist with Expertise and Dedication in Your Task.",
+      detail1: "Full-Time",
+      detail2: "10+ Years",
+      ctaHref: "./find-workers.html",
+      ctaText: "Explore Now",
     },
-    socialLinks: [
-      { href: "javascript:void(0)", iconClass: "ph ph-facebook-logo" },
-      { href: "javascript:void(0)", iconClass: "ph ph-twitch-logo" },
-      { href: "javascript:void(0)", iconClass: "ph ph-instagram-logo" },
-      { href: "javascript:void(0)", iconClass: "ph ph-linkedin-logo" },
-    ],
-    bigTitle: "Servibe",
-    designedBy: {
-      text: "Designed By",
-      linkText: "Pixelaxis",
-      linkHref: "",
+    {
+      badgeText: "PRO",
+      reviewImage: "/assets/images/review_img.png",
+      rating: "4.7",
+      reviewCount: "81",
+      hexagonImgClass: "expertImg2",
+      verifyBadgeImg: "/assets/images/verify-badge2.png",
+      heading: "I am an Expert",
+      description:
+        "I'm a Skilled Professional, Ready to Assist with Expertise and Dedication in Your Task.",
+      detail1: "Full-Time",
+      detail2: "10+ Years",
+      ctaHref: "./find-workers.html",
+      ctaText: "Explore Now",
     },
-    copyrightText: "Copyright @ 2024 Servibe",
-    bigArrowImage: "/assets/images/big_arrow.png",
-  };
-  
-  
+  ],
+};
+import { Facebook, Instagram, Linkedin, Github } from "lucide-react";
+
+export const FOOTER_CONTENT = {
+  mainTitle: "Let’s work together",
+  sections: [
+    {
+      title: "Looking to hire a Service?",
+      ctaText: "LET'S TALK",
+      ctaRoute: "/contact",
+      buttonBgClass: "bg-y300",
+      iconBgClass: "bg-y300",
+      iconRightOffset: "178px",
+    },
+    {
+      title: "Looking to hire a Service?",
+      ctaText: "JOIN US",
+      ctaRoute: "/list-services",
+      buttonBgClass: "bg-y300",
+      iconBgClass: "bg-y300",
+      iconRightOffset: "158px",
+    },
+  ],
+  contactInfo: {
+    address: "Valentin, Street Road 27, New York. USA - 752252",
+    phone: "(629) 555-0129",
+    email: "example@mail.com",
+  },
+  socialLinks: [
+    { href: "javascript:void(0)", icon: Facebook },
+    { href: "javascript:void(0)", icon: Github },      // replaced Twitch with Github
+    { href: "javascript:void(0)", icon: Instagram },
+    { href: "javascript:void(0)", icon: Linkedin },
+  ],
+  bigTitle: "Servibe",
+  designedBy: {
+    text: "Designed By",
+    linkText: "Pixelaxis",
+    linkHref: "",
+  },
+  copyrightText: "Copyright @ 2024 Servibe",
+  bigArrowImage: "/assets/images/big_arrow.png",
+};
+
+export const POSTS_CONTENT =[
+  {
+    id: 1,
+    image: "/assets/images/blog-post-image-1.png",
+    category: "Tips & Tricks",
+    title: "Exploring Service Success Stories",
+    date: "Latest News December 12, 2024",
+    link: "./blog-details.html",
+    delay: 0,
+  },
+  {
+    id: 2,
+    image: "/assets/images/blog-post-image-2.png",
+    category: "Tips & Tricks",
+    title: "Stories of Triumph in the On-Demand Era",
+    date: "Latest News December 12, 2024",
+    link: "./blog-details.html",
+    delay: 200,
+  },
+  {
+    id: 3,
+    image: "/assets/images/blog-post-image-3.png",
+    category: "Tips & Tricks",
+    title: "Journey Through Service Experiences",
+    date: "Latest News December 12, 2024",
+    link: "./blog-details.html",
+    delay: 400,
+  },
+]
 export const HOME_CONTENT = {
   hero: HERO_CONTENT,
   howItWorks: HOW_IT_WORKS_CONTENT,
   booking: BOOKING_CONTENT,
-  findWork :FIND_WORK_AND_HIRING_CONTENT,
-  footer:FOOTER_CONTENT
+  findWork: FIND_WORK_AND_HIRING_CONTENT,
+  footer: FOOTER_CONTENT,
+  posts:POSTS_CONTENT
 };

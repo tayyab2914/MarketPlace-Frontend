@@ -10,7 +10,7 @@ import ScrollToTop from "@/components/ui/scroll-to-top/ScrollToTop";
 import TopExpertsComponent from "@/components/decor/top-experts/TopExpertsComponent";
 import TestimonialsComponent from "@/components/decor/testimonials/TestimonialsComponent";
 import Footer from "./components/Footer";
-
+import './styles/home.css'
 const HomePage = () => {
   return (
     <>
@@ -20,7 +20,7 @@ const HomePage = () => {
         <HeroSection />
         <HowItWorks />
         <TopExpertsComponent />
-        <Booking />
+        {/* <Booking /> */}
         {/* <NewsLetter /> */}
 
         {/* <SecureGuard /> */}

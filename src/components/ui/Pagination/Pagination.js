@@ -1,3 +1,4 @@
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import React from "react";
 export const Pagination = ({ currentPage, totalPages, setCurrentPage }) => {
   const goToPage = (page) => {
@@ -15,7 +16,7 @@ export const Pagination = ({ currentPage, totalPages, setCurrentPage }) => {
           onClick={() => goToPage(currentPage - 1)}
           className="flex cursor-pointer items-center justify-center rounded-full bg-n900 p-[14px] text-xl duration-500 hover:bg-b300"
         >
-          <i className="ph ph-caret-left"></i>
+          <ArrowLeft/>
         </li>
 
         {pageNumbers?.map((page) => (
@@ -36,7 +37,7 @@ export const Pagination = ({ currentPage, totalPages, setCurrentPage }) => {
           onClick={() => goToPage(currentPage + 1)}
           className="flex cursor-pointer items-center justify-center rounded-full bg-n900 p-[14px] text-xl duration-500 hover:bg-b300"
         >
-          <i className="ph ph-caret-right"></i>
+          <ArrowRight/>
         </li>
       </ul>
     </div>

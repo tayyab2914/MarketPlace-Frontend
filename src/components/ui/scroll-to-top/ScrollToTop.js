@@ -1,3 +1,4 @@
+import { ArrowUp } from 'lucide-react'
 import React from 'react'
 
 const ScrollToTop = () => {
@@ -7,7 +8,7 @@ const ScrollToTop = () => {
     aria-label="bottom to top button"
   >
     <span className="block">
-      <i className="ph ph-arrow-up"></i>
+      <ArrowUp/>
     </span>
   </button>
   )
