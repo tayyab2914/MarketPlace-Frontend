@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 
 const VSPPricing = ({ ServiceDetails }) => {
   const { token } = useSelector((state) => state.auth);
+  const { company_info } = useSelector((state) => state.company);
   const router = useRouter();
 
   const handleHireMe = async () => {
@@ -24,14 +25,14 @@ const VSPPricing = ({ ServiceDetails }) => {
             ${ServiceDetails?.price_starting_from}/hr
           </p>
 
-          <div className="srv-viw-p-btn-wrapper">
+          {company_info?.id != ServiceDetails?.company &&<div className="srv-viw-p-btn-wrapper">
             <a onClick={handleHireMe} className="srv-viw-p-btn">
               <div className="srv-viw-p-btn-inner">
                 <i className="ph ph-paper-plane-tilt srv-viw-p-btn-icon"></i>
                 <span>Hire me</span>
               </div>
             </a>
-          </div>
+          </div>}
         </div>
 
         <div className="srv-viw-p-details">

@@ -1,29 +1,21 @@
 import React, { useState } from "react";
 import { Send } from "lucide-react";
 import { handleSendMessage } from "@/utils/WebSockets";
-import { useSelector } from "react-redux";
 
-const ChatInputArea = ({ socket, addMessage }) => {
-  const { user } = useSelector((state) => state.auth);
+const ChatInputArea = ({ socket, addMessage, userData }) => {
   const [input, setInput] = useState("");
 
   const onSend = () => {
     if (!input.trim()) return;
 
     const newMessage = {
-      id: Date.now(), // temporary ID
-      sender: user?.id,
-      sender_name: user?.email, // or name if you have
+      sender_company_id: userData?.me?.company_id,
+      sender_company_profile_image: userData?.me?.company_profile_image,
       content: input,
-      is_read: false,
       created_at: new Date().toISOString(),
-      text: input, // if your backend expects "text" as well
     };
 
-    // Immediately append new message in UI
     addMessage(newMessage);
-
-    // Send the message through WebSocket
     handleSendMessage(socket, newMessage);
 
     setInput("");

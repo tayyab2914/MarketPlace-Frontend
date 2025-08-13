@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Col, Form, Row } from "antd";
 import { Edit3, Phone, Briefcase, MapPin, ImageIcon } from "lucide-react";
 import CustomInputField from "@/components/ui/CustomInputField/CustomInputField";
@@ -8,7 +8,6 @@ import ImagePreview from "./ImagePreview";
 
 const CompanyForm = ({ companyData, loading, onSubmit }) => {
   const [form] = Form.useForm();
-  const [fileList, setFileList] = useState([]);
 
   const titleRules = [
     { required: true, message: "Please enter the company name" },
@@ -16,32 +15,32 @@ const CompanyForm = ({ companyData, loading, onSubmit }) => {
 
   useEffect(() => {
     if (!companyData) return;
-    form.setFieldsValue({ ...companyData, profile_image: undefined });
 
-    if (companyData.profile_image) {
-      setFileList([
-        {
-          uid: "-1",
-          name: "profile_image.png",
-          status: "done",
-          url: companyData.profile_image.startsWith("http")
-            ? companyData.profile_image
-            : companyData.profile_image,
-        },
-      ]);
-    } else {
-      setFileList([]);
-    }
-  }, [companyData]);
+    // Build initial fileList for the Upload (if we have an existing URL)
+    const initialFileList = companyData?.profile_image
+      ? [
+          {
+            uid: "-1",
+            name: "profile_image.png",
+            status: "done",
+            url: companyData.profile_image,
+          },
+        ]
+      : [];
 
-  const handleFileChange = ({ fileList: newFileList }) => {
-    setFileList(newFileList.slice(-1));
-  };
+    // IMPORTANT: let the form control the upload fileList
+    const { profile_image, ...rest } = companyData || {};
+    form.setFieldsValue({
+      ...rest,
+      profile_image: initialFileList,
+    });
+  }, [companyData, form]);
 
-  const beforeUpload = () => false;
+  const beforeUpload = () => false; // prevent auto-upload
 
   const onFinish = (values) => {
-    onSubmit(values, fileList);
+    // values.profile_image is now a fileList array controlled by the Form
+    onSubmit(values, values.profile_image || []);
   };
 
   return (
@@ -114,12 +113,10 @@ const CompanyForm = ({ companyData, loading, onSubmit }) => {
         name="profile_image"
         label="Profile Image"
         placeholder="Upload profile image"
-        addonBefore={<ImageIcon size={16} strokeWidth={1} />}
-        fileList={fileList}
-        onFileChange={handleFileChange}
-        beforeUpload={beforeUpload}
-        showUploadList={true}
+        // Note: addonBefore isn't supported by Upload; icon is already on the button
         accept="image/*"
+        showUploadList={true}
+        beforeUpload={beforeUpload}
         disabled={loading}
       />
 

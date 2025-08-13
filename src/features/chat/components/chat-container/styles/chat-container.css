@@ -75,7 +75,7 @@
     padding: 1.5rem; /* p-6 */
     width: 100%;
     overflow-y: auto;
-    height: calc(100vh - 320px);
+    height: calc(100vh - 280px);
     scrollbar-width: 3px;
   }
   
@@ -89,8 +89,9 @@
   }
   .chat-c-message-row-own {
     flex-direction: row-reverse; /* This flips the message row to right */
-    align-items: flex-end;
+    align-items: flex-start;
     justify-content: flex-start;
+
   }
   
   
@@ -123,9 +124,9 @@
     background-color: var(--b300, #3b82f6); /* bg-b300 fallback */
     color: white;
     border-bottom-left-radius: 1rem;
-    border-top-right-radius: 1rem;
+    border-top-right-radius: 0rem;
     border-bottom-right-radius: 1rem;
-    border-top-left-radius: 0;
+    border-top-left-radius: 1rem;
   }
   
   /* Message text */
@@ -182,9 +183,15 @@
     padding-top: 0.5rem;
     width: 100%;
     gap: 10px;
+    padding-left: 10px;
   }
-  
-  
+  .chat-c-header-siderbar-toggle-icon{
+    cursor: pointer;
+    color: var(--color-blue);
+  }
+  .chat-sidebar-drawer .ant-drawer-body{
+    padding: 0px !important;
+  }
   /* Avatar inside input */
   .chat-c-avatar-input {
     max-width: 60px;

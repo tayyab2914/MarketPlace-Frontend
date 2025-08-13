@@ -23,7 +23,6 @@ export const MAKE_API_REQUEST = async ({
       hideLoading = message.loading(loadingMessage, 0);
     }
 
-    console.log(token)
     const headers = {
       ...(token && { Authorization: `Token ${token}` }),
       ...(isFormData && { "Content-Type": "multipart/form-data" }),

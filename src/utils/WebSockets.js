@@ -3,7 +3,6 @@ export const INITIALIZE_WEBSOCKET = (
   payload,
   onOpen,
   onClose,
-  dispatch
 ) => {
   let socketUrl;
 
@@ -25,7 +24,6 @@ export const INITIALIZE_WEBSOCKET = (
   chatSocket.onopen = () => {
     onOpen(chatSocket);
     console.log("SOCKET OPEN", chatSocket);
-    // DO NOT dispatch setSocket(chatSocket);
   };
 
   chatSocket.onclose = () => {
@@ -40,7 +38,7 @@ export const INITIALIZE_WEBSOCKET = (
   chatSocket.onmessage = (event) => {
     try {
       const data = JSON.parse(event.data);
-      console.log(data);
+      console.log("chatSocket.onmessage", data);
     } catch (parseError) {
       console.error(
         "Failed to parse WebSocket message:",
@@ -56,13 +54,14 @@ export const INITIALIZE_WEBSOCKET = (
 export const handleSendMessage = (socket, message) => {
   if (
     socket &&
-    socket.readyState === WebSocket.OPEN && // ensure socket is open
-    message?.text &&
-    message.text.trim()
+    socket.readyState === WebSocket.OPEN &&
+    message?.content &&
+    message?.content?.trim()
   ) {
     const messageData = {
-      message: message.text,
+      message: message.content,
     };
+    console.log("handleSendMessage", messageData);
     socket.send(JSON.stringify(messageData));
   } else {
     console.warn("WebSocket is not open or message is empty");

@@ -7,6 +7,7 @@ import {
 import { setCompanyInfo } from "@/redux/actions/companyInfoActions";
 import { MAKE_API_REQUEST } from "@/utils/AxiosTemplate";
 import { BACKEND_DOMAIN, ROUTES } from "@/utils/Constants";
+import { printFormData } from "@/utils/Methods";
 
 export const API_SIGNIN = async (data, dispatch, router) => {
   return await MAKE_API_REQUEST({
@@ -18,7 +19,7 @@ export const API_SIGNIN = async (data, dispatch, router) => {
       dispatch(setUserAuthToken(res?.data?.token));
       dispatch(setIsUserLoggedIn(true));
       dispatch(setIsAdmin(res?.data?.is_admin))
-      await API_GET_USER_COMPANY(res?.data?.token, dispatch);
+      API_GET_USER_COMPANY(res?.data?.token, dispatch);
       router.push(ROUTES.home);
     },
   });
@@ -101,12 +102,14 @@ export const API_GET_USER_COMPANY = async (token, dispatch) => {
     url: `${BACKEND_DOMAIN}/account/company/profile/`,
     token: token,
     onSuccess: (res) => {
-      console.log(res)
       dispatch(setCompanyInfo(res?.data));
     },
   });
 };
 export const API_SET_USER_COMPANY = async (token, data) => {
+  console.log("API_SET_USER_COMPANY",data)
+  printFormData(data)
+  console.log("API_SET_USER_COMPANY",data)
   return await MAKE_API_REQUEST({
     method: "post",
     url: `${BACKEND_DOMAIN}/account/company/profile/`,

@@ -25,7 +25,7 @@ const VSPInfo = ({ ServiceDetails }) => {
 
             <div className="srv-viw-company-info">
               <div className="srv-viw-hexagon-container">
-                <HexagonImage src={`${BACKEND_DOMAIN}/media/${ServiceDetails?.company_profile_image}`} size={140} />
+                <HexagonImage src={`${BACKEND_DOMAIN}${ServiceDetails?.company_profile_image}`} size={140} />
                 <div className="srv-viw-verify-badge">
                   <img src="/assets/images/verify-badge.png" alt="" />
                 </div>

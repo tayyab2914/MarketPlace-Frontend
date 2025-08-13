@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
   Form,
   Input,
@@ -12,7 +12,6 @@ import {
 } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import "./CustomInputField.css";
-import dayjs from "dayjs";
 
 const CustomInputField = ({
   name,
@@ -21,51 +20,46 @@ const CustomInputField = ({
   rules = [],
   styles,
   prefix,
-  value,
-  onChange,
   type = "text",
-  inputType = "input", // 'input', 'textarea', 'number', 'select', 'upload', 'switch'
-  options = [], // for select
+  inputType = "input", // 'input', 'textarea', 'number', 'select', 'upload', 'switch', 'checkbox', 'tags', 'date'
+  options = [],
   min,
   max,
   addonBefore,
-  rows = 4, // for textarea
-  fileList, // for upload
-  onFileChange, // for upload
+  addonAfter,
+  rows = 4,
   beforeUpload, // for upload
-  initialFileList = [],
   showUploadList = false, // for upload
   accept, // for upload
   buttonText = "Upload", // for upload
   disabled = false,
-  initialValue,
-  addonAfter,
   inputStyle,
   ...rest
 }) => {
-  const [internalFileList, setInternalFileList] = useState(initialFileList);
+  // Map Form.Item value prop names
+  const valuePropName =
+    inputType === "switch" || inputType === "checkbox"
+      ? "checked"
+      : inputType === "upload"
+      ? "fileList"
+      : "value";
 
-  useEffect(() => {
-    if (inputType === "upload") {
-      setInternalFileList(initialFileList);
-    }
-  }, [initialFileList, inputType]);
-
-  const handleChange = ({ fileList }) => {
-    setInternalFileList(fileList);
-    if (onFileChange) onFileChange({ fileList });
+  // Normalize Upload event -> fileList array (and keep only the last file)
+  const normFile = (e) => {
+    if (Array.isArray(e)) return e;
+    return e?.fileList ? e.fileList.slice(-1) : [];
   };
+
   return (
     <div style={styles} className="custom-input-field-container">
       <p className="custom-input-field-label">{label}</p>
+
       <Form.Item
         name={name}
         rules={rules}
-        valuePropName={
-          inputType === "switch" || inputType === "checkbox"
-            ? "checked"
-            : "value"
-        }
+        valuePropName={valuePropName}
+        // Only for Upload
+        getValueFromEvent={inputType === "upload" ? normFile : undefined}
         className="custom-input-field-item"
       >
         {inputType === "input" && (
@@ -79,6 +73,7 @@ const CustomInputField = ({
             {...rest}
           />
         )}
+
         {inputType === "textarea" && (
           <Input.TextArea
             placeholder={placeholder}
@@ -87,6 +82,7 @@ const CustomInputField = ({
             {...rest}
           />
         )}
+
         {inputType === "number" && (
           <InputNumber
             placeholder={placeholder}
@@ -95,23 +91,23 @@ const CustomInputField = ({
             addonBefore={addonBefore}
             addonAfter={addonAfter}
             disabled={disabled}
-            style={{ width: "100%", height: "40px" }}
+            style={{ width: "100%", height: 40 }}
             {...rest}
           />
         )}
+
         {inputType === "select" && (
           <Select
             placeholder={placeholder}
             options={options}
             disabled={disabled}
-            style={{ width: "100%", height: "40px" }}
+            style={{ width: "100%", height: 40 }}
             {...rest}
           />
         )}
+
         {inputType === "upload" && (
           <Upload
-            fileList={internalFileList}
-            onChange={handleChange}
             beforeUpload={beforeUpload}
             showUploadList={showUploadList}
             accept={accept}
@@ -124,19 +120,15 @@ const CustomInputField = ({
             </Button>
           </Upload>
         )}
-        {inputType === "switch" && (
-          <Switch
-            checked={value}
-            onChange={onChange}
-            disabled={disabled}
-            {...rest}
-          />
-        )}
+
+        {inputType === "switch" && <Switch disabled={disabled} {...rest} />}
+
         {inputType === "checkbox" && (
           <Checkbox disabled={disabled} {...rest}>
             {placeholder}
           </Checkbox>
         )}
+
         {inputType === "tags" && (
           <Select
             mode="tags"
@@ -154,8 +146,6 @@ const CustomInputField = ({
             disabled={disabled}
             allowClear
             {...rest}
-            value={value ? dayjs(value) : null} // Convert value to dayjs if present
-            onChange={onChange} // Make sure onChange is passed down correctly
           />
         )}
       </Form.Item>
