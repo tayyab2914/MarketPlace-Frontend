@@ -1,8 +1,9 @@
+import Button from "@/components/ui/Button/Button";
 import ReadMore from "@/components/ui/ReadMore/ReadMore";
 import { ROUTES } from "@/utils/Constants";
 import { useRouter } from "next/navigation";
 import React from "react";
-
+import '../styles/service-page.css'
 const ServiceCard = ({ service }) => {
   const router = useRouter();
   return (
@@ -30,12 +31,13 @@ const ServiceCard = ({ service }) => {
         <p className="srv-lis-cd-startingAt">STARTING AT</p>
         <p className="srv-lis-cd-price">${service?.price_starting_from}</p>
         <p className="srv-lis-cd-fixedPrice">Fixed Price</p>
-        <a
+        <Button
+          variant="filled-animated"
+          style={{fontSize:"12px"}}
           onClick={() => router.push(`${ROUTES.viewService}${service?.id}`)}
-          className="srv-lis-cd-viewDetailsBtn"
         >
           <span>View Details</span>
-        </a>
+        </Button>
       </div>
     </div>
   );

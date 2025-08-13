@@ -1,7 +1,8 @@
+import ActionIcon from "@/components/ui/ActionIcon/ActionIcon";
 import { Space, Tooltip, Tag } from "antd";
-import { Eye, Edit } from "lucide-react";
+import { Eye, Edit, Edit2 } from "lucide-react";
 
-export function getListingsTableColumns( onView, onEdit) {
+export function getListingsTableColumns(onView, onEdit) {
   return [
     {
       title: "ID",
@@ -41,51 +42,50 @@ export function getListingsTableColumns( onView, onEdit) {
       render: (date) => new Date(date).toLocaleDateString(),
     },
     {
-      title: "Status",
-      dataIndex: "status",
-      key: "status",
+      title: "Verified By Admin",
+      dataIndex: "verified_by_admin",
+      key: "verified_by_admin",
       filters: [
-        { text: "Open", value: "open" },
-        { text: "Closed", value: "closed" },
-        { text: "In Progress", value: "in progress" },
+        { text: "Verified", value: true },
+        { text: "Not Verified", value: false },
       ],
-      onFilter: (value, record) => record.status === value,
+      onFilter: (value, record) => record.verified_by_admin === value,
       responsive: ["xl"],
-      render: (status) => (
-        <Tag color={status === "open" ? "green" : status === "closed" ? "red" : "blue"}>
-          {status.charAt(0).toUpperCase() + status.slice(1)}
+      render: (verified_by_admin) => (
+        <Tag color={verified_by_admin ? "green" : "red"}>
+          {verified_by_admin ? "Verified" : "Not Verified"}
         </Tag>
       ),
     },
+
     {
       title: "Public",
       dataIndex: "is_public",
       key: "is_public",
       responsive: ["xl"],
-      render: (isPublic) => (isPublic ? <Tag color="green">Yes</Tag> : <Tag>No</Tag>),
+      render: (isPublic) =>
+        isPublic ? <Tag color="green">Yes</Tag> : <Tag>No</Tag>,
     },
     {
       title: "Actions",
       key: "actions",
       fixed: "right",
-      width: 80,
+      width: 100,
       render: (_, record) => (
-        <Space size="middle">
-          <Tooltip title="View">
-            <Eye
-              style={{ cursor: "pointer" }}
-              size={18}
-              onClick={() => onView(record)}
-            />
-          </Tooltip>
-          <Tooltip title="Edit">
-            <Edit
-              style={{ cursor: "pointer" }}
-              size={18}
-              onClick={() => onEdit(record)}
-            />
-          </Tooltip>
-        </Space>
+        <div style={{ display: "flex", gap: "8px" }}>
+          <ActionIcon
+            color="#28a745" // blue
+            icon={<Eye />}
+            tooltip="View Listing"
+            onClick={() => onView(record)}
+          />
+          <ActionIcon
+            color="#0d6efd" // green
+            icon={<Edit2 />}
+            tooltip="Edit Listing"
+            onClick={() => onEdit(record)}
+          />
+        </div>
       ),
     },
   ];

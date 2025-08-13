@@ -6,6 +6,7 @@ import "./styles/chat-container.css";
 import { useSearchParams } from "next/navigation";
 import { API_GET_MESSAGES } from "@/apis/ChatApis";
 import { useSelector } from "react-redux";
+import { IMAGES } from "@/components/ui/Image/ImageData";
 
 const ChatContainer = ({ socket }) => {
   const searchParams = useSearchParams();
@@ -18,14 +19,23 @@ const ChatContainer = ({ socket }) => {
     const res = await API_GET_MESSAGES(token, chat_id);
     setMessages(res?.messages);
     setUserData(res?.users_data);
-
-    console.log(res);
   };
 
   useEffect(() => {
     if (!chat_id || !token) return;
     getPreviousConvo();
   }, [chat_id, token]);
+
+  if (!chat_id) {
+    return (
+      <div className="chat-c-empty-state">
+       <img src={IMAGES?.inbox} />
+        <p style={{ marginTop: "12px", fontSize: "16px", color: "#777" }}>
+          Select a chat to start messaging
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="chat-c-container">

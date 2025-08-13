@@ -32,14 +32,15 @@ const ReadMore = ({ children, minLength = 150, jumpLength = 150 }) => {
         <button
           onClick={handleToggle}
           style={{
-            color: "blue",
+            color: "lightBlue",
             background: "none",
             border: "none",
             padding: 0,
-            cursor: "pointer"
+            cursor: "pointer",
+            marginLeft:"5px"
           }}
         >
-          {isExpanded ? "Show Less" : "Read More"}
+          <u>{isExpanded ? "Show Less" : "Read More"}</u>
         </button>
       )}
     </>

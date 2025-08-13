@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { IMAGES } from "@/components/ui/Image/ImageData";
 import { HexagonImage } from "@/components/decor/hexagon-image/HexagonImage";
+import { BACKEND_DOMAIN } from "@/utils/Constants";
 
 const CPPAboutSection = ({ CompanyData }) => {
   const {
@@ -15,7 +16,7 @@ const CPPAboutSection = ({ CompanyData }) => {
     <section className="cpp-section">
       <div className="cpp-container">
         <div className="cpp-image-wrapper">
-          <HexagonImage src={profile_image} size={320} />
+          <HexagonImage src={`${BACKEND_DOMAIN}${profile_image}`} size={320} />
         </div>
 
         <div className="cpp-about-text" id="about">

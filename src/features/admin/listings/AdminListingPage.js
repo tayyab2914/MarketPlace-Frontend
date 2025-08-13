@@ -17,6 +17,7 @@ const AdminListingPage = () => {
 
   const fetchListings = async () => {
     const res = await API_ADMIN_GET_LISTINGS(token);
+    console.log(res)
     setListings(res);
   };
 

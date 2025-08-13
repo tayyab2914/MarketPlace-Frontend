@@ -24,7 +24,17 @@
       padding-right: 1.5rem;
     }
   }
-  
+  .chat-c-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #aaa;
+  }
+  .chat-c-empty-state img{
+    height: 250px;
+  }
   .chat-c-header-left {
     display: flex;
     align-items: center;

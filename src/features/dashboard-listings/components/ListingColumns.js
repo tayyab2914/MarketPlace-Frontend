@@ -1,6 +1,14 @@
 import React from "react";
 import { Space, Popconfirm } from "antd";
-import { BadgeDollarSign,  Pencil, Trash } from "lucide-react";
+import {
+  BadgeDollarSign,
+  Edit2,
+  Eye,
+  Pencil,
+  Trash,
+  Trash2,
+} from "lucide-react";
+import ActionIcon from "@/components/ui/ActionIcon/ActionIcon";
 
 export const getListingColumns = ({ onEdit, onDelete, onView }) => [
   {
@@ -34,49 +42,29 @@ export const getListingColumns = ({ onEdit, onDelete, onView }) => [
   {
     title: "Actions",
     key: "actions",
-    fixed: "right",
     width: 100,
-    responsive: ["xs", "sm", "md", "lg", "xl"],
     render: (_, record) => (
-      <Space size="middle">
-        <div className="lis-upd-form-icons-wrapper">
-          <div className="lis-upd-form-icon-btn green">
-            <Pencil
-              style={{ color: "green" }}
-              onClick={() => onEdit(record)}
-              title="Edit"
-              strokeWidth={1.5}
-              size={16}
-            />
-          </div>
-
-          <div className="lis-upd-form-icon-btn blue">
-            <BadgeDollarSign
-              style={{ color: "blue" }}
-              onClick={() => onView(record.id)}
-              title="View Offers"
-              strokeWidth={1.5}
-              size={16}
-            />
-          </div>
-
-          <Popconfirm
-            title="Are you sure you want to delete this listing?"
-            onConfirm={() => onDelete(record.id)}
-            okText="Yes"
-            cancelText="No"
-          >
-            <div className="lis-upd-form-icon-btn red">
-              <Trash
-                style={{ color: "red" }}
-                title="Delete"
-                strokeWidth={1.5}
-                size={16}
-              />
-            </div>
-          </Popconfirm>
-        </div>
-      </Space>
+      <div style={{ display: "flex", gap: "8px" }}>
+        <ActionIcon
+          color="#28a745" // green
+          icon={<Edit2 />}
+          tooltip="Edit Listing"
+          onClick={() => onEdit(record)}
+        />
+        <ActionIcon
+          type="delete"
+          color="#dc3545" // red
+          icon={<Trash2 />}
+          tooltip="Delete Listing"
+          onClick={() => onDelete(record.id)}
+        />
+        <ActionIcon
+          color="#0d6efd" // blue
+          icon={<Eye />}
+          tooltip="View Offers"
+          onClick={() => onView(record.id)}
+        />
+      </div>
     ),
   },
 ];

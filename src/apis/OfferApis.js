@@ -19,3 +19,10 @@ export const API_GET_OFFER_BY_LISTING_ID = async (token, listing_id) => {
     token: token,
   });
 };
+export const API_GET_OFFERS = async (token) => {
+  return await MAKE_API_REQUEST({
+    method: "get",
+    url: `${BACKEND_DOMAIN}/offer/list/`,
+    token: token,
+  });
+};

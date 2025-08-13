@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import CPPServicesCard from "./CPPServicesCard";
 import { IMAGES } from "@/components/ui/Image/ImageData";
+import ServiceCard from "@/features/services/list/components/ServiceCard";
+import { Col, Row } from "antd";
 
 const CPPPPortfolioSection = ({ CompanyData }) => {
   const { services = [] } = CompanyData || {};
@@ -15,13 +17,13 @@ const CPPPPortfolioSection = ({ CompanyData }) => {
       <div className="portfolio-container">
         <h2 className="portfolio-heading">More Services</h2>
 
-        {services?.slice(0, visibleCount).map((service, index) => (
-          <CPPServicesCard
-            key={index}
-            title={service?.title}
-            image={IMAGES.worker_portfolio_img_2}
-          />
-        ))}
+        <Row gutter={[24, 24]}>
+          {services?.slice(0, visibleCount).map((service, index) => (
+              <Col xs={24} lg={12}>
+                <ServiceCard service={service} key={service?.id} />
+              </Col>
+          ))}
+        </Row>
 
         {/* Show More button */}
         {visibleCount < services.length && (

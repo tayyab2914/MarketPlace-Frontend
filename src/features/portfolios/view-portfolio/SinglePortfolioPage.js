@@ -15,7 +15,6 @@ const SinglePortfolioPage = ({ company_id }) => {
 
   const getCompanyDetails = async () => {
     const res = await API_GET_COMPANY_BY_ID(token, company_id);
-    console.log(res);
     setCompanyData(res);
   };
   useEffect(() => {

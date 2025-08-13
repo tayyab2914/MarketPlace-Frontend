@@ -1,3 +1,4 @@
+import {  ChevronsRight } from "lucide-react";
 import React from "react";
 
 const BreadCrumbNormal = ({ items }) => {
@@ -20,7 +21,7 @@ const BreadCrumbNormal = ({ items }) => {
 
                 {!isLast && (
                   <li className="brdcrm-separator">
-                    <i className="ph ph-caret-double-right"></i>
+                    <ChevronsRight strokeWidth={1}/>
                   </li>
                 )}
               </React.Fragment>

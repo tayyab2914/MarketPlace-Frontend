@@ -6,11 +6,21 @@ export const ABOUT_US_CONTENT = {
   experienceYears: 7,
   images: [
     "./assets/images/about_us_img_1.png",
-    "./assets/images/about_us_img_2",
+    "./assets/images/about_us_img_2.png",
   ],
   title: "Know Our On-Demand Services Platform",
-  description:
-    "Readers are distracted by readable content when viewing page layout. This phenomenon has long been recognized in the design and publishing industries.",
+  description: (
+    <>
+      At<b> ServiceBay</b> , we believe finding and offering services should be simple,
+      transparent, and efficient. Our platform connects businesses and
+      independent contractors with clients looking for solutions - no middleman,
+      just direct collaboration. Whether you’re a company showcasing your
+      expertise through a dedicated <b> portfolio</b> page, or a client posting a
+      <b> listing</b>  with your specific needs and budget, ServiceBay helps you find the
+      right match. We make it easy for service providers to discover
+      opportunities and for clients to connect with trusted professionals.
+    </>
+  ),
   features: [
     "Readers are distracted by readable content when viewing",
     "Biodegradable chemicals are used",

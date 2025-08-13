@@ -1,0 +1,187 @@
+.dsh-off-upd-title {
+    font-weight: 700;
+    font-size: 22px;
+  }
+  .dsh-off-upd-input-field {
+    border: 1px solid rgba(236, 236, 239);
+    border-radius: 16px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-right: 8px;
+    background-color: white;
+  }
+  .dsh-off-upd-form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  
+  
+
+  .dsh-off-upd-form-icons-wrapper {
+    display: flex;
+    gap: 5px; /* space between icons */
+    align-items: center;
+  }
+  
+  .dsh-off-upd-form-icon-btn {
+    border-radius: 50%; /* circle */
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  /* Background colors based on icon color */
+  
+  .dsh-off-upd-form-icon-btn.green {
+    background-color: #d1fae5; /* light green (Tailwind green-100) */
+  }
+  
+  .dsh-off-upd-form-icon-btn.green:hover {
+    background-color: #a7f3d0; /* slightly darker green (green-200) */
+  }
+  
+  .dsh-off-upd-form-icon-btn.blue {
+    background-color: #dbeafe; /* light blue (blue-100) */
+  }
+  
+  .dsh-off-upd-form-icon-btn.blue:hover {
+    background-color: #bfdbfe; /* blue-200 */
+  }
+  
+  .dsh-off-upd-form-icon-btn.red {
+    background-color: #fee2e2; /* light red (red-100) */
+  }
+  
+  .dsh-off-upd-form-icon-btn.red:hover {
+    background-color: #fecaca; /* red-200 */
+  }
+  
+
+  /* Modal Header */
+.dsh-off-modal-header {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 600;
+  gap: 8px;
+}
+
+.dsh-off-header-icon {
+  color: #1890ff;
+  font-size: 20px;
+}
+
+/* Modal Body */
+.dsh-off-details-content {
+  padding: 8px 0px;
+  font-family: Arial, sans-serif;
+  max-height: 450px;
+  overflow-y: auto;
+  scrollbar-width: 2px;
+  padding-right: 15px;
+}
+
+/* Section Styles */
+.dsh-off-info-section {
+  margin-bottom: 20px;
+}
+
+.dsh-off-section-header {
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 6px;
+  margin-bottom: 12px;
+}
+
+.dsh-off-section-header h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Description */
+.dsh-off-description-content {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Details Grid */
+.dsh-off-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.dsh-off-detail-card {
+  display: flex;
+  align-items: flex-start;
+  background: #fafafa;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.dsh-off-detail-icon {
+  color: #1890ff;
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.dsh-off-detail-label {
+  font-size: 13px;
+  color: #888;
+}
+
+.dsh-off-detail-value {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.dsh-off-budget {
+  color: #28a745;
+}
+
+/* Status Styles */
+.dsh-off-setting-status {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+  text-transform: capitalize;
+  max-width: 120px;
+  text-align: center;
+}
+
+.dsh-off-setting-status.active {
+  background-color: #e6ffed;
+  color: #28a745;
+}
+
+.dsh-off-setting-status.inactive {
+  background-color: #fff1f0;
+  color: #ff4d4f;
+}
+
+/* No Data State */
+.dsh-off-no-data {
+  text-align: center;
+  padding: 20px;
+  color: #888;
+}
+
+.dsh-off-no-data-icon {
+  font-size: 40px;
+  color: #ccc;
+}

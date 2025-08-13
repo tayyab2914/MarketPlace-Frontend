@@ -45,6 +45,7 @@
   border: 1px solid #d1d5db; /* gray-300 */
   padding: 0.75rem; /* 3 */
   flex-wrap: nowrap;
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {

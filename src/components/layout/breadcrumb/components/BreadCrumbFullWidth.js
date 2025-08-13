@@ -1,3 +1,4 @@
+import { ChevronsRight } from "lucide-react";
 import React from "react";
 const BreadCrumbsFullWidth = ({ items }) => {
   return (
@@ -23,7 +24,7 @@ const BreadCrumbsFullWidth = ({ items }) => {
 
                 {!isLast && (
                   <li className="brdcrm-separator">
-                    <i className="ph ph-caret-double-right"></i>
+                    <ChevronsRight strokeWidth={1}/>
                   </li>
                 )}
               </React.Fragment>

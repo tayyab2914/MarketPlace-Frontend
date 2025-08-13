@@ -1,7 +1,9 @@
+import { ROUTES } from "@/utils/Constants";
 import { Popconfirm } from "antd";
-import { LayoutDashboard, LogOut, Settings } from "lucide-react";
+import { LayoutDashboard, LogOut, MessageCircle, Settings, ShieldUser } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React from "react";
+import { useSelector } from "react-redux";
 
 const itemStyle = {
   cursor: "pointer",
@@ -12,21 +14,40 @@ const itemStyle = {
 
 const NavActionOptions = ({ onLogout }) => {
   const router = useRouter();
+  const { is_admin } = useSelector((state) => state.auth);
 
   return [
     {
       key: "dashboard",
       label: (
-        <span onClick={() => router.push("/dashboard")} style={itemStyle}>
+        <span onClick={() => router.push(ROUTES?.Dashboard)} style={itemStyle}>
           <LayoutDashboard size={16} />
           Dashboard
         </span>
       ),
     },
     {
+      key: "chat",
+      label: (
+        <span onClick={() => router.push(ROUTES?.Chat)} style={itemStyle}>
+          <MessageCircle size={16} />
+          Chat
+        </span>
+      ),
+    },
+    is_admin && {
+      key: "admin",
+      label: (
+        <span onClick={() => router.push(ROUTES?.admin)} style={itemStyle}>
+          <ShieldUser size={16} />
+          Admin Panel
+        </span>
+      ),
+    },
+    {
       key: "settings",
       label: (
-        <span onClick={() => router.push("/settings")} style={itemStyle}>
+        <span onClick={() => router.push(ROUTES?.settings)} style={itemStyle}>
           <Settings size={16} />
           Settings
         </span>

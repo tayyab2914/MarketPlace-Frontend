@@ -94,8 +94,9 @@
   
   .por-l-pricing-col {
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
+    width: 100%;
   }
   
   .por-l-pricing-box {
@@ -105,7 +106,7 @@
     text-align: center;
     color: var(--text-secondary, #6b7280);
     width: 100%;
-    max-width: 176px;
+    max-width: 206px;
   }
   
   .por-l-pricing-label {

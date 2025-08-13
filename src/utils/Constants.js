@@ -22,9 +22,6 @@ export const ROUTES = {
   createListing: "/listings/create",
   viewListing: "/listings/view/",
 
-  listOffers: "/offers",
-  createOffer: "/offers/create",
-  viewOffer: "/offers/view/",
 
   portfolios:'/portfolios',
   viewPortfolio:'/portfolios/view/',
@@ -38,6 +35,10 @@ export const ROUTES = {
 
   DashboardListings: "/dashboard/listings/",
   DashboardServices: "/dashboard/services/",
+  DashboardOffers: "/dashboard/offers/",
+  createOffer: "/offers/create",
+  viewOffer: "/offers/view/",
+  admin: "/admin/",
 
   Chat:"/chat/"
 };

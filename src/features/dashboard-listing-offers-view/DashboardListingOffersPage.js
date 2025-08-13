@@ -5,6 +5,7 @@ import { API_GET_OFFER_BY_LISTING_ID } from "@/apis/OfferApis";
 import { useSelector } from "react-redux";
 import "./styles/dashboard-listing-offers-view.css";
 import DLOVCard from "./components/DLOVCard";
+import { Col, Row } from "antd";
 
 const DashboardListingOffersPage = () => {
   const params = useParams();
@@ -29,11 +30,18 @@ const DashboardListingOffersPage = () => {
       <h2 className="text-2xl font-bold mb-6">
         Offers for Listing ID: {listing_id}
       </h2>
-      {offers.length === 0 ? (
-        <p>No offers found.</p>
-      ) : (
-        offers.map((offer) => <DLOVCard key={offer.id} offer={offer} />)
-      )}
+      <Row gutter={[15]}>
+        {offers.length === 0 ? (
+          <p>No offers found.</p>
+        ) : (
+          offers.map((offer) => (
+            <Col xs={24} lg={12}>
+              {" "}
+              <DLOVCard key={offer.id} offer={offer} />
+            </Col>
+          ))
+        )}
+      </Row>
     </div>
   );
 };

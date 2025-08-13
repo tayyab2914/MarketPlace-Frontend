@@ -8,7 +8,7 @@ const HERO_CONTENT = {
     </>
   ),
   description:
-    "Access assistance from a vast network of reliable local experts, spanning home repairs to beauty services.",
+    "Access assistance from a network of reliable experts",
   searchButtonText: "Search",
 };
 const HOW_IT_WORKS_CONTENT = {

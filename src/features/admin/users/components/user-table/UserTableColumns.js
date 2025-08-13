@@ -1,6 +1,7 @@
 import { Space, Tooltip } from "antd";
-import { Eye, Edit } from "lucide-react";
+import { Eye, Edit, Edit2 } from "lucide-react";
 import { RENDER_VERIFICATION_TAGS } from "../../utils/utils";
+import ActionIcon from "@/components/ui/ActionIcon/ActionIcon";
 
 const breakpoints = {
   sm: 576,
@@ -67,24 +68,22 @@ export function getUsersTableColumns(width, onView, onEdit) {
       title: "Actions",
       key: "actions",
       fixed: "right",
-      width: 80,
+      width: 100,
       render: (_, record) => (
-        <Space size="middle">
-          <Tooltip title="View">
-            <Eye
-              style={{ cursor: "pointer" }}
-              size={18}
-              onClick={() => onView(record)}
-            />
-          </Tooltip>
-          <Tooltip title="Edit">
-            <Edit
-              style={{ cursor: "pointer" }}
-              size={18}
-              onClick={() => onEdit(record)}
-            />
-          </Tooltip>
-        </Space>
+        <div style={{ display: "flex", gap: "8px" }}>
+          <ActionIcon
+            color="#28a745" // blue
+            icon={<Eye />}
+            tooltip="View User"
+            onClick={() => onView(record)}
+          />
+          <ActionIcon
+            color="#0d6efd" // green
+            icon={<Edit2 />}
+            tooltip="Edit User"
+            onClick={() => onEdit(record)}
+          />
+        </div>
       ),
     },
   ];

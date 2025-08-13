@@ -1,12 +1,15 @@
-import { ROUTES } from "@/utils/Constants";
+import { BACKEND_DOMAIN, ROUTES } from "@/utils/Constants";
 import { useRouter } from "next/navigation";
 import React from "react";
-import { Row, Col, Button, Empty } from "antd";
+import { Row, Col, Empty } from "antd";
+import Button from "@/components/ui/Button/Button";
+import { FORMAT_WITH_COMMAS } from "@/utils/Methods";
 
 const PortfolioCard = ({ portfolio }) => {
   const services = portfolio?.services || [];
   const router = useRouter();
 
+  console.log(portfolio);
   // Get the minimum price (ignoring nulls)
   const minPrice = services
     .map((s) => s.price_starting_from)
@@ -39,7 +42,7 @@ const PortfolioCard = ({ portfolio }) => {
             <Col flex="180px" className="por-l-image-col">
               {portfolio?.profile_image ? (
                 <img
-                  src={portfolio.profile_image}
+                  src={`${BACKEND_DOMAIN}${portfolio?.profile_image}`}
                   alt={portfolio?.name || "Service Provider"}
                   className="por-l-image"
                 />
@@ -88,16 +91,16 @@ const PortfolioCard = ({ portfolio }) => {
         </Col>
 
         {/* Right Side: Pricing */}
-        <Col xs={24} md={7} className="por-l-pricing-col">
+        <Col xs={24} md={8} className="por-l-pricing-col">
           <div className="por-l-pricing-box">
             <div className="por-l-pricing-label">STARTING AT</div>
             <div className="por-l-price">
-              {minPrice ? `Rs ${minPrice}` : "Not Set"}
+              {minPrice ? `Rs ${FORMAT_WITH_COMMAS(minPrice)}` : "Not Set"}
             </div>
             <div className="por-l-fixed-price-label">Fixed Price</div>
             <Button
-              type="primary"
-              className="por-l-view-details-btn"
+              variant="filled-animated"
+              style={{ fontSize: "12px" }}
               onClick={() =>
                 router.push(`${ROUTES.viewPortfolio}${portfolio.id}`)
               }

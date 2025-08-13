@@ -1,28 +1,11 @@
 // ChatMessage.jsx
 import { IMAGES } from "@/components/ui/Image/ImageData";
+import ReadMore from "@/components/ui/ReadMore/ReadMore";
 import { BACKEND_DOMAIN } from "@/utils/Constants";
 import React from "react";
-import { useSelector } from "react-redux";
 
 const ChatMessage = ({ msg, userData }) => {
-  const { company_info } = useSelector((state) => state.company);
-
-  //   {
-  //     "me": {
-  //         "company_id": 4,
-  //         "company_name": "Ijaz Carpets.store",
-  //         "company_profile_image": "/media/profile_image/OIP_nEzsyk9.jpg"
-  //     },
-  //     "other_user": {
-  //         "company_id": 5,
-  //         "company_name": "Ijaz Carpets Account under test",
-  //         "company_profile_image": "/media/profile_image/oip2_0zRXMcr.jpg"
-  //     }
-  // }
   const isOwn = +msg?.sender_company_id === userData?.me?.company_id;
-  // const checked = msg?.is_read;
-
-  // Pick correct avatar depending on sender
   const avatar = isOwn
     ? userData?.me?.company_profile_image
     : userData?.other_user?.company_profile_image;
@@ -49,7 +32,7 @@ const ChatMessage = ({ msg, userData }) => {
           isOwn ? "chat-c-message-bubble-own" : "chat-c-message-bubble-other"
         }`}
       >
-        <p className="chat-c-message-text">{msg?.content}</p>
+        <p className="chat-c-message-text"><ReadMore>{msg?.content}</ReadMore></p>
         <p
           className={`chat-c-message-time ${
             isOwn ? "chat-c-message-time-own" : "chat-c-message-time-other"

@@ -1,6 +1,7 @@
+import ActionIcon from "@/components/ui/ActionIcon/ActionIcon";
 import { BACKEND_DOMAIN } from "@/utils/Constants";
 import { Space, Tooltip, Tag } from "antd";
-import { Eye, Edit } from "lucide-react";
+import { Eye, Edit, Edit2 } from "lucide-react";
 
 export function getCompaniesTableColumns(onView, onEdit) {
   return [
@@ -57,24 +58,22 @@ export function getCompaniesTableColumns(onView, onEdit) {
       title: "Actions",
       key: "actions",
       fixed: "right",
-      width: 80,
+      width: 100,
       render: (_, record) => (
-        <Space size="middle">
-          <Tooltip title="View">
-            <Eye
-              style={{ cursor: "pointer" }}
-              size={18}
-              onClick={() => onView(record)}
-            />
-          </Tooltip>
-          <Tooltip title="Edit">
-            <Edit
-              style={{ cursor: "pointer" }}
-              size={18}
-              onClick={() => onEdit(record)}
-            />
-          </Tooltip>
-        </Space>
+        <div style={{ display: "flex", gap: "8px" }}>
+          <ActionIcon
+            color="#28a745" // blue
+            icon={<Eye />}
+            tooltip="View Company"
+            onClick={() => onView(record)}
+          />
+          <ActionIcon
+            color="#0d6efd" // green
+            icon={<Edit2 />}
+            tooltip="Edit Company"
+            onClick={() => onEdit(record)}
+          />
+        </div>
       ),
     },
   ];

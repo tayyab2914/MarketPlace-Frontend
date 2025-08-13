@@ -2,10 +2,13 @@ import { ROUTES } from "@/utils/Constants";
 import { useRouter } from "next/navigation";
 import React from "react";
 import ReadMore from "@/components/ui/ReadMore/ReadMore";
+import Button from "@/components/ui/Button/Button";
+import { ArrowBigRight, ArrowRight } from "lucide-react";
 
 const ListingCard = ({ listing }) => {
   const router = useRouter();
 
+  console.log(listing);
   const formattedDeadline = listing?.deadline
     ? new Date(listing.deadline).toLocaleDateString("en-US", {
         year: "numeric",
@@ -15,7 +18,12 @@ const ListingCard = ({ listing }) => {
     : null;
 
   return (
-    <div className="lis-lis-cd-serviceCard">
+    <div
+      className="lis-lis-cd-serviceCard"
+      onClick={(e) => {
+        router.push(`${ROUTES.viewListing}${listing?.id}`);
+      }}
+    >
       <div className="lis-lis-cd-leftSection">
         <p className="lis-lis-cd-companyName">
           {listing?.company_name} • {listing?.company_location}
@@ -27,16 +35,16 @@ const ListingCard = ({ listing }) => {
             <ReadMore>{listing?.description}</ReadMore>
           </p>
           <div className="lis-lis-cd-tagsContainer">
-              {listing?.tags?.map((tag, index) => (
-                <p key={index} className="lis-lis-cd-tag">
-                  <img
-                    src="./assets/images/cleaning_icon.svg"
-                    alt=""
-                    className="lis-crd-tag-icon"
-                  />
-                  <span>{tag}</span>
-                </p>
-              ))}
+            {listing?.tags?.map((tag, index) => (
+              <p key={index} className="lis-lis-cd-tag">
+                <img
+                  src="./assets/images/cleaning_icon.svg"
+                  alt=""
+                  className="lis-crd-tag-icon"
+                />
+                <span>{tag}</span>
+              </p>
+            ))}
           </div>
         </div>
       </div>
@@ -49,14 +57,17 @@ const ListingCard = ({ listing }) => {
         {formattedDeadline && (
           <div className="lis-crd-deadline">Deadline: {formattedDeadline}</div>
         )}
-        <button
-          onClick={() =>
-            router.push(`${ROUTES.createOffer}?listing_id=${listing?.id}`)
-          }
-          className="lis-crd-button"
+        <Button
+          variant="filled-animated"
+          onClick={(e) => {
+            e.stopPropagation();
+
+            router.push(`${ROUTES.createOffer}?listing_id=${listing?.id}`);
+          }}
+          style={{ fontSize: "12px" }}
         >
           Send Offer
-        </button>
+        </Button>
       </div>
     </div>
   );

@@ -6,11 +6,16 @@ import { Menu as MenuIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useLogoutUser } from "@/hooks/useLogoutUser";
 import { getHeaderMenuItems } from "./components/HeaderMenu";
+import { useSelector } from "react-redux";
+import { IMAGES } from "@/components/ui/Image/ImageData";
+import { BACKEND_DOMAIN } from "@/utils/Constants";
 
 export function Header({ onToggleSidebar }) {
   const router = useRouter();
   const { logoutUser } = useLogoutUser();
+  const { company_info } = useSelector((state) => state.company);
 
+  console.log(company_info);
   const menuItems = getHeaderMenuItems(router, logoutUser, () => {
     logoutUser();
   });
@@ -34,7 +39,14 @@ export function Header({ onToggleSidebar }) {
           placement="bottomRight"
         >
           <div className={styles.profileButton} style={{ cursor: "pointer" }}>
-            <div className={styles.profileAvatar}>JD</div>
+            <img
+              className={styles.profileAvatar}
+              src={
+                company_info?.profile_image
+                  ? `${BACKEND_DOMAIN}${company_info?.profile_image}`
+                  : IMAGES?.user
+              }
+            />
           </div>
         </Dropdown>
       </div>

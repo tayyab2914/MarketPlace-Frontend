@@ -1,11 +1,13 @@
 import { ROUTES } from "@/utils/Constants";
 import { Popconfirm } from "antd";
-import { Home, LogOut, Settings } from "lucide-react";
+import { Home, LogOut, MessageCircle, Settings, ShieldUser } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React from "react";
+import { useSelector } from "react-redux";
 
 const NavActionOptions = ({ onLogout }) => {
   const router = useRouter();
+  const {is_admin} =useSelector((state)=>state.auth)
 
   const itemStyle = {
     cursor: "pointer",
@@ -20,6 +22,24 @@ const NavActionOptions = ({ onLogout }) => {
         <span onClick={() => router.push(ROUTES.home)} style={itemStyle}>
           <Home size={16} />
           Home
+        </span>
+      ),
+    },
+    {
+      key: "chat",
+      label: (
+        <span onClick={() => router.push(ROUTES?.Chat)} style={itemStyle}>
+          <MessageCircle size={16} />
+          Chat
+        </span>
+      ),
+    },
+    is_admin &&  {
+      key: "admin",
+      label: (
+        <span onClick={() => router.push(ROUTES?.admin)} style={itemStyle}>
+          <ShieldUser size={16} />
+          Admin Panel
         </span>
       ),
     },

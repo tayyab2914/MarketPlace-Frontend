@@ -1,5 +1,15 @@
 "use client";
+
 import React from "react";
+import { Tag } from "antd";
+import "antd/dist/reset.css"; // Make sure antd styles are imported
+
+const statusColors = {
+  pending: "gold",
+  accepted: "green",
+  rejected: "red",
+  completed: "blue",
+};
 
 const DLOVCard = ({ offer }) => {
   const createdAtFormatted = offer.created_at
@@ -17,18 +27,16 @@ const DLOVCard = ({ offer }) => {
         {/* Sender Name & Status */}
         <div className="dlov-header">
           <p className="dlov-sender-name">{offer.sender_name}</p>
-          <span className={`dlov-status dlov-status--${offer.status}`}>
+          <Tag color={statusColors[offer.status]} style={{ textTransform: "capitalize" }}>
             {offer.status}
-          </span>
+          </Tag>
         </div>
 
         {/* Message */}
         <p className="dlov-message">{offer.message}</p>
 
         {/* Sent date */}
-        {createdAtFormatted && (
-          <p className="dlov-sent-date">Sent on: {createdAtFormatted}</p>
-        )}
+        {createdAtFormatted && <p className="dlov-sent-date">Sent on: {createdAtFormatted}</p>}
       </div>
 
       {/* Pricing & Delivery */}

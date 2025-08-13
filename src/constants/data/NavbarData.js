@@ -50,4 +50,9 @@ export const DASHBOARD_NAVBAR_MENU = [
     title: "Services",
     route: ROUTES.DashboardServices,
   },
+  {
+    type: "offers",
+    title: "Offers",
+    route: ROUTES.DashboardOffers,
+  },
 ];

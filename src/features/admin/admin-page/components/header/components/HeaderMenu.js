@@ -1,4 +1,4 @@
-import { Home, LayoutDashboard, Settings, LogOut } from "lucide-react";
+import { Home, LayoutDashboard, Settings, LogOut, MessageCircle } from "lucide-react";
 import { Popconfirm } from "antd";
 import { ROUTES } from "@/utils/Constants";
 
@@ -26,6 +26,15 @@ export const getHeaderMenuItems = (router, logoutUser, onLogoutConfirm) => {
         <span onClick={() => router.push(ROUTES.Dashboard)} style={itemStyle}>
           <LayoutDashboard size={16} />
           Dashboard
+        </span>
+      ),
+    },
+    {
+      key: "chat",
+      label: (
+        <span onClick={() => router.push(ROUTES?.Chat)} style={itemStyle}>
+          <MessageCircle size={16} />
+          Chat
         </span>
       ),
     },
