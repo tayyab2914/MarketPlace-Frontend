@@ -1,9 +1,8 @@
-import { HOME_CONTENT } from "@/constants/static-pages/home";
 import React from "react";
 const HeroSection = ({ pages_content }) => {
-  const { hero = {} } = pages_content?.home ||{};
+  const { hero = {} } = pages_content?.home || {};
 
-  const { subtitle, title, description } = hero || {};
+  const { subtitle = "", title = "", description = "" } = hero || {};
 
   return (
     <section className="pt-[100px]">

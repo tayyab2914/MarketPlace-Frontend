@@ -5,20 +5,20 @@ const BreadCrumbsFullWidth = ({ items }) => {
     <section className="brdcrm-section">
       <div className="brdcrm-container">
         <h2 className="brdcrm-heading">
-          {items.length ? items[items.length - 1].name : ""}
+          {items?.length ? items[items?.length - 1]?.name : ""}
         </h2>
 
         <ul className="brdcrm-list">
-          {items.map((item, index) => {
-            const isLast = index === items.length - 1;
+          {items?.map((item, index) => {
+            const isLast = index === items?.length - 1;
 
             return (
               <React.Fragment key={index}>
                 <li>
                   {isLast ? (
-                    <span className="brdcrm-last">{item.name}</span>
+                    <span className="brdcrm-last">{item?.name}</span>
                   ) : (
-                    <a href={item.url}>{item.name}</a>
+                    <a href={item?.url}>{item?.name}</a>
                   )}
                 </li>
 

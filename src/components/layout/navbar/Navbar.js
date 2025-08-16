@@ -26,8 +26,8 @@ const Navbar = () => {
               size={28}
               className="nav-m-menu-icon"
             />
-            <a onClick={() => router.push(ROUTES.home)}>
-              <img src={IMAGES.logo} className="nav-logo" />
+            <a onClick={() => router.push(ROUTES?.home)}>
+              <img src={IMAGES?.logo} className="nav-logo" />
             </a>
           </div>
           <nav className="nav-d-menu">

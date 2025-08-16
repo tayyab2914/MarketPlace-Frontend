@@ -41,7 +41,7 @@ const NavActions = () => {
                   key: "signin",
                   label: (
                     <span
-                      onClick={() => router.push(ROUTES.signin)}
+                      onClick={() => router.push(ROUTES?.signin)}
                       style={itemStyle}
                     >
                       <User size={16} />
@@ -53,7 +53,7 @@ const NavActions = () => {
                   key: "signup",
                   label: (
                     <span
-                      onClick={() => router.push(ROUTES.signup)}
+                      onClick={() => router.push(ROUTES?.signup)}
                       style={itemStyle}
                     >
                       <UserPlus size={16} />
@@ -76,7 +76,7 @@ const NavActions = () => {
         <ul className="nav-a-list">
           <Button
             variant="filled-animated"
-            onClick={() => router.push(ROUTES.signup)}
+            onClick={() => router.push(ROUTES?.signup)}
             style={actionBtnStyles}
           >
             Sign up
@@ -84,7 +84,7 @@ const NavActions = () => {
 
           <Button
             variant="filled-animated-light"
-            onClick={() => router.push(ROUTES.signin)}
+            onClick={() => router.push(ROUTES?.signin)}
             style={actionBtnStyles}
           >
             Sign in
@@ -96,7 +96,7 @@ const NavActions = () => {
           <div className="nav-a-buttons">
             <Button
               variant="filled-animated"
-              onClick={() => router.push(ROUTES.createListing)}
+              onClick={() => router.push(ROUTES?.createListing)}
               style={actionBtnStyles}
             >
               Post a Task <Plus size={22} />
@@ -104,7 +104,7 @@ const NavActions = () => {
 
             <Button
               variant="filled-animated-light"
-              onClick={() => router.push(ROUTES.Dashboard)}
+              onClick={() => router.push(ROUTES?.Dashboard)}
               style={actionBtnStyles}
             >
               Dashboard <LayoutDashboard size={22} />
@@ -119,7 +119,7 @@ const NavActions = () => {
             <img
               src={
                 company_info?.profile_image
-                  ? `${BACKEND_DOMAIN}${company_info.profile_image}`
+                  ? `${BACKEND_DOMAIN}${company_info?.profile_image}`
                   : IMAGES?.user
               }
               className="nav-a-profile-avatar"

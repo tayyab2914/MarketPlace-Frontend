@@ -3,12 +3,12 @@ import React from "react";
 
 
 const FindWorkAndHiring = ({pages_content}) => {
-  const { profiles = [] } = pages_content?.home?.findWork;
+  const { profiles = [] } = pages_content?.home?.findWork || {};
 
   return (
     <section className="stp-30 sbp-30 relative">
       <div className="container relative z-10 grid grid-cols-12 overflow-hidden max-md:gap-6">
-        {profiles.map((profile, index) => (
+        {profiles?.map((profile, index) => (
           <div
             key={index}
             className={`col-span-12 md:col-span-5 ${
@@ -18,18 +18,18 @@ const FindWorkAndHiring = ({pages_content}) => {
             <div className="rounded-xl border bg-g75 p-8">
               <div className="flex items-start justify-between">
                 <p className="rounded-full bg-y300 px-2 py-1 text-sm font-medium">
-                  {profile.badgeText}
+                  {profile?.badgeText}
                 </p>
                 <div>
-                <img src={profile.verifyBadgeImg} className="w-[75px] h-[75px] rounded-full bg-gray-200 flex items-center justify-center">
+                <img src={profile?.verifyBadgeImg} className="w-[75px] h-[75px] rounded-full bg-gray-200 flex items-center justify-center">
                   
                   </img>
                   <div className="flex gap-2 pt-2">
                     <p className="flex items-center gap-2 text-sm font-bold text-o300">
-                      <i className="ph-fill ph-star"></i> {profile.rating}
+                      <i className="ph-fill ph-star"></i> {profile?.rating}
                     </p>
                     <div className="text-sm text-n300">
-                      <p>({profile.reviewCount})</p>
+                      <p>({profile?.reviewCount})</p>
                     </div>
                   </div>
                 </div>
@@ -40,30 +40,30 @@ const FindWorkAndHiring = ({pages_content}) => {
                   <HexagonImage src={profile?.reviewImage} size={250}/>
                  
                 </div>
-                <h5 className="heading-5">{profile.heading}</h5>
+                <h5 className="heading-5">{profile?.heading}</h5>
                 <p className="pt-2 text-center text-n500 sm:px-3">
-                  {profile.description}
+                  {profile?.description}
                 </p>
               </div>
 
               <div className="flex items-center justify-between border-b border-n40 pb-6">
                 <div className="flex items-center justify-start gap-2">
                   <i className="ph ph-clock text-2xl"></i>
-                  <p>{profile.detail1}</p>
+                  <p>{profile?.detail1}</p>
                 </div>
                 <div className="flex items-center justify-start gap-2">
                   <i className="ph ph-chart-line text-2xl"></i>
-                  <p>{profile.detail2}</p>
+                  <p>{profile?.detail2}</p>
                 </div>
               </div>
 
               <div className="flex w-full items-center justify-center pt-8">
                 <a
-                  href={profile.ctaHref}
+                  href={profile?.ctaHref}
                   className="group relative flex items-center justify-start pr-12 font-semibold"
                 >
                   <span className="rounded-full bg-y300 px-6 py-3 duration-500 group-hover:translate-x-12">
-                    {profile.ctaText}
+                    {profile?.ctaText}
                   </span>
                   <i className="ph-bold ph-arrow-up-right absolute right-0 top-0 p-[14px] text-xl rounded-full bg-y300 duration-500 group-hover:right-[152px] group-hover:rotate-45"></i>
                 </a>

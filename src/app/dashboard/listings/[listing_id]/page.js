@@ -9,7 +9,7 @@ const page = () => {
   return (
     <AuthRedirect allowLoggedIn>
       <DashboardNavbar />
-      <BreadCrumbs type="normal" items={BREADCRUMBS.dashboardListingOffers} />
+      <BreadCrumbs type="normal" items={BREADCRUMBS?.dashboardListingOffers} />
       <DashboardListingOffersPage />
     </AuthRedirect>
   );

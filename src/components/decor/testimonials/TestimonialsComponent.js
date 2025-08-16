@@ -3,12 +3,11 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import { Star, Twitter, ArrowUpLeft, ArrowUpRight } from "lucide-react";
-import { TESTIMONIALS_CONTENT } from "@/constants/static-pages/testimonials";
 import { useSelector } from "react-redux";
 
 export default function TestimonialsComponent() {
   const { pages_content } = useSelector((state) => state.pages);
-  // const {}
+
   return (
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
@@ -27,7 +26,14 @@ export default function TestimonialsComponent() {
             className="testimonial-swiper"
           >
             {pages_content?.testimonials?.map(
-              ({ id, rating, text, author, handle, avatar }) => (
+              ({
+                id = "",
+                rating,
+                text = "",
+                author = "",
+                handle = "",
+                avatar = "",
+              }) => (
                 <SwiperSlide key={id}>
                   <div className="flex flex-col items-start justify-start h-full">
                     <div className="flex items-center justify-start gap-2 text-2xl text-blue-600">

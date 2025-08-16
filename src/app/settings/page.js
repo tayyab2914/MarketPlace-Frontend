@@ -9,7 +9,7 @@ const page = () => {
   return (
     <AuthRedirect allowLoggedIn>
       <Navbar />
-      <BreadCrumbs items={BREADCRUMBS.settings}/>
+      <BreadCrumbs items={BREADCRUMBS?.settings}/>
       <SettingsPage />
     </AuthRedirect>
   );

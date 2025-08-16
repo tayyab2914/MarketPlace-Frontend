@@ -27,8 +27,7 @@ const FaqComponent = () => {
             <div>
               <h5 className="faq-sec-help-title">Still have questions?</h5>
               <p className="faq-sec-help-text">
-                Can’t find the answer you’re looking for? Please chat with our
-                friendly team!
+                {"Can’t find the answer you’re looking for? Please chat with our friendly team!"}
               </p>
             </div>
           </div>

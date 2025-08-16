@@ -11,13 +11,13 @@ const MenuItemWithSubmenu = ({ title, links }) => {
       </div>
 
       <ul className="nav-d-submenu">
-        {links.map((link) => (
-          <li key={link.label}>
+        {links?.map((link) => (
+          <li key={link?.label}>
             <a
-              onClick={() => router.push(link.route)}
+              onClick={() => router.push(link?.route)}
               className="nav-d-submenu-item"
             >
-              {link.label}
+              {link?.label}
             </a>
           </li>
         ))}

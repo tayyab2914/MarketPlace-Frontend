@@ -9,7 +9,7 @@ const page = () => {
   return (
     <div>
       <Navbar />
-      <BreadCrumbs items={BREADCRUMBS.privacyPolicy} />
+      <BreadCrumbs items={BREADCRUMBS?.privacyPolicy} />
       <PrivacyPolicyPage />
     </div>
   );

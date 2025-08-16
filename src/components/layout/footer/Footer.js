@@ -34,7 +34,7 @@ const Footer = () => {
       <div className="ftr-container">
         <div className="ftr-top-row">
           <ul className="ftr-nav-list">
-            {leftLinks.map(({ route, label }, index) => (
+            {leftLinks?.map(({ route, label }, index) => (
               <li key={index}>
                 <a className="ftr-link" onClick={() => router.push(route)}>
                   {label}
@@ -44,11 +44,11 @@ const Footer = () => {
           </ul>
 
           <a href="./index.html" className="ftr-logo-link">
-            <img src={IMAGES.logoWhite} alt="Logo" className="ftr-logo" />
+            <img src={IMAGES?.logoWhite} alt="Logo" className="ftr-logo" />
           </a>
 
           <ul className="ftr-nav-list">
-            {rightLinks.map(({ route, label }, index) => (
+            {rightLinks?.map(({ route, label }, index) => (
               <li key={index}>
                 <a className="ftr-link" onClick={() => router.push(route)}>
                   {label}

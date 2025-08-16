@@ -9,7 +9,7 @@ const page = () => {
   return (
     <div>
       <Navbar />
-      <BreadCrumbs items={BREADCRUMBS.aboutUs} />
+      <BreadCrumbs items={BREADCRUMBS?.aboutUs} />
       <AboutUsPage />
     </div>
   );

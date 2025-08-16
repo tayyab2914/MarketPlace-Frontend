@@ -8,11 +8,11 @@ const HowItWorks = ({ pages_content }) => {
   } = pages_content?.home?.howItWorks || {};
 
   // Add temporary IDs
-  const stepsWithIds = steps.map((step, index) => ({ ...step, id: index }));
+  const stepsWithIds = steps?.map((step, index) => ({ ...step, id: index }));
 
   const [activeStepId, setActiveStepId] = useState(0); // default to first step
 
-  const activeStep = stepsWithIds.find((step) => step.id === activeStepId);
+  const activeStep = stepsWithIds?.find((step) => step.id === activeStepId);
 
   return (
     <section className="home-hiw-section">
@@ -23,7 +23,7 @@ const HowItWorks = ({ pages_content }) => {
         </div>
 
         <ul className="home-hiw-steps-list">
-          {stepsWithIds.map(({ id, title }) => (
+          {stepsWithIds?.map(({ id, title }) => (
             <li
               key={id}
               className={`home-hiw-step-button ${
@@ -43,25 +43,25 @@ const HowItWorks = ({ pages_content }) => {
             <div className="home-hiw-step-grid">
               <div className="home-hiw-step-text">
                 <h3 className="home-hiw-step-content-title">
-                  {activeStep.contentTitle}
+                  {activeStep?.contentTitle}
                 </h3>
                 <p className="home-hiw-step-content-description">
-                  {activeStep.contentDescription}
+                  {activeStep?.contentDescription}
                 </p>
                 <div className="home-hiw-step-cta">
                   <a
-                    href={activeStep.ctaLink}
+                    href={activeStep?.ctaLink}
                     className="home-hiw-step-cta-button"
                   >
-                    <span>{activeStep.ctaText}</span>
+                    <span>{activeStep?.ctaText}</span>
                   </a>
                 </div>
               </div>
               <div className="home-hiw-step-image">
-                {activeStep.imageSrc && (
+                {activeStep?.imageSrc && (
                   <img
-                    src={activeStep.imageSrc}
-                    alt={activeStep.contentTitle || "Step image"}
+                    src={activeStep?.imageSrc}
+                    alt={activeStep?.contentTitle || "Step image"}
                   />
                 )}
               </div>

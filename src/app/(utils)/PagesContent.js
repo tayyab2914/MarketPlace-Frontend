@@ -4,15 +4,13 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 const PageContent = () => {
-  const { pages_content } = useSelector((state) => state.pages);
   const { token } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
-  console.log(pages_content);
   const getPageData = async () => {
     const res = await API_ALL_PAGES_CONTENT(token);
     const parsedContent =
-      res && res.content ? JSON.parse(res.content || "{}") : {};
+      res && res?.content ? JSON.parse(res?.content || "{}") : {};
     dispatch(setPagesContent(parsedContent));
   };
   
