@@ -1,39 +1,17 @@
 "use client";
-import React, { useEffect } from "react";
-import { DatePicker, Form } from "antd";
+import React from "react";
+import { Form } from "antd";
 import CustomInputField from "@/components/ui/CustomInputField/CustomInputField";
 import Button from "@/components/ui/Button/Button";
 import { DollarSign, Edit3, Tag } from "lucide-react";
-import { API_SERVICE_CREATE } from "@/apis/ServiceApis";
-import { useSelector } from "react-redux";
-import dayjs from "dayjs";
 import { API_LISTING_CREATE } from "@/apis/ListingApis";
-
-const initialFormValues = {
-  title: "Build a cross-platform mobile app for booking services",
-  description:
-    "We're looking to develop a cross-platform mobile application (iOS and Android) for our home services marketplace. It should include user registration, service booking, real-time chat, and payment integration. Experience with Flutter or React Native is preferred.",
-  category: "Mobile Development",
-  tags: ["mobile", "flutter", "react native", "booking", "payments"],
-  budget: 4000.0,
-  deadline: "2025-10-01",
-  is_public: true,
-};
-
-const tagOptions = initialFormValues?.tags?.map((tag) => ({
-  label: tag,
-  value: tag,
-}));
+import { useSelector } from "react-redux";
+import { CATEGORIES } from "@/utils/Constants";
+import { categoryRules } from "@/utils/ValidationRules";
 
 const CreateListingForm = () => {
   const [form] = Form.useForm();
   const { token } = useSelector((state) => state.auth);
-  useEffect(() => {
-    form.setFieldsValue({
-      ...initialFormValues,
-      deadline: dayjs(initialFormValues?.deadline, "YYYY-MM-DD"),
-    });
-  }, [form]);
 
   const onFinish = async (values) => {
     if (values.deadline) {
@@ -55,6 +33,7 @@ const CreateListingForm = () => {
           requiredMark={false}
           className="app-input-form"
         >
+          {/* Title */}
           <CustomInputField
             inputType="input"
             name="title"
@@ -64,6 +43,7 @@ const CreateListingForm = () => {
             className={"app-input-field "}
           />
 
+          {/* Description */}
           <CustomInputField
             inputType="textarea"
             name="description"
@@ -72,25 +52,28 @@ const CreateListingForm = () => {
             className={"app-input-field "}
           />
 
+          {/* Category (hardcoded select) */}
           <CustomInputField
-            inputType="input"
+            inputType="select"
             name="category"
             label="Category"
-            placeholder="e.g. Design"
-            addonBefore={<Tag size={16} strokeWidth={1} />}
+            placeholder="Select category"
+            options={CATEGORIES} // hardcoded categories
             className={"app-input-field "}
+            rules={categoryRules}
           />
 
+          {/* Tags (user can add any tag) */}
           <CustomInputField
             inputType="select"
             name="tags"
             label="Tags"
-            placeholder="Select tags"
+            placeholder="Add tags"
             mode="tags"
-            options={tagOptions}
             className={"app-input-field "}
           />
 
+          {/* Budget */}
           <CustomInputField
             inputType="number"
             name="budget"
@@ -100,6 +83,7 @@ const CreateListingForm = () => {
             className={"app-input-field "}
           />
 
+          {/* Deadline */}
           <CustomInputField
             inputType="date"
             name="deadline"
@@ -108,12 +92,14 @@ const CreateListingForm = () => {
             className={"app-input-field "}
           />
 
+          {/* Public Switch */}
           <CustomInputField
             inputType="switch"
             name="is_public"
             label="Make this listing public?"
           />
 
+          {/* Submit Button */}
           <Button variant="filled-animated" type="submit" h="50px">
             <span>Create</span>
           </Button>

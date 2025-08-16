@@ -18,7 +18,7 @@ export const priceRules = [
   { pattern: /^[0-9]+$/, message: "Enter a valid number" },
 ];
 export const categoryRules = [
-  { required: true, message: "Please enter a category" },
+  { required: true, message: "Please select a category" },
 ];
 
 export const titleRules = [{ required: true, message: "Please enter a title" }];

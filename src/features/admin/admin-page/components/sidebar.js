@@ -57,7 +57,6 @@ export function Sidebar({ isOpen, selectedKey,selectedMenu, onSelect }) {
             </li>
           ))}
 
-          {/* Content with submenu */}
           <li className={styles.navItem}>
             <button
               className={styles.navLink}

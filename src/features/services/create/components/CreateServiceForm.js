@@ -12,6 +12,7 @@ import {
 } from "@/utils/ValidationRules";
 import { API_SERVICE_CREATE } from "@/apis/ServiceApis";
 import { useSelector } from "react-redux";
+import { CATEGORIES } from "@/utils/Constants";
 
 const CreateServiceForm = () => {
   const [form] = Form.useForm();
@@ -27,8 +28,6 @@ const CreateServiceForm = () => {
   return (
     <div className="max-w-4xl mx-auto -mt-40 rounded-xl bg-white p-2 sm:p-4 md:rounded-3xl xl:rounded-[60px] xl:p-15">
       <div className="w-full rounded-3xl border border-gray-300 p-6 sm:p-8 shadow-sm bg-white">
-       
-
         <Form
           form={form}
           layout="vertical"
@@ -54,15 +53,14 @@ const CreateServiceForm = () => {
             rules={descriptionRules}
             className={"app-input-field "}
           />
-
           <CustomInputField
-            inputType="input"
+            inputType="select"
             name="category"
             label="Category"
-            placeholder="e.g. Design"
-            rules={categoryRules}
+            placeholder="Select category"
+            options={CATEGORIES} // hardcoded categories
             className={"app-input-field "}
-            addonBefore={<Tag size={16} strokeWidth={1} />}
+            rules={categoryRules}
           />
 
           <CustomInputField

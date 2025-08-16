@@ -22,11 +22,10 @@ export const ROUTES = {
   createListing: "/listings/create",
   viewListing: "/listings/view/",
 
+  portfolios: "/portfolios",
+  viewPortfolio: "/portfolios/view/",
 
-  portfolios:'/portfolios',
-  viewPortfolio:'/portfolios/view/',
-
-  Dashboard: "/dashboard/",
+  Dashboard: "/dashboard/listings",
   DashboardOffers: "/dashboard/offers",
   DashboardListings: "/dashboard/listings",
   DashboardServices: "/dashboard/services",
@@ -40,8 +39,17 @@ export const ROUTES = {
   viewOffer: "/offers/view/",
   admin: "/admin/",
 
-  Chat:"/chat/"
+  Chat: "/chat/",
 };
 
 export const BACKEND_DOMAIN = process.env.NEXT_PUBLIC_BACKEND_DOMAIN;
 export const WEBSOCKET_DOMAIN = process.env.NEXT_PUBLIC_WEBSOCKET_DOMAIN_NAME;
+
+export const CATEGORIES = [
+  { label: "Design", value: "Design" },
+  { label: "Development", value: "Development" },
+  { label: "Marketing", value: "Marketing" },
+  { label: "Writing", value: "Writing" },
+  { label: "SEO", value: "SEO" },
+  { label: "UI/UX", value: "UI/UX" },
+];

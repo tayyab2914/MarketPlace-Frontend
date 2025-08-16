@@ -43,7 +43,13 @@ export const ChatListItem = ({ chat }) => {
         </div>
         <div className="chat-s-item-message-row">
           <div className={last_message?.read ? "text-slate-400" : ""}>
-            <AutoTextCropper text={last_message?.content}/>
+            <AutoTextCropper
+              text={
+                last_message?.me
+                  ? `Me: ${last_message?.content}`
+                  : last_message?.content
+              }
+            />
           </div>
           <p className="chat-s-item-time-wrapper">
             <span className="chat-s-item-time-dot"></span>

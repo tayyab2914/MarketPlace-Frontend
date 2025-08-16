@@ -10,12 +10,6 @@ import "./styles/create-offer.css";
 import { API_OFFER_CREATE } from "@/apis/OfferApis";
 import { ROUTES } from "@/utils/Constants";
 
-const initialFormValues = {
-  message: "I can complete the migration in 10 days with full documentation.",
-  proposed_price: 1800.0,
-  estimated_delivery_days: 10,
-};
-
 const CreateOfferPage = () => {
   const searchParams = useSearchParams();
   const listingId = searchParams.get("listing_id");
@@ -23,9 +17,6 @@ const CreateOfferPage = () => {
   const router = useRouter();
   const { token } = useSelector((state) => state.auth);
 
-  useEffect(() => {
-    form.setFieldsValue(initialFormValues);
-  }, [form]);
 
   const onFinish = async (values) => {
     console.log("Form values:", values);

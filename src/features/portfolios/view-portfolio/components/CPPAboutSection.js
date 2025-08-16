@@ -29,18 +29,6 @@ const CPPAboutSection = ({ CompanyData }) => {
             {name}
           </p>
 
-          <div data-aos="fade-left" data-aos-duration="1000" data-aos-delay="0">
-            <h2 className="cpp-heading-5 cpp-pt-5">
-              Here brief description of 1-2 lines will be used currently this is
-              dummy line
-            </h2>
-
-            <div className="cpp-location-wrapper">
-              <Image src={IMAGES.big_arrow_2} alt="Arrow" />
-              <p className="cpp-heading-5">based in {location}</p>
-            </div>
-          </div>
-
           <p
             className="cpp-description"
             data-aos="fade-down"
@@ -49,6 +37,12 @@ const CPPAboutSection = ({ CompanyData }) => {
           >
             {company_description}
           </p>
+          <div data-aos="fade-left" data-aos-duration="1000" data-aos-delay="0">
+            <div className="cpp-location-wrapper">
+              <Image src={IMAGES.big_arrow_2} alt="Arrow" />
+              <p className="cpp-heading-5">based in {location}</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

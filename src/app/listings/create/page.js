@@ -11,7 +11,7 @@ const page = () => {
   return (
     <AuthRedirect allowLoggedIn>
       <Navbar />
-      <BreadCrumbs items={BREADCRUMBS?.servicesCreate} />
+      <BreadCrumbs items={BREADCRUMBS?.listingsCreate} />
       <CreateListingPage />
     </AuthRedirect>
   );
