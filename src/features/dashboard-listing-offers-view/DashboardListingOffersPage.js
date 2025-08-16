@@ -31,15 +31,15 @@ const DashboardListingOffersPage = () => {
         Offers for Listing ID: {listing_id}
       </h2>
       <Row gutter={[15]}>
-        {offers.length === 0 ? (
+        {offers?.length === 0 ? (
           <p>No offers found.</p>
         ) : (
-          offers.map((offer) => (
-            <Col xs={24} lg={12}>
-              {" "}
-              <DLOVCard key={offer.id} offer={offer} />
+          offers?.map((offer) => (
+            <Col xs={24} lg={12} key={offer.id}>
+              <DLOVCard offer={offer} />
             </Col>
           ))
+          
         )}
       </Row>
     </div>

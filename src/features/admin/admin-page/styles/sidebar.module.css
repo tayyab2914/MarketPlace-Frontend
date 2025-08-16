@@ -17,6 +17,17 @@
 .sidebar.open {
   transform: translateX(0);
 }
+.subMenu {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 1.5rem; /* indent submenu */
+  background-color: #24324a;
+}
+
+.subNavLink {
+  padding-left: 2rem; /* extra indent */
+  font-size: 0.85rem;
+}
 
 .sidebarHeader {
   padding: 1.5rem;
@@ -32,7 +43,7 @@
 
 .navigation {
   flex: 1;
-  padding: 1rem 0;
+  padding: 1rem 0 0 0 ;
   overflow-y: auto;
 }
 

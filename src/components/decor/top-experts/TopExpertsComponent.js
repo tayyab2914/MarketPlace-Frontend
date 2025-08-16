@@ -2,10 +2,12 @@ import { TOP_EXPERTS_CONTENT } from "@/constants/static-pages/top-experts";
 import { ROUTES } from "@/utils/Constants";
 import { useRouter } from "next/navigation";
 import React from "react";
+import { useSelector } from "react-redux";
 
 const TopExpertsComponent = () => {
-  const { header, experts } = TOP_EXPERTS_CONTENT;
   const router = useRouter()
+  const { pages_content } = useSelector((state) => state.pages);
+  const { header , experts } = pages_content?.topExperts || {};
 
   return (
     <section className="stp-30 sbp-30">
@@ -32,9 +34,9 @@ const TopExpertsComponent = () => {
 
         {/* Experts List */}
         <div className="stp-15 grid grid-cols-12 gap-6">
-          {experts?.map((expert) => (
+          {experts?.map((expert,key) => (
             <div
-              key={expert?.id}
+              key={key}
               className="col-span-12 flex flex-col gap-6 rounded-3xl border border-n40 bg-n10 py-6 md:col-span-6 xl:col-span-4"
               data-aos="fade-up"
               data-aos-delay="0"

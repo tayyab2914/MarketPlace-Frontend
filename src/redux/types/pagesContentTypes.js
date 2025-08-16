@@ -1,0 +1,1 @@
+export const SET_PAGES_CONTENT = "SET_PAGES_CONTENT"

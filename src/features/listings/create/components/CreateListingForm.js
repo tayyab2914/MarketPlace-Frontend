@@ -20,7 +20,7 @@ const initialFormValues = {
   is_public: true,
 };
 
-const tagOptions = initialFormValues.tags.map((tag) => ({
+const tagOptions = initialFormValues?.tags?.map((tag) => ({
   label: tag,
   value: tag,
 }));
@@ -31,16 +31,14 @@ const CreateListingForm = () => {
   useEffect(() => {
     form.setFieldsValue({
       ...initialFormValues,
-      deadline: dayjs(initialFormValues.deadline, "YYYY-MM-DD"),
+      deadline: dayjs(initialFormValues?.deadline, "YYYY-MM-DD"),
     });
   }, [form]);
 
   const onFinish = async (values) => {
-    // Convert dayjs object to string
     if (values.deadline) {
       values.deadline = values.deadline.format("YYYY-MM-DD");
     }
-    console.log("Form values:", values);
     const res = await API_LISTING_CREATE(token, values);
     if (res) {
       form.resetFields();
@@ -49,16 +47,13 @@ const CreateListingForm = () => {
 
   return (
     <div className="max-w-4xl mx-auto -mt-40 rounded-xl bg-white p-2 sm:p-4 md:rounded-3xl xl:rounded-[60px] xl:p-15">
-    
-          <div className="w-full rounded-3xl border border-gray-300 p-6 sm:p-8 shadow-sm bg-white">
-        <h4 className="lis-crt-title">Listing Information</h4>
-
+      <div className="w-full rounded-3xl border border-gray-300 p-6 sm:p-8 shadow-sm bg-white">
         <Form
           form={form}
           layout="vertical"
           onFinish={onFinish}
           requiredMark={false}
-          className="lis-crt-form"
+          className="app-input-form"
         >
           <CustomInputField
             inputType="input"
@@ -66,7 +61,7 @@ const CreateListingForm = () => {
             label="Title"
             placeholder="Enter service title"
             addonBefore={<Edit3 size={16} strokeWidth={1} />}
-            className={"lis-crt-input-field"}
+            className={"app-input-field "}
           />
 
           <CustomInputField
@@ -74,7 +69,7 @@ const CreateListingForm = () => {
             name="description"
             label="Description"
             placeholder="Enter service description"
-            className={"lis-crt-input-field"}
+            className={"app-input-field "}
           />
 
           <CustomInputField
@@ -83,7 +78,7 @@ const CreateListingForm = () => {
             label="Category"
             placeholder="e.g. Design"
             addonBefore={<Tag size={16} strokeWidth={1} />}
-            className={"lis-crt-input-field"}
+            className={"app-input-field "}
           />
 
           <CustomInputField
@@ -93,7 +88,7 @@ const CreateListingForm = () => {
             placeholder="Select tags"
             mode="tags"
             options={tagOptions}
-            className={"lis-crt-input-field"}
+            className={"app-input-field "}
           />
 
           <CustomInputField
@@ -102,7 +97,7 @@ const CreateListingForm = () => {
             label="Budget ($)"
             placeholder="e.g. 4000"
             addonBefore={<DollarSign size={16} strokeWidth={1} />}
-            className={"lis-crt-input-field"}
+            className={"app-input-field "}
           />
 
           <CustomInputField
@@ -110,7 +105,7 @@ const CreateListingForm = () => {
             name="deadline"
             label="Deadline"
             type="date"
-            className={"lis-crt-input-field"}
+            className={"app-input-field "}
           />
 
           <CustomInputField
@@ -124,7 +119,7 @@ const CreateListingForm = () => {
           </Button>
         </Form>
       </div>
-      </div>
+    </div>
   );
 };
 

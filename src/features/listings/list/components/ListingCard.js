@@ -3,7 +3,6 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import ReadMore from "@/components/ui/ReadMore/ReadMore";
 import Button from "@/components/ui/Button/Button";
-import { ArrowBigRight, ArrowRight } from "lucide-react";
 
 const ListingCard = ({ listing }) => {
   const router = useRouter();

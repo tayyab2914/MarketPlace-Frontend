@@ -33,8 +33,8 @@ const ServiceContent = ({ Services }) => {
       <section className="srv-lis-section">
         <Row gutter={[24, 24]}>
           {paginatedData?.length ? (
-            paginatedData.map((service) => (
-              <Col xs={24} lg={12}>
+            paginatedData?.map((service,key) => (
+              <Col xs={24} lg={12} key={key}>
                 <ServiceCard service={service} key={service?.id} />
               </Col>
             ))

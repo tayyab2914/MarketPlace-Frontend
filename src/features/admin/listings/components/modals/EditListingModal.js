@@ -4,7 +4,10 @@ import { API_ADMIN_UPDATE_LISTING } from "@/apis/AdminApis";
 import { useSelector } from "react-redux";
 import Button from "@/components/ui/Button/Button";
 import dayjs from "dayjs";
-import { CONVERT_FORM_VALUES_TO_FORM_DATA, MAP_INITIAL_VALUES } from "../../utils/utils";
+import {
+  CONVERT_FORM_VALUES_TO_FORM_DATA,
+  MAP_INITIAL_VALUES,
+} from "../../utils/utils";
 import EditForm from "./components/EditForm";
 const EditListingModal = ({ visible, onClose, listing, fetchListings }) => {
   const [form] = Form.useForm();
@@ -35,11 +38,12 @@ const EditListingModal = ({ visible, onClose, listing, fetchListings }) => {
       open={visible}
       onCancel={onClose}
       footer={false}
-      className="adm-lis-form"
       width={700}
     >
       <Form form={form} layout="vertical" onFinish={handleFinish}>
-        <EditForm />
+        <div className="app-input-form-modal">
+          <EditForm />
+        </div>
 
         <Button variant="filled-animated" onClick={() => form.submit()}>
           Update Listing

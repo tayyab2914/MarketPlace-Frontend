@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import CPPServicesCard from "./CPPServicesCard";
-import { IMAGES } from "@/components/ui/Image/ImageData";
 import ServiceCard from "@/features/services/list/components/ServiceCard";
 import { Col, Row } from "antd";
 
@@ -19,7 +17,7 @@ const CPPPPortfolioSection = ({ CompanyData }) => {
 
         <Row gutter={[24, 24]}>
           {services?.slice(0, visibleCount).map((service, index) => (
-              <Col xs={24} lg={12}>
+              <Col xs={24} lg={12} key={index}>
                 <ServiceCard service={service} key={service?.id} />
               </Col>
           ))}

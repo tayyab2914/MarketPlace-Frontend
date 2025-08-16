@@ -5,17 +5,18 @@ import AboutHowServiceWork from "./components/AboutHowServiceWork";
 import "./styles/about-us.css";
 import Footer from "@/components/layout/footer/Footer";
 import FaqComponent from "@/components/layout/faq/FaqComponent";
-import { ABOUT_US_CONTENT } from "@/constants/static-pages/about-us";
 import TopExpertsComponent from "@/components/decor/top-experts/TopExpertsComponent";
 import TestimonialsComponent from "@/components/decor/testimonials/TestimonialsComponent";
+import { useSelector } from "react-redux";
 
 const AboutUsPage = () => {
+  const { pages_content } = useSelector((state) => state.pages);
   return (
     <div>
-      <AboutInfo />
-      <AboutHowServiceWork />
+      <AboutInfo pages_content={pages_content}/>
+      <AboutHowServiceWork pages_content={pages_content}/>
       <TopExpertsComponent />
-      <FaqComponent questionnaire={ABOUT_US_CONTENT} />
+      <FaqComponent/>
       <TestimonialsComponent />
       <Footer />
     </div>

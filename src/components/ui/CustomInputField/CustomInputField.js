@@ -21,21 +21,23 @@ const CustomInputField = ({
   styles,
   prefix,
   type = "text",
-  inputType = "input", // 'input', 'textarea', 'number', 'select', 'upload', 'switch', 'checkbox', 'tags', 'date'
+  inputType = "input",
   options = [],
   min,
   max,
   addonBefore,
   addonAfter,
   rows = 4,
-  beforeUpload, // for upload
-  showUploadList = false, // for upload
-  accept, // for upload
-  buttonText = "Upload", // for upload
+  beforeUpload,
+  showUploadList = false,
+  accept,
+  buttonText = "Upload",
   disabled = false,
   inputStyle,
+  className = "",
   ...rest
 }) => {
+
   // Map Form.Item value prop names
   const valuePropName =
     inputType === "switch" || inputType === "checkbox"
@@ -58,9 +60,8 @@ const CustomInputField = ({
         name={name}
         rules={rules}
         valuePropName={valuePropName}
-        // Only for Upload
         getValueFromEvent={inputType === "upload" ? normFile : undefined}
-        className="custom-input-field-item"
+
       >
         {inputType === "input" && (
           <Input
@@ -70,15 +71,8 @@ const CustomInputField = ({
             disabled={disabled}
             addonBefore={addonBefore}
             style={inputStyle}
-            {...rest}
-          />
-        )}
-
-        {inputType === "textarea" && (
-          <Input.TextArea
-            placeholder={placeholder}
-            rows={rows}
-            disabled={disabled}
+            variant="unbordered"
+            className={`${className} custom-input-field-item`}
             {...rest}
           />
         )}
@@ -91,17 +85,28 @@ const CustomInputField = ({
             addonBefore={addonBefore}
             addonAfter={addonAfter}
             disabled={disabled}
-            style={{ width: "100%", height: 40 }}
             {...rest}
+            variant="unbordered"
+            className={`${className} custom-input-field-item`}
           />
         )}
 
+        {inputType === "textarea" && (
+          <Input.TextArea
+            placeholder={placeholder}
+            rows={rows}
+            disabled={disabled}
+            variant="unbordered"
+            className={`${className} custom-input-field-item`}
+            {...rest}
+          />
+        )}
         {inputType === "select" && (
           <Select
             placeholder={placeholder}
             options={options}
             disabled={disabled}
-            style={{ width: "100%", height: 40 }}
+            className={`${className} custom-input-field-item`}
             {...rest}
           />
         )}
@@ -135,6 +140,7 @@ const CustomInputField = ({
             style={{ width: "100%" }}
             placeholder={placeholder}
             tokenSeparators={[","]}
+            variant="unbordered"
             {...rest}
           />
         )}
@@ -145,6 +151,7 @@ const CustomInputField = ({
             placeholder={placeholder || "Select a date"}
             disabled={disabled}
             allowClear
+            className={`${className} custom-input-field-item`}
             {...rest}
           />
         )}

@@ -29,7 +29,7 @@ const SignInForm = () => {
         layout="vertical"
         onFinish={onFinish}
         autoComplete="off"
-        className="acc-pg-form"
+        className="app-input-form "
       >
         <SignInFormFields />
         <SignInFooter />

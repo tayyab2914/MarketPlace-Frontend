@@ -1,6 +1,5 @@
 import React from "react";
 import HowItWorks from "./components/HowItWorks";
-import Booking from "./components/Booking";
 import RecentPosts from "./components/RecentPosts";
 import FindWorkAndHiring from "./components/FindWorkAndHiring";
 import GetHelp from "./components/GetHelp";
@@ -9,25 +8,26 @@ import HeroSection from "./components/HeroSection";
 import ScrollToTop from "@/components/ui/scroll-to-top/ScrollToTop";
 import TopExpertsComponent from "@/components/decor/top-experts/TopExpertsComponent";
 import TestimonialsComponent from "@/components/decor/testimonials/TestimonialsComponent";
-import Footer from "./components/Footer";
 import './styles/home.css'
+import { useSelector } from "react-redux";
+import Footer from "@/components/layout/footer/Footer";
 const HomePage = () => {
+  const { pages_content } = useSelector((state) => state.pages);
   return (
     <>
       <div className="bg-white">
         <Navbar />
 
-        <HeroSection />
-        <HowItWorks />
-        <TopExpertsComponent />
-        {/* <Booking /> */}
-        {/* <NewsLetter /> */}
+        <HeroSection pages_content={pages_content}/>
+        <HowItWorks pages_content={pages_content}/>
 
-        {/* <SecureGuard /> */}
+        <TopExpertsComponent />
         <TestimonialsComponent />
-        <RecentPosts />
-        <FindWorkAndHiring />
-        <GetHelp />
+
+        <RecentPosts pages_content={pages_content}/>
+        <FindWorkAndHiring pages_content={pages_content}/>
+        <GetHelp pages_content={pages_content}/>
+
         <Footer />
         <ScrollToTop />
       </div>

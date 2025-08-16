@@ -3,7 +3,9 @@ import "./styles/footer.css";
 import { ROUTES } from "@/utils/Constants";
 import { useRouter } from "next/navigation";
 import { IMAGES } from "@/components/ui/Image/ImageData";
-import { FOOTER_CONTENT } from "@/constants/static-pages/footer";
+import * as LucideIcons from "lucide-react";
+
+import { useSelector } from "react-redux";
 
 const leftLinks = [
   { route: ROUTES.home, label: "Home" },
@@ -19,13 +21,14 @@ const rightLinks = [
 
 const Footer = () => {
   const router = useRouter();
-
+  const { pages_content } = useSelector((state) => state.pages);
+  const { footer = {} } = pages_content || {};
   const {
-    leftCouter = {},
-    rightCouter = {},
+    leftCounter = {},
+    rightCounter = {},
     copyrightText = "",
     icons = [],
-  } = FOOTER_CONTENT || {};
+  } = footer || {};
   return (
     <footer className="ftr-footer">
       <div className="ftr-container">
@@ -59,19 +62,19 @@ const Footer = () => {
       <div className="ftr-middle-row">
         <div className="ftr-stats-item">
           <p className="ftr-odometer">
-            <span className="odometer" data-odometer-final={leftCouter?.count}>
-              {leftCouter?.count}+
+            <span className="odometer" data-odometer-final={leftCounter?.count}>
+              {leftCounter?.count}+
             </span>
           </p>
-          <p className="ftr-stat-text">{leftCouter?.text}</p>
+          <p className="ftr-stat-text">{leftCounter?.text}</p>
         </div>
         <div className="ftr-stats-item ftr-stats-item-bordered">
           <p className="ftr-odometer">
-            <span className="odometer" data-odometer-final={rightCouter?.count}>
-              {rightCouter?.count}+
+            <span className="odometer" data-odometer-final={rightCounter?.count}>
+              {rightCounter?.count}+
             </span>
           </p>
-          <p className="ftr-stat-text">{rightCouter?.text}</p>
+          <p className="ftr-stat-text">{rightCounter?.text}</p>
         </div>
         <div className="ftr-newsletter">
           <p className="ftr-newsletter-label">Subscribe to our newsletter</p>
@@ -88,17 +91,20 @@ const Footer = () => {
 
       <div className="ftr-bottom-row">
         <div className="ftr-social-icons">
-          {icons?.map(({ icon: Icon, href, label }, idx) => (
-            <a
-              key={idx}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={label}
-            >
-              <Icon />
-            </a>
-          ))}
+          {icons?.map(({  label, href }, idx) => {
+            const IconComponent = LucideIcons[label]; // dynamic lookup
+            if (!IconComponent) return null; // fallback if icon name is wrong
+            return (
+              <a
+                key={idx}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <IconComponent />
+              </a>
+            );
+          })}
         </div>
         <p>{copyrightText}</p>
       </div>

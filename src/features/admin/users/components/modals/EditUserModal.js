@@ -41,10 +41,11 @@ const EditUserModal = ({ visible, onClose, user, fetchUsers }) => {
       open={visible}
       onCancel={onClose}
       footer={false}
-      className="adm-usr-form"
     >
       <Form form={form} layout="vertical" onFinish={handleFinish}>
-        <EditForm />
+        <div className="app-input-form-modal">
+          <EditForm />
+        </div>
       </Form>
       <Button variant="filled-animated" onClick={() => form.submit()}>
         Update User

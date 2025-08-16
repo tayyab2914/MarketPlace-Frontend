@@ -34,9 +34,9 @@ const ListingContent = ({ Listings }) => {
       <section className="lis-lis-section">
         <Row gutter={[24, 24]}>
           {paginatedData?.length ? (
-            paginatedData.map((listing, index) => (
-              <Col xs={24} lg={12}>
-                <ListingCard listing={listing} key={index} />
+            paginatedData?.map((listing, index) => (
+              <Col xs={24} lg={12}  key={index} >
+                <ListingCard listing={listing}/>
               </Col>
             ))
           ) : (

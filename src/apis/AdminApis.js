@@ -58,3 +58,23 @@ export const API_ADMIN_UPDATE_LISTING = async (token, listing_id, data) => {
     successMessage: "Listing updated successfully",
   });
 };
+
+
+export const API_ALL_PAGES_CONTENT = async (token) => {
+  return await MAKE_API_REQUEST({
+    method: "get",
+    url: `${BACKEND_DOMAIN}/adminpanel/page/`,
+    token: token,
+  });
+};
+
+export const API_UPDATE_PAGE_CONTENT = async (token,  data) => {
+  return await MAKE_API_REQUEST({
+    method: "put",
+    url: `${BACKEND_DOMAIN}/adminpanel/page/update/`,
+    token,
+    data,
+    successMessage: "Content updated successfully",
+    errorMessage: "Failed to update content.",
+  });
+};

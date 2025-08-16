@@ -1,7 +1,7 @@
 import { HOME_CONTENT } from "@/constants/static-pages/home";
 import React from "react";
-const HeroSection = () => {
-  const { hero = {} } = HOME_CONTENT;
+const HeroSection = ({ pages_content }) => {
+  const { hero = {} } = pages_content?.home ||{};
 
   const { subtitle, title, description } = hero || {};
 

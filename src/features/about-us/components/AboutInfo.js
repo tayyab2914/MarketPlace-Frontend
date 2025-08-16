@@ -1,7 +1,8 @@
 import React from "react";
 import { ABOUT_US_CONTENT } from "@/constants/static-pages/about-us";
+import { ArrowRight } from "lucide-react";
 
-const AboutInfo = () => {
+const AboutInfo = ({ pages_content }) => {
   const {
     experienceYears = 0,
     images = [],
@@ -11,7 +12,7 @@ const AboutInfo = () => {
     features = [],
     knowMoreLink = "",
     knowMoreText = "",
-  } = ABOUT_US_CONTENT;
+  } = pages_content?.about?.info || {};
 
   return (
     <div className="container -mt-40 rounded-xl bg-white p-2 sm:p-4 md:rounded-3xl xl:rounded-[60px] xl:p-15">
@@ -22,7 +23,7 @@ const AboutInfo = () => {
               <div className="overflow-hidden rounded-2xl">
                 <img src={images[0]} alt="About Us Image 1" />
               </div>
-              <div className="flex flex-col items-center justify-center md:mt-16 xl:mt-4">
+              <div className="flex flex-col items-center justify-center md:mb-16 xl:mb-4">
                 <p className="display-3 font-extrabold text-b300">
                   0
                   <span
@@ -67,7 +68,9 @@ const AboutInfo = () => {
                 <span className="rounded-full bg-b300 px-6 py-3 duration-500 group-hover:translate-x-12 group-hover:text-white">
                   {knowMoreText}
                 </span>
-                <i className="ph-bold ph-arrow-up-right absolute right-0.5 top-0 translate-x-0 rounded-full bg-b300 p-[14px] text-lg leading-none text-white transition-all duration-500 group-hover:right-[178px] group-hover:rotate-[45deg] group-hover:text-white"></i>
+                <span className="absolute right-0.5 top-0 translate-x-0 rounded-full bg-b300 p-[14px] text-lg leading-none text-white transition-all duration-500 group-hover:right-[178px] group-hover:rotate-[45deg] group-hover:text-white">
+                  <ArrowRight size={17}/>
+                </span>
               </a>
             </div>
           </div>

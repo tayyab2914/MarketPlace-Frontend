@@ -59,17 +59,25 @@ const EditCompanyModal = ({ visible, onClose, company, fetchCompanies }) => {
       open={visible}
       onCancel={onClose}
       footer={false}
-      className="adm-company-form"
       width={600}
     >
-      <Form form={form} layout="vertical" onFinish={handleFinish}>
-        <EditForm
-          company={company}
-          fileList={fileList}
-          onFileChange={handleFileChange}
-        />
-
-        <Button variant="filled-animated" onClick={() => form.submit()}>
+      <Form
+        form={form}
+        layout="vertical"
+        onFinish={handleFinish}
+      >
+        <div className="app-input-form-modal">
+          <EditForm
+            company={company}
+            fileList={fileList}
+            onFileChange={handleFileChange}
+          />
+        </div>
+        <Button
+          variant="filled-animated"
+          h="50px"
+          onClick={() => form.submit()}
+        >
           Update Company
         </Button>
       </Form>

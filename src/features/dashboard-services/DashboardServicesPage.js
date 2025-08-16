@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Table } from "antd";
-
-// import { getListingColumns } from "./components/ListingColumns";
-// import EditListingModal from "./components/EditListingModal";
-
 import "./styles/dashboard-services.css";
-// import useDashboardListings from "./hooks/useDashboardListing";
 import { useRouter } from "next/navigation";
 import { ROUTES } from "@/utils/Constants";
 import useDashboardServices from "./hooks/useDashboardServices";

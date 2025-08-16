@@ -14,29 +14,27 @@ import { API_SERVICE_CREATE } from "@/apis/ServiceApis";
 import { useSelector } from "react-redux";
 
 const CreateServiceForm = () => {
-  const [form] = Form.useForm(); 
+  const [form] = Form.useForm();
   const { token } = useSelector((state) => state.auth);
 
   const onFinish = async (values) => {
-    console.log("Form values:", values);
     const res = await API_SERVICE_CREATE(token, values);
     if (res) {
-      form.resetFields(); 
+      form.resetFields();
     }
   };
 
   return (
-<div className="max-w-4xl mx-auto -mt-40 rounded-xl bg-white p-2 sm:p-4 md:rounded-3xl xl:rounded-[60px] xl:p-15">
-
+    <div className="max-w-4xl mx-auto -mt-40 rounded-xl bg-white p-2 sm:p-4 md:rounded-3xl xl:rounded-[60px] xl:p-15">
       <div className="w-full rounded-3xl border border-gray-300 p-6 sm:p-8 shadow-sm bg-white">
-        <h4 className="srv-crt-title">Service Information</h4>
+       
 
         <Form
-          form={form}               
+          form={form}
           layout="vertical"
           onFinish={onFinish}
           requiredMark={false}
-          className="srv-crt-form"
+          className="app-input-form"
         >
           <CustomInputField
             inputType="input"
@@ -44,7 +42,7 @@ const CreateServiceForm = () => {
             label="Title"
             placeholder="Enter service title"
             rules={titleRules}
-            className={"srv-crt-input-field"}
+            className={"app-input-field "}
             addonBefore={<Edit3 size={16} strokeWidth={1} />}
           />
 
@@ -54,7 +52,7 @@ const CreateServiceForm = () => {
             label="Description"
             placeholder="Enter service description"
             rules={descriptionRules}
-            className={"srv-crt-input-field"}
+            className={"app-input-field "}
           />
 
           <CustomInputField
@@ -63,7 +61,7 @@ const CreateServiceForm = () => {
             label="Category"
             placeholder="e.g. Design"
             rules={categoryRules}
-            className={"srv-crt-input-field"}
+            className={"app-input-field "}
             addonBefore={<Tag size={16} strokeWidth={1} />}
           />
 
@@ -73,7 +71,7 @@ const CreateServiceForm = () => {
             label="Price Starting From ($)"
             placeholder="e.g. 1200"
             rules={priceRules}
-            className={"srv-crt-input-field"}
+            className={"app-input-field "}
             addonBefore={<DollarSign size={16} strokeWidth={1} />}
           />
 

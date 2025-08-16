@@ -1,18 +1,18 @@
-import { HOME_CONTENT } from "@/constants/static-pages/home";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-const HowItWorks = () => {
+const HowItWorks = ({ pages_content }) => {
   const {
     heading = "",
     subheading = "",
     steps = [],
-  } = HOME_CONTENT?.howItWorks;
+  } = pages_content?.home?.howItWorks || {};
 
-  // State to track active step id; default to first step's id
-  const [activeStepId, setActiveStepId] = useState(steps[0].id);
+  // Add temporary IDs
+  const stepsWithIds = steps.map((step, index) => ({ ...step, id: index }));
 
-  // Find currently active step data
-  const activeStep = steps?.find((step) => step?.id === activeStepId);
+  const [activeStepId, setActiveStepId] = useState(0); // default to first step
+
+  const activeStep = stepsWithIds.find((step) => step.id === activeStepId);
 
   return (
     <section className="home-hiw-section">
@@ -23,10 +23,9 @@ const HowItWorks = () => {
         </div>
 
         <ul className="home-hiw-steps-list">
-          {steps.map(({ id, Icon, title }) => (
+          {stepsWithIds.map(({ id, title }) => (
             <li
               key={id}
-              id={id}
               className={`home-hiw-step-button ${
                 activeStepId === id
                   ? "home-hiw-step-active"
@@ -34,37 +33,41 @@ const HowItWorks = () => {
               }`}
               onClick={() => setActiveStepId(id)}
             >
-              <div className="home-hiw-step-content">
-                <Icon />
-                <button className="home-hiw-step-title">{title}</button>
-              </div>
+              <button className="home-hiw-step-title">{title}</button>
             </li>
           ))}
         </ul>
 
-        <div className="home-hiw-step-details">
-          <div className="home-hiw-step-grid">
-            <div className="home-hiw-step-text">
-              <h3 className="home-hiw-step-content-title">
-                {activeStep.contentTitle}
-              </h3>
-              <p className="home-hiw-step-content-description">
-                {activeStep.contentDescription}
-              </p>
-              <div className="home-hiw-step-cta">
-                <a
-                  href={activeStep.ctaLink}
-                  className="home-hiw-step-cta-button"
-                >
-                  <span>{activeStep.ctaText}</span>
-                </a>
+        {activeStep && (
+          <div className="home-hiw-step-details">
+            <div className="home-hiw-step-grid">
+              <div className="home-hiw-step-text">
+                <h3 className="home-hiw-step-content-title">
+                  {activeStep.contentTitle}
+                </h3>
+                <p className="home-hiw-step-content-description">
+                  {activeStep.contentDescription}
+                </p>
+                <div className="home-hiw-step-cta">
+                  <a
+                    href={activeStep.ctaLink}
+                    className="home-hiw-step-cta-button"
+                  >
+                    <span>{activeStep.ctaText}</span>
+                  </a>
+                </div>
+              </div>
+              <div className="home-hiw-step-image">
+                {activeStep.imageSrc && (
+                  <img
+                    src={activeStep.imageSrc}
+                    alt={activeStep.contentTitle || "Step image"}
+                  />
+                )}
               </div>
             </div>
-            <div className="home-hiw-step-image">
-              <img src={activeStep.imageSrc} alt={activeStep.contentTitle} />
-            </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );

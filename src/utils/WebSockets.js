@@ -1,3 +1,5 @@
+import { WEBSOCKET_DOMAIN } from "./Constants";
+
 export const INITIALIZE_WEBSOCKET = (
   token,
   payload,
@@ -7,8 +9,7 @@ export const INITIALIZE_WEBSOCKET = (
   let socketUrl;
 
   if (payload?.type == "inbox") {
-    const protocol = window.location.protocol === "https:" ? "wss" : "ws";
-    socketUrl = `${protocol}://127.0.0.1:8000/ws/chat/${payload?.chat_id}/?token=${token}`;
+    socketUrl = `${WEBSOCKET_DOMAIN}/ws/chat/${payload?.chat_id}/?token=${token}`;
   }
 
   let chatSocket;

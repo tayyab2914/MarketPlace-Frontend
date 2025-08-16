@@ -29,7 +29,7 @@ const EditListingModal = ({
     form
       .validateFields()
       .then((values) => {
-        onSave(initialValues?.id,{
+        onSave(initialValues?.id, {
           ...values,
           deadline: values.deadline
             ? values.deadline.format("YYYY-MM-DD")
@@ -50,64 +50,63 @@ const EditListingModal = ({
       width={600}
       centered
     >
-      <Form
-        layout="vertical"
-        form={form}
-        className="lis-upd-form lis-upd-form-modal"
-      >
-        <CustomInputField
-          inputType="input"
-          name="title"
-          label="Title"
-          placeholder="Enter service title"
-          addonBefore={<Edit3 size={16} strokeWidth={1} />}
-          className="lis-upd-input-field"
-          rules={[{ required: true, message: "Title is required" }]}
-        />
-        <CustomInputField
-          inputType="textarea"
-          name="description"
-          label="Description"
-          placeholder="Enter service description"
-          className="lis-upd-input-field"
-        />
-        <CustomInputField
-          inputType="input"
-          name="category"
-          label="Category"
-          placeholder="e.g. Design"
-          addonBefore={<Tag size={16} strokeWidth={1} />}
-          className="lis-upd-input-field"
-        />
-        <CustomInputField
-          inputType="select"
-          name="tags"
-          label="Tags"
-          placeholder="Select tags"
-          mode="tags"
-          options={tagOptions}
-          className="lis-upd-input-field"
-        />
-        <CustomInputField
-          inputType="number"
-          name="budget"
-          label="Budget ($)"
-          placeholder="e.g. 4000"
-          addonBefore={<DollarSign size={16} strokeWidth={1} />}
-          className="lis-upd-input-field"
-        />
-        <CustomInputField
-          inputType="date"
-          name="deadline"
-          label="Deadline"
-          type="date"
-          className="lis-upd-input-field"
-        />
-        <CustomInputField
-          inputType="switch"
-          name="is_public"
-          label="Make this listing public?"
-        />
+      <Form layout="vertical" form={form} className="app-input-form">
+        {" "}
+        <div className="app-input-form ">
+          <CustomInputField
+            inputType="input"
+            name="title"
+            label="Title"
+            placeholder="Enter service title"
+            addonBefore={<Edit3 size={16} strokeWidth={1} />}
+            className="app-input-field"
+            rules={[{ required: true, message: "Title is required" }]}
+          />
+          <CustomInputField
+            inputType="textarea"
+            name="description"
+            label="Description"
+            placeholder="Enter service description"
+            className="app-input-field"
+          />
+          <CustomInputField
+            inputType="input"
+            name="category"
+            label="Category"
+            placeholder="e.g. Design"
+            addonBefore={<Tag size={16} strokeWidth={1} />}
+            className="app-input-field"
+          />
+          <CustomInputField
+            inputType="select"
+            name="tags"
+            label="Tags"
+            placeholder="Select tags"
+            mode="tags"
+            options={tagOptions}
+            className="app-input-field"
+          />
+          <CustomInputField
+            inputType="number"
+            name="budget"
+            label="Budget ($)"
+            placeholder="e.g. 4000"
+            addonBefore={<DollarSign size={16} strokeWidth={1} />}
+            className="app-input-field"
+          />
+          <CustomInputField
+            inputType="date"
+            name="deadline"
+            label="Deadline"
+            type="date"
+            className="app-input-field"
+          />
+          <CustomInputField
+            inputType="switch"
+            name="is_public"
+            label="Make this listing public?"
+          />
+        </div>
       </Form>
       <Button type="submit" variant="filled-animated" onClick={handleSave}>
         Save

@@ -4,9 +4,11 @@ import { combineReducers } from "redux";
 import authReducer from "./authReducer";
 import companyInfoReducer from "./companyInfoReducer";
 import socketReducer from "./socketReducer";
+import pagesContentReducer from "./staticContentReducer";
 
 export default combineReducers({
   auth: authReducer,
   company: companyInfoReducer,
   socket: socketReducer,
+  pages: pagesContentReducer,
 });

@@ -15,7 +15,6 @@ export function Header({ onToggleSidebar }) {
   const { logoutUser } = useLogoutUser();
   const { company_info } = useSelector((state) => state.company);
 
-  console.log(company_info);
   const menuItems = getHeaderMenuItems(router, logoutUser, () => {
     logoutUser();
   });
@@ -29,7 +28,7 @@ export function Header({ onToggleSidebar }) {
         >
           <MenuIcon />
         </button>
-        <h1 className={styles.pageTitle}>Dashboard</h1>
+        <h1 className={styles.pageTitle}>Admin Panel</h1>
       </div>
 
       <div className={styles.headerRight}>

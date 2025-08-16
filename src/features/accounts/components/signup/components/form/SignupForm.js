@@ -50,7 +50,7 @@ const SignupForm = () => {
       <Steps
         current={currentStep}
         items={steps.map((s) => ({ title: s.title }))}
-        style={{ marginTop: "5px" }}
+        style={{ marginTop: "5px",marginBottom:"10px" }}
       />
 
       <Form

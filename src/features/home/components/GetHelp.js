@@ -1,6 +1,6 @@
 import React from "react";
 
-const GetHelp = () => {
+const GetHelp = ({ pages_content }) => {
   return (
     <section className="stp-30">
       <div className="relative flex items-center justify-center">

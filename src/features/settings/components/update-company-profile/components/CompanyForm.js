@@ -49,7 +49,7 @@ const CompanyForm = ({ companyData, loading, onSubmit }) => {
       layout="vertical"
       onFinish={onFinish}
       requiredMark={false}
-      className="upd-comp-f-form"
+      className="app-input-form"
     >
       <CustomInputField
         inputType="input"
@@ -57,7 +57,7 @@ const CompanyForm = ({ companyData, loading, onSubmit }) => {
         label="Company Name"
         placeholder="Enter company name"
         rules={titleRules}
-        className="upd-comp-f-input-field"
+        className="app-input-field "
         addonBefore={<Edit3 size={16} strokeWidth={1} />}
         disabled={loading}
       />
@@ -67,7 +67,7 @@ const CompanyForm = ({ companyData, loading, onSubmit }) => {
         name="company_description"
         label="Company Description"
         placeholder="Enter company description"
-        className="upd-comp-f-input-field"
+        className="app-input-field "
         disabled={loading}
       />
 
@@ -78,7 +78,7 @@ const CompanyForm = ({ companyData, loading, onSubmit }) => {
             name="phone_no"
             label="Phone Number"
             placeholder="Enter phone number"
-            className="upd-comp-f-input-field"
+            className="app-input-field "
             addonBefore={<Phone size={16} strokeWidth={1} />}
             disabled={loading}
           />
@@ -89,7 +89,7 @@ const CompanyForm = ({ companyData, loading, onSubmit }) => {
             name="industry"
             label="Industry"
             placeholder="Enter industry"
-            className="upd-comp-f-input-field"
+            className="app-input-field "
             addonBefore={<Briefcase size={16} strokeWidth={1} />}
             disabled={loading}
           />
@@ -101,7 +101,7 @@ const CompanyForm = ({ companyData, loading, onSubmit }) => {
         name="location"
         label="Location"
         placeholder="Enter location"
-        className="upd-comp-f-input-field"
+        className="app-input-field "
         addonBefore={<MapPin size={16} strokeWidth={1} />}
         disabled={loading}
       />

@@ -1,13 +1,18 @@
-import { CONTACT_US_CONTENT } from "@/constants/static-pages/contact-us";
+
+import { Map, MessageCircle, Phone } from "lucide-react";
 import React from "react";
+import { useSelector } from "react-redux";
 
 const ContactSection = () => {
+
+  
+  const { pages_content } = useSelector((state) => state.pages);
   const {
     email = "",
     visitUs = {},
     timing = "",
     phone_num = "",
-  } = CONTACT_US_CONTENT || {};
+  } = pages_content?.contact || {};
   return (
     <div>
       {/* <!-- Contact Section Start --> */}
@@ -16,7 +21,7 @@ const ContactSection = () => {
           <div className="grid grid-cols-12 gap-6">
             <div className="col-span-12 flex flex-col items-center justify-center rounded-3xl border border-n30 p-6 md:col-span-4 lg:p-10">
               <div className="flex items-center justify-center rounded-full bg-b300/5 p-5 text-4xl !leading-none text-b300">
-                <i className="ph-fill ph-chats"></i>
+                <MessageCircle />
               </div>
               <h4 className="heading-4 pt-6">Chat to support</h4>
               <p className="pb-6 text-sm font-medium text-n300">
@@ -28,7 +33,7 @@ const ContactSection = () => {
             </div>
             <div className="col-span-12 flex flex-col items-center justify-center rounded-3xl border border-n30 p-6 md:col-span-4 lg:p-10">
               <div className="flex items-center justify-center rounded-full bg-b300/5 p-5 text-4xl !leading-none text-b300">
-                <i className="ph-fill ph-map-pin"></i>
+                <Map />
               </div>
               <h4 className="heading-4 pt-6">Visit us</h4>
               <p className="pb-6 text-sm font-medium text-n300">
@@ -45,7 +50,7 @@ const ContactSection = () => {
             </div>
             <div className="col-span-12 flex flex-col items-center justify-center rounded-3xl border border-n30 p-6 md:col-span-4 lg:p-10">
               <div className="flex items-center justify-center rounded-full bg-b300/5 p-5 text-4xl !leading-none text-b300">
-                <i className="ph-fill ph-phone-call"></i>
+                <Phone />
               </div>
               <h4 className="heading-4 pt-6">Contact Us</h4>
               <p className="pb-6 text-sm font-medium text-n300">{timing}</p>

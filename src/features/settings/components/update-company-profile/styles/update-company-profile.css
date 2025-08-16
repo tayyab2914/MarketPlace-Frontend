@@ -1,24 +1,6 @@
-.upd-comp-f-title {
-    font-weight: 700;
-    font-size: 22px;
-  }
-  .upd-comp-f-input-field {
-    border: 1px solid rgba(236, 236, 239);
-    border-radius: 16px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    padding-right: 8px;
-    background-color: white;
-  }
-  .upd-comp-f-form {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-  
-  
-  .upd-comp-f-profile-image-preview{
-    max-height: 100px;
-    max-width: 100px;
-  }
+
+
+.upd-comp-f-profile-image-preview {
+  max-height: 100px;
+  max-width: 100px;
+}

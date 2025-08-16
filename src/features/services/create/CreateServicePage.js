@@ -5,9 +5,7 @@ import "./styles/create-service.css";
 const CreateServicePage = () => {
   return (
     <div>
-      {/* <BackgroundBubbles> */}
         <CreateServiceForm />
-      {/* </BackgroundBubbles> */}
     </div>
   );
 };

@@ -15,14 +15,14 @@ import {
 import { VALIDATE_IMAGE_BEFORE_UPLOAD } from "@/utils/Methods";
 const EditForm = ({ company, fileList, onFileChange }) => {
   return (
-    <div>
+    <>
       {" "}
       <CustomInputField
         name="id"
         label="Company ID"
         inputType="input"
         disabled
-        className="adm-company-input-field"
+        className="app-input-field"
         addonBefore={<Hash size={16} />}
       />
       <CustomInputField
@@ -31,7 +31,7 @@ const EditForm = ({ company, fileList, onFileChange }) => {
         placeholder="Enter company name"
         inputType="input"
         rules={[{ required: true, message: "Please enter company name" }]}
-        className="adm-company-input-field"
+        className="app-input-field"
         addonBefore={<Building2 size={16} />}
       />
       <CustomInputField
@@ -40,7 +40,7 @@ const EditForm = ({ company, fileList, onFileChange }) => {
         placeholder="Enter company description"
         inputType="textarea"
         rows={4}
-        className="adm-company-input-field"
+        className="app-input-field"
         addonBefore={<FileText size={16} />}
       />
       <CustomInputField
@@ -48,7 +48,7 @@ const EditForm = ({ company, fileList, onFileChange }) => {
         label="Phone Number"
         placeholder="Enter phone number"
         inputType="input"
-        className="adm-company-input-field"
+        className="app-input-field"
         addonBefore={<Phone size={16} />}
       />
       <CustomInputField
@@ -56,7 +56,7 @@ const EditForm = ({ company, fileList, onFileChange }) => {
         label="Industry"
         placeholder="Enter industry"
         inputType="input"
-        className="adm-company-input-field"
+        className="app-input-field"
         addonBefore={<Briefcase size={16} />}
       />
       <CustomInputField
@@ -64,7 +64,7 @@ const EditForm = ({ company, fileList, onFileChange }) => {
         label="Location"
         placeholder="Enter location"
         inputType="input"
-        className="adm-company-input-field"
+        className="app-input-field"
         addonBefore={<MapPin size={16} />}
       />
       <CustomInputField
@@ -79,7 +79,7 @@ const EditForm = ({ company, fileList, onFileChange }) => {
         showUploadList={{ showPreviewIcon: true, showRemoveIcon: true }}
         accept="image/*"
       />
-    </div>
+    </>
   );
 };
 

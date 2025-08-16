@@ -43,7 +43,17 @@ const Button = ({
         >
           {children}
         </button>
+      )}{variant === "danger" && (
+        <button
+          className={`btn-danger ${className}`}
+          style={{ height: h, width: w, fontSize: fs, margin: m, ...style }}
+          onClick={onClick}
+          type={type}
+        >
+          {children}
+        </button>
       )}
+      
       {/* 
 
       {variant == "outlined-dark" && (

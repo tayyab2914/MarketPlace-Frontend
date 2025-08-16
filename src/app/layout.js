@@ -3,6 +3,7 @@
 import { Montserrat, Geist_Mono } from "next/font/google";
 import "./(styles)/globals.css";
 import "./(styles)/animate.min.css";
+import './(styles)/input-fields.css'
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import AOS from "aos";
@@ -14,6 +15,7 @@ import { CustomMessageProvider } from "@/components/ui/CustomMessageProvider.js/
 import { ANTD_COMPONENTS } from "./(utils)/utils";
 import VerifyToken from "./(utils)/VerifyToken";
 import Script from "next/script";
+import PagesContent from "./(utils)/PagesContent";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -35,6 +37,7 @@ export default function RootLayout({ children }) {
                 <PersistGate loading={null} persistor={persistor}>
                   {children}
                   <VerifyToken />
+                  <PagesContent/>
                   <Script
                     src="/assets/js/plugins/matter.min.js"
                     strategy="afterInteractive"

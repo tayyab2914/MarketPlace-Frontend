@@ -5,12 +5,12 @@ import CustomInputField from '@/components/ui/CustomInputField/CustomInputField'
 
 const EditForm = () => {
   return (
-    <div>  <CustomInputField
+    <>  <CustomInputField
     name="id"
     label="User ID"
     inputType="input"
     disabled
-    className={"adm-usr-input-field"}
+    className={"app-input-field"}
     addonBefore={<Key strokeWidth={1} />}
   />
 
@@ -20,7 +20,7 @@ const EditForm = () => {
     placeholder="Enter username"
     inputType="input"
     rules={nameRules}
-    className={"adm-usr-input-field"}
+    className={"app-input-field"}
     addonBefore={<User strokeWidth={1} />}
   />
 
@@ -31,7 +31,7 @@ const EditForm = () => {
     inputType="input"
     type="email"
     rules={emailRules}
-    className={"adm-usr-input-field"}
+    className={"app-input-field"}
     addonBefore={<Mail strokeWidth={1} />}
   />
 
@@ -45,7 +45,7 @@ const EditForm = () => {
     name="verified_by_admin"
     label="Verified by Admin"
     inputType="switch"
-  /></div>
+  /></>
   )
 }
 

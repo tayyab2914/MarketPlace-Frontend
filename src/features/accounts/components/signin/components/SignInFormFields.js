@@ -5,13 +5,13 @@ import React from "react";
 
 const SignInFormFields = () => {
   return (
-    <div>
+    <>
       <CustomInputField
         name="email"
         placeholder="Enter your email"
         inputType="input"
         rules={emailRules}
-        className="acc-pg-input"
+        className="app-input-field "
         addonBefore={<Mail strokeWidth={1} />}
       />
       <CustomInputField
@@ -20,10 +20,10 @@ const SignInFormFields = () => {
         inputType="input"
         type="password"
         rules={passwordRules}
-        className="acc-pg-input"
+        className="app-input-field "
         addonBefore={<LockKeyhole strokeWidth={1} />}
       />
-    </div>
+    </>
   );
 };
 

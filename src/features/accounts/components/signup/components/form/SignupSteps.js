@@ -17,13 +17,13 @@ export const getSignupSteps = () => [
     title: "Account Info",
     fields: ["name", "email", "password"],
     content: (
-      <div className="acc-pg-form-steps">
+      <div className="app-input-form">
         <CustomInputField
           name="name"
           placeholder="Enter Your Name"
           inputType="input"
           rules={nameRules}
-          className="acc-pg-input"
+          className="app-input-field "
           addonBefore={<UserRound strokeWidth={1} />}
         />
         <CustomInputField
@@ -31,7 +31,7 @@ export const getSignupSteps = () => [
           placeholder="Enter your email"
           inputType="input"
           rules={emailRules}
-          className="acc-pg-input"
+          className="app-input-field "
           addonBefore={<Mail strokeWidth={1} />}
         />
         <CustomInputField
@@ -40,7 +40,7 @@ export const getSignupSteps = () => [
           inputType="input"
           type="password"
           rules={passwordRules}
-          className="acc-pg-input"
+          className="app-input-field "
           addonBefore={<LockKeyhole strokeWidth={1} />}
         />
       </div>
@@ -50,13 +50,13 @@ export const getSignupSteps = () => [
     title: "Company Info",
     fields: ["company_name", "about", "phone_no", "industry", "location"],
     content: (
-      <div className="acc-pg-form-steps">
+      <div className="app-input-form">
         <CustomInputField
           name="company_name"
           placeholder="Enter your company name"
           inputType="input"
           rules={[{ required: true, message: "Company name is required" }]}
-          className="acc-pg-input"
+          className="app-input-field "
           addonBefore={<Building2 strokeWidth={1} />}
         />
         <CustomInputField
@@ -64,7 +64,7 @@ export const getSignupSteps = () => [
           placeholder="Tell us about your company"
           inputType="textarea"
           rules={[{ required: true, message: "Description is required" }]}
-          className="acc-pg-input"
+          className="app-input-field "
           addonBefore={<Info strokeWidth={1} />}
         />
         <CustomInputField
@@ -72,7 +72,7 @@ export const getSignupSteps = () => [
           placeholder="Company phone number"
           inputType="input"
           rules={[{ required: true, message: "Phone number is required" }]}
-          className="acc-pg-input"
+          className="app-input-field "
           addonBefore={<Phone strokeWidth={1} />}
         />
         <CustomInputField
@@ -80,7 +80,7 @@ export const getSignupSteps = () => [
           placeholder="Industry"
           inputType="input"
           rules={[{ required: true, message: "Industry is required" }]}
-          className="acc-pg-input"
+          className="app-input-field "
           addonBefore={<Landmark strokeWidth={1} />}
         />
         <CustomInputField
@@ -88,7 +88,7 @@ export const getSignupSteps = () => [
           placeholder="Location"
           inputType="input"
           rules={[{ required: true, message: "Location is required" }]}
-          className="acc-pg-input"
+          className="app-input-field "
           addonBefore={<MapPin strokeWidth={1} />}
         />
       </div>

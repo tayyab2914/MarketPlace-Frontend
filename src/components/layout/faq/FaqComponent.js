@@ -1,9 +1,12 @@
-
 import React, { useState } from "react";
-import './styles/faq-component.css'
-const FaqComponent = ({questionnaire}) => {
-  const [activeIndex, setActiveIndex] = useState(2); // Open 3rd by default
+import "./styles/faq-component.css";
+import { useSelector } from "react-redux";
+import { ChevronRight, HelpCircle } from "lucide-react";
+const FaqComponent = () => {
+  const [activeIndex, setActiveIndex] = useState(2);
+  const { pages_content } = useSelector((state) => state.pages);
 
+  const { faq = {} } = pages_content || {};
   const toggleFAQ = (index) => {
     setActiveIndex(index === activeIndex ? null : index);
   };
@@ -14,21 +17,18 @@ const FaqComponent = ({questionnaire}) => {
         {/* Left column */}
         <div className="faq-sec-left-col">
           <p className="faq-sec-faq-label">FAQ</p>
-          <h2 className="faq-sec-heading">
-            Your questions <span className="faq-sec-highlight">answered.</span>
-          </h2>
-          <p className="faq-sec-intro-text">
-            Let’s do our best to answer your most frequently asked questions.
-          </p>
+          <h2 className="faq-sec-heading">{faq?.title}</h2>
+          <p className="faq-sec-intro-text">{faq?.introText}</p>
 
           <div className="faq-sec-help-box">
             <div className="faq-sec-help-icon-wrapper">
-              <i className="ph-fill ph-question faq-sec-help-icon"></i>
+              <HelpCircle />
             </div>
             <div>
               <h5 className="faq-sec-help-title">Still have questions?</h5>
               <p className="faq-sec-help-text">
-                Can’t find the answer you’re looking for? Please chat with our friendly team!
+                Can’t find the answer you’re looking for? Please chat with our
+                friendly team!
               </p>
             </div>
           </div>
@@ -40,7 +40,7 @@ const FaqComponent = ({questionnaire}) => {
 
         {/* Right column - Accordion */}
         <div className="faq-sec-right-col">
-          {questionnaire?.faqs?.map((faq, index) => (
+          {faq?.faqs?.map((faq, index) => (
             <div
               key={index}
               className={`faq-sec-faq-item ${
@@ -57,7 +57,7 @@ const FaqComponent = ({questionnaire}) => {
                     activeIndex === index ? "rotated" : ""
                   }`}
                 >
-                  <i className="ph ph-caret-right"></i>
+                  <ChevronRight />
                 </div>
               </div>
               <div className="faq-sec-faq-answer">

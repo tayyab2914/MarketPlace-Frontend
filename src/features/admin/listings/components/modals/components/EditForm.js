@@ -17,7 +17,7 @@ import CustomInputField from "@/components/ui/CustomInputField/CustomInputField"
 
 const EditForm = () => {
   return (
-    <div className="adm-company-form-inner">
+    <>
       <CustomInputField
         name="id"
         label="Listing ID"
@@ -114,7 +114,7 @@ const EditForm = () => {
         className="adm-lis-input-field"
         addonBefore={<Building2 size={16} />}
       />
-    </div>
+    </>
   );
 };
 

@@ -1,0 +1,68 @@
+.adm-cnt-upd-form-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  max-width: 700px;
+}
+.adm-cnt-upd-form-wrapper .app-input-form {
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+}
+
+.adm-cnt-upd-collapses-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.adm-cnt-upd-step {
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.adm-cnt-upd-collapses-wrapper .ant-collapse-header {
+  border: 1px solid #e5e5e5;
+  border-radius: 12px !important;
+}
+.adm-cnt-upd-collapse{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.adm-cnt-upd-collapses-wrapper .ant-collapse-content-box{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+}
+.adm-cnt-upd-collapses-wrapper .ant-collapse-header-text {
+  font-weight: 600;
+}
+
+.adm-cnt-upd-action-btns {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  max-width: 700px;
+  margin-top: 20px;
+}
+
+.adm-cnt-upd-action-btns button {
+  flex: 1; /* buttons take equal width */
+  height: 50px;
+}
+
+.adm-cnt-upd-form-sub-heading {
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+.adm-cnt-upd-form-field {
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+}
+.adm-cnt-upd-form-field input {
+  height: 40px;
+}

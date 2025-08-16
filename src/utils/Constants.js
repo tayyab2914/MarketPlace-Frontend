@@ -44,3 +44,4 @@ export const ROUTES = {
 };
 
 export const BACKEND_DOMAIN = process.env.NEXT_PUBLIC_BACKEND_DOMAIN;
+export const WEBSOCKET_DOMAIN = process.env.NEXT_PUBLIC_WEBSOCKET_DOMAIN_NAME;

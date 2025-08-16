@@ -47,7 +47,7 @@ const EditServiceModal = ({
       <Form
         layout="vertical"
         form={form}
-        className="lis-upd-form lis-upd-form-modal"
+        className="app-input-form"
       >
         <CustomInputField
           inputType="input"
@@ -55,7 +55,7 @@ const EditServiceModal = ({
           label="Title"
           placeholder="Enter service title"
           rules={titleRules}
-          className={"srv-upd-input-field"}
+          className={"app-input-field"}
           addonBefore={<Edit3 size={16} strokeWidth={1} />}
         />
 
@@ -65,7 +65,7 @@ const EditServiceModal = ({
           label="Description"
           placeholder="Enter service description"
           rules={descriptionRules}
-          className={"srv-upd-input-field"}
+          className={"app-input-field"}
         />
 
         <CustomInputField
@@ -74,7 +74,7 @@ const EditServiceModal = ({
           label="Category"
           placeholder="e.g. Design"
           rules={categoryRules}
-          className={"srv-upd-input-field"}
+          className={"app-input-field"}
           addonBefore={<Tag size={16} strokeWidth={1} />}
         />
 
@@ -84,7 +84,7 @@ const EditServiceModal = ({
           label="Price Starting From ($)"
           placeholder="e.g. 1200"
           rules={priceRules}
-          className={"srv-upd-input-field"}
+          className={"app-input-field"}
           addonBefore={<DollarSign size={16} strokeWidth={1} />}
         />
       </Form>

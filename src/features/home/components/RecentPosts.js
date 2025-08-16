@@ -3,7 +3,7 @@ import { Row, Col } from "antd";
 import { ArrowRight } from "lucide-react";
 import { HOME_CONTENT } from "@/constants/static-pages/home";
 
-const RecentPosts = () => {
+const RecentPosts =  ({ pages_content }) => {
 
   return (
     <section className="stp-30 sbp-30">
@@ -15,18 +15,18 @@ const RecentPosts = () => {
             </h2>
             <p>Read the recent articles from our blog.</p>
           </div>
-          <div>
+          {/* <div>
             <a href="./blog.html" className="home-post-all-articles-link">
               All Article
               <ArrowRight size={20}/>
             </a>
-          </div>
+          </div> */}
         </div>
 
         <Row gutter={[24, 24]} className="home-post-recent-posts-grid">
-          {HOME_CONTENT?.posts?.map((post) => (
+          {pages_content?.home?.posts?.map((post,key) => (
             <Col
-              key={post.id}
+              key={key}
               xs={24}
               sm={12}
               lg={8}
