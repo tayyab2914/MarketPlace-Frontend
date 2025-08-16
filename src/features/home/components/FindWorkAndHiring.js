@@ -1,10 +1,11 @@
 import { HexagonImage } from "@/components/decor/hexagon-image/HexagonImage";
+import { ArrowRight } from "lucide-react";
 import React from "react";
 
-
-const FindWorkAndHiring = ({pages_content}) => {
+const FindWorkAndHiring = ({ pages_content }) => {
   const { profiles = [] } = pages_content?.home?.findWork || {};
 
+  console.log(pages_content);
   return (
     <section className="stp-30 sbp-30 relative">
       <div className="container relative z-10 grid grid-cols-12 overflow-hidden max-md:gap-6">
@@ -20,11 +21,13 @@ const FindWorkAndHiring = ({pages_content}) => {
                 <p className="rounded-full bg-y300 px-2 py-1 text-sm font-medium">
                   {profile?.badgeText}
                 </p>
-                <div>
-                <img src={profile?.verifyBadgeImg} className="w-[75px] h-[75px] rounded-full bg-gray-200 flex items-center justify-center">
-                  
-                  </img>
-                  <div className="flex gap-2 pt-2">
+                <div className="flex items-center">
+                  <img
+                    src={profile?.verifyBadgeImg}
+                    className=" rounded-full flex items-center justify-center"
+                    style={{ maxHeight: "45px" }}
+                  ></img>
+                  <div className="flex gap-2 ">
                     <p className="flex items-center gap-2 text-sm font-bold text-o300">
                       <i className="ph-fill ph-star"></i> {profile?.rating}
                     </p>
@@ -37,8 +40,7 @@ const FindWorkAndHiring = ({pages_content}) => {
 
               <div className="flex flex-col items-center justify-center py-6">
                 <div className="relative mb-3">
-                  <HexagonImage src={profile?.reviewImage} size={250}/>
-                 
+                  <HexagonImage src={profile?.reviewImage} size={250} />
                 </div>
                 <h5 className="heading-5">{profile?.heading}</h5>
                 <p className="pt-2 text-center text-n500 sm:px-3">
@@ -62,10 +64,12 @@ const FindWorkAndHiring = ({pages_content}) => {
                   href={profile?.ctaHref}
                   className="group relative flex items-center justify-start pr-12 font-semibold"
                 >
-                  <span className="rounded-full bg-y300 px-6 py-3 duration-500 group-hover:translate-x-12">
+                  <span className="rounded-full bg-y300 px-6 py-3 duration-500">
                     {profile?.ctaText}
                   </span>
-                  <i className="ph-bold ph-arrow-up-right absolute right-0 top-0 p-[14px] text-xl rounded-full bg-y300 duration-500 group-hover:right-[152px] group-hover:rotate-45"></i>
+                  <span className="absolute right-0 top-0 p-[14px] text-xl rounded-full bg-y300 duration-500 ml-3 group-hover:rotate-360">
+                    <ArrowRight size={16}/>
+                  </span>
                 </a>
               </div>
             </div>

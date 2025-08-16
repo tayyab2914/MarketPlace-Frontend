@@ -100,50 +100,7 @@ const ADMTopExperts = ({ form }) => {
                   inputType="tags"
                 />
 
-                {/* Links instead of uploads */}
-                <CustomInputField
-                  className="app-input-field"
-                  form={form}
-                  name={[name, "verifiedBadgeImage"]}
-                  label="Verified Badge Image URL"
-                  placeholder="Enter verified badge image link"
-                />
 
-                <Form.List name={[name, "sliderImages"]}>
-                  {(sliderFields, { add: addSlider, remove: removeSlider }) => (
-                    <>
-                      {sliderFields.map((sliderField) => (
-                        <div
-                          key={sliderField.key}
-                          style={{ display: "flex", gap: 10, marginBottom: 10 }}
-                        >
-                          <CustomInputField
-                            className="app-input-field"
-                            form={form}
-                            name={sliderField.name}
-                            label="Slider Image URL"
-                            placeholder="Enter slider image link"
-                          />
-                          <Button
-                            type="dashed"
-                            danger
-                            style={{ marginTop: 10, height: "35px" }}
-                            onClick={() => removeSlider(sliderField.name)}
-                          >
-                            <Minus /> Remove
-                          </Button>
-                        </div>
-                      ))}
-                      <Button
-                        type="dashed"
-                        onClick={() => addSlider()}
-                        style={{ marginTop: 10, height: "35px" }}
-                      >
-                        <Plus /> Add Slider Image URL
-                      </Button>
-                    </>
-                  )}
-                </Form.List>
 
                 <CustomInputField
                   className="app-input-field"

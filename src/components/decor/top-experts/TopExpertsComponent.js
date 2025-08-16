@@ -8,11 +8,12 @@ const TopExpertsComponent = () => {
   const { pages_content } = useSelector((state) => state.pages);
   const { header, experts } = pages_content?.topExperts || {};
 
+  console.log(pages_content);
   return (
     <section className="stp-30 sbp-30">
       <div className="container">
         <div className="flex items-center justify-between gap-2">
-          <div className="flex max-w-[300px] flex-col">
+          <div className="flex max-w-[600px] flex-col">
             <h2 className="heading-2 font-bold text-n900">
               Top{" "}
               <span className="text-b300 underline">
@@ -42,7 +43,6 @@ const TopExpertsComponent = () => {
               data-aos-delay="0"
               data-aos-duration="1000"
             >
-              {/* Expert info */}
               <div className="flex items-center justify-start gap-3 px-6">
                 <div className="relative max-md:overflow-hidden">
                   <img
@@ -92,18 +92,6 @@ const TopExpertsComponent = () => {
                     {skill}
                   </p>
                 ))}
-              </div>
-
-              <div className="relative">
-                <div className="swiper expert-slider-carousel group">
-                  <div className="swiper-wrapper">
-                    {expert?.sliderImages?.map((imgSrc, i) => (
-                      <div key={i} className="swiper-slide">
-                        <img src={imgSrc} alt="" className="w-full" />
-                      </div>
-                    ))}
-                  </div>
-                </div>
               </div>
             </div>
           ))}

@@ -47,13 +47,16 @@ const AdminUpdateContentPage = () => {
     COMPONENTS_MAP[menuParam] ||
     (() => <div>Please select a section from the menu.</div>);
 
+    useEffect(() => {
+      form.setFieldsValue({ content: initialContent });
+    }, [initialContent, form]);
+    
   return (
     <div className="adm-cnt-upd-form-wrapper">
       <Form
         form={form}
         layout="vertical"
         onFinish={handleSubmit}
-        initialValues={{ content: initialContent }}
         style={{ width: "100%" }}
       >
         <div className="app-input-form">

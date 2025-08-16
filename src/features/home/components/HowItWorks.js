@@ -1,4 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Row, Col, Button, Tabs } from "antd";
+
+const { TabPane } = Tabs;
 
 const HowItWorks = ({ pages_content }) => {
   const {
@@ -7,69 +10,90 @@ const HowItWorks = ({ pages_content }) => {
     steps = [],
   } = pages_content?.home?.howItWorks || {};
 
-  // Add temporary IDs
-  const stepsWithIds = steps?.map((step, index) => ({ ...step, id: index }));
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
-  const [activeStepId, setActiveStepId] = useState(0); // default to first step
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
-  const activeStep = stepsWithIds?.find((step) => step.id === activeStepId);
+  return (<div style={{display:"flex",justifyContent:"center"}}>
+    
+    <section
+      style={{ padding: "40px 20px", maxWidth: "1200px", textAlign: "center" }}
+    >
+      <h2 style={{ fontSize: "2rem", fontWeight: 700 }}>{heading}</h2>
+      <p
+        style={{ fontSize: "1.125rem", color: "#6b7280", marginBottom: "30px" }}
+      >
+        {subheading}
+      </p>
 
-  return (
-    <section className="home-hiw-section">
-      <div className="home-hiw-container">
-        <div className="home-hiw-header">
-          <h2 className="home-hiw-heading">{heading}</h2>
-          <p className="home-hiw-subheading">{subheading}</p>
-        </div>
-
-        <ul className="home-hiw-steps-list">
-          {stepsWithIds?.map(({ id, title }) => (
-            <li
-              key={id}
-              className={`home-hiw-step-button ${
-                activeStepId === id
-                  ? "home-hiw-step-active"
-                  : "home-hiw-step-inactive"
-              }`}
-              onClick={() => setActiveStepId(id)}
+      <Tabs
+        defaultActiveKey="0"
+        centered
+        tabBarStyle={{ marginBottom: "2rem" }}
+      >
+        {steps.map((step, index) => (
+          <TabPane tab={step.title} key={index}>
+            <Row
+              gutter={[32, 32]}
+              align="middle"
+              justify="space-between"
+              style={{
+                marginTop: "20px",
+                flexDirection: isMobile ? "column" : "row",
+              }}
             >
-              <button className="home-hiw-step-title">{title}</button>
-            </li>
-          ))}
-        </ul>
-
-        {activeStep && (
-          <div className="home-hiw-step-details">
-            <div className="home-hiw-step-grid">
-              <div className="home-hiw-step-text">
-                <h3 className="home-hiw-step-content-title">
-                  {activeStep?.contentTitle}
+              <Col
+                xs={24}
+                md={10}
+                style={{ textAlign: isMobile ? "center" : "left" }}
+              >
+                <h3 style={{ fontSize: "1.5rem", fontWeight: 700 }}>
+                  {step.contentTitle}
                 </h3>
-                <p className="home-hiw-step-content-description">
-                  {activeStep?.contentDescription}
+                <p style={{ color: "#6b7280", marginTop: "10px" }}>
+                  {step.contentDescription}
                 </p>
-                <div className="home-hiw-step-cta">
-                  <a
-                    href={activeStep?.ctaLink}
-                    className="home-hiw-step-cta-button"
+                {step.ctaText && (
+                  <Button
+                    type="primary"
+                    style={{
+                      borderRadius: "9999px",
+                      marginTop: "20px",
+                      padding: "0.75rem 2rem",
+                    }}
+                    href={step.ctaLink || "#"}
                   >
-                    <span>{activeStep?.ctaText}</span>
-                  </a>
-                </div>
-              </div>
-              <div className="home-hiw-step-image">
-                {activeStep?.imageSrc && (
+                    {step.ctaText}
+                  </Button>
+                )}
+              </Col>
+
+              <Col xs={24} md={10} justify="end">
+                {step.imageSrc && (
                   <img
-                    src={activeStep?.imageSrc}
-                    alt={activeStep?.contentTitle || "Step image"}
+                    src={step.imageSrc}
+                    alt={step.contentTitle || "Step image"}
+                    style={{
+                      width: "100%",
+                      borderRadius: "16px",
+                      maxHeight: "400px",
+                      objectFit: "contain",
+                    }}
                   />
                 )}
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
+              </Col>
+            </Row>
+          </TabPane>
+        ))}
+      </Tabs>
     </section>
+  </div>
   );
 };
 

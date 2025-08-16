@@ -1,0 +1,37 @@
+.about-knowmore {
+  font-size: 0.875rem; /* text-sm */
+  color: #fff;
+}
+
+.about-knowmore-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem; /* space between text and icon */
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.about-knowmore-text {
+  background-color: var(--color-blue); /* bg-b300 */
+  padding: 0.75rem 1.5rem; /* px-6 py-3 */
+  border-radius: 9999px; /* rounded-full */
+  transition: transform 0.3s, color 0.3s;
+}
+
+.about-knowmore-link:hover .about-knowmore-text {
+  transform: translateX(0.5rem); /* small slide on hover */
+  color: #fff;
+}
+
+.about-knowmore-icon {
+  transition: transform 0.3s;
+  background-color: var(--color-blue); /* bg-b300 */
+  padding: 10px; /* px-6 py-3 */
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.about-knowmore-link:hover .about-knowmore-icon {
+  transform: translateX(0.5rem);
+}

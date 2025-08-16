@@ -24,7 +24,7 @@ const HomePage = () => {
         <TopExpertsComponent />
         <TestimonialsComponent />
 
-        <RecentPosts pages_content={pages_content}/>
+        {/* <RecentPosts pages_content={pages_content}/> */}
         <FindWorkAndHiring pages_content={pages_content}/>
         <GetHelp pages_content={pages_content}/>
 

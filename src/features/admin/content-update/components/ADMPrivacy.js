@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Form, Button, Divider } from "antd";
 import CustomInputField from "@/components/ui/CustomInputField/CustomInputField";
@@ -6,14 +7,21 @@ import { Minus, Plus } from "lucide-react";
 const ADMPrivacy = ({ form }) => {
   return (
     <>
-      <h3 className="adm-cnt-upd-form-sub-heading">Privacy Policy</h3>
-      <Divider />
-      <Form.List name={["content", "privacyPolicy"]}>
+      {/* Last Updated Field */}
+      <CustomInputField
+        className="app-input-field"
+        form={form}
+        name={["content","privacyPolicy", "lastUpdate"]}
+        label="Last Updated"
+        placeholder="Enter Last Updated"
+      />
+
+      {/* Sections */}
+      <Form.List name={["content","privacyPolicy", "sections"]}>
         {(fields, { add, remove }) => (
           <>
             {fields.map(({ key, name }) => (
               <div key={key} className="adm-cnt-upd-step">
-                {/* Section Heading */}
                 <CustomInputField
                   className="app-input-field"
                   form={form}
@@ -22,34 +30,69 @@ const ADMPrivacy = ({ form }) => {
                   placeholder="Enter heading"
                 />
 
-                {/* Section Text */}
                 <CustomInputField
                   className="app-input-field"
                   form={form}
-                  name={[name, "text"]}
-                  label="Section Text"
-                  placeholder="Enter text"
-                  inputType="textarea"
-                  rows={4}
+                  name={[name, "subHeading"]}
+                  label="Section Subheading (Optional)"
+                  placeholder="Enter subheading"
                 />
+
+                <Form.List name={[name, "paragraphs"]}>
+                  {(paraFields, { add: addPara, remove: removePara }) => (
+                    <>
+                      {paraFields.map(({ key: pKey, name: pName }) => (
+                        <div key={pKey} className="adm-cnt-upd-step ml-4">
+                          <CustomInputField
+                            className="app-input-field"
+                            form={form}
+                            name={[pName]}
+                            label={`Paragraph ${pKey + 1}`}
+                            placeholder="Enter paragraph text"
+                            inputType="textarea"
+                            rows={3}
+                          />
+                          <Button
+                            type="dashed"
+                            danger
+                            onClick={() => removePara(pName)}
+                            style={{ marginTop: 8, height: "35px" }}
+                          >
+                            <Minus size={14} /> Remove Paragraph
+                          </Button>
+                        </div>
+                      ))}
+
+                      <Button
+                        type="dashed"
+                        onClick={() => addPara()}
+                        style={{ marginTop: 10, height: "35px", marginLeft: 16 }}
+                      >
+                        <Plus size={14} /> Add Paragraph
+                      </Button>
+                    </>
+                  )}
+                </Form.List>
 
                 <Button
                   type="dashed"
                   danger
                   onClick={() => remove(name)}
-                  style={{ marginTop: 10 ,height:"35px"}}
+                  style={{ marginTop: 10, height: "35px" }}
                 >
-                  <Minus /> Remove Section
+                  <Minus size={14} /> Remove Section
                 </Button>
+
+                <Divider />
               </div>
             ))}
 
             <Button
               type="dashed"
               onClick={() => add()}
-              style={{ marginTop: 10 ,height:"35px"}}
+              style={{ marginTop: 10, height: "35px" }}
             >
-              <Plus /> Add Section
+              <Plus size={14} /> Add Section
             </Button>
           </>
         )}
