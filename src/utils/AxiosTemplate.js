@@ -1,4 +1,3 @@
-
 import { message } from "@/components/ui/CustomMessageProvider.js/CustomMessageProvider";
 import axios from "axios";
 
@@ -15,6 +14,7 @@ export const MAKE_API_REQUEST = async ({
   onSuccess = null,
   onError = null,
   timeout = 10000,
+  hideError = false,
 }) => {
   let hideLoading = null;
 
@@ -45,7 +45,8 @@ export const MAKE_API_REQUEST = async ({
   } catch (error) {
     if (hideLoading) hideLoading();
 
-    console.log(error)
+    console.log(error);
+
     const errorText =
       error?.response?.data?.message ||
       error?.response?.data?.detail ||
@@ -53,7 +54,10 @@ export const MAKE_API_REQUEST = async ({
       error?.message ||
       errorMessage;
 
-    message.error(errorText);
+    if (!hideError) {
+      message.error(errorText);
+    }
+
     if (onError) onError(errorText);
 
     return false;

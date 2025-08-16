@@ -8,6 +8,8 @@ const { Search } = Input;
 const CompaniesTable = ({ data, onView, onEdit }) => {
   const [searchText, setSearchText] = useState("");
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(5);
   const columns = getCompaniesTableColumns(onView, onEdit);
 
   const filteredData = useMemo(
@@ -27,7 +29,18 @@ const CompaniesTable = ({ data, onView, onEdit }) => {
         dataSource={filteredData}
         columns={columns}
         rowKey="id"
-        pagination={{ pageSize: 10, showSizeChanger: true }}
+        pagination={{
+          current: currentPage,
+          pageSize: pageSize,
+          showSizeChanger: true,
+          pageSizeOptions: ["5", "10", "20"],
+          showTotal: (total, range) =>
+            `${range[0]}-${range[1]} of ${total} companies`,
+          onChange: (page, size) => {
+            setCurrentPage(page);
+            setPageSize(size);
+          },
+        }}
         bordered
         size="middle"
       />

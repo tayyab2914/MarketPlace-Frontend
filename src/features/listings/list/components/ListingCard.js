@@ -36,11 +36,6 @@ const ListingCard = ({ listing }) => {
           <div className="lis-lis-cd-tagsContainer">
             {listing?.tags?.map((tag, index) => (
               <p key={index} className="lis-lis-cd-tag">
-                <img
-                  src="./assets/images/cleaning_icon.svg"
-                  alt=""
-                  className="lis-crd-tag-icon"
-                />
                 <span>{tag}</span>
               </p>
             ))}

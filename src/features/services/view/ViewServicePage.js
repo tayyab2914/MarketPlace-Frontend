@@ -31,7 +31,7 @@ const ViewServicePage = ({ service_id }) => {
           <Row gutter={[24, 24]}>
             <Col xs={24} lg={16}>
               <VSPInfo ServiceDetails={ServiceDetails} />
-              <VSPAbout ServiceDetails={ServiceDetails} />
+              {/* <VSPAbout ServiceDetails={ServiceDetails} /> */}
             </Col>
 
             <Col xs={24} lg={8}>

@@ -10,6 +10,8 @@ const UsersTable = ({ data, onView, onEdit }) => {
   const width = useWindowWidth();
   const [searchText, setSearchText] = useState("");
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(5);
   const columns = getUsersTableColumns(width, onView, onEdit);
 
   const filteredData = useMemo(
@@ -29,7 +31,18 @@ const UsersTable = ({ data, onView, onEdit }) => {
         dataSource={filteredData}
         columns={columns}
         rowKey="id"
-        pagination={{ pageSize: 10, showSizeChanger: true }}
+        pagination={{
+          current: currentPage,
+          pageSize: pageSize,
+          showSizeChanger: true,
+          pageSizeOptions: ["5", "10", "20"],
+          showTotal: (total, range) =>
+            `${range[0]}-${range[1]} of ${total} users`,
+          onChange: (page, size) => {
+            setCurrentPage(page);
+            setPageSize(size);
+          },
+        }}
         bordered
         size="middle"
       />

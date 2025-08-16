@@ -1,4 +1,4 @@
-export const CONVERT_COMP_FORM_TO_FORM_DATA = (values,fileList) => {
+export const CONVERT_COMP_FORM_TO_FORM_DATA = (values, fileList) => {
   const formData = new FormData();
   formData.append("name", values?.name || "");
   formData.append("company_description", values?.company_description || "");

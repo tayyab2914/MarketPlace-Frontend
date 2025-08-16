@@ -20,7 +20,6 @@ const ServiceCard = ({ service }) => {
           </p>
           <div className="srv-lis-cd-tagsContainer">
             <p className="srv-lis-cd-tag">
-              <img src="./assets/images/tap_icon.png" alt="" />
               <span>{service?.category}</span>
             </p>
           </div>

@@ -10,6 +10,8 @@ import EditServiceModal from "./components/EditServiceModal";
 
 const DashboardServicesPage = () => {
   const { token } = useSelector((state) => state.auth);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(5);
   const { Services, deleteService, updateService } =
     useDashboardServices(token);
   const router = useRouter();
@@ -48,11 +50,16 @@ const DashboardServicesPage = () => {
         dataSource={Services}
         rowKey="id"
         pagination={{
-          pageSize: 5,
+          current: currentPage,
+          pageSize: pageSize,
           showSizeChanger: true,
           pageSizeOptions: ["5", "10", "20"],
           showTotal: (total, range) =>
             `${range[0]}-${range[1]} of ${total} services`,
+          onChange: (page, size) => {
+            setCurrentPage(page);
+            setPageSize(size);
+          },
         }}
         scroll={{ x: "max-content" }}
         bordered

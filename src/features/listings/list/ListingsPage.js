@@ -10,7 +10,6 @@ const ListingsPage = () => {
 
   const getListings = async () => {
     const res = await API_GET_LISTING_PUBLIC_LIST(token);
-    console.log(res);
     setListings(res?.data);
   };
 

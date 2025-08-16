@@ -4,11 +4,12 @@ import { useSelector } from "react-redux";
 import useDashboardOffers from "./hooks/useDashboardOffers";
 import { OfferColumns } from "./components/OfferColumns";
 import OfferDetailsModal from "./components/OfferDetailsModal";
-import './styles/dashboard-offers.css'
+import "./styles/dashboard-offers.css";
 const DashboardOffersPage = () => {
   const { token } = useSelector((state) => state.auth);
   const { Offers } = useDashboardOffers(token);
-console.log(Offers)
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(5);
 
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [selectedOffer, setSelectedOffer] = useState(null);
@@ -20,7 +21,10 @@ console.log(Offers)
   };
 
   return (
-    <div className="dashboard-listing-page-container" style={{ padding: "20px" }}>
+    <div
+      className="dashboard-listing-page-container"
+      style={{ padding: "20px" }}
+    >
       <Table
         columns={OfferColumns({
           onView: handleViewOffers,
@@ -28,10 +32,16 @@ console.log(Offers)
         dataSource={Offers}
         rowKey="id"
         pagination={{
-          pageSize: 5,
+          current: currentPage,
+          pageSize: pageSize,
           showSizeChanger: true,
           pageSizeOptions: ["5", "10", "20"],
-          showTotal: (total, range) => `${range[0]}-${range[1]} of ${total} offers`,
+          showTotal: (total, range) =>
+            `${range[0]}-${range[1]} of ${total} offers`,
+          onChange: (page, size) => {
+            setCurrentPage(page);
+            setPageSize(size);
+          },
         }}
         scroll={{ x: "max-content" }}
         bordered

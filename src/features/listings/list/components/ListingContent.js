@@ -13,7 +13,7 @@ const ListingContent = ({ Listings }) => {
   });
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 2;
+  const itemsPerPage = 5;
 
   const filteredData = filterListing(Listings, filters);
   const paginatedData = paginateListing(

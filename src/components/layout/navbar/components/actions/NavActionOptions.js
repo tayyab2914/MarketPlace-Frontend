@@ -1,3 +1,4 @@
+'use client'
 import { ROUTES } from "@/utils/Constants";
 import { Popconfirm } from "antd";
 import { LayoutDashboard, LogOut, MessageCircle, Settings, ShieldUser } from "lucide-react";
@@ -16,7 +17,7 @@ const NavActionOptions = ({ onLogout }) => {
   const router = useRouter();
   const { is_admin } = useSelector((state) => state.auth);
 
-  return [
+  const menuItems = [
     {
       key: "dashboard",
       label: (
@@ -35,7 +36,8 @@ const NavActionOptions = ({ onLogout }) => {
         </span>
       ),
     },
-    is_admin && {
+    // Only include admin item if user is admin
+    ...(is_admin ? [{
       key: "admin",
       label: (
         <span onClick={() => router.push(ROUTES?.admin)} style={itemStyle}>
@@ -43,7 +45,7 @@ const NavActionOptions = ({ onLogout }) => {
           Admin Panel
         </span>
       ),
-    },
+    }] : []),
     {
       key: "settings",
       label: (
@@ -68,6 +70,8 @@ const NavActionOptions = ({ onLogout }) => {
       ),
     },
   ];
+
+  return menuItems;
 };
 
 export default NavActionOptions;

@@ -16,7 +16,6 @@ const CompanyForm = ({ companyData, loading, onSubmit }) => {
   useEffect(() => {
     if (!companyData) return;
 
-    // Build initial fileList for the Upload (if we have an existing URL)
     const initialFileList = companyData?.profile_image
       ? [
           {
@@ -28,7 +27,6 @@ const CompanyForm = ({ companyData, loading, onSubmit }) => {
         ]
       : [];
 
-    // IMPORTANT: let the form control the upload fileList
     const { profile_image, ...rest } = companyData || {};
     form.setFieldsValue({
       ...rest,
@@ -39,7 +37,6 @@ const CompanyForm = ({ companyData, loading, onSubmit }) => {
   const beforeUpload = () => false; // prevent auto-upload
 
   const onFinish = (values) => {
-    // values.profile_image is now a fileList array controlled by the Form
     onSubmit(values, values.profile_image || []);
   };
 

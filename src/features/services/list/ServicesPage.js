@@ -11,7 +11,6 @@ const ServicesPage = () => {
   const getServices = async () => {
     const res = await API_SERVICE_LIST(token);
     setServices(res);
-    console.log(res);
   };
   useEffect(() => {
     getServices();

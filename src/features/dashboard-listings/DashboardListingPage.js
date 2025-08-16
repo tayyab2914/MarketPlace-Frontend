@@ -15,6 +15,8 @@ const DashboardListingPage = () => {
   const { listings, updateListing, deleteListing } =
     useDashboardListings(token);
   const router = useRouter();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(5);
 
   const [editModalVisible, setEditModalVisible] = useState(false);
   const [selectedListing, setSelectedListing] = useState(null);
@@ -50,11 +52,16 @@ const DashboardListingPage = () => {
         dataSource={listings}
         rowKey="id"
         pagination={{
-          pageSize: 5,
+          current: currentPage,
+          pageSize: pageSize,
           showSizeChanger: true,
           pageSizeOptions: ["5", "10", "20"],
           showTotal: (total, range) =>
             `${range[0]}-${range[1]} of ${total} listings`,
+          onChange: (page, size) => {
+            setCurrentPage(page);
+            setPageSize(size);
+          },
         }}
         scroll={{ x: "max-content" }}
         bordered

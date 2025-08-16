@@ -2,26 +2,10 @@
     width: 100%;
   }
   
-  .srv-viw-grid {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 1.5rem; /* same as gap-6 */
-  }
-  
-  .srv-viw-image-wrapper {
-    grid-column: span 12;
-    overflow: hidden;
-    border-radius: 12px;
-  }
-  
-  @media (min-width: 768px) {
-    .srv-viw-image-wrapper {
-      grid-column: span 6;
-    }
-  }
-  
   .srv-viw-main-image {
     width: 100%;
+    max-width: 300px;
+    max-height: 300px;
     border-radius: 12px;
   }
   

@@ -13,18 +13,21 @@ import {
 import { API_SERVICE_CREATE } from "@/apis/ServiceApis";
 import { useSelector } from "react-redux";
 import { CATEGORIES } from "@/utils/Constants";
+import { CONVERT_SERVICE_FORM_TO_FORM_DATA } from "../utils/utils";
 
 const CreateServiceForm = () => {
   const [form] = Form.useForm();
   const { token } = useSelector((state) => state.auth);
 
   const onFinish = async (values) => {
-    const res = await API_SERVICE_CREATE(token, values);
+    const formData = CONVERT_SERVICE_FORM_TO_FORM_DATA(values, values?.image);
+    const res = await API_SERVICE_CREATE(token, formData);
     if (res) {
       form.resetFields();
     }
   };
 
+  const beforeUpload = () => false; // prevent auto-upload
   return (
     <div className="max-w-4xl mx-auto -mt-40 rounded-xl bg-white p-2 sm:p-4 md:rounded-3xl xl:rounded-[60px] xl:p-15">
       <div className="w-full rounded-3xl border border-gray-300 p-6 sm:p-8 shadow-sm bg-white">
@@ -71,6 +74,17 @@ const CreateServiceForm = () => {
             rules={priceRules}
             className={"app-input-field "}
             addonBefore={<DollarSign size={16} strokeWidth={1} />}
+          />
+
+          <CustomInputField
+            inputType="upload"
+            name="image"
+            label="Service Image"
+            placeholder="Upload Service image"
+            // Note: addonBefore isn't supported by Upload; icon is already on the button
+            accept="image/*"
+            showUploadList={true}
+            beforeUpload={beforeUpload}
           />
 
           <Button variant="filled-animated" type="submit" h="50px">

@@ -1,31 +1,43 @@
-import { HexagonImage } from '@/components/decor/hexagon-image/HexagonImage';
-import { BACKEND_DOMAIN } from '@/utils/Constants';
-import React from 'react';
+'use client';
+import React from "react";
+import { Row, Col } from "antd";
+import { HexagonImage } from "@/components/decor/hexagon-image/HexagonImage";
+import { BACKEND_DOMAIN } from "@/utils/Constants";
 
 const VSPInfo = ({ ServiceDetails }) => {
-  console.log(ServiceDetails);
+  console.log("ServiceDetails", ServiceDetails);
 
   return (
     <div className="srv-viw-wrapper">
-      <div className="srv-viw-grid">
+      <Row gutter={[32, 32]} className="srv-viw-grid">
         {/* Left image */}
-        <div className="srv-viw-image-wrapper">
+        <Col xs={24} md={10} className="srv-viw-image-wrapper">
           <img
-            src="/assets/images/worker-details-img.png"
+            src={
+              ServiceDetails?.image
+                ? `${BACKEND_DOMAIN}${ServiceDetails?.image}`
+                : "/assets/images/worker-details-img.png"
+            }
             className="srv-viw-main-image"
-            alt=""
           />
-        </div>
+        </Col>
 
         {/* Right info section */}
-        <div className="srv-viw-info">
+        <Col xs={24} md={14} className="srv-viw-info">
           <div className="srv-viw-info-header">
             <h3 className="srv-viw-title">{ServiceDetails?.title}</h3>
             <p className="srv-viw-description">{ServiceDetails?.description}</p>
 
             <div className="srv-viw-company-info">
               <div className="srv-viw-hexagon-container">
-                <HexagonImage src={`${BACKEND_DOMAIN}${ServiceDetails?.company_profile_image}`} size={140} />
+                <HexagonImage
+                  src={
+                    ServiceDetails?.company_profile_image
+                      ? `${BACKEND_DOMAIN}${ServiceDetails?.company_profile_image}`
+                      : "/assets/images/worker-details-img.png"
+                  }
+                  size={140}
+                />
                 <div className="srv-viw-verify-badge">
                   <img src="/assets/images/verify-badge.png" alt="" />
                 </div>
@@ -33,15 +45,17 @@ const VSPInfo = ({ ServiceDetails }) => {
 
               <div className="srv-viw-company-text">
                 <div className="srv-viw-company-header">
-                  <h5 className="srv-viw-company-name">{ServiceDetails?.company}</h5>
+                  <h5 className="srv-viw-company-name">
+                    {ServiceDetails?.company}
+                  </h5>
                   <p className="srv-viw-pro-badge">PRO</p>
                 </div>
                 <p className="srv-viw-location">{ServiceDetails?.location}</p>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </Col>
+      </Row>
     </div>
   );
 };

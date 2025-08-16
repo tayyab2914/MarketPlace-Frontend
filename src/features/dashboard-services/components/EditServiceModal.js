@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect } from "react";
 import { Modal, Form } from "antd";
 import CustomInputField from "@/components/ui/CustomInputField/CustomInputField";
@@ -9,6 +10,8 @@ import {
   priceRules,
   titleRules,
 } from "@/utils/ValidationRules";
+import { CONVERT_SERVICE_FORM_TO_FORM_DATA } from "@/features/services/create/utils/utils";
+import { BACKEND_DOMAIN } from "@/utils/Constants";
 
 const EditServiceModal = ({
   visible,
@@ -20,15 +23,31 @@ const EditServiceModal = ({
 
   useEffect(() => {
     if (visible && initialValues) {
-      form.setFieldsValue(initialValues);
+      form.setFieldsValue({
+        ...initialValues,
+        image: initialValues?.image
+          ? [
+              {
+                uid: "-1",
+                name: "current-image.png",
+                status: "done",
+                url: `${BACKEND_DOMAIN}${initialValues.image}`,
+              },
+            ]
+          : [],
+      });
     }
   }, [visible, initialValues, form]);
+  
+  const beforeUpload = () => false; // prevent auto-upload
 
   const handleSave = () => {
     form
       .validateFields()
       .then((values) => {
-        onSave(initialValues?.id, values);
+        // Convert to FormData, including the uploaded image
+        const formData = CONVERT_SERVICE_FORM_TO_FORM_DATA(values, values?.image);
+        onSave(initialValues?.id, formData);
       })
       .catch((info) => {
         console.error("Validation Failed:", info);
@@ -87,7 +106,19 @@ const EditServiceModal = ({
           className={"app-input-field"}
           addonBefore={<DollarSign size={16} strokeWidth={1} />}
         />
+
+        {/* Image Upload Field */}
+        <CustomInputField
+          inputType="upload"
+          name="image"
+          label="Service Image"
+          placeholder="Upload Service image"
+          accept="image/*"
+          showUploadList={true}
+          beforeUpload={beforeUpload}
+        />
       </Form>
+
       <Button type="submit" variant="filled-animated" onClick={handleSave}>
         Save
       </Button>

@@ -18,7 +18,7 @@ export const API_SIGNIN = async (data, dispatch, router) => {
     onSuccess: async (res) => {
       dispatch(setUserAuthToken(res?.data?.token));
       dispatch(setIsUserLoggedIn(true));
-      dispatch(setIsAdmin(res?.data?.is_admin))
+      dispatch(setIsAdmin(res?.data?.is_admin));
       API_GET_USER_COMPANY(res?.data?.token, dispatch);
       router.push(ROUTES.home);
     },
@@ -87,6 +87,7 @@ export const API_TEST_USER_TOKEN = async (token) => {
     method: "get",
     url: `${BACKEND_DOMAIN}/account/user/test_token/`,
     token: token,
+    hideError: true,
   });
 };
 export const API_TEST_ADMIN_TOKEN = async (token) => {
@@ -94,6 +95,7 @@ export const API_TEST_ADMIN_TOKEN = async (token) => {
     method: "get",
     url: `${BACKEND_DOMAIN}/account/admin/test_token/`,
     token: token,
+    hideError: true,
   });
 };
 export const API_GET_USER_COMPANY = async (token, dispatch) => {
@@ -107,9 +109,9 @@ export const API_GET_USER_COMPANY = async (token, dispatch) => {
   });
 };
 export const API_SET_USER_COMPANY = async (token, data) => {
-  console.log("API_SET_USER_COMPANY",data)
-  printFormData(data)
-  console.log("API_SET_USER_COMPANY",data)
+  console.log("API_SET_USER_COMPANY", data);
+  printFormData(data);
+  console.log("API_SET_USER_COMPANY", data);
   return await MAKE_API_REQUEST({
     method: "post",
     url: `${BACKEND_DOMAIN}/account/company/profile/`,

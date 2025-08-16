@@ -13,7 +13,7 @@ const ServiceContent = ({ Services }) => {
   });
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 2;
+  const itemsPerPage = 5;
 
   const filteredData = filterServices(Services, filters);
   const paginatedData = paginateServices(

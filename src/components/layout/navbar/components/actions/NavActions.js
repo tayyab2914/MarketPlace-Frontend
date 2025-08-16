@@ -29,105 +29,111 @@ const NavActions = () => {
     minWidth: "160px",
     margin: "0",
   };
-
-  if (windowWidth < 992) {
-    return (
-      <Dropdown
-        menu={{
-          items: is_user_logged_in
-            ? NavActionOptions({ onLogout: logoutUser })
-            : [
-                {
-                  key: "signin",
-                  label: (
-                    <span
-                      onClick={() => router.push(ROUTES?.signin)}
-                      style={itemStyle}
-                    >
-                      <User size={16} />
-                      Sign in
-                    </span>
-                  ),
-                },
-                {
-                  key: "signup",
-                  label: (
-                    <span
-                      onClick={() => router.push(ROUTES?.signup)}
-                      style={itemStyle}
-                    >
-                      <UserPlus size={16} />
-                      Sign up
-                    </span>
-                  ),
-                },
-              ],
-        }}
-        trigger={["click"]}
-      >
-        <User2 className="nav-a-dropdown-icon" size={26} strokeWidth={2} />
-      </Dropdown>
-    );
-  }
+  const isMobile = windowWidth < 992;
+  const isDesktop = windowWidth >= 992;
 
   return (
-    <div className="nav-a-container">
-      {!is_user_logged_in && (
-        <ul className="nav-a-list">
-          <Button
-            variant="filled-animated"
-            onClick={() => router.push(ROUTES?.signup)}
-            style={actionBtnStyles}
-          >
-            Sign up
-          </Button>
+    <div className="nav-actions-wrapper">
+      {/* Mobile Dropdown */}
+      <div style={{ display: isMobile ? 'block' : 'none' }}>
+        <Dropdown
+          menu={{
+            items: is_user_logged_in
+              ? NavActionOptions({ onLogout: logoutUser })
+              : [
+                  {
+                    key: "signin",
+                    label: (
+                      <span
+                        onClick={() => router.push(ROUTES?.signin)}
+                        style={itemStyle}
+                      >
+                        <User size={16} />
+                        Sign in
+                      </span>
+                    ),
+                  },
+                  {
+                    key: "signup",
+                    label: (
+                      <span
+                        onClick={() => router.push(ROUTES?.signup)}
+                        style={itemStyle}
+                      >
+                        <UserPlus size={16} />
+                        Sign up
+                      </span>
+                    ),
+                  },
+                ],
+          }}
+          trigger={["click"]}
+        >
+          <User2 className="nav-a-dropdown-icon" size={26} strokeWidth={2} />
+        </Dropdown>
+      </div>
 
-          <Button
-            variant="filled-animated-light"
-            onClick={() => router.push(ROUTES?.signin)}
-            style={actionBtnStyles}
-          >
-            Sign in
-          </Button>
-        </ul>
-      )}
-      {is_user_logged_in && (
-        <>
-          <div className="nav-a-buttons">
-            <Button
-              variant="filled-animated"
-              onClick={() => router.push(ROUTES?.createListing)}
-              style={actionBtnStyles}
-            >
-              Post a Task <Plus size={22} />
-            </Button>
+      {/* Desktop View */}
+      <div style={{ display: isDesktop ? 'block' : 'none' }}>
+        <div className="nav-a-container">
+          {!is_user_logged_in && (
+            <ul className="nav-a-list">
+              <Button
+                variant="filled-animated"
+                onClick={() => router.push(ROUTES?.signup)}
+                style={actionBtnStyles}
+              >
+                Sign up
+              </Button>
 
-            <Button
-              variant="filled-animated-light"
-              onClick={() => router.push(ROUTES?.Dashboard)}
-              style={actionBtnStyles}
-            >
-              Dashboard <LayoutDashboard size={22} />
-            </Button>
-          </div>
-          <Dropdown
-            menu={{ items: NavActionOptions({ onLogout: logoutUser }) }}
-            trigger={["click"]}
-            placement="bottomRight"
-            arrow
-          >
-            <img
-              src={
-                company_info?.profile_image
-                  ? `${BACKEND_DOMAIN}${company_info?.profile_image}`
-                  : IMAGES?.user
-              }
-              className="nav-a-profile-avatar"
-              alt="Profile Avatar"
-            />
-          </Dropdown>
-        </>
-      )}
+              <Button
+                variant="filled-animated-light"
+                onClick={() => router.push(ROUTES?.signin)}
+                style={actionBtnStyles}
+              >
+                Sign in
+              </Button>
+            </ul>
+          )}
+          {is_user_logged_in && (
+            <>
+              <div className="nav-a-buttons">
+                <Button
+                  variant="filled-animated"
+                  onClick={() => router.push(ROUTES?.createListing)}
+                  style={actionBtnStyles}
+                >
+                  Post a Task <Plus size={22} />
+                </Button>
+
+                <Button
+                  variant="filled-animated-light"
+                  onClick={() => router.push(ROUTES?.Dashboard)}
+                  style={actionBtnStyles}
+                >
+                  Dashboard <LayoutDashboard size={22} />
+                </Button>
+              </div>
+              <Dropdown
+                menu={{ items: NavActionOptions({ onLogout: logoutUser }) }}
+                trigger={["click"]}
+                placement="bottomRight"
+                arrow
+              >
+                <img
+                  src={
+                    company_info?.profile_image
+                      ? `${BACKEND_DOMAIN}${company_info?.profile_image}`
+                      : IMAGES?.user
+                  }
+                  className="nav-a-profile-avatar"
+                  alt="Profile Avatar"
+                />
+              </Dropdown>
+            </>
+          )}
+        </div>
+      </div>
     </div>
   );
 };

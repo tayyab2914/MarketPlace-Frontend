@@ -60,13 +60,13 @@
   .lis-viw-description {
     font-weight: 500;
     color: #999;
+    margin-bottom: 20px;
   }
   
   .lis-viw-company-info {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    padding-top: 0.75rem;
   }
   
   .lis-viw-hexagon-container {
