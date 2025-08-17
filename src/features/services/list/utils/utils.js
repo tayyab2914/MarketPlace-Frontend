@@ -7,9 +7,9 @@
  * @returns filtered array
  */
 export const filterServices = (services, filters) => {
-
-  console.log(filters,services)
-  return services?.filter((service) => {
+  const list = Array.isArray(services) ? services : [];
+  
+  return list.filter((service) => {
     const matchesKeyword =
       !filters?.keyword ||
       service?.title?.toLowerCase()?.includes(filters?.keyword?.toLowerCase());
@@ -25,10 +25,10 @@ export const filterServices = (services, filters) => {
         tag.toLowerCase()?.includes(filters?.category?.toLowerCase())
       );
 
-      console.log(matchesKeyword,matchesLocation,matchesCategory)
     return matchesKeyword && matchesLocation && matchesCategory;
   });
 };
+
 
 /**
  * Paginates the filtered services.

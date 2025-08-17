@@ -8,11 +8,11 @@ import { BREADCRUMBS } from "@/utils/BreadCrumbs";
 
 const page = () => {
   return (
-    <AuthRedirect allowLoggedIn>
+    <>
       <Navbar />
       <BreadCrumbs items={BREADCRUMBS?.portfolio} />
       <PortfoliosPage />
-    </AuthRedirect>
+    </>
   );
 };
 

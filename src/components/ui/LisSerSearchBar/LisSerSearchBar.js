@@ -31,15 +31,17 @@ const LisSerSearchBar = ({ setFilters, Data }) => {
   };
 
   const categories = useMemo(() => {
-    const all = Data?.map((s) => s.category);
+    const all = Array.isArray(Data) ? Data?.map((s) => s?.category) : [];
     return [...new Set(all)];
   }, [Data]);
-
+  
   const company_locations = useMemo(() => {
-    const all = Data?.map((s) => s.company_location || null);
+    const all = Array.isArray(Data)
+      ? Data?.map((s) => s?.company_location || null)
+      : [];
     return [...new Set(all)];
   }, [Data]);
-
+  
   const filtersApplied = company_location || category || keyword;
 
   return (

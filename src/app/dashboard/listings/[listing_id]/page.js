@@ -7,11 +7,11 @@ import React from "react";
 
 const page = () => {
   return (
-    <AuthRedirect allowLoggedIn>
+    <>
       <DashboardNavbar />
       <BreadCrumbs type="normal" items={BREADCRUMBS?.dashboardListingOffers} />
       <DashboardListingOffersPage />
-    </AuthRedirect>
+    </>
   );
 };
 

@@ -7,11 +7,11 @@ import BreadCrumbs from "@/components/layout/breadcrumb/BreadCrumbs";
 import { BREADCRUMBS } from "@/utils/BreadCrumbs";
 const page = () => {
   return (
-    <AuthRedirect allowLoggedIn>
+    <>
       <Navbar />
       <BreadCrumbs items={BREADCRUMBS?.servicesList} />
       <ServicesPage />
-    </AuthRedirect>
+    </>
   );
 };
 

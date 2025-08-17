@@ -7,9 +7,11 @@
  * @returns filtered array
  */
 export const filterListing = (listngs, filters) => {
+  const list = Array.isArray(listngs) ? listngs : [];
 
-  console.log(filters,listngs)
-  return listngs?.filter((listng) => {
+  console.log(filters, list);
+
+  return list.filter((listng) => {
     const matchesKeyword =
       !filters?.keyword ||
       listng?.title?.toLowerCase()?.includes(filters?.keyword?.toLowerCase());
@@ -25,10 +27,12 @@ export const filterListing = (listngs, filters) => {
         tag.toLowerCase()?.includes(filters?.category?.toLowerCase())
       );
 
-      console.log(matchesKeyword,matchesLocation,matchesCategory)
+    console.log(matchesKeyword, matchesLocation, matchesCategory);
+
     return matchesKeyword && matchesLocation && matchesCategory;
   });
 };
+
 
 /**
  * Paginates the filtered listngs.

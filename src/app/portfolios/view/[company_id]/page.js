@@ -10,10 +10,11 @@ const CompanyProfileClient = () => {
   const company_id = params?.company_id;
 
   return (
-    <AuthRedirect allowLoggedIn>
+    <>
+      {" "}
       <Navbar />
       <SinglePortfolioPage company_id={company_id} />
-    </AuthRedirect>
+    </>
   );
 };
 
