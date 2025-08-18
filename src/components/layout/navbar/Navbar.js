@@ -8,10 +8,12 @@ import { ROUTES } from "@/utils/Constants";
 import { IMAGES } from "@/components/ui/Image/ImageData";
 import { Menu } from "lucide-react";
 import NavActions from "./components/actions/NavActions";
+import { useLogoutUser } from "@/hooks/useLogoutUser";
 
 const Navbar = () => {
   const router = useRouter();
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const { logoutUser } = useLogoutUser();
 
   const showDrawer = () => setDrawerOpen(true);
   const closeDrawer = () => setDrawerOpen(false);
@@ -33,7 +35,7 @@ const Navbar = () => {
           <nav className="nav-d-menu">
             <DesktopMenu />
           </nav>
-          <NavActions />
+          <NavActions logoutUser={logoutUser}/>
         </div>
       </div>
 

@@ -3,18 +3,16 @@ import { useSelector } from "react-redux";
 import { Dropdown } from "antd";
 import { LayoutDashboard, Plus, User, User2, UserPlus } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useLogoutUser } from "@/hooks/useLogoutUser";
 import useWindowWidth from "@/hooks/useWindowWidth";
 import { ROUTES, BACKEND_DOMAIN } from "@/utils/Constants";
 import { IMAGES } from "@/components/ui/Image/ImageData";
 import Button from "@/components/ui/Button/Button";
 import NavActionOptions from "./NavActionOptions";
 
-const NavActions = () => {
+const NavActions = ({logoutUser}) => {
   const router = useRouter();
-  const { is_user_logged_in } = useSelector((state) => state.auth);
+  const { is_user_logged_in, is_admin } = useSelector((state) => state.auth);
   const { company_info } = useSelector((state) => state.company);
-  const { logoutUser } = useLogoutUser();
   const windowWidth = useWindowWidth();
 
   const itemStyle = {
@@ -39,7 +37,7 @@ const NavActions = () => {
         <Dropdown
           menu={{
             items: is_user_logged_in
-              ? NavActionOptions({ onLogout: logoutUser })
+              ? NavActionOptions({ onLogout: logoutUser, router, is_admin })
               : [
                   {
                     key: "signin",
@@ -115,7 +113,7 @@ const NavActions = () => {
                 </Button>
               </div>
               <Dropdown
-                menu={{ items: NavActionOptions({ onLogout: logoutUser }) }}
+                menu={{ items: NavActionOptions({ onLogout: logoutUser, router, is_admin }) }}
                 trigger={["click"]}
                 placement="bottomRight"
                 arrow

@@ -2,9 +2,7 @@
 import { ROUTES } from "@/utils/Constants";
 import { Popconfirm } from "antd";
 import { LayoutDashboard, LogOut, MessageCircle, Settings, ShieldUser } from "lucide-react";
-import { useRouter } from "next/navigation";
 import React from "react";
-import { useSelector } from "react-redux";
 
 const itemStyle = {
   cursor: "pointer",
@@ -13,9 +11,7 @@ const itemStyle = {
   gap: 8,
 };
 
-const NavActionOptions = ({ onLogout }) => {
-  const router = useRouter();
-  const { is_admin } = useSelector((state) => state.auth);
+const NavActionOptions = ({ onLogout, router, is_admin }) => {
 
   const menuItems = [
     {
