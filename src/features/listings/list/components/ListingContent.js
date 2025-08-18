@@ -1,4 +1,7 @@
+"use client";
+
 import React, { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { filterListing, paginateListing } from "../utils/utils";
 import ListingCard from "./ListingCard";
 import { Col, Row } from "antd";
@@ -7,8 +10,11 @@ import LisSerSearchBar from "@/components/ui/LisSerSearchBar/LisSerSearchBar";
 import CustomEmpty from "@/components/ui/Empty/CustomEmpty";
 
 const ListingContent = ({ Listings }) => {
+  const searchParams = useSearchParams();
+  const keywordParam = searchParams.get("keyword") || "";
+
   const [filters, setFilters] = useState({
-    keyword: "",
+    keyword: keywordParam,
     company_location: "",
     category: "",
   });
@@ -23,6 +29,7 @@ const ListingContent = ({ Listings }) => {
     itemsPerPage
   );
 
+  // Reset page when filters change
   useEffect(() => {
     setCurrentPage(1);
   }, [filters]);
@@ -35,13 +42,13 @@ const ListingContent = ({ Listings }) => {
       <section className="lis-lis-section">
         <Row gutter={[24, 24]}>
           {paginatedData?.length ? (
-            paginatedData?.map((listing, index) => (
+            paginatedData.map((listing, index) => (
               <Col xs={24} lg={12} key={index}>
                 <ListingCard listing={listing} />
               </Col>
             ))
           ) : (
-            <CustomEmpty/>
+            <CustomEmpty />
           )}
         </Row>
         {paginatedData?.length > 0 && (

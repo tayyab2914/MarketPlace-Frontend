@@ -1,3 +1,4 @@
+import LisSerHomeSearchBar from "@/components/ui/LisSerSearchBar/LisSerHomeSearchBar";
 import React from "react";
 const HeroSection = ({ pages_content }) => {
   const { hero = {} } = pages_content?.home || {};
@@ -34,6 +35,7 @@ const HeroSection = ({ pages_content }) => {
           >
             {description}
           </p>
+          <LisSerHomeSearchBar/>
           {/* <div className="w-[95%] text-n900 md:w-[650px] lg:w-[800px] xl:w-[950px]">
             <div className="relative z-20 w-full rounded-3xl border border-n20 bg-white p-4 sm:p-8">
               <form className="flex items-center justify-between text-lg font-medium max-sm:text-sm">

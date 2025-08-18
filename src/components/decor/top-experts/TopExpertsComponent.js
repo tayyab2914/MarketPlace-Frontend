@@ -8,7 +8,6 @@ const TopExpertsComponent = () => {
   const { pages_content } = useSelector((state) => state.pages);
   const { header, experts } = pages_content?.topExperts || {};
 
-  console.log(pages_content);
   return (
     <section className="stp-30 sbp-30">
       <div className="container">

@@ -4,12 +4,13 @@ import { useSelector } from "react-redux";
 const TACPInfoSection = () => {
   const { pages_content } = useSelector((state) => state.pages);
 
+  console.log(pages_content)
   return (
     <section className="sbp-30">
       <div className="container -mt-40 rounded-xl border border-n30 bg-white p-4 sm:p-4 md:rounded-3xl xl:rounded-[60px] xl:p-15">
         <div className="stp-12 flex flex-col gap-8">
           <h6>
-            <b>Last Updated:</b> {pages_content?.terms?.lastUpdate}
+            <b>Last Updated:</b> {pages_content?.terms?.lastUpdated}
           </h6>
 
           {pages_content?.terms?.sections?.map(

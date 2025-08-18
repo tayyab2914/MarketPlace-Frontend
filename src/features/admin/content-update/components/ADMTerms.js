@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Form, Button, Divider } from "antd";
 import CustomInputField from "@/components/ui/CustomInputField/CustomInputField";
@@ -6,7 +7,6 @@ import { Minus, Plus } from "lucide-react";
 const ADMTerms = ({ form }) => {
   return (
     <>
-      {/* Last Updated Field */}
       <CustomInputField
         className="app-input-field"
         form={form}
@@ -15,7 +15,6 @@ const ADMTerms = ({ form }) => {
         placeholder="Enter Last Updated"
       />
 
-      {/* Sections */}
       <Form.List name={["content","terms", "sections"]}>
         {(fields, { add, remove }) => (
           <>

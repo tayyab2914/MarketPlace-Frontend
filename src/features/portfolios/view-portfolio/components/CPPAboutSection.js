@@ -16,7 +16,7 @@ const CPPAboutSection = ({ CompanyData }) => {
     <section className="cpp-section">
       <div className="cpp-container">
         <div className="cpp-image-wrapper">
-          <HexagonImage src={`${BACKEND_DOMAIN}${profile_image}`} size={320} />
+          <HexagonImage src={`${BACKEND_DOMAIN}${profile_image}`} size={240} />
         </div>
 
         <div className="cpp-about-text" id="about">

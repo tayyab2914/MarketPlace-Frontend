@@ -5,10 +5,14 @@ import { filterServices, paginateServices } from "../utils/utils";
 import LisSerSearchBar from "@/components/ui/LisSerSearchBar/LisSerSearchBar";
 import { Pagination } from "@/components/ui/Pagination/Pagination";
 import CustomEmpty from "@/components/ui/Empty/CustomEmpty";
+import { useSearchParams } from "next/navigation";
 
 const ServiceContent = ({ Services }) => {
+  const searchParams = useSearchParams();
+  const keywordParam = searchParams.get("keyword") || "";
+  
   const [filters, setFilters] = useState({
-    keyword: "",
+    keyword: keywordParam,
     company_location: "",
     category: "",
   });
@@ -40,7 +44,7 @@ const ServiceContent = ({ Services }) => {
               </Col>
             ))
           ) : (
-            <CustomEmpty/>
+            <CustomEmpty />
           )}
         </Row>
         {paginatedData?.length > 0 && (

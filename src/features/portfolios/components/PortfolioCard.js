@@ -33,13 +33,8 @@ const PortfolioCard = ({ portfolio }) => {
       >
         {/* Left Side */}
         <Col xs={24} md={16} className="por-l-left">
-          <Row
-            gutter={[16, 16]}
-            align="middle"
-            className="por-l-left-inner"
-            wrap
-          >
-            <Col flex="180px" className="por-l-image-col">
+          <div className="por-l-left-inner">
+            <span className="por-l-image-col">
               {portfolio?.profile_image ? (
                 <img
                   src={`${BACKEND_DOMAIN}${portfolio?.profile_image}`}
@@ -53,9 +48,9 @@ const PortfolioCard = ({ portfolio }) => {
                   style={{ margin: 0 }}
                 />
               )}
-            </Col>
+            </span>
 
-            <Col flex="auto" className="por-l-info-col">
+            <span className="por-l-info-col">
               <h3 className="por-l-name">
                 {portfolio?.name || "No Name Provided"}
               </h3>
@@ -86,8 +81,8 @@ const PortfolioCard = ({ portfolio }) => {
                   </span>
                 )}
               </div>
-            </Col>
-          </Row>
+            </span>
+          </div>
         </Col>
 
         {/* Right Side: Pricing */}
