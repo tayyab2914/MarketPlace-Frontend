@@ -30,8 +30,6 @@ export function FORMAT_WITH_COMMAS(number) {
   return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-
-
 export const VALIDATE_IMAGE_BEFORE_UPLOAD = (file) => {
   const isImage = file?.type.startsWith("image/");
   if (!isImage) {
@@ -42,4 +40,55 @@ export const VALIDATE_IMAGE_BEFORE_UPLOAD = (file) => {
     message.error("Image must be smaller than 2MB!");
   }
   return isImage && isLt2M;
+};
+
+
+export const FORMAT_TIME_STAMP = (isoString, format = "full") => {
+  try {
+    if (!isoString || typeof isoString !== "string") {
+      throw new Error("Invalid input: timestamp must be a non-empty string");
+    }
+
+    const date = new Date(isoString);
+
+    if (isNaN(date.getTime())) {
+      throw new Error("Invalid Date: unable to parse timestamp");
+    }
+
+    // Define preset formats
+    const formatOptions = {
+      full: {
+        year: "numeric",
+        month: "short",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: true,
+      },
+      date: {
+        year: "numeric",
+        month: "short",
+        day: "2-digit",
+      },
+      time: {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: true,
+      },
+      shortTime: {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true,
+      },
+    };
+
+    const options = formatOptions[format] || formatOptions.full;
+
+    return date.toLocaleString("en-US", options);
+  } catch (error) {
+    console.error("FORMAT_TIME_STAMP error:", error.message);
+    return "Invalid Date";
+  }
 };

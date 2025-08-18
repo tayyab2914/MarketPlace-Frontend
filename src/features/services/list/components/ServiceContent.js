@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Row, Col } from "antd";
+import { Row, Col, Empty } from "antd";
 import ServiceCard from "./ServiceCard";
 import { filterServices, paginateServices } from "../utils/utils";
 import LisSerSearchBar from "@/components/ui/LisSerSearchBar/LisSerSearchBar";
 import { Pagination } from "@/components/ui/Pagination/Pagination";
+import CustomEmpty from "@/components/ui/Empty/CustomEmpty";
 
 const ServiceContent = ({ Services }) => {
   const [filters, setFilters] = useState({
@@ -33,20 +34,22 @@ const ServiceContent = ({ Services }) => {
       <section className="srv-lis-section">
         <Row gutter={[24, 24]}>
           {paginatedData?.length ? (
-            paginatedData?.map((service,key) => (
+            paginatedData?.map((service, key) => (
               <Col xs={24} lg={12} key={key}>
                 <ServiceCard service={service} key={service?.id} />
               </Col>
             ))
           ) : (
-            <p>No services found.</p>
+            <CustomEmpty/>
           )}
         </Row>
-        <Pagination
-          currentPage={currentPage}
-          totalPages={Math.ceil(filteredData?.length / itemsPerPage)}
-          setCurrentPage={setCurrentPage}
-        />
+        {paginatedData?.length > 0 && (
+          <Pagination
+            currentPage={currentPage}
+            totalPages={Math.ceil(filteredData?.length / itemsPerPage)}
+            setCurrentPage={setCurrentPage}
+          />
+        )}
       </section>
     </div>
   );

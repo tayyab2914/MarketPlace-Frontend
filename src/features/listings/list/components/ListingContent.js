@@ -4,6 +4,7 @@ import ListingCard from "./ListingCard";
 import { Col, Row } from "antd";
 import { Pagination } from "@/components/ui/Pagination/Pagination";
 import LisSerSearchBar from "@/components/ui/LisSerSearchBar/LisSerSearchBar";
+import CustomEmpty from "@/components/ui/Empty/CustomEmpty";
 
 const ListingContent = ({ Listings }) => {
   const [filters, setFilters] = useState({
@@ -35,20 +36,21 @@ const ListingContent = ({ Listings }) => {
         <Row gutter={[24, 24]}>
           {paginatedData?.length ? (
             paginatedData?.map((listing, index) => (
-              <Col xs={24} lg={12}  key={index} >
-                <ListingCard listing={listing}/>
+              <Col xs={24} lg={12} key={index}>
+                <ListingCard listing={listing} />
               </Col>
             ))
           ) : (
-            <p>No listings found.</p>
+            <CustomEmpty/>
           )}
         </Row>
-
-        <Pagination
-          currentPage={currentPage}
-          totalPages={Math.ceil(filteredData.length / itemsPerPage)}
-          setCurrentPage={setCurrentPage}
-        />
+        {paginatedData?.length > 0 && (
+          <Pagination
+            currentPage={currentPage}
+            totalPages={Math.ceil(filteredData?.length / itemsPerPage)}
+            setCurrentPage={setCurrentPage}
+          />
+        )}
       </section>
     </div>
   );

@@ -1,14 +1,7 @@
 import React from "react";
-import { Space, Popconfirm } from "antd";
-import {
-  BadgeDollarSign,
-  Edit2,
-  Eye,
-  Pencil,
-  Trash,
-  Trash2,
-} from "lucide-react";
+import { Edit2, Eye, Trash2 } from "lucide-react";
 import ActionIcon from "@/components/ui/ActionIcon/ActionIcon";
+import AutoTextCropper from "@/components/ui/AutoTextCropper/AutoTextCropper";
 
 export const getListingColumns = ({ onEdit, onDelete, onView }) => [
   {
@@ -16,7 +9,17 @@ export const getListingColumns = ({ onEdit, onDelete, onView }) => [
     dataIndex: "title",
     key: "title",
     sorter: (a, b) => a.title.localeCompare(b.title),
-    // responsive: ["sm", "md", "lg", "xl"],
+    width: 270,
+    render: (text) => <AutoTextCropper>{text}</AutoTextCropper>,
+  },
+  {
+    title: "Description",
+    dataIndex: "description",
+    key: "description",
+    sorter: (a, b) => a.description.localeCompare(b.description),
+    responsive: ["md", "lg", "xl"],
+    width: 320,
+    render: (text) => <AutoTextCropper>{text}</AutoTextCropper>,
   },
   {
     title: "Category",
@@ -24,6 +27,7 @@ export const getListingColumns = ({ onEdit, onDelete, onView }) => [
     key: "category",
     sorter: (a, b) => a.category.localeCompare(b.category),
     responsive: ["md", "lg", "xl"],
+    width: 200,
   },
   {
     title: "Budget ($)",
@@ -31,6 +35,7 @@ export const getListingColumns = ({ onEdit, onDelete, onView }) => [
     key: "budget",
     sorter: (a, b) => a.budget - b.budget,
     responsive: ["md", "lg", "xl"],
+    width: 200,
   },
   {
     title: "Deadline",
@@ -43,6 +48,7 @@ export const getListingColumns = ({ onEdit, onDelete, onView }) => [
     title: "Actions",
     key: "actions",
     width: 100,
+    fixed: "right",
     render: (_, record) => (
       <div style={{ display: "flex", gap: "8px" }}>
         <ActionIcon

@@ -33,8 +33,8 @@ export default function TestimonialsComponent() {
                 author = "",
                 handle = "",
                 avatar = "",
-              }) => (
-                <SwiperSlide key={id}>
+              },index) => (
+                <SwiperSlide key={index}>
                   <div className="flex flex-col items-start justify-start h-full">
                     <div className="flex items-center justify-start gap-2 text-2xl text-blue-600">
                       {[...Array(rating)].map((_, i) => (

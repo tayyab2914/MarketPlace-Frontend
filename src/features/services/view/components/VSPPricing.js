@@ -1,5 +1,8 @@
 import { API_GET_CONVERSATION_ID } from "@/apis/ChatApis";
 import { ROUTES } from "@/utils/Constants";
+import { FORMAT_TIME_STAMP } from "@/utils/Methods";
+import { Divider, Tag } from "antd";
+import { Calendar } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { useSelector } from "react-redux";
@@ -25,29 +28,31 @@ const VSPPricing = ({ ServiceDetails }) => {
             ${ServiceDetails?.price_starting_from}/hr
           </p>
 
-          {company_info?.id != ServiceDetails?.company &&<div className="srv-viw-p-btn-wrapper">
-            <a onClick={handleHireMe} className="srv-viw-p-btn">
-              <div className="srv-viw-p-btn-inner">
-                <i className="ph ph-paper-plane-tilt srv-viw-p-btn-icon"></i>
-                <span>Hire me</span>
-              </div>
-            </a>
-          </div>}
+          {company_info?.id != ServiceDetails?.company && (
+            <div className="srv-viw-p-btn-wrapper">
+              <a onClick={handleHireMe} className="srv-viw-p-btn">
+                <div className="srv-viw-p-btn-inner">
+                  <i className="ph ph-paper-plane-tilt srv-viw-p-btn-icon"></i>
+                  <span>Hire me</span>
+                </div>
+              </a>
+            </div>
+          )}
         </div>
 
         <div className="srv-viw-p-details">
-          <p className="srv-viw-p-subtitle">Duration</p>
-          <p className="srv-viw-p-duration">
-            <i className="ph-fill ph-calendar srv-viw-p-calendar-icon"></i>{" "}
-            1-1.5 weeks
-          </p>
+          <p className="srv-viw-p-subtitle">Last Updated</p>
 
+          <Tag color="blue" className="srv-viw-p-duration">
+            <Calendar size={14} strokeWidth={1}/>
+            {FORMAT_TIME_STAMP(ServiceDetails?.updated_at,"date")}
+          </Tag>
+
+          <Divider size="small" />
           <p className="srv-viw-p-subtitle">Skills and Services</p>
-          <div className="srv-viw-p-skills">
-            <p className="srv-viw-p-skill">
-              <span>{ServiceDetails?.category}</span>
-            </p>
-          </div>
+
+            <Tag color="blue" className="srv-viw-p-skill">{ServiceDetails?.category}</Tag>
+   
         </div>
       </div>
     </div>

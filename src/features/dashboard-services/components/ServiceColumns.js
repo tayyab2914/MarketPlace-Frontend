@@ -1,7 +1,7 @@
 import React from "react";
-import { Space, Popconfirm } from "antd";
 import { Eye, Pencil, Trash } from "lucide-react";
 import ActionIcon from "@/components/ui/ActionIcon/ActionIcon";
+import AutoTextCropper from "@/components/ui/AutoTextCropper/AutoTextCropper";
 
 export const ServiceColumns = ({ onEdit, onDelete, onView }) => [
   {
@@ -9,7 +9,8 @@ export const ServiceColumns = ({ onEdit, onDelete, onView }) => [
     dataIndex: "title",
     key: "title",
     sorter: (a, b) => a.title.localeCompare(b.title),
-    // responsive: ["sm", "md", "lg", "xl"],
+    width:270,
+    render: (text) => <AutoTextCropper>{text}</AutoTextCropper>,
   },
   {
     title: "Description",
@@ -17,6 +18,8 @@ export const ServiceColumns = ({ onEdit, onDelete, onView }) => [
     key: "description",
     sorter: (a, b) => a.description.localeCompare(b.description),
     responsive: ["md", "lg", "xl"],
+    width:320,
+    render: (text) => <AutoTextCropper>{text}</AutoTextCropper>,
   },
 
   {
@@ -25,6 +28,7 @@ export const ServiceColumns = ({ onEdit, onDelete, onView }) => [
     key: "category",
     sorter: (a, b) => a.category.localeCompare(b.category),
     responsive: ["md", "lg", "xl"],
+    width:200,
   },
   {
     title: "Starting From",
@@ -32,6 +36,7 @@ export const ServiceColumns = ({ onEdit, onDelete, onView }) => [
     key: "price_starting_from",
     sorter: (a, b) => a.price_starting_from - b.price_starting_from,
     responsive: ["md", "lg", "xl"],
+    width:200,
   },
   {
     title: "Actions",

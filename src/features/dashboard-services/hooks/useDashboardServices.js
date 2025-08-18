@@ -1,10 +1,5 @@
 import { useState, useCallback, useEffect } from "react";
 import {
-  API_LISTING_LIST,
-  API_LISTING_UPDATE,
-  API_DELETE_LISTING_BY_ID,
-} from "@/apis/ListingApis";
-import {
   API_DELETE_USER_SERVICE,
   API_GET_USER_SERVICES,
   API_UPDATE_USER_SERVICE,

@@ -8,7 +8,6 @@ const ContactUsPage = () => {
     <div>
       <ContactSection />
       <FaqComponent />
-      <Footer />
     </div>
   );
 };

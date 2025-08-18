@@ -11,14 +11,9 @@ import {
   titleRules,
 } from "@/utils/ValidationRules";
 import { CONVERT_SERVICE_FORM_TO_FORM_DATA } from "@/features/services/create/utils/utils";
-import { BACKEND_DOMAIN } from "@/utils/Constants";
+import { BACKEND_DOMAIN, CATEGORIES } from "@/utils/Constants";
 
-const EditServiceModal = ({
-  visible,
-  onCancel,
-  onSave,
-  initialValues,
-}) => {
+const EditServiceModal = ({ visible, onCancel, onSave, initialValues }) => {
   const [form] = Form.useForm();
 
   useEffect(() => {
@@ -38,7 +33,7 @@ const EditServiceModal = ({
       });
     }
   }, [visible, initialValues, form]);
-  
+
   const beforeUpload = () => false; // prevent auto-upload
 
   const handleSave = () => {
@@ -46,7 +41,10 @@ const EditServiceModal = ({
       .validateFields()
       .then((values) => {
         // Convert to FormData, including the uploaded image
-        const formData = CONVERT_SERVICE_FORM_TO_FORM_DATA(values, values?.image);
+        const formData = CONVERT_SERVICE_FORM_TO_FORM_DATA(
+          values,
+          values?.image
+        );
         onSave(initialValues?.id, formData);
       })
       .catch((info) => {
@@ -63,11 +61,7 @@ const EditServiceModal = ({
       width={600}
       centered
     >
-      <Form
-        layout="vertical"
-        form={form}
-        className="app-input-form"
-      >
+      <Form layout="vertical" form={form} className="app-input-form">
         <CustomInputField
           inputType="input"
           name="title"
@@ -88,13 +82,13 @@ const EditServiceModal = ({
         />
 
         <CustomInputField
-          inputType="input"
+          inputType="select"
           name="category"
           label="Category"
-          placeholder="e.g. Design"
+          placeholder="Select category"
+          options={CATEGORIES} // hardcoded categories
+          className={"app-input-field "}
           rules={categoryRules}
-          className={"app-input-field"}
-          addonBefore={<Tag size={16} strokeWidth={1} />}
         />
 
         <CustomInputField

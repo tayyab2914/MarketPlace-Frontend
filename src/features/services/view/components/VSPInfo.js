@@ -46,11 +46,11 @@ const VSPInfo = ({ ServiceDetails }) => {
               <div className="srv-viw-company-text">
                 <div className="srv-viw-company-header">
                   <h5 className="srv-viw-company-name">
-                    {ServiceDetails?.company}
+                    {ServiceDetails?.company_name}
                   </h5>
                   <p className="srv-viw-pro-badge">PRO</p>
                 </div>
-                <p className="srv-viw-location">{ServiceDetails?.location}</p>
+                <p className="srv-viw-location">{ServiceDetails?.company_location}</p>
               </div>
             </div>
           </div>

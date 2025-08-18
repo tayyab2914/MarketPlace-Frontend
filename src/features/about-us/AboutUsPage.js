@@ -18,7 +18,6 @@ const AboutUsPage = () => {
       <TopExpertsComponent />
       <FaqComponent/>
       <TestimonialsComponent />
-      <Footer />
     </div>
   );
 };

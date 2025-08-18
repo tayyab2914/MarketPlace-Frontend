@@ -47,6 +47,7 @@ const DashboardServicesPage = () => {
           onDelete: handleDelete,
           onView: handleViewOffers,
         })}
+        
         dataSource={Services}
         rowKey="id"
         pagination={{

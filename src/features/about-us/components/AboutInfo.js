@@ -30,14 +30,14 @@ const AboutInfo = ({ pages_content }) => {
                 ))}
               </div>
 
-              {knowMoreText && (
+              {/* {knowMoreText && (
                 <div className="about-knowmore">
                   <a href={knowMoreLink} className="about-knowmore-link">
                     <span className="about-knowmore-text">{knowMoreText}</span>
                     <ArrowRight size={24} className="about-knowmore-icon" />
                   </a>
                 </div>
-              )}
+              )} */}
             </Col>
           </Row>
         </section>

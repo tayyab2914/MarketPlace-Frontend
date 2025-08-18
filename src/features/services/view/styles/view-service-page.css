@@ -183,8 +183,8 @@
   .srv-viw-p-duration {
     display: flex;
     align-items: center;
+    height: 30px;
     gap: 0.5rem;
-    padding-top: 0.75rem;
     font-size: 0.875rem;
   }
   
@@ -192,23 +192,11 @@
     font-size: 1.5rem;
     color: #007bff; /* b300 */
   }
-  
-  .srv-viw-p-skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.25rem;
-    padding-top: 0.75rem;
-    font-size: 0.875rem;
-    color: #999; /* text-n400 */
-  }
-  
   .srv-viw-p-skill {
     display: flex;
     align-items: center;
-    justify-content: center;
+    height: 30px;
     gap: 0.5rem;
-    border-radius: 0.75rem;
-    background-color: #e6f0ff; /* b50 */
-    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
   }
   
